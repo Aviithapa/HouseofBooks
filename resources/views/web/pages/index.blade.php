@@ -333,7 +333,7 @@
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                             </div>
                                             <ul class="item_marks">
-                                                <li class="item_mark item_discount">{{$loksewa->discount}}</li>
+                                                <li class="item_mark item_discount">-{{$loksewa->discount}}% off</li>
                                                 <li class="item_mark item_new">new</li>
                                             </ul>
                                         </div>

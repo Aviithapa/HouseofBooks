@@ -465,19 +465,19 @@ h5{
     height: 36px;
     border-radius: 50%;
     color: #FFFFFF;
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
     line-height: 36px;
     text-align: center
 }
 
 .item_discount {
-    background: #df3b3b;
+    background:#FF8800;
     margin-right: 5px
 }
 
 .item_new {
-    background: #0e8ce4
+    background: #FF8800;
 }
 
 .bbb_viewed_item.discount .item_discount {
