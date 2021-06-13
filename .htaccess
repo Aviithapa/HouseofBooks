@@ -1,0 +1,8 @@
+
+<IfMOdule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect All Requests To The Subfolder
+    RewriteRule ^(.*)$ public/$1 [L]
+
+</IfMOdule>
