@@ -135,7 +135,10 @@ class HomeController extends BaseController
                     $this->view_data['add'] = $this->postRepository->findById(125);
                     $this->view_data['add1'] = $this->postRepository->findById(126);
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['products'] = $this->productRepository->findBy('sub_category','nobel','=', false,6);
+                    $this->view_data['motivational'] = $this->productRepository->findBy('nobel_category','motivational','=',true,4);
+                    $this->view_data['knowledge'] = $this->productRepository->findBy('nobel_category','skills-knowledge','=',true,4);
+                    $this->view_data['frictionals'] = $this->productRepository->findBy('nobel_category','frictional','=',true,4);
+                    $this->view_data['biographies'] = $this->productRepository->findBy('nobel_category','biographies','=',true,4);
                     $this->view_data['loksewa'] =$this->productRepository->findBy('sub_category','medical-examination','=',true,6);
                     $this->view_data['coursebook'] =$this->productRepository->findBy('sub_category','coursebook','=',true,6);
                     $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('sub_category','question-bank-and-solution','=',true,6);

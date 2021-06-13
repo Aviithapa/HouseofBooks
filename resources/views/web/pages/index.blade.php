@@ -6,11 +6,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner overflow-hidden">
                 <div class="item active">
-                    <img src="{{$banner->getImage()}}" alt="Los Angeles">
+                    <img src="{{$banner->getImage()}}" alt="House of Books">
                 </div>
                 @foreach($banners as $banners)
                 <div class="item">
-                    <img src="{{$banners->getImage()}}" alt="Los Angeles">
+                    <img src="{{$banners->getImage()}}" alt="House of Books">
                 </div>
                 @endforeach
             </div>
@@ -70,12 +70,12 @@
     <div class="adds">
         <div class="col-lg-6 col-md-6 col-sm-12 add1">
             <div class="add">
-                <img src="{{$add->getImage()}}" alt="" width="100%">
+                <img src="{{$add->getImage()}}" alt="houseofbooks" width="100%">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 add2">
             <div class="add">
-                <img src="{{$add1->getImage()}}" alt="" width="100%">
+                <img src="{{$add1->getImage()}}" alt="houseofbooks" width="100%">
             </div>
         </div>
     </div>
@@ -96,8 +96,8 @@
         </div>
         <div class="contentsecondhand tabcontent" id="Motivational" style="margin: 0px 50px 0px 50px; display:block;">
             <div class="row">
-                @foreach($products as $product)
-                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="motivational" && $product->category != 'second-hand')
+                @foreach($motivational as $product)
+                    @if($product->status=='active' && $product->best_selling=="yes"  && $product->category != 'second-hand')
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -116,8 +116,8 @@
         </div>
         <div class="contentsecondhand tabcontent" id="Knowledge" style="margin: 0px 50px 0px 50px">
             <div class="row">
-                @foreach($products as $product)
-                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="knowledge" && $product->category != 'second-hand')
+                @foreach($knowledge as $product)
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->category != 'second-hand')
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -136,9 +136,9 @@
         </div>
         <div class="contentsecondhand tabcontent" id="Frictional" style="margin: 0px 50px 0px 50px">
             <div class="row">
-                @foreach($products as $product)
-                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="frictional" && $product->category != 'second-hand')
-                    <div class="columns bestSelling" style="width: 18%;">
+                @foreach($frictionals as $product)
+                    @if($product->status=='active' && $product->best_selling=="yes" && $product->category != 'second-hand')
+                        <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
                                     <img src="{{$product->getImage()}}" alt="{{$product->name}}">
@@ -156,8 +156,8 @@
         </div>
         <div class="contentsecondhand tabcontent" id="Biographies" style="margin: 0px 50px 0px 50px">
             <div class="row">
-                @foreach($products as $product)
-                    @if($product->status=='active' && $product->best_selling=="yes" && $product->nobel_category=="biographies" && $product->category != 'second-hand')
+                @foreach($biographies as $product)
+                    @if($product->status=='active' && $product->best_selling=="yes"  && $product->category != 'second-hand')
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -175,29 +175,6 @@
             </div>
         </div>
     </div>
-
-{{--    <div class="content">--}}
-{{--            <div class="row">--}}
-{{--                @include('web.pages.flash-message')--}}
-{{--                @foreach($products as $product)--}}
-{{--                    @if($product->status=='active')--}}
-{{--                <div class="columns bestSelling" style="width: 18%;">--}}
-{{--                    <div class="card">--}}
-{{--                       <a href="{{url("productDetails/".$product->id)}}">--}}
-{{--                           <img src="{{$product->getImage()}}" alt="{{$product->name}}">--}}
-{{--                       </a>--}}
-{{--                        <input type="hidden" value="{{$product->id}}" id="pro_id">--}}
-{{--                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>--}}
-{{--                        <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>--}}
-{{--                        <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>--}}
-{{--                            <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                    @endif--}}
-{{--                    @endforeach--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
     <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
@@ -217,7 +194,7 @@
                                 <div class="owl-item">
                                     <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                         <a href="{{url("productDetails/".$questionbankandsolution->id)}}">
-                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" alt=""></div>
+                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" alt="{{$questionbankandsolution->name}}"></div>
                                         </a>
                                         <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                             <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
@@ -274,7 +251,7 @@
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
                                                 <a href="{{url("productDetails/".$coursework->id)}}">
-                                                <img src="{{$coursework->getImage()}}" alt="">
+                                                <img src="{{$coursework->getImage()}}" alt="{{$coursework->name}}">
                                                 </a>
                                             </div>
                                             <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
@@ -322,12 +299,12 @@
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
                                                 <a href="{{url("productDetails/".$loksewa->id)}}">
-                                                    <img src="{{$loksewa->getImage()}}" alt="">
+                                                    <img src="{{$loksewa->getImage()}}" alt="{{$loksewa->name}}">
                                                 </a>
                                             </div>
                                             <div class="bbb_viewed_content text-center book">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($loksewa->name, 20) }} </h5>
-                                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$loksewa->faculty}}</p>
+                                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$loksewa->publication}}</p>
                                                 <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$loksewa->price}}</button><a href="{{url('add/to/cart/'.$loksewa->id)}}"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 10px; font-weight: 600; width: 85px;">ADD TO CART</button></a></p>
 
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->

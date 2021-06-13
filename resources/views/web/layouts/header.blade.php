@@ -30,7 +30,7 @@
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
                         <div class="input-group" style="position: unset !important;">
-                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id="ed-srch-term" type="text" style="position: unset !important;">
+                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id="ed-srch-term" type="text" style="position: unset !important; font-size: 16px;">
                             <div class="input-group-btn">
                                 <button type="submit" id="searchbtn">search</button>
                             </div>
@@ -41,7 +41,7 @@
                     <div class="social mt-4">
                         <div class="column">
                             <div class="column">
-                                <i class="fa fa-home fa-2x"></i>
+                                <i class="fa fa-home fa-3x"></i>
                             </div>
                             <div class="column">
                                 <p>Shankmul Ward no 31<br>Kathmandu, Nepal</p>
@@ -50,7 +50,7 @@
 
                         <div class="column">
                             <div class="column">
-                                <i class="fa fa-phone fa-2x"></i>
+                                <i class="fa fa-phone fa-3x"></i>
                             </div>
                             <div class="column">
                                 <p>+977-{{getSiteSetting('social_phone') != null? getSiteSetting('social_phone'): ''}}
@@ -59,7 +59,7 @@
                         </div>
                         <div class="column">
                             <div class="column" >
-                                <i class="fa fa-envelope-open fa-2x"></i>
+                                <i class="fa fa-envelope-open fa-3x"></i>
                             </div>
                             <div class="column">
                                 <p>info@houseofbooks.com.np <br>houseofbooksnepal@gmail.com</p>
@@ -77,7 +77,7 @@
                             <a class="topcatalog-btn" href="{{url('catalog')}}">BROWSE CATEGORIES</a>
                             <ul class="topcatalog-list">
                                 <li>
-                                    <a href="{{url('/catalog/category/nobel')}}">
+                                    <a href="{{url('/catalog/sub_category/nobel')}}">
                                         Novel
                                     </a>
                                     <i class="fa fa-angle-right"></i>
@@ -105,7 +105,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{url('/catalog/category/coursebook')}}">
+                                    <a href="{{url('/catalog/sub_category/coursebook')}}">
                                         Coursebook
                                     </a>
                                     <i class="fa fa-angle-right"></i>
@@ -145,17 +145,17 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/category/loksewa-examination")}}">
+                                    <a href="{{url("catalog/sub_category/medical-examination")}}">
                                         Medical Examination
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/category/loksewa-examination")}}">
+                                    <a href="{{url("catalog/sub_category/loksewa-examination")}}">
                                         Loksewa Examination
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/category/entrance-examination")}}">
+                                    <a href="{{url("catalog/sub_category/entrance-examination")}}">
                                         Entrance Examination
                                     </a>
                                 </li>
