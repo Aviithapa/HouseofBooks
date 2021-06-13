@@ -211,7 +211,7 @@ class HomeController extends BaseController
                     $this->view_data['order']=$this->orderRepository->findBy('user_id',auth()->user()->id,'=');
                 break;
             }
-                    return view('web.pages.' . $slug, $this->view_data,compact('order','orderlist','product'));
+                    return view('web.pages.' . $slug, $this->view_data);
         }
         // 3. No page exist (404)
         return view('web.pages.404', $this->view_data);
