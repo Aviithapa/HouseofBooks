@@ -147,7 +147,7 @@
                                     <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
                                 </div>
                                 <div class="prod-sticker">
-                                    <p class="prod-sticker-3">-30%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                                    <p class="prod-sticker-3">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
                                 </div>
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{$product->name}}</a>
