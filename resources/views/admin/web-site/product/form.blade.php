@@ -75,7 +75,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
-                    {!! Form::select('publication',array('null'=>'-- Select --','asmita' => 'Asmita ', 'saraswati' => 'Saraswati '),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('publication',getPublicationCategory(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>

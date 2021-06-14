@@ -369,6 +369,19 @@ if(!function_exists('getLevelCategory'))
     }
 
 }
+if(!function_exists('getPublicationCategory'))
+{
+    function getPublicationCategory()
+    {
+        return [
+            'null' =>'--SELECT-- ',
+            'asmita' => 'Asmita',
+            'saraswati' => 'Saraswati',
+            'samiksya ' => 'Samiksya ',
+        ];
+    }
+
+}
 if(!function_exists('getSubCategory'))
 {
     function getSubCategory()
