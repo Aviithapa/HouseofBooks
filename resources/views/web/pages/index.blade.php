@@ -338,8 +338,8 @@
                             </h3>
                         </div>
                         <div class="testimonials-carousel-wrap">
-                            <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
-                            <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+{{--                            <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>--}}
+{{--                            <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>--}}
                             <div class="testimonials-carousel">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">

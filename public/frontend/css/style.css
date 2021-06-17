@@ -1253,7 +1253,7 @@ th, td {
     text-transform: uppercase;
     display: block;
     padding: 17px 28px 17px 38px;
-    /*background: url(../image/bar.png) no-repeat 17px 19px;*/
+    background: url(../image/bar.png) no-repeat 17px 19px;
 }
 .topmenu .topcatalog .topcatalog-btn:after {
     position: absolute;
