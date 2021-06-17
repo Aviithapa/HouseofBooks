@@ -14,6 +14,7 @@ use DB;
 
 class AuthController extends Controller
 {
+
   private $studentApplicantRepository;
 
     public function __construct(StudentApplicantRepository $studentApplicantRepository)

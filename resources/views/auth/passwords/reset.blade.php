@@ -15,10 +15,8 @@
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
-
+                                <input id="email" type="email" class="form-control" name="email" value="{{$email}}" required autofocus>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -56,7 +54,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" style="background: #ff682c !important; border-radius: 20px; border: 0 !important;" class="btn btn-primary btn-round-lg btn-lg">
                                     Reset Password
                                 </button>
                             </div>
