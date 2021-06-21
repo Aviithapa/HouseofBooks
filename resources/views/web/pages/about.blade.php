@@ -5,7 +5,7 @@
     </div>
 
     <div class="container-fluid about">
-        <h1 style="font-size: 50px;">WHO WE ARE</h1>
+        <h1>WHO WE ARE</h1>
         <div class="container">
             <p>With a vision to promote sustainability with reuse of books, House of Books Pvt. Ltd. was established in 2020 by a group of young self-motivated individuals who had a vision to provide a platform for second hands book sale market. We offer tremendous gathering of books in numerous classification of Novel, story books, fantasy, Drama, Action and journey, Romance, Self-help, Health, Guide & Travel, Children's, Religion, Spirituality & New Age, History, Math, Anthology, Poetry, Encyclopedias, Dictionaries, Comics, Art, Cookbooks, Diaries, Journals, Prayer books, Series, Trilogy, Biographies, Autobiographies, Trade books and different content across its multi-channel distribution platform. We likewise move in immense accumulation of different course books by various foundations from different universities with shipping all around the world. Other than to this, we likewise offer an expansive gathering of E-Books at reasonable value.
                 <br>Our team at House of Books is convinced that an individual's reading habits have a significant impact on the positive transformation of society. As a result, our goal is to create and encourage a reading community. We are focused in providing excellent service that exceeds our valued customers' expectations. We aim towards assisting consumers in developing a strong reading habit of sharing their book so that a safe reading atmosphere can be promoted. We primarily work to improve an individual's reading habits as well as the reading habits of a community as a whole.
@@ -14,7 +14,7 @@
         <div class="section">
 
             <div class="container">
-                <h1>OUR VISION</h1>
+                <h3>OUR VISION</h3>
                 <p>" PROMOTING sustainability through reuse of Books "</p>
                 <h1>Our Mission</h1>
                 <p>"our mission is to provide qaulity but affordable books for education entertainment self development and self fullfillment
@@ -27,7 +27,7 @@
 
 
         <div class="container">
-            <h1>OUR AREA OF SERVICE</h1>
+            <h3>OUR AREA OF SERVICE</h3>
             <div class="overwrite" style="margin-top: 0 !important;">
                 <div class="row ">
                     <div class="col-3" style=" margin-top:5px  ">
@@ -70,7 +70,7 @@
             <div class="container teams bootdey">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1>Our Team</h4>
+                        <h1>Our Team</h1>
                             <!-- <p class="text-muted para-desc mx-auto mb-0">Build responsive, mobile-first projects on the web with the world's most popular front-end component library.</p> -->
                     </div><!--end col-->
                 </div><!--end row-->

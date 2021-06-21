@@ -828,9 +828,10 @@ ul, ol {
     width: 100%;
 }
 
-.about h1{
+about h1{
     text-align: center;
     font-weight: 800;
+    font-size: 50px;
     color: #FF8800  !important;
 }
 .about p{
@@ -1762,6 +1763,7 @@ th, td {
 .tab {
     float: left;
     width: 100%;
+    text-align: center;
 }
 
 /* Style the buttons inside the tab */
@@ -1819,7 +1821,9 @@ th, td {
     font-weight: 600;
     text-align: justify !important;
 }
-
+.card{
+    background: whitesmoke !important;
+}
 
 
 
@@ -2569,3 +2573,14 @@ a{
     text-decoration: none !important;
 }
 
+.price{
+    font-size: 14px;
+    background-color:#25a521 !important;
+    border-color:#25a521 !important;
+    margin-right:3px;
+    font-weight: 700 !important;
+}
+.cart-button{
+    font-size: 14px;
+    font-weight: 600;
+}

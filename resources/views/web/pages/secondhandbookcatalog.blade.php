@@ -3,7 +3,7 @@
     <!-- Main Content - start -->
     <main>
         <section class="secondhandsection container-fluid">
-            <h1>Second Hand Books</h1>
+            <h1 style="font-weight: 800;">Second Hand Books</h1>
             <h3>"PROMOTING SUSTAINABILITY THROUGH REUSE OF BOOKS"</h3>
             <div class="container">
                 <hr>
