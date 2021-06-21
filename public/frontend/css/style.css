@@ -283,7 +283,7 @@ h5{
     border-radius: 10px;
 }
 .title{
-    max-width: fit-content;
+    width: max-content;
     margin: auto;
     height: 40px;
     color: white;
