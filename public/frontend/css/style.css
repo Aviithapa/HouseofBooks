@@ -283,7 +283,7 @@ h5{
     border-radius: 10px;
 }
 .title{
-    max-width: 350px;
+    max-width: fit-content;
     margin: auto;
     height: 40px;
     color: white;
@@ -998,6 +998,7 @@ about h1{
 .logo-holder{
     height: 150px;
     width: 150px;
+    align-items: center;
     background: whitesmoke;
     border-radius: 20px;
 }
@@ -1665,7 +1666,7 @@ th, td {
     display: block;
     padding: 11px 15px 11px 15px;
     transition: all 0.2s;
-    background: #f8fafc;
+  /*//  background: #f8fafc;*/
     position: relative;
     width: 201px;
     overflow: hidden;
@@ -1673,7 +1674,7 @@ th, td {
     white-space: nowrap;
 }
 .topmenu .mainmenu li.mainmenu-more .mainmenu-sub li:hover > a {
-    background: #fff;
+    /*background: #fff;*/
 }
 .topmenu .mainmenu li.mainmenu-more .mainmenu-sub li:after {
     content: '';
@@ -1761,9 +1762,8 @@ th, td {
 
 /* Style the tab */
 .tab {
-    float: left;
     width: 100%;
-    text-align: center;
+    text-align: center !important;
 }
 
 /* Style the buttons inside the tab */
@@ -1862,7 +1862,6 @@ th, td {
 }
 .section-sb-current h3 a:hover {
     text-decoration: none;
-    background: #f8fafc;
 }
 .section-sb-current .section-sb-img {
     width: 100%;
@@ -2554,7 +2553,9 @@ th, td {
 .sidenav li a:hover {
     color: #f1f1f1;
 }
-
+.nav>li>a:hover{
+    background: none !important;
+}
 .sidenav .closebtn {
     position: absolute;
     top: 0;

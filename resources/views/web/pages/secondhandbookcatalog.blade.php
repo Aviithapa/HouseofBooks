@@ -26,7 +26,7 @@
             <div class="tab-1">
             <h3 class="bbb_viewed_title secondhand">
                 <div class="title" >
-                    <h4>Nobels and Literatures</h4>
+                    <h4>Novels and Literatures</h4>
                 </div>
                 <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
             </h3>

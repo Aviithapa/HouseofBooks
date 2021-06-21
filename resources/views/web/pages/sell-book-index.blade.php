@@ -19,12 +19,12 @@
 
             <div class="container" style="width: 100%; margin-top: 50px !important;">
                  <img src="{{$learn_more_banner->getImage()}}" alt="" class="learn_more_image" style="width: 100%;">
-                 <img src="{{$learn_more_btn->getImage()}}" alt="" class="learn_more_btn">
+{{--                 <img src="{{$learn_more_btn->getImage()}}" alt="" class="learn_more_btn">--}}
             </div>
 
             <div class="working-step mt-5 mb-5" style="margin-top: 50px !important;">
                 <div class="mt-5" >
-                    <h3 class="text-uppercase text-center" style="color: #25a521 !important; font-size: 30px !important; line-height: 0.5">Become a successful seller in four step</h3>
+                    <h1 class="text-uppercase text-center" style="color: #25a521 !important; font-size: 30px !important; line-height: 0.5">Become a successful seller in four step</h1>
                     <p class="text-center" style="font-weight: 600 !important; font-size: 23px !important;">We are registering seller from Kathmandu valley, Lalitpur, Bhaktapur at the moment </p>
                 </div>
                 <div class="container" style="margin-top: 45px !important;">
