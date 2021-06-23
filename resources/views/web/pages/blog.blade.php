@@ -11,7 +11,7 @@
         <div class="section-blog-first">
             <div class="titles">REVIEW OF THE BOOK</div>
                <div class="review-image">
-                 <img src="{{$product->getImage()}}" alt="House of books">
+                 <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="House of books">
                </div>
                 <div class="review-content">
                     <div class="content">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="review-image secondblog">
-                <img src="{{$second_product->getImage()}}" >
+                <img src="{{$second_product->getImage()}}" oncontextmenu="return false;" alt="{{$second_product->title}}" >
             </div>
 
         </div>
@@ -44,7 +44,7 @@
         <div class="section-blog-first mt-5">
             <div class="titles">REVIEW OF THE BOOK</div>
             <div class="review-image">
-                <img src="{{$third_product->getImage()}}" >
+                <img src="{{$third_product->getImage()}}" oncontextmenu="return false;" alt="House of books" >
             </div>
             <div class="review-content">
 

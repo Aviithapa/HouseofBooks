@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 @section('content')
     <div class="container-fluid aboutbanner">
-        <img src="{{$aboutBanner->getImage()}}" alt="banner">
+        <img src="{{$aboutBanner->getImage()}}" alt="banner" oncontextmenu="return false;">
     </div>
 
     <div class="container-fluid about">
@@ -32,7 +32,7 @@
                 <div class="row ">
                     <div class="col-3" style=" margin-top:5px  ">
                         <div class="icons">
-                            <span><img src="{{$question->getPostImage()}}" height="70px" width="70px"></span>
+                            <span><img src="{{$question->getPostImage()}}" alt="House of books" oncontextmenu="return false;" height="70px" width="70px"></span>
                         </div>
                         <h5>QUESTION BANK <br>
                             AND SOLUTION SETS  <br>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-3 vl">
                         <div class="icons">
-                            <span><img src="{{$course->getPostImage()}}" height="70px" width="70px"></span>
+                            <span><img src="{{$course->getPostImage()}}" alt="House of books "oncontextmenu="return false;" height="70px" width="70px"></span>
                         </div>
                         <h5>COURSE BOOKS<br>
                             Available FROM <br>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-3 vl">
                         <div class="icons">
-                            <span><img src="{{$entrance->getPostImage()}}" height="70px" width="70px"></span>
+                            <span><img src="{{$entrance->getPostImage()}}" alt="House of books" oncontextmenu="return false;" height="70px" width="70px"></span>
 
                         </div>
                         <h5>ENTRANCE EXAM <br>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-3 vl" style=" margin-top:5px  ">
                         <div class="icons">
-                            <span><img src="{{$second->getPostImage()}}" height="70px" width="70px"></span>
+                            <span><img src="{{$second->getPostImage()}}" alt="House of Books" oncontextmenu="return false;" height="70px" width="70px"></span>
                         </div>
                         <h5>SECOND HAND <br>
                             BOOK SELLING AND <br>
@@ -78,7 +78,7 @@
                 <div class="row" style="margin-top: -25px; margin-left: 30px;">
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="{{$binaya->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$binaya->getPostImage()}}" oncontextmenu="return false;" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="{{$binaya->title}}">
                             <div class="content mt-3">
                                 <h4 class="">{{$binaya->title}}</h4>
                                 <small class="text-muted">{{$binaya->excerpt}}</small>
@@ -88,7 +88,7 @@
 
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="{{$dipesh->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$dipesh->getPostImage()}}" oncontextmenu="return false;" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="House of Books">
                             <div class="content mt-3">
                                 <h4 class="">{{$dipesh->title}}</h4>
                                 <small class="text-muted">{{$dipesh->excerpt}}</small>
@@ -98,7 +98,7 @@
 
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="{{$hemanti->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$hemanti->getPostImage()}}" oncontextmenu="return false;" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="House of books">
                             <div class="content mt-3">
                                 <h4 class="">{{$hemanti->title}}</h4>
                                 <small class="text-muted">{{$hemanti->excerpt}}</small>
@@ -110,7 +110,7 @@
 
                     <div class="col-lg-6 col-md-6 col-12 mt-4 pt-2 " >
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="{{$tilak->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$tilak->getPostImage()}}" oncontextmenu="return false;" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="House of books">
                             <div class="content mt-3">
                                 <h4 class="">{{$tilak->title}}</h4>
                                 <small class="text-muted">{{$tilak->excerpt}}</small>
@@ -120,7 +120,7 @@
 
                     <div class="col-lg-6 col-md-6 col-12 mt-4 pt-2">
                         <div class="team text-center rounded p-3 py-4">
-                            <img src="{{$abhishek->getPostImage()}}" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="Abhishek">
+                            <img src="{{$abhishek->getPostImage()}}" oncontextmenu="return false;" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="House of books">
                             <div class="content mt-3">
                                 <h4 class="">{{$abhishek->title}}</h4>
                                 <small class="text-muted">{{$abhishek->excerpt}}</small>

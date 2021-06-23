@@ -2590,3 +2590,20 @@ a{
     font-size: 12px !important;
     font-weight: 600 !important;
 }
+
+.quantity {
+    padding-top: 20px;
+    margin-right: 60px;
+    margin-bottom: 10px;
+}
+.quantity input {
+    border: none;
+    margin-left: 20px;
+    background: #ececec;
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    color: #43484D;
+    font-weight: 300;
+}

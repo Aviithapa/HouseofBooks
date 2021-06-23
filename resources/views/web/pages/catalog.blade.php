@@ -142,7 +142,7 @@
 
                     <div class="prod-i">
                         <div class="prod-i-top">
-                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+                            <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"><!-- NO SPACE --></a>
                             <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
                         </div>
                         <div class="prod-sticker">

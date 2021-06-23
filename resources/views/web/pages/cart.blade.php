@@ -29,7 +29,7 @@
                         <tr style="text-align: center;">
 
                             <td class="cart-img">
-                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">  <img src="{{$carts->getImage()}}" alt="Similique delectus totam" width="100px" height="100px"> {{$carts->product_name}}</b></a>
+                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">  <img src="{{$carts->getImage()}}" alt="House of Books" oncontextmenu="return false;" width="100px" height="100px"> {{$carts->product_name}}</b></a>
                             </td>
                             <td class="cart-price">
                                 <b style="color: black !important;">Rs {{$carts->product_price}}</b>
@@ -95,13 +95,12 @@
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Quantity: </dt>
                                         <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartAmount()}} </dd>
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Amount: </dt>
-                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd>
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">RS. {{getCartTotalPrice()}} </dd>
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Delivery : </dt>
                                         <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">0 </dd>
                                         <hr style="height: 5px; !important;">
                                         <dt style="color: black !important; font-weight: bold; font-size: 16px;">Total Amount: </dt>
-                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd>
-
+                                        <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">RS. {{getCartTotalPrice()}} </dd>
                                     </dl>
                                 </article>
 

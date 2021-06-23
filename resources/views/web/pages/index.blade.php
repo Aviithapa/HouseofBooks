@@ -6,11 +6,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner overflow-hidden">
                 <div class="item active">
-                    <img src="{{$banner->getImage()}}" alt="House of Books">
+                    <img src="{{$banner->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
                 </div>
                 @foreach($banners as $banners)
                 <div class="item">
-                    <img src="{{$banners->getImage()}}" alt="House of Books">
+                    <img src="{{$banners->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
                 </div>
                 @endforeach
             </div>
@@ -32,7 +32,7 @@
             <div class="row ">
                 <div class="col-3 mt-2">
                     <div class="icons">
-                        <span><img src="{{$question->getPostImage()}}" height="80px" width="80px"></span>
+                        <span><img src="{{$question->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
                     <h5 style="line-height: 1.4 !important;">QUESTION BANK <br>
                         AND SOLUTION SETS  <br>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="{{$course->getPostImage()}}" height="80px" width="80px"></span>
+                        <span><img src="{{$course->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
                     <h5 style="line-height: 1.4 !important;">COURSE BOOKS<br>
                         Available FROM <br>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-3 vl">
                     <div class="icons">
-                        <span><img src="{{$entrance->getPostImage()}}" height="80px" width="80px"></span>
+                        <span><img src="{{$entrance->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
 
                     </div>
                     <h5 style="line-height: 1.4 !important;">ENTRANCE EXAM <br>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-3 vl mt-2" >
                     <div class="icons">
-                        <span><img src="{{$second->getPostImage()}}" height="80px" width="80px"></span>
+                        <span><img src="{{$second->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
                     <h5 style="line-height: 1.4 !important;">SECOND HAND <br>
                         BOOK SELLING AND <br>
@@ -70,12 +70,12 @@
     <div class="adds">
         <div class="col-lg-6 col-md-6 col-sm-12 add1">
             <div class="add">
-                <img src="{{$add->getImage()}}" alt="houseofbooks" width="100%">
+                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 add2">
             <div class="add">
-                <img src="{{$add1->getImage()}}" alt="houseofbooks" width="100%">
+                <img src="{{$add1->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -122,7 +122,7 @@
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -142,7 +142,7 @@
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -162,7 +162,7 @@
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -195,7 +195,7 @@
                                 <div class="owl-item">
                                     <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                         <a href="{{url("productDetails/".$questionbankandsolution->id)}}">
-                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" alt="{{$questionbankandsolution->name}}"></div>
+                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" oncontextmenu="return false;" alt="{{$questionbankandsolution->name}}"></div>
                                         </a>
                                         <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                             <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
@@ -252,7 +252,7 @@
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;background:whitesmoke;">
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
                                                 <a href="{{url("productDetails/".$coursework->id)}}">
-                                                <img src="{{$coursework->getImage()}}" alt="{{$coursework->name}}">
+                                                <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}">
                                                 </a>
                                             </div>
                                             <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
@@ -301,7 +301,7 @@
                                         <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">
                                             <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
                                                 <a href="{{url("productDetails/".$loksewa->id)}}">
-                                                    <img src="{{$loksewa->getImage()}}" alt="{{$loksewa->name}}">
+                                                    <img src="{{$loksewa->getImage()}}" oncontextmenu="return false;" alt="{{$loksewa->name}}">
                                                 </a>
                                             </div>
                                             <div class="bbb_viewed_content text-center book">
@@ -350,7 +350,7 @@
                                         @foreach($testimonial as $testimonial)
                                         <div class="swiper-slide">
                                             <div class="testi-item">
-                                                <div class="testi-avatar"><img src="{{$testimonial->getTestimonialImage()}}"></div>
+                                                <div class="testi-avatar"><img src="{{$testimonial->getTestimonialImage()}}" oncontextmenu="return false;" alt="Houseofbooks"></div>
                                                 <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                                                 <div class="testimonials-text">
                                                     <div class="listing-rating">
@@ -401,6 +401,7 @@
                     document.getElementById(cityName).style.display = "block";
                     evt.currentTarget.className += " active";
                 }
+
             </script>
 @endpush
 

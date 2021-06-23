@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container-fluid aboutbanner">
-        <img src="{{$contactBanner->getImage()}}" alt="{{$contactBanner->title}}">
+        <img src="{{$contactBanner->getImage()}}" oncontextmenu="return false;" alt="{{$contactBanner->title}}">
     </div>
 
     <div class="container-fluid about">
