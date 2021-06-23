@@ -84,7 +84,6 @@
         <div class="bbb_viewed_title_container">
             <div class="title" >
                 <h4>Best Selling Product</h4>
-                @include('web.pages.flash-message')
             </div>
             <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
         </div>

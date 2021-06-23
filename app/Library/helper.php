@@ -309,6 +309,7 @@ if(!function_exists('getCategoriesType')){
 }
 
 
+
 if(!function_exists('getDateFormat'))
 {
     function getDateFormat($date = null)
@@ -378,6 +379,7 @@ if(!function_exists('getPublicationCategory'))
             'asmita' => 'Asmita',
             'saraswati' => 'Saraswati',
             'samiksya ' => 'Samiksya ',
+            'mk_publication' => "MK Publication",
         ];
     }
 
