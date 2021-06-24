@@ -99,14 +99,14 @@
 @endsection
 @push('scripts')
     <script>
-        document.form.action = "http://127.0.0.1:8000/order_confirmation";
+        document.form.action = "http://houseofbooks.com.np/order_confirmation";
         function run() {
           var paymentMethod =document.getElementById("payment").value;
             if( paymentMethod==="ESEWA" ) {
                 document.form.action = "https://uat.esewa.com.np/epay/main";
             }
             else if( paymentMethod === "cash_on_delivery")  {
-                document.form.action = "http://127.0.0.1:8000/order_confirmation";
+                document.form.action = "https://houseofbooks.com.np/order_confirmation";
             }
         }
     </script>
