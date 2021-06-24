@@ -355,7 +355,7 @@ class HomeController extends BaseController
                 foreach ($orderlist as $orders) {
                     $product = $this->productRepository->findBy('id', $orders->product_id, '=');
                 }
-                $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'user'=>'Abhishek Thapa');
+                $mailData = array('name'=>  $data->name ,'order' =>$order, 'orderlist' =>$orderlist,'user'=>'Abhishek Thapa');
 
                 Mail::send('emails.test', $mailData, function($message) use ($mailData) {
                     $message->to('houseofbooksnepal@gmail.com')
