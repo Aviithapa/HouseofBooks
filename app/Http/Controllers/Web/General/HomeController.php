@@ -40,7 +40,7 @@ use http\Message\Body;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 use PhpParser\Node\Expr\PostDec;
 use Session;
@@ -169,6 +169,12 @@ class HomeController extends BaseController
                     break;
                 case 'contact':
                     $this->view_data['contactBanner'] = $this->postRepository->findById(128);
+                    break;
+                case 'request':
+                    $this->view_data['contactBanner'] = $this->postRepository->findById(128);
+                    break;
+                case 'search':
+                    $this->view_data['notFound'] = $this->postRepository->findById(150);
                     break;
                 case 'privacy':
                     $this->view_data['privacy'] = $this->postRepository->findById(129);
@@ -323,6 +329,16 @@ class HomeController extends BaseController
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
             $data->save();
+
+            $mailData = array('name' =>$data['name'], 'email' => 'abhishekthapa115@gmail.com','user'=>'fasdfsda', 'body' => 'hello  '.'fsadf'.'! Your application for registraion has been approved.');
+
+            Mail::send('emails.test', $mailData, function($message) use ($mailData) {
+                $message->to('houseofbooksnepal@gmail.com')
+                    ->subject('Welcome to our Website');
+                $message->from('houseofbooksnepal@gmail.com');
+            });
+
+
             if ($data) {
                 $items =Cart::all()->where('user_id','=',auth()->user()->id);
                 foreach ($items as $item)
@@ -430,11 +446,33 @@ class HomeController extends BaseController
         }
     }
 
+    public function Request(Request $req){
+        try {
+            $request = new \App\Models\Website\Request();
+            $request->name = $req->name;
+            $request->email = $req->email;
+            $request->phoneNumber = $req->phoneNumber;
+            $request->bookName = $req->bookName;
+            $request->faculty = $req->faculty;
+            $request->publication = $req->publication;
+            $request->message = $req->message;
+            $request->save();
+            $this->view_data['contactBanner'] = $this->postRepository->findById(128);
+            if ($request==false){
+                return redirect()->back()->with('error',"Error while adding your request");
+            }
+            return redirect()->back()->with('success',"Your request have been received we will contact you soon");
+
+        } catch (UnexpectedValueException $e) {
+            dd($e);
+        }
+    }
     public function search(Request $request)
     {
             $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")->get();
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
+               $this->view_data['notfound'] = $this->postRepository->findById(150);
             return view('web.pages.search', $this->view_data);
     }
 

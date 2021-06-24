@@ -199,7 +199,7 @@
                                         </a>
                                         <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                             <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
-                                            <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$questionbankandsolution->publication}}</p>
+                                            <p style="color:black; font-style: italic; font-size: 12px; text-transform: capitalize;">{{$questionbankandsolution->publication}} Publication</p>
                                             <p class="mt-3">
                                                 <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$questionbankandsolution->price}}</button>
                                                 <a href="{{url('add/to/cart/'.$questionbankandsolution->id)}}">
@@ -306,7 +306,7 @@
                                             </div>
                                             <div class="bbb_viewed_content text-center book">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($loksewa->name, 20) }} </h5>
-                                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$loksewa->publication}}</p>
+                                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: capitalize;">{{$loksewa->publication}} Publication</p>
                                                 <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price">RS {{$loksewa->price}}</button>
                                                     <a href="{{url('add/to/cart/'.$loksewa->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></a></p>
 

@@ -14,12 +14,12 @@
         <div class="section">
 
             <div class="container">
-                <h3>OUR VISION</h3>
-                <p>" PROMOTING sustainability through reuse of Books "</p>
+                <h1>OUR VISION</h1>
+                <p class="text-uppercase">" PROMOTING Sustainability through reuse of Books "</p>
                 <h1>Our Mission</h1>
-                <p>"our mission is to provide qaulity but affordable books for education entertainment self development and self fullfillment
+                <p>"our mission is to provide quality but affordable books for education, entertainment, self development and self fulfillment
                     to all when the need arises by providing a wide range of books to satisfy our clients exceeding of customer expectations in
-                    their book requirments." </p>
+                    their book requirements." </p>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
 
 
         <div class="container">
-            <h3>OUR AREA OF SERVICE</h3>
+            <h1>OUR AREA OF SERVICE</h1>
             <div class="overwrite" style="margin-top: 0 !important;">
                 <div class="row ">
                     <div class="col-3" style=" margin-top:5px  ">

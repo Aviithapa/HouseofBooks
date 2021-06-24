@@ -135,6 +135,10 @@
                 <!-- Catalog Topbar - end -->
                 <div class="prod-items section-items">
                     @include('web.pages.flash-message')
+                    @if(getQuantity($products)==0)
+                        <p  style="font-size: 20px;  text-align: center; text-transform: capitalize">We cannot find the Book you are looking for. <a href="{{url('request')}}" style="color: #ff682c !important;"> Click Here</a> to request the book</a> </p>
+                        <img src="{{$notfound->getImage()}}" alt="House of books" height="600" width="600" class="center">
+                    @else
                     @foreach($products as $product)
                         @if($product->status=='active')
                             <div class="prod-i">
@@ -156,6 +160,7 @@
                             </div>
                         @endif
                     @endforeach
+                        @endif
                 </div>
 
                 <!-- Pagination - start -->

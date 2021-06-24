@@ -216,6 +216,11 @@ function getTotalQuanity(){
     return $final_quantity;
 }
 
+function getQuantity($products){
+
+    return count($products);
+}
+
 function getProductTotalQuanity(){
     $user=Auth::user()->id;
     $products = \App\Models\Website\Product::where('user_id', $user)->get();
