@@ -330,13 +330,7 @@ class HomeController extends BaseController
             $data['status'] = "received";
             $data->save();
 
-            $mailData = array('name' =>$data['name'], 'email' => 'abhishekthapa115@gmail.com','user'=>'fasdfsda', 'body' => 'hello  '.'fsadf'.'! Your application for registraion has been approved.');
 
-            Mail::send('emails.test', $mailData, function($message) use ($mailData) {
-                $message->to('houseofbooksnepal@gmail.com')
-                    ->subject('Welcome to our Website');
-                $message->from('houseofbooksnepal@gmail.com');
-            });
 
 
             if ($data) {
@@ -361,6 +355,13 @@ class HomeController extends BaseController
                 foreach ($orderlist as $orders) {
                     $product = $this->productRepository->findBy('id', $orders->product_id, '=');
                 }
+                $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'user'=>'Abhishek Thapa');
+
+                Mail::send('emails.test', $mailData, function($message) use ($mailData) {
+                    $message->to('houseofbooksnepal@gmail.com')
+                        ->subject('Welcome to our Website');
+                    $message->from('houseofbooksnepal@gmail.com');
+                });
                 return view('web.pages.orderConfirmation',compact('order','orderlist','product'));
             }
         }catch (\Exception $ex){
