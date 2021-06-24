@@ -187,6 +187,14 @@ function getCartAmount()
     $user=Auth::user()->id;
     return $cart_amount = \App\Models\Website\Cart::where('user_id', $user)->count();
 }
+
+function getAllProduct()
+{
+    $products=0;
+     $products = \App\Models\Website\Order::all()->where('status','=','received')->count();
+     return $products;
+}
+
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;
     return $final_amount;

@@ -1,4 +1,13 @@
 <!-- BEGIN SIDEBAR -->
+<style>
+    .badge {
+        position: absolute;
+        margin-left: 10px;
+        font-size: 16px;
+        background-color: #ff682c;
+        color: white;
+    }
+</style>
 <div class="page-sidebar" id="main-menu">
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
@@ -68,6 +77,7 @@
                 <a href="{{route('dashboard.order.index')}}">
                     <i class="fa fa-list"></i>
                     <span class="title">Orders</span>
+                    <span class="badge">{{getAllProduct()}}</span>
                 </a>
             </li>
             <li>

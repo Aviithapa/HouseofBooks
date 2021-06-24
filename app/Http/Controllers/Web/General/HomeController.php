@@ -329,10 +329,6 @@ class HomeController extends BaseController
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
             $data->save();
-
-
-
-
             if ($data) {
                 $items =Cart::all()->where('user_id','=',auth()->user()->id);
                 foreach ($items as $item)
@@ -357,7 +353,7 @@ class HomeController extends BaseController
                 }
                 $mailData = array('name'=>  $data->name ,'order' =>$order, 'orderlist' =>$orderlist,'user'=>'Abhishek Thapa');
 
-                Mail::send('emails.test', $mailData, function($message) use ($mailData) {
+                Mail::send('emails.orderplacement', $mailData, function($message) use ($mailData) {
                     $message->to('houseofbooksnepal@gmail.com')
                         ->subject('Welcome to our Website');
                     $message->from('houseofbooksnepal@gmail.com');
