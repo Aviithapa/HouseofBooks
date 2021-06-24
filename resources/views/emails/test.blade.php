@@ -1,3 +1,4 @@
+@include('admin.layout.style')
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/main.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/font-awesome/4.7.0/css/font-awesome.min.css') }}"/>
 <div class="container">
@@ -17,12 +18,7 @@
                             <h5>Email:{{getSiteSetting('email') != null? getSiteSetting('email'): ''}}</h5>
                             <h5>Website:{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}}</h5>
                         </div>
-                        <div class="col-3">
-                            <button  onclick="window.print()" class="print text-right bold btn btn-primary">Print</button>
-                        </div>
-
                     </div>
-
                     <div class="row mb-4 mt-5">
                         <div class="col-6">
                             <h2 class="page-header bold"><i class="fa fa-globe"></i> Order Id: {{ $order->id }}</h2>
