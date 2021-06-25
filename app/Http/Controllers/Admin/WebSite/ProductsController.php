@@ -14,6 +14,7 @@ use App\Modules\Backend\Website\Semester\Repositories\SemesterRepository;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProductsController extends BaseController
@@ -124,6 +125,13 @@ class ProductsController extends BaseController
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
+            $mailData = array('name'=>$data['user_id']);
+
+            Mail::send('emails.bookupload', $mailData, function($message) use ($mailData) {
+                $message->to('houseofbooksnepal@gmail.com')
+                    ->subject('Welcome to our Website');
+                $message->from('houseofbooksnepal@gmail.com');
+            });
             session()->flash('success', 'Content created successfully');
             return redirect()->route('dashboard.products.index');
         }
