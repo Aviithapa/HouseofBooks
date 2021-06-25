@@ -225,8 +225,18 @@
         } );
 
         $( document ).ready(function() {
-            $("#nobel").hide();
-            $("#best_selling").hide();
+            var sub_category=document.getElementById("subCategory").value;
+            if(sub_category==="nobel"){
+                $("#university").hide();
+                $("#publication").hide();
+                $("#semester").hide();
+                $("#nobel").show();
+                $("#best_selling").show();
+            }else
+            {
+                $("#nobel").hide();
+                $("#best_selling").hide();
+            }
         });
         function run() {
             var sub_category=document.getElementById("subCategory").value;

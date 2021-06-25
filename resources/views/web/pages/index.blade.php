@@ -107,7 +107,7 @@
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                                 <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>
-                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>
+                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                     <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                                 <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>
-                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>
+                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                     <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                                 <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>
-                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>
+                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                     <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                                 <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>
-                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button>
+                                <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                     <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                                             <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
                                             <p style="color:black; font-style: italic; font-size: 12px; text-transform: capitalize;">{{$questionbankandsolution->publication}} Publication</p>
                                             <p class="mt-3">
-                                                <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$questionbankandsolution->price}}</button>
+                                                <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$questionbankandsolution->getDicountedPrice()}}</button>
                                                 <a href="{{url('add/to/cart/'.$questionbankandsolution->id)}}">
                                                     <button class="btn btn-primary btn-round-sm btn-sm cart-button" >ADD TO CART</button>
                                                 </a>
@@ -258,7 +258,7 @@
                                             <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 20) }} </h5>
                                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$coursework->faculty}} </p>
-                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->price}}</button>
+                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->getDicountedPrice()}}</button>
                                                     <a href="{{url('add/to/cart/'.$coursework->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></a></p>
 
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
@@ -307,7 +307,7 @@
                                             <div class="bbb_viewed_content text-center book">
                                                 <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($loksewa->name, 20) }} </h5>
                                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: capitalize;">{{$loksewa->publication}} Publication</p>
-                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price">RS {{$loksewa->price}}</button>
+                                                <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price">RS {{$loksewa->getDicountedPrice()}}</button>
                                                     <a href="{{url('add/to/cart/'.$loksewa->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></a></p>
 
                                                 <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
