@@ -12,17 +12,63 @@
             <div class="prod-wrap">
 
                 <!-- Product Images -->
-                <div class="prod-slider-wrap">
-                    <div class="prod-slider">
-                        <ul class="prod-slider-car">
-                            <li>
-                                <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">
-                                    <img src="{{$product->getImage()}}" alt="{{$product->name}}" oncontextmenu="return false;">
-                                </a>
-                            </li>
-                        </ul>
+                @if($product->category=="second-hand")
+                    <div class="prod-slider-wrap">
+                        <div class="prod-slider">
+                            <ul class="prod-slider-car">
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandFrontImage()}}">
+                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandBackImage()}}">
+                                        <img src="{{$product->getSecondHandBackImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandEditionImage()}}">
+                                        <img src="{{$product->getSecondHandEditionImage()}}" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="prod-thumbs">
+                            <ul class="prod-thumbs-car">
+                                <li>
+                                    <a data-slide-index="0" href="#">
+                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-slide-index="1" href="#">
+                                        <img src="{{$product->getSecondHandBackImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-slide-index="2" href="#">
+                                        <img src="{{$product->getSecondHandEditionImage()}}" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+
+                    @else
+                    <div class="prod-slider-wrap">
+                        <div class="prod-slider">
+                            <ul class="prod-slider-car">
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">
+                                        <img src="{{$product->getImage()}}" alt="{{$product->name}}" oncontextmenu="return false;">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    @endif
+
+
 
                 <!-- Product Description/Info -->
                 <div class="prod-cont">

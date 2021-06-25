@@ -46,7 +46,7 @@
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">
-                                        <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                     </a>
                                     <input type="hidden" value="{{$product->id}}" id="pro_id">
                                     <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -65,7 +65,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -84,7 +84,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -103,7 +103,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -141,7 +141,7 @@
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">
-                                        <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                     </a>
                                     <input type="hidden" value="{{$product->id}}" id="pro_id">
                                     <h5 style="font-weight: bold; color: black!important; margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -160,7 +160,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="font-weight: bold;  margin-bottom: 1px !important;color: black!important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -179,7 +179,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; "  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -198,7 +198,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -217,7 +217,7 @@
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
                                         <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>

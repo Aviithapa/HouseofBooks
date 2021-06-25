@@ -9,7 +9,9 @@
                     <div class="grid-body ">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <img src="{{$product->getImage()}}" height="250" width="250">
+                                <img src="{{$product->getSecondHandFrontImage()}}" height="250" width="250">
+                                <img src="{{$product->getSecondHandBackImage()}}" height="250" width="250">
+                                <img src="{{$product->getSecondHandEditionImage()}}" height="250" width="250">
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 {{ Form::model($product, ['url' => route('dashboard.product.approve', $product->id), 'method' => 'PUT','files' => true]) }}

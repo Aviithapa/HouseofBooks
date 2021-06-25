@@ -19,4 +19,33 @@ class Product extends Model
             return imageNotFound();
         }
     }
+
+    public function getSecondHandFrontImage(){
+        if(isset($this->image)) {
+            $image = explode(",", $this->image);
+            return uploadedAsset('product_image', $image[0]);
+        }
+        else {
+            return imageNotFound();
+        }
+    }
+    public function getSecondHandBackImage(){
+        if(isset($this->image)) {
+            $image = explode(",", $this->image);
+            return uploadedAsset('product_image', $image[1]);
+        }
+        else {
+            return imageNotFound();
+        }
+    }
+
+    public function getSecondHandEditionImage(){
+        if(isset($this->image)) {
+            $image = explode(",", $this->image);
+            return uploadedAsset('product_image', $image[2]);
+        }
+        else {
+            return imageNotFound();
+        }
+    }
 }

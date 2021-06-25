@@ -137,4 +137,9 @@
         color: #3276b1;
         background-color: #fff;
     }
+    .thumb{
+        height: 350px;
+        width: 30%;
+        padding-right:20px ;
+    }
 </style>

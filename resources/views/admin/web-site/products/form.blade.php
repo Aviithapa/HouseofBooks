@@ -2,7 +2,7 @@
 @if(isset($model))
     {{ Form::model($model, ['url' => route('dashboard.products.update', $model->id), 'method' => 'PUT','files' => true]) }}
 @else
-    {{ Form::open(['url' => route('dashboard.products.store'), 'method' => 'post', 'files' => true]) }}
+    {{ Form::open(['url' => route('dashboard.products.store'), 'method' => 'post', 'files' => true, 'enctype'=>"multipart/form-data"]) }}
 @endif
 
 
@@ -148,25 +148,14 @@
         </div>
 
         <div class="grid-body ">
-            <div class="row">
-
-
+            <div class="row" >
                 <div class="col-md-12 col-lg-12">
-                    @if(isset($model))
-                        <img src="{{url(isset($model)?$model->getImage():imageNotFound())}}" height="250" width="250"
-                             id="product_image_img">
-
-                    @else
-                        <img src="{{isset($model)?$model->getImage():imageNotFound()}}" height="250" width="250"
-                             id="product_image_img">
-                    @endif
                 </div>
-
+                <div id="thumb-output"></div>
                 <div class="form-group col-md-12 col-lg-12">
                     {!! Form::label('slider', 'Image:') !!}
                     <small>Size: 1600*622 px</small>
-                    <input type="file" id="product_image" name="product_image_image"
-                           onclick="anyFileUploader('product_image')">
+                    <input type="file" id="product_image" name="files[]" multiple>
                     <small id="slider_help_text" class="help-block"></small>
                     <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
                          aria-valuemax="100"
@@ -225,5 +214,32 @@
                 $("#semester").show();
             }
         }
+
+        $(document).ready(function(){
+            $('#product_image').on('change', function(){ //on file input change
+                if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+                {
+
+                    var data = $(this)[0].files; //this file data
+
+                    $.each(data, function(index, file){ //loop though each file
+                        if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                            var fRead = new FileReader(); //new filereader
+                            fRead.onload = (function(file){ //trigger function on successful read
+                                return function(e) {
+                                    var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image element
+                                    $('#thumb-output').append(img); //append image to output element
+                                };
+                            })(file);
+                            fRead.readAsDataURL(file); //URL representing the file's data.
+                        }
+                    });
+
+                }else{
+                    alert("Your browser doesn't support File API!"); //if File API is absent
+                }
+            });
+        });
+
     </script>
 @endpush

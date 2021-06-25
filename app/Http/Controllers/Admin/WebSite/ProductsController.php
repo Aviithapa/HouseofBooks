@@ -103,7 +103,21 @@ class ProductsController extends BaseController
     {
         $data = $createProductRequest->all();
         $data['user_id']=Auth::user()['id'];
-        $data['image']=$data['product_image'];
+        $images = $createProductRequest->file('files');
+        if ($createProductRequest->hasFile('files')) :
+            foreach ($images as $item):
+                $var = date_create();
+                $time = date_format($var, 'YmdHis');
+                $imageName = $time . '-' . $item->getClientOriginalName();
+                $item->move(base_path() . '/storage/app/public/product_image', $imageName);
+                $arr[] = $imageName;
+            endforeach;
+            $image = implode(",", $arr);
+        else:
+            $image = '';
+        endif;
+
+         $data['image']=$image;
         try {
             $post = $this->productRepository->create($data);
             if($post == false) {
