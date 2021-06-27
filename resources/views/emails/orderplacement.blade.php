@@ -10,6 +10,7 @@
     <style>
         .body{
             background-color: #eeeeee;
+            padding: 30px;
         }
         #customers {
             font-family: Arial, Helvetica, sans-serif;

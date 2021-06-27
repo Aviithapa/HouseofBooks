@@ -68,13 +68,26 @@
                     </div>
                 </div>
 
+
+        <div class="col-md-12 col-sm-12 cart-details">
+                <div class="column">
+                    <li> <a href="{{url("cart")}}" style="position: absolute;  text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
+                                    {{getCartAmount()}}
+                                @else
+                                    0
+                                @endif Cart</button></a></li>
+                </div>
+                <div class="column">
+                </div>
+        </div>
+
     </div>
     <div class="nav">
         <div class="container-fluid">
                     <nav class="topmenu">
                         <!-- Catalog menu - start -->
                         <div class="topcatalog">
-                            <a class="topcatalog-btn" href="{{url('catalog')}}">BROWSE CATEGORIES</a>
+                            <a class="topcatalog-btn" href="#">BROWSE CATEGORIES</a>
                             <ul class="topcatalog-list">
                                 <li>
                                     <a href="{{url('/catalog/sub_category/nobel')}}">
@@ -169,7 +182,7 @@
                         <!-- Catalog menu - end -->
 
 
-                        <span id="main-menu" onclick="openNav()">&#9776; Menu</span>
+                        <span id="main-menu" onclick="openNav()">&#9776;</span>
                         <ul class="mainmenu" id="mySidenav">
                             <li><a href="{{url('/')}}">Home</a></li>
                             <li><a href="{{url('about')}}">Who we are</a></li>
@@ -188,7 +201,7 @@
                         <!-- Main menu - end -->
                     </nav>
                 </div>
-        <li> <a href="{{url("cart")}}" style="position: absolute; right: 0; text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
+        <li id="cart"> <a href="{{url("cart")}}" style="position: absolute; right: 0; text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
                         {{getCartAmount()}}
                     @else
                         0

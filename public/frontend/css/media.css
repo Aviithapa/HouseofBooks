@@ -244,44 +244,6 @@
          margin-top: 50px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .cf-lg-2:nth-child(6n+1),
 .cf-lg-3:nth-child(4n+1),
 .cf-lg-4:nth-child(3n+1),
@@ -1177,3 +1139,53 @@
 }
 
 
+@media only screen and (max-width : 400px) {
+    .bestSelling{
+        margin-left:10px !important;
+        width: 100% !important;
+    }
+    .contentsecondhand .columns{
+        margin-left: 10px !important;
+    }
+    .contentsecondhand{
+        margin: 0px !important;
+    }
+    .overwrite{
+        height: 100px;
+        margin-top: -50px !important;
+    }
+    .vl{
+        height: 50px;
+    }
+    .overwrite h5{
+        display: none;
+    }
+    .overwrite span{
+        padding: 0px !important;
+    }
+    .add{
+        height: 110px;
+    }
+    .adds{
+        height: 200px !important;
+    }
+    .title h4{
+        font-size: 12px;
+    }
+    .title{
+        height: 35px;
+    }
+
+    #cart{
+        display: none;
+    }
+    .header .col{
+        text-align: center;
+    }
+    .cart-details{
+        display: block;
+    }
+    .mainmenu{
+        z-index: 9;
+    }
+}
