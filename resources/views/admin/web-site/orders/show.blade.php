@@ -9,7 +9,7 @@
                 <section class="invoice" id="printable">
                     <div class="row justify-content-center">
                         <div class="col-3">
-                        <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="150" height="100">
+                        <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="200" height="150">
                         </div>
                         <div class="vl" style="border-left: 6px solid green;height: auto;"></div>
                         <div class="col-4">
