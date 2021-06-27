@@ -1,28 +1,33 @@
-@extends('admin.layout.app')
-@section('content')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/main.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/font-awesome/4.7.0/css/font-awesome.min.css') }}"/>
-    <div class="container">
+<html>
+<head>
+    <link rel = "icon" href ="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" type = "image/x-icon">
+    <title>{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} | {{ isset($pageContent->meta_link)?$pageContent->meta_link:""}}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="`{{isset($pageContent->meta_description)?$pageContent->meta_description:""}}`">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="tile">
                 <section class="invoice" id="printable">
                     <div class="row justify-content-center">
                         <div class="col-3">
-                        <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="150" height="100">
+                            <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="150" height="100">
                         </div>
                         <div class="vl" style="border-left: 6px solid green;height: auto;"></div>
                         <div class="col-4">
-                            <h1>{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} </h1>
-                            <h5>{{getSiteSetting('location') != null? getSiteSetting('location'): ''}}</h5>
-                            <h5>Contact Details :{{getSiteSetting('social_phone') != null? getSiteSetting('social_phone'): ''}}</h5>
-                            <h5>Email:{{getSiteSetting('email') != null? getSiteSetting('email'): ''}}</h5>
+                            <h1>House of Books Nepal </h1>
+                            <h5>Shankmul Ward no 31 Kathmandu, Nepal</h5>
+                            <h5>Contact Details :9845769230 <br>9848788289</h5>
+                            <h5>Email:houseofbooksnepal@gmail.com</h5>
                             <h5>Website:http://houseofbooks.com.np</h5>
                         </div>
-                        <div class="col-3">
-                            <button  onclick="printpage()" id="printbutton" class="print text-right bold btn btn-primary">Print</button>
-                        </div>
-
                     </div>
 
                     <div class="row mb-4 mt-5">
@@ -74,29 +79,7 @@
             </div>
         </div>
     </div>
-    </div>
-@endsection
+</div>
 
-@push('scripts')
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
- <script>
-
-
-     function printpage() {
-
-         //Get the print button and put it into a variable
-         var printButton = document.getElementById("printbutton");
-         var sidebar=document.getElementById("main-menu");
-         //Set the button visibility to 'hidden'
-         printButton.style.visibility = 'hidden';
-         sidebar.style.visibility = 'hidden';
-         //Print the page content
-         window.print()
-
-         //Restore button visibility
-         printButton.style.visibility = 'visible';
-        sidebar.style.visibility = 'visible';
-     }
-
- </script>
-@endpush
+</body>
+</html>

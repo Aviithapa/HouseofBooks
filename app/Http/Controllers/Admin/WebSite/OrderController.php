@@ -14,6 +14,7 @@ use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class OrderController extends BaseController
@@ -138,8 +139,20 @@ class OrderController extends BaseController
     public function update(UpdateOrderRequest $updateOrderRequest, $id)
     {
         $data = $updateOrderRequest->all();
+        $order = $this->orderRepository->findById($id);
+        $orderlist=$this->orderItemRepository->findBy('order_id', $order->id, '=',false);
+        foreach ($orderlist as $orders) {
+            $product = $this->productRepository->findBy('id', $orders->product_id, '=', false);
+        }
+        $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
+        Mail::send('emails.orderInvoice', $mailData, function($message) use ($mailData) {
+            $message->to( $mailData->email)
+                ->subject('Order Details update');
+            $message->from('houseofbooksnepal@gmail.com');
+        });
         try {
             $order = $this->orderRepository->update($data, $id);
+
             if($order == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
