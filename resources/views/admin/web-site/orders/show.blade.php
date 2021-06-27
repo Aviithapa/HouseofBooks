@@ -51,7 +51,7 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Product</th>
+                                    <th>Book</th>
                                     <th>Category</th>
                                     <th>Qty</th>
                                     <th>Subtotal</th>
