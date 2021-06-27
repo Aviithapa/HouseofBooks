@@ -58,7 +58,7 @@
                         <input value="0" name="txAmt" type="hidden">
                         <input value="0" name="psc" type="hidden">
                         <input value="0" name="pdc" type="hidden">
-                        <input value="EPAYTEST" name="scd" type="hidden">
+                        <input value="NP-ES-HOUSE" name="scd" type="hidden">
                         <input value="{{time()}}" name="pid" type="hidden">
                         <input value="{{route('esewa.success')}}" type="hidden" name="su">
                         <input value="{{route('esewa.fail')}}" type="hidden" name="fu">

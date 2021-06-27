@@ -62,7 +62,7 @@ class EsewaController extends BaseController
                     'amt'=> $datas['grand_total'],
                     'rid'=> $request->refId,
                     'pid'=> $request->oid,
-                    'scd'=> 'EPAYTEST'
+                    'scd'=> 'NP-ES-HOUSE'
                     ];
 
                 $curl = curl_init($url);
