@@ -118,14 +118,11 @@
 }
 @media screen and (max-width: 760px) {
     .adds{
-        height: 350px !important;
+        height: 400px !important;
 
     }
     .add{
-        height: 150px;
-    }
-    .add1{
-        width: 98%;
+        height: 200px;
     }
    .add2{
        margin-top: 0px ;

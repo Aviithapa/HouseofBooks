@@ -95,7 +95,7 @@
                 <button class="tablinks" onclick="openNobels(event, 'Biographies')">Biographies</button>
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Motivational" style="margin: 0px 50px 0px 50px; display:block;">
+        <div class="contentsecondhand tabcontent" id="Motivational" style="margin: 0px 150px 0px 150px; display:block;">
             <div class="row">
                 @foreach($motivational as $product)
                     @if($product->status=='active' && $product->best_selling=="yes"  && $product->category != 'second-hand')
@@ -115,7 +115,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Knowledge" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Knowledge" style="margin: 0px 150px 0px 150px">
             <div class="row">
                 @foreach($knowledge as $product)
                     @if($product->status=='active' && $product->best_selling=="yes" && $product->category != 'second-hand')
@@ -135,7 +135,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Frictional" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Frictional" style="margin: 0px 150px 0px 150px">
             <div class="row">
                 @foreach($frictionals as $product)
                     @if($product->status=='active' && $product->best_selling=="yes" && $product->category != 'second-hand')
@@ -155,7 +155,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="contentsecondhand tabcontent" id="Biographies" style="margin: 0px 50px 0px 50px">
+        <div class="contentsecondhand tabcontent" id="Biographies" style="margin: 0px 150px 0px 150px">
             <div class="row">
                 @foreach($biographies as $product)
                     @if($product->status=='active' && $product->best_selling=="yes"  && $product->category != 'second-hand')

@@ -9,18 +9,18 @@
                 <section class="invoice" id="printable">
                     <div class="row justify-content-center">
                         <div class="col-3">
-                        <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="200" height="200">
+                        <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}">
                         </div>
                         <div class="vl" style="border-left: 6px solid green;height: auto;"></div>
                         <div class="col-4">
                             <h1>{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} </h1>
                             <h5>{{getSiteSetting('location') != null? getSiteSetting('location'): ''}}</h5>
-                            <h5>Contact Details :{{getSiteSetting('contact_details') != null? getSiteSetting('contact_details'): ''}}</h5>
+                            <h5>Contact Details :{{getSiteSetting('social_phone') != null? getSiteSetting('social_phone'): ''}}</h5>
                             <h5>Email:{{getSiteSetting('email') != null? getSiteSetting('email'): ''}}</h5>
-                            <h5>Website:{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}}</h5>
+                            <h5>Website:http://houseofbooks.com.np</h5>
                         </div>
                         <div class="col-3">
-                            <button  onclick="window.print()" class="print text-right bold btn btn-primary">Print</button>
+                            <button  onclick="printpage()" id="printbutton" class="print text-right bold btn btn-primary">Print</button>
                         </div>
 
                     </div>
@@ -82,24 +82,21 @@
  <script>
 
 
+     function printpage() {
 
-     $(function() {
-         $("#printable").find('.print').on('click', function() {
-             $("#printable").print({
-                 globalStyles : true,
-                 mediaPrint : true,
-                 stylesheet : "http://fonts.googleapis.com/css?family=Inconsolata",
-                 iframe : false,
-                 noPrintSelector : ".avoid-this",
-                 append : "Free jQuery Plugins<br/>",
-                 prepend : "<br/>jQueryScript.net",
-                 manuallyCopyFormValues: true,
-                 deferred: $.Deferred(),
-                 timeout: 250,
-                 title: null,
-                 doctype: '<!doctype html>'
-             });
-         })
+         //Get the print button and put it into a variable
+         var printButton = document.getElementById("printbutton");
+         var sidebar=document.getElementById("main-menu");
+         //Set the button visibility to 'hidden'
+         printButton.style.visibility = 'hidden';
+         sidebar.style.visibility = 'hidden';
+         //Print the page content
+         window.print()
+
+         //Restore button visibility
+         printButton.style.visibility = 'visible';
+        sidebar.style.visibility = 'visible';
+     }
 
  </script>
 @endpush

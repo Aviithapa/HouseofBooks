@@ -2635,3 +2635,29 @@ a{
     display: none;
 }
 
+@media screen and (max-width: 1150px) {
+.contentsecondhand{
+    margin: 0px 100px !important;
+}
+    .adds{
+        min-height: 150px !important;
+    }
+}
+@media screen and (max-width: 875px) {
+    .contentsecondhand{
+        margin: 0px 50px !important;
+    }
+
+}
+@media screen and (max-width: 875px) {
+    .contentsecondhand{
+        margin: 0px 50px !important;
+    }
+
+}
+@media screen and (max-width: 755px) {
+    .adds{
+        height: 400px !important;
+    }
+
+}

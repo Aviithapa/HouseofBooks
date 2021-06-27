@@ -8,7 +8,7 @@
         color: white;
     }
 </style>
-<div class="page-sidebar" id="main-menu">
+<div class="page-sidebar avoid-this" id="main-menu">
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
         <div class="user-info-wrapper sm">
