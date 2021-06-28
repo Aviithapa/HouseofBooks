@@ -105,7 +105,7 @@ class SiteSettingController extends BaseController
         try {
             $this->siteSettingRepository->update($data, $id);
             session()->flash('success', 'Setting updated successfully');
-            return redirect()->route('dashboard.site-settings.index');
+            return redirect()->back();
         }
         catch (\Exception $e) {
             $this->log->error('Setting update : '.$e->getMessage());

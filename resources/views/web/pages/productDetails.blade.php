@@ -76,7 +76,7 @@
                     </p>
                     <div class="prod-info">
                         <p class="prod-price">
-                           <h3> <b class="item_current_price">Rs. {{$product->price}}</b></h3>
+                           <h3> <b class="item_current_price">Rs. {{$product->getDicountedPrice()}}</b></h3>
                         </p>
 {{--                        <form  method="post" action="{{url('add/to/cart/'.$product->id)}}">--}}
 {{--                            {{csrf_field() }}--}}

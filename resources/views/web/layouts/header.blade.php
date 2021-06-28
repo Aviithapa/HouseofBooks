@@ -127,23 +127,23 @@
                                             <a href="{{url('/catalog/university/TU')}}">
                                                 Tribhuwan University
                                             </a>
-                                            <i class="fa fa-angle-right"></i>
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        Management
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        Science
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                    </a>
-                                                </li>
-                                            </ul>
+{{--                                            <i class="fa fa-angle-right"></i>--}}
+{{--                                            <ul>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        Management--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        Science--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                                <li>--}}
+{{--                                                    <a href="#">--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
                                         </li>
                                         <li>
                                             <a href="{{url('/catalog/university/PU')}}">

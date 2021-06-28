@@ -70,7 +70,7 @@
                                 <div class="card" style="border:none !important;  background-color: #e5e5e5 !important;">
                                     <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Order Summary</h4>
                                     <article class="card-body">
-                                        <dl class="dlist-align" >
+                                        <dl class="dlist-align" style="text-align: justify !important;" >
                                             <dt style="color: black !important; font-weight: bold; font-size: 16px;">Quantity: </dt>
                                             <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartAmount()}} </dd><br>
                                             <dt style="color: black !important; font-weight: bold; font-size: 16px;">Amount: </dt>

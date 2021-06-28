@@ -24,11 +24,9 @@ Route::group(['namespace' => 'General'], function () {
     Route::post('contact','HomeController@Contact');
     Route::post('request','HomeController@Request');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
-    Route::match(['get', 'post'], '/home/{slug}', 'HomeController@slug')->where('slug', '.*');
+    Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');
     Route::match(['get', 'post'],'esewa/fail','EsewaController@fail')->name('esewa.fail');
-
-    Route::get('/','HomeController@home');
     });
 
 
