@@ -70,7 +70,7 @@
     <div class="adds">
         <div class="col-lg-6 col-md-6 col-sm-12 add1">
             <div class="add">
-                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
+                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="90%">
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 add2">
