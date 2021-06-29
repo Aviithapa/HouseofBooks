@@ -144,15 +144,15 @@ class OrderController extends BaseController
         foreach ($orderlist as $orders) {
             $product = $this->productRepository->findBy('id', $orders->product_id, '=', false);
         }
-        $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
-        Mail::send('emails.orderInvoice', $mailData, function($message) use ($order) {
-            $message->to( $order['email'])
-                ->subject('Order Details update');
-            $message->from('houseofbooksnepal@gmail.com');
-        });
+
         try {
             $order = $this->orderRepository->update($data, $id);
-
+            $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
+            Mail::send('emails.orderInvoice', $mailData, function($message) use ($order) {
+                $message->to( $order['email'])
+                    ->subject('Order Details update');
+                $message->from('houseofbooksnepal@gmail.com');
+            });
             if($order == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
