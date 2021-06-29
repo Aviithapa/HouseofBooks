@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="adds">
+    <div class="adds mt-5">
             <div class="add">
                 <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%" height="150">
             </div>
