@@ -68,16 +68,14 @@
     </div>
 
     <div class="adds">
-        <div class="col-lg-6 col-md-6 col-sm-12 add1">
             <div class="add">
-                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="90%">
+                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%" height="150">
             </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 add2">
-            <div class="add">
-                <img src="{{$add1->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="90%">
-            </div>
-        </div>
+{{--        <div class="col-lg-6 col-md-6 col-sm-12 add2">--}}
+{{--            <div class="add">--}}
+{{--                <img src="{{$add1->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="90%">--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
     @include('web.pages.flash-message')
     <div class="container-fluid mt-5" >

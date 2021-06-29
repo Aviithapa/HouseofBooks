@@ -276,17 +276,16 @@ h5{
 .adds{
     margin-top: 10px;
     width: 100%;
-    min-height: 250px;
 }
 .add{
-    height: 200px;
+    height: 310px;
     border-radius: 10px;
 
 }
 
 .add img{
     border-radius: 10px;
-    border: 3px solid #25a521;
+    height: 300px;
 }
 .title{
     width: max-content;
