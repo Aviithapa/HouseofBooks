@@ -64,10 +64,10 @@
                         <thead>
 
                         <tr>
-                            <td class="cart-ttl"><h4 style="color: black !important; font-weight: bold">Book Name</h4></td>
-                            <td class="cart-price"><h4 style="color: black !important; font-weight: bold">Price</h4></td>
-                            <td class="cart-quantity"><h4 style="color: black !important; font-weight: bold">Quantity</h4></td>
-                            <td class="cart-quantity"><h4 style="color: black !important; font-weight: bold">Total Amount</h4></td>
+                            <td class="cart-ttl"><span style="color: black !important; font-weight: bold">Book Name</span></td>
+                            <td class="cart-price"><span style="color: black !important; font-weight: bold">Price</span></td>
+                            <td class="cart-quantity"><span style="color: black !important; font-weight: bold">Quantity</span></td>
+                            <td class="cart-quantity"><span style="color: black !important; font-weight: bold">Total Amount</span></td>
                         </tr>
                         </thead>
                         <tbody>
@@ -98,7 +98,20 @@
                     </table>
                 </div>
 
+                <strong>
+                    <br><br>
+                    Thank you!
+                    <br>
 
+                    With Best Regards,<br>
+                    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="100"/>
+                    Sales and Marketing Department<br>
+                    House of Books Pvt. Ltd.<br>
+                    Shankhamul, Ward No 31, Kathmandu, Nepal<br>
+                    Contact No: +977-9845769203/ 9848788289<br>
+                    Email: houseofbooksnepal@gmail.com, info@houseofbooks.com.np<br>
+                    Website: www.houseofbooks.com.np<br>
+                </strong>
             </div>
         </div>
     </div>

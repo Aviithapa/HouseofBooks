@@ -281,7 +281,7 @@ class HomeController extends BaseController
          $this->view_data['authUser']=Auth::User();
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
          $this->view_data['product'] = $this->productRepository->findById($id);
-         $this->view_data['related_product']=$this->productRepository->findBy('faculty',$this->view_data['product']->faculty,'=',false,6)
+         $this->view_data['related_product']=$this->productRepository->findBy('sub_category',$this->view_data['product']->sub_category,'=',false,6)
          ->where('id',"!=",$this->view_data['product']->id);
         return view('web.pages.productDetails' , $this->view_data);
 
@@ -356,13 +356,13 @@ class HomeController extends BaseController
 
                 Mail::send('emails.orderConfirmation', $mailData, function($message) use ($data, $mailData) {
                     $message->to($data['email'])
-                        ->subject('Welcome to our Website');
-                    $message->from('houseofbooksnepal@gmail.com');
+                        ->subject('Welcome to House of Books');
+                    $message->from('sales@houseofbooks.com.np	');
                 });
                 Mail::send('emails.orderplacement', $mailData, function($message) use ($mailData) {
                     $message->to('houseofbooksnepal@gmail.com')
-                        ->subject('Welcome to our Website');
-                    $message->from('houseofbooksnepal@gmail.com');
+                        ->subject('Welcome to  House of Books');
+                    $message->from('sales@houseofbooks.com.np');
                 });
                 return view('web.pages.orderConfirmation',compact('order','orderlist','product'));
             }

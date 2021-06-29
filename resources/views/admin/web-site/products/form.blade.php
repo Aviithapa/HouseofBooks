@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6 col-lg-6" id="nobel">
                 <div class="form-group">
-                    {!! Form::label('nobel_category', 'Nobel Category:', ['class' => 'form-label']) !!}
+                    {!! Form::label('nobel_category', 'Novel Category:', ['class' => 'form-label']) !!}
                     {!! Form::select('nobel_category',getNobelCategory(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
-                    {!! Form::label('price', 'Price:', ['class' => 'form-label']) !!}
+                    {!! Form::label('price', 'MRP:', ['class' => 'form-label']) !!}
                     {!! Form::number('price',null, ['class' => 'form-control','required']) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
@@ -110,13 +110,6 @@
                     {!! Form::label('quantity', 'Quantity:', ['class' => 'form-label']) !!}
                     {!! Form::number('quantity',null, ['class' => 'form-control','required']) !!}
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
-                    {!! Form::number('discount',null, ['class' => 'form-control','required']) !!}
-                    {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
         </div>

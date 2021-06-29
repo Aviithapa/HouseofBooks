@@ -6,8 +6,7 @@
         <section class="container mt-5" >
 
 
-
-            <h3 class="main-ttl"><span>{{$product->name}}</span></h3>
+            <h2 class="mt-5"><span>{{$product->name}}</span></h2>
             <!-- Single Product - start -->
             <div class="prod-wrap">
 
@@ -76,15 +75,15 @@
                     </p>
                     <div class="prod-info">
                         <p class="prod-price">
-                           <h3> <b class="item_current_price">Rs. {{$product->getDicountedPrice()}}</b></h3>
+                           <h3> <b class="item_current_price" style="color:#25a521 !important;">Rs. {{$product->getDicountedPrice()}}</b></h3>
                         </p>
 {{--                        <form  method="post" action="{{url('add/to/cart/'.$product->id)}}">--}}
 {{--                            {{csrf_field() }}--}}
 {{--                        <div class="quantity">--}}
 {{--                           Quantity : <input type="number" name="quantity" min="1" value="1">--}}
 {{--                        </div>--}}
-                        <p class="prod-addwrap">
-                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add" rel="nofollow">Add to cart</a>
+                        <p class="prod-addwrap" >
+                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add" style="background-color: #FF8800 !important;" rel="nofollow">Add to cart</a>
                         </p>
 {{--                        </form>--}}
                     </div>
@@ -125,7 +124,7 @@
                 </div>
                 <div class="prod-tabs-wrap">
                     <ul class="prod-tabs">
-                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1">Description</a></li>
+                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1" style="background-color: #FF8800 !important;">Description</a></li>
 
                     </ul>
                     <div class="prod-tab-cont">

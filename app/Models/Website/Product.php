@@ -13,7 +13,8 @@ class Product extends Model
 
     public function getDicountedPrice()
     {
-        return $this->price * (1 - $this->discount / 100);
+        $price=$this->price * (1 - $this->discount / 100);
+        return  round($price,0);
     }
     public function getImage(){
         if(isset($this->image)) {

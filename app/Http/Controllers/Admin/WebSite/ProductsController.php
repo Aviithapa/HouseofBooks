@@ -132,11 +132,11 @@ class ProductsController extends BaseController
                     ->subject('Welcome to our Website');
                 $message->from('houseofbooksnepal@gmail.com');
             });
-            session()->flash('success', 'Content created successfully');
+            session()->flash('success', 'Book created successfully');
             return redirect()->route('dashboard.products.index');
         }
         catch (\Exception $e) {
-            $this->log->error('Content create : '.$e->getMessage());
+            $this->log->error('Book create : '.$e->getMessage());
             session()->flash('danger', 'Oops! Something went wrong.');
             return redirect()->back()->withInput();
         }
@@ -187,7 +187,7 @@ class ProductsController extends BaseController
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
-            session()->flash('success', 'Content updated successfully');
+            session()->flash('success', 'Book updated successfully');
             return redirect()->route('dashboard.products.index');
         }
         catch (\Exception $e) {
@@ -211,11 +211,11 @@ class ProductsController extends BaseController
                 $this->productRepository->hardDelete($id);
             else
                 $this->productRepository->delete($id);
-            session()->flash('success', 'Content deleted successfully');
+            session()->flash('success', 'Book deleted successfully');
             return redirect()->back();
         }
         catch (\Exception $e) {
-            $this->log->error('Content delete : '.$e->getMessage());
+            $this->log->error('Book delete : '.$e->getMessage());
             session()->flash('danger', 'Oops! Something went wrong.');
             return redirect()->back();
         }

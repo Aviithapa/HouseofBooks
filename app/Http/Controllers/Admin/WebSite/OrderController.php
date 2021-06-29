@@ -151,7 +151,7 @@ class OrderController extends BaseController
             Mail::send('emails.orderInvoice', $mailData, function($message) use ($order) {
                 $message->to( $order['email'])
                     ->subject('Order Details update');
-                $message->from('houseofbooksnepal@gmail.com');
+                $message->from('sales@houseofbooks.com.np');
             });
             if($order == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');
