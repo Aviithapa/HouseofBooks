@@ -145,8 +145,8 @@ class OrderController extends BaseController
             $product = $this->productRepository->findBy('id', $orders->product_id, '=', false);
         }
         $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
-        Mail::send('emails.orderInvoice', $mailData, function($message) use ($mailData) {
-            $message->to( $mailData->email)
+        Mail::send('emails.orderInvoice', $mailData, function($message) use ($order) {
+            $message->to( $order['email'])
                 ->subject('Order Details update');
             $message->from('houseofbooksnepal@gmail.com');
         });
