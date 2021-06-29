@@ -386,7 +386,6 @@ class HomeController extends BaseController
         {
             //here old_cart_quantity holo cart table  product ta already house of books quantity add hos ache
             $old_cart_quantity = $cart_info->quantity;
-            dd($cart_info);
         }
         else
         {
