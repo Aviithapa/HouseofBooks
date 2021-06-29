@@ -397,13 +397,27 @@ if(!function_exists('getPublicationCategory'))
     }
 
 }
+if(!function_exists('getYear'))
+{
+    function getYear()
+    {
+        return [
+            'null' =>'--SELECT-- ',
+            '1_year' => "1st Year",
+            '2_year' => "2nd Year",
+            '3_year' => "3rd Year",
+            '4_year' => "4th Year",
+        ];
+    }
+
+}
 if(!function_exists('getSubCategory'))
 {
     function getSubCategory()
     {
         return [
             'coursebook' => 'Coursebook',
-            'nobel' => 'Nobel',
+            'novel' => 'Novel',
             'question-bank-and-solution' => 'Question bank and Solution',
             'loksewa-examination' => 'Loksewa Examination',
             'entrance-examination' => 'Entrance Examination',

@@ -64,19 +64,26 @@
                     {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-6 col-lg-6" id="faculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "faculty()"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
         </div>
         <div class="row" id="semester">
-            <div class="col-md-6 col-lg-6" >
+            <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
                     {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="year">
+                <div class="form-group">
+                    {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
+                    {!! Form::select('semester',getYear(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -192,10 +199,12 @@
         $( document ).ready(function() {
             $("#nobel").hide();
             $("#best_selling").hide();
+            $("#year").hide();
+            $("#sem").show();
         });
         function run() {
             var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="nobel"){
+            if(sub_category==="novel"){
                 $("#university").hide();
                 $("#publication").hide();
                 $("#semester").hide();
@@ -205,6 +214,16 @@
                 $("#university").show();
                 $("#publication").show();
                 $("#semester").show();
+            }
+        }
+        function faculty() {
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
             }
         }
 

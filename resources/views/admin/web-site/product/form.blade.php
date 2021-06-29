@@ -85,14 +85,21 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change()"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
+            <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
                     {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="year">
+                <div class="form-group">
+                    {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
+                    {!! Form::select('semester',getYear(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -219,11 +226,26 @@
     @include('admin.partials.common.file-upload');
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
+        function change() {
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
+            }
+        }
+    </script>
+    <script>
         CKEDITOR.replace( 'ckeditor', {
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
-
+        $( document ).ready(function() {
+            $("#year").hide();
+            $("#sem").show();
+        });
         $( document ).ready(function() {
             var sub_category=document.getElementById("subCategory").value;
             if(sub_category==="nobel"){
@@ -240,7 +262,7 @@
         });
         function run() {
             var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="nobel"){
+            if(sub_category==="novel"){
                 $("#university").hide();
                 $("#publication").hide();
                 $("#semester").hide();
@@ -254,6 +276,5 @@
                 $("#semester").show();
             }
         }
-    </script>
     </script>
 @endpush
