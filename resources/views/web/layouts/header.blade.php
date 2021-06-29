@@ -54,7 +54,7 @@
                             </div>
                             <div class="column">
                                 <p>+977-{{getSiteSetting('social_phone') != null? getSiteSetting('social_phone'): ''}}
-                                    <br> +977-9742537210</p>
+                                    <br> +977-9848788289</p>
                             </div>
                         </div>
                         <div class="column">
