@@ -29,7 +29,7 @@
                 </dl>
                 <dl class="contact-list">
                     <h3 style="font-size: 16px !important;"><dt>Phone:</dt></h3>
-                    <dd style="font-size: 16px;"><a href="tel:#">+977-9818352602</a> <br> <a href="tel:#">+977-9742537210</a>
+                    <dd style="font-size: 16px;"><a href="tel:#">+977-{{getSiteSetting('social_phone') != null? getSiteSetting('social_phone'): ''}}</a> <br> <a href="tel:#">+977-9848788289</a>
                     </dd>
                 </dl>
             </div>
@@ -44,8 +44,8 @@
             <div class="col-md-3 col-xl-3">
                 <h3 style="font-weight: bold; color: #FF8800 !important;">Payment Options</h3>
                 <ul class="nav-list">
-                    <img src="https://img.favpng.com/7/14/6/esewa-fonepay-pvt-ltd-logo-portable-network-graphics-image-brand-png-favpng-aLLyxWtspEZQckmv19jDj2TWC.jpg" alt="ESEWA" width="45%">
-                </ul>
+                    <div id="eSewaLogoSection"></div>
+                 </ul>
             </div>
         </div>
     </div>
@@ -58,7 +58,10 @@
 
 <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
+
+<script id="1" language="JavaScript" type="text/javascript" src="https://cdn.esewa.com.np/ui/js/eSewa_logo/script.js" data-width="150px" data-elementId="eSewaLogoSection" data-type="LIGHT"></script>
 <script>
+
     window.fbAsyncInit = function() {
         FB.init({
             xfbml            : true,
