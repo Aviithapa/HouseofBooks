@@ -9,7 +9,7 @@ Hi <strong>{{ $name }}</strong>,
     <br>
 
     With Best Regards,<br>
-    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="100"/>
+    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="150"/><br>
     Sales and Marketing Department<br>
     House of Books Pvt. Ltd.<br>
     Shankhamul, Ward No 31, Kathmandu, Nepal<br>
