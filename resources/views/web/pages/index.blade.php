@@ -75,7 +75,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 add2">
             <div class="add">
-                <img src="{{$add1->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
+                <img src="{{$add1->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="90%">
             </div>
         </div>
     </div>
