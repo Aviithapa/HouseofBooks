@@ -43,9 +43,7 @@
             </div>
             <div class="col-md-3 col-xl-3">
                 <h3 style="font-weight: bold; color: #FF8800 !important;">Payment Options</h3>
-                <ul class="nav-list">
-                    <div id="eSewaLogoSection"></div>
-                 </ul>
+                    <div id="eSewaLogoSection" class="mt-2"></div>
             </div>
         </div>
     </div>
