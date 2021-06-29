@@ -125,6 +125,7 @@ class HomeController extends BaseController
     {
         $slug = $slug ? $slug : 'index';
         $this->view_data['pageContent'] = $this->postRepository->findBySlug($slug, false);
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['authUser']=Auth::User();
         $file_path = resource_path() . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'web/pages' . DIRECTORY_SEPARATOR . $slug . '.blade.php';
         if (file_exists($file_path)) {

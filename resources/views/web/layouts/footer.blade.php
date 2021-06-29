@@ -44,6 +44,7 @@
             <div class="col-md-3 col-xl-3">
                 <h3 style="font-weight: bold; color: #FF8800 !important;">Payment Options</h3>
                     <div id="eSewaLogoSection" class="mt-2"></div>
+                    <div class="cod mt-2"><img src="{{$cod->getPostImage()}}" alt="House of books" width="150px"></div>
             </div>
         </div>
     </div>
