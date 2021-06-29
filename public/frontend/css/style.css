@@ -2637,7 +2637,7 @@ a{
 
 @media screen and (max-width: 1150px) {
 .contentsecondhand{
-    margin: 0px 100px !important;
+    margin: 0px  !important;
 }
     .adds{
         min-height: 150px !important;

@@ -4,6 +4,11 @@
 }
 
 }
+@media screen and (max-width: 920px) {
+.contentsecondhand {
+    margin-left: 50px !important;
+}
+}
 @media screen and (max-width: 1200px) {
    .form-search{
        margin-top: 40px !important;
@@ -78,15 +83,6 @@
         width:30% !important;
     }
 }
-@media screen and (max-width: 980px) {
-    .adds{
-        height: 550px;
-    }
-    .add2{
-        margin-top: 80px;
-    }
-
-}
 @media screen and (max-width: 920px) {
     .columns{
         width:42% !important;
@@ -117,16 +113,6 @@
 
 }
 @media screen and (max-width: 760px) {
-    .adds{
-        height: 400px !important;
-
-    }
-    .add{
-        height: 200px;
-    }
-   .add2{
-       margin-top: 0px ;
-   }
 
    .overwrite{
        height: 150px;
@@ -145,6 +131,7 @@
    .overwrite h5{
        font-size: 7px !important;
        font-weight: 500 !important;
+
    }
    .owl-item{
        text-align: center;
