@@ -235,6 +235,7 @@ class HomeController extends BaseController
     }
     public function UniversityCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'TU';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('University',$slug,'=',true,12);
@@ -242,6 +243,7 @@ class HomeController extends BaseController
     }
     public function NobelCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'frictional';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('nobel_category',$slug,'=',true,12);
@@ -249,6 +251,7 @@ class HomeController extends BaseController
     }
     public function publicationCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'asmita';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('publication',$slug,'=',true,12);
@@ -256,6 +259,7 @@ class HomeController extends BaseController
     }
     public function semesterCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'First Semester';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('semester',$slug,'=',true,12);
@@ -263,6 +267,7 @@ class HomeController extends BaseController
     }
     public function facultyCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'BBA';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('faculty',$slug,'=',true,12);
@@ -271,6 +276,7 @@ class HomeController extends BaseController
 
     public function categoryCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'question-bank-and-solution';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['category'] =$this->facultyRepository->getAll();
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
@@ -280,6 +286,7 @@ class HomeController extends BaseController
 
      public function productDetails($id=null, Request $request){
          $this->view_data['authUser']=Auth::User();
+         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
          $this->view_data['product'] = $this->productRepository->findById($id);
          $this->view_data['related_product']=$this->productRepository->findBy('sub_category',$this->view_data['product']->sub_category,'=',false,6)
@@ -290,6 +297,7 @@ class HomeController extends BaseController
 
     public function singleBlog($id = null, Request $request){
         $id = $id ? $id : 1;
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['blog'] = $this->blogRepository->findById($id);
         $this->view_data['product']=$this->productRepository->findById($this->view_data['blog']['product_id']);
         return view('web.pages.single-blog' , $this->view_data);
@@ -319,6 +327,7 @@ class HomeController extends BaseController
 
     public function Order(Request $request){
         try{
+            $this->view_data['cod'] = $this->postRepository->findById(151);
             $data=new Order();
             $data->name=$request->name;
             $data->address=$request->address;
@@ -374,6 +383,7 @@ class HomeController extends BaseController
 
 
     public function cart(){
+        $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
          return view('web.pages.cart' , $this->view_data);
     }
@@ -431,6 +441,7 @@ class HomeController extends BaseController
 
     public function Contact(Request $req){
         try {
+            $this->view_data['cod'] = $this->postRepository->findById(151);
             $contact = new Contact();
             $contact->name = $req->name;
             $contact->email = $req->email;
@@ -451,6 +462,7 @@ class HomeController extends BaseController
 
     public function Request(Request $req){
         try {
+            $this->view_data['cod'] = $this->postRepository->findById(151);
             $request = new \App\Models\Website\Request();
             $request->name = $req->name;
             $request->email = $req->email;
@@ -472,6 +484,7 @@ class HomeController extends BaseController
     }
     public function search(Request $request)
     {
+        $this->view_data['cod'] = $this->postRepository->findById(151);
             $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")->get();
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
