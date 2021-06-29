@@ -1,8 +1,12 @@
 
 <IfMOdule mod_rewrite.c>
-    RewriteEngine On
-
-    # Redirect All Requests To The Subfolder
-    RewriteRule ^(.*)$ public/$1 [L]
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.houseofbooks.com.np/$1 [R,L]
+#    RewriteEngine On
+#
+#    # Redirect All Requests To The Subfolder
+#    RewriteRule ^(.*)$ public/$1 [L]
 
 </IfMOdule>
+
