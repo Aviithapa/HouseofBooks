@@ -16,7 +16,7 @@
                  <a href=""> <button type="button" class="btn btn-primary btn-round-sm btn-sm text-center " >Buy Now</button></a>
              </div>
               <div class="book-image">
-                  <img src="{{$product->getImage()}}" width="300">
+                  <img src="{{$product->getImage()}}" alt="{{$product->name}}" width="300">
               </div>
           </div>
           <div class="blog-details">
@@ -27,7 +27,7 @@
 
 <div class="titles mt-5">Book Reviewed By</div>
 <div class="blogger-detail">
-    <img src="{{$blog->getBloggerImage()}}" alt="Avatar" style="width:200px; height: 200px; margin-top: 10px;">
+    <img src="{{$blog->getBloggerImage()}}" alt="{{$blog->name}}" style="width:200px; height: 200px; margin-top: 10px;">
     <h3>{{$blog->name}}</h3>
 </div>
 </div>

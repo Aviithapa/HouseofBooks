@@ -142,4 +142,33 @@
         width: 30%;
         padding-right:20px ;
     }
+    .social-fix {
+        position: fixed;
+        right: -100px;
+        top: 300px;
+        z-index: 111;
+        box-shadow: 0 0 15px rgba(165, 165, 165, 0.56);
+    }
+    .social-fix li {
+        background: #fff;
+        padding: 15px 60px 20px 15px;
+        transition: .5s all;
+        color: #FF8800;
+    }
+    .social-fix li:hover {
+        transform: translateX(-90px);
+        background:#FF8800 !important;
+        border-radius: 40px 0 0 40px;
+        transition: .5s all;
+        color: #fff !important;
+        cursor: pointer;
+        padding: 15px 25px 20px 10px;
+    }
+    .social-fix i{
+        position: relative;
+        top: 5px;
+        padding-right: 10px;
+
+    }
+
 </style>

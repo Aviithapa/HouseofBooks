@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <h3 style="text-align: center;"><b>TERMS AND CONDITIONS</b></h3>
+        <h1 style="text-align: center;"><b>TERMS AND CONDITIONS</b></h1>
         <p>Last updated: 2021-04-13</p>
         <p>1. <b>Introduction</b></p>
         <p>Welcome to <b>House of Books Pvt. Ltd.</b> (“Company”, “we”, “our”, “us”)!</p>

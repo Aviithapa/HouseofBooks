@@ -74,3 +74,9 @@
     <!-- END TOP NAVIGATION BAR -->
 </div>
 <!-- END HEADER -->
+<div class="social-fix">
+    <ul class="list-unstyled mb-0">
+        <a href="{{url('/')}}"> <li><i class="fa fa-home fa-2x">
+                </i> Home</li></a>
+    </ul>
+</div>

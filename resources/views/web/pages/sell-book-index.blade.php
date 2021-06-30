@@ -18,7 +18,7 @@
             </div>
 
             <div class="container" style="width: 100%; margin-top: 50px !important;">
-                 <img src="{{$learn_more_banner->getImage()}}" alt="" class="learn_more_image" style="width: 100%;">
+                 <img src="{{$learn_more_banner->getImage()}}" alt="houseofbooks" class="learn_more_image" style="width: 100%;">
 {{--                 <img src="{{$learn_more_btn->getImage()}}" alt="" class="learn_more_btn">--}}
             </div>
 
@@ -28,7 +28,7 @@
                     <p class="text-center" style="font-weight: 600 !important; font-size: 23px !important;">We are registering seller from Kathmandu valley, Lalitpur, Bhaktapur at the moment </p>
                 </div>
                 <div class="container" style="margin-top: 45px !important;">
-                    <img src="{{$work_banner->getImage()}}" alt="" height="300">
+                    <img src="{{$work_banner->getImage()}}" alt="houseofbooks" height="300">
                 </div>
             </div>
     @endsection

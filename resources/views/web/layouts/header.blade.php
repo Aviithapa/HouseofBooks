@@ -173,7 +173,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/category/question-bank-and-solution")}}">
+                                    <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
                                         Question Bank and Solution
                                     </a>
                                 </li>
@@ -215,7 +215,12 @@
     <div class="bottom-nav">
     </div>
 </header>
-
+<div class="social-fix">
+    <ul class="list-unstyled mb-0">
+        <a href="{{url('/dashboard')}}"> <li><i class="fa fa-home fa-2x">
+                </i> Dashboard</li></a>
+    </ul>
+</div>
 @push('scripts')
     <script>
         function openNav() {

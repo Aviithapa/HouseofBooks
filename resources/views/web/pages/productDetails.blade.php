@@ -3,10 +3,10 @@
 @section('content')
     <!-- Main Content - start -->
     <main>
-        <section class="container mt-5" >
+        <section class="container" >
 
 
-            <h2 class="mt-5"><span>{{$product->name}}</span></h2>
+            <h2><span>{{$product->name}}</span></h2>
             <!-- Single Product - start -->
             <div class="prod-wrap">
 
@@ -92,10 +92,12 @@
                             <li>
                                 <b>Author</b>: {{$product->author}}
                             </li>
+
                             <li>
                                 <strong>Short Description</strong><br>
                                 {!!html_entity_decode($product->excerpt)!!}
                             </li>
+
                         </ul>
                         @else
                         <ul class="prod-i-props">
@@ -114,10 +116,12 @@
                             <li>
                                 <b>Author</b>: <strong class="text-capitalize">{{$product->author}}</strong>
                             </li>
+                            @if($product->excerpt)
                             <li>
                                 <h3>Short Description</h3>
                                 <p style="text-align: justify;">{!!html_entity_decode($product->excerpt)!!}</p>
                             </li>
+                            @endif
                         </ul>
                         @endif
 

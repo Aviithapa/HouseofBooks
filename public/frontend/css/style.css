@@ -265,14 +265,9 @@ h5{
 }
 .column{
     float: left;
-    padding: 10px 15px;
+    padding: 8px 5px 5px 5px;
     margin: 0px !important;
 }
-.column i{
-    width: 10px;
-    height: 10px;
-}
-
 .adds{
     margin-top: 15px;
     width: 100%;
@@ -2653,3 +2648,41 @@ a{
     }
 
 }
+.page-item a{
+    color:#FF8800 !important ;
+}
+.page-item.active .page-link{
+    background-color:#FF8800 !important ;
+    border-color: #FF8800 !important;
+}
+.social-fix {
+    position: fixed;
+    right: -100px;
+    top: 300px;
+    z-index: 111;
+    box-shadow: 0 0 15px rgba(165, 165, 165, 0.56);
+}
+.social-fix li {
+    background: #fff;
+    padding: 15px 25px 20px 10px;
+    transition: .5s all;
+    color: #FF8800;
+}
+.social-fix li:hover {
+     transform: translateX(-90px);
+     background:#FF8800 !important;
+     border-radius: 40px 0 0 40px;
+     transition: .5s all;
+     color: #fff !important;
+     cursor: pointer;
+    padding: 15px 25px 20px 10px;
+ }
+.social-fix i{
+    position: relative;
+    top: 5px;
+    padding-right: 10px;
+
+}
+
+
+
