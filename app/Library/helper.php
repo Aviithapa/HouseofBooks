@@ -180,6 +180,21 @@ if (!function_exists('getSiteSetting')) {
     }
 }
 
+if (!function_exists('getSiteSetting')) {
+    /**
+     * @param $name
+     * @return null
+     */
+    function getSiteSetting($name)
+    {
+        if($name==='logo_image'){
+            return App\Models\Website\SiteSetting::getLogoImage($name);
+        }
+
+        return App\Models\Website\SiteSetting::getValue($name);
+    }
+}
+
 function getCartAmount()
 {
     $mac_address = exec('getmac');
