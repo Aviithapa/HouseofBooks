@@ -180,7 +180,28 @@ class ProductsController extends BaseController
     {
         $slug=$this->productRepository->findById($id)['slug'];
         $data = $updateProductRequest->all();
-        $data['image']=$data['product_image'];
+        $oldimages=$this->productRepository->findById($id)['image'];
+
+        $images = $updateProductRequest->file('files');
+
+        if ($updateProductRequest->hasFile('files')) :
+            foreach ($images as $item):
+                $var = date_create();
+                $time = date_format($var, 'YmdHis');
+                $imageName = $time . '-' . $item->getClientOriginalName();
+
+                $item->move(base_path() . '/storage/app/public/product_image', $imageName);
+                $arr[] = $imageName;
+            endforeach;
+//             $explode=explode(",", $oldimages);
+//            for($i=0;$i<count($explode);$i++)
+//                $arr[]=$explode[$i];
+            $image = implode(",", $arr);
+        else:
+            $image = $oldimages;
+        endif;
+
+        $data['image']=$image;
         try {
             $post = $this->productRepository->update($data, $id);
             if($post == false) {

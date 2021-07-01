@@ -12,6 +12,10 @@ Route::get('/storage-link', function(){
     $exitcode=Artisan::call('storage:link');
     return "Storage Linked Successfully";
 });
+Route::get('/migrate', function(){
+    $exitcode=Artisan::call('migrate');
+    return "Migration Successful Linked Successfully";
+});
 Route::group(['namespace' => 'Web'], function () {
 
     /*

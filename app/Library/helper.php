@@ -210,6 +210,7 @@ function getAllProduct()
      return $products;
 }
 
+
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;
     return $final_amount;
@@ -320,6 +321,18 @@ if(!function_exists('imageNotFound')) {
         }
     }
 }
+if(!function_exists('getCondition')){
+    function getCondition()
+    {
+        return[
+            'brand_new'=>"Brand New",
+            'near_fine' => "Near Fine",
+            'average'   => "Average",
+            'poor' => "Poor"
+        ];
+    }
+}
+
 
 if(!function_exists('getCategoriesType')){
     function getCategoriesType()

@@ -18,8 +18,8 @@
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
-                    {!! Form::label('category', ' Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('category',$category->pluck('name','slug'),null, ['class' => 'form-control']) !!}
+                    {!! Form::label('condition', ' Condition:', ['class' => 'form-label']) !!}
+                    {!! Form::select('condition',getCondition(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -39,6 +39,13 @@
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-6 col-lg-6" id="level">
+                <div class="form-group">
+                    {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
+                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "levelChanage()"]) !!}
+                    {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
         </div>
         <div class="row" id="university">
             <div class="col-md-6 col-lg-6">
@@ -48,26 +55,20 @@
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
-                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
+
         </div>
         <div class="row" id="publication">
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
-                    {!! Form::select('publication',getPublicationCategory(),null, ['class' => 'form-control']) !!}
+                    {!! Form::text('publication',null, ['class' => 'form-control']) !!}
                     {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="faculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "faculty()"]) !!}
+                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change()"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -151,10 +152,20 @@
             <div class="row" >
                 <div class="col-md-12 col-lg-12">
                 </div>
-                <div id="thumb-output"></div>
+                <div id="thumb-output">
+                    @if(isset($model))
+                               <?php $picture = explode(",", $model->image);
+                                 for($i=0;$i<count($picture);$i++) {?>
+                                   <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" style="height:120px; width:200px"/>
+                                 <?php }?>
+
+                    @endif
+                </div>
                 <div class="form-group col-md-12 col-lg-12">
                     {!! Form::label('slider', 'Image:') !!}
-                    <small>Size: 1600*622 px</small>
+                    <small>Size: 1600*622 px</small><br>
+                    <strong>Image Order: Front Page, Back Page , Edition Page</strong><br>
+                    <span class="danger">By uploading your books you are agree with our terms and condition</span>
                     <input type="file" id="product_image" name="files[]" multiple>
                     <small id="slider_help_text" class="help-block"></small>
                     <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
@@ -192,6 +203,27 @@
     @include('admin.partials.common.file-upload');
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
+        function change() {
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
+            }
+        }
+
+        function levelChanage(){
+            var levelCat = document.getElementById("levelCat").value;
+            if (levelCat=="+2" || levelCat=="10"){
+                $("#university").hide()
+            }else{
+                $("#university").show()
+            }
+        }
+    </script>
+    <script>
         CKEDITOR.replace( 'ckeditor', {
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
@@ -208,30 +240,20 @@
                 $("#university").hide();
                 $("#publication").hide();
                 $("#semester").hide();
+                $('#level').hide()
                 $("#nobel").show();
             }else{
                 $("#nobel").hide();
                 $("#university").show();
                 $("#publication").show();
                 $("#semester").show();
+                $("#level").show()
             }
         }
-        function faculty() {
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
-            }
-        }
-
         $(document).ready(function(){
             $('#product_image').on('change', function(){ //on file input change
                 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
                 {
-
                     var data = $(this)[0].files; //this file data
 
                     $.each(data, function(index, file){ //loop though each file
