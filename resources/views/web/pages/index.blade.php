@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="container overwrite">
+    <div class="overwrite container">
                 <div class="colam">
                     <div class="icons">
                         <span><img src="{{$question->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
