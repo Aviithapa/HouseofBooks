@@ -27,10 +27,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="overwrite">
-            <div class="row ">
-                <div class="col-3 mt-2">
+    <div class="container overwrite">
+                <div class="colam">
                     <div class="icons">
                         <span><img src="{{$question->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
@@ -38,7 +36,7 @@
                         AND SOLUTION SETS  <br>
                         FOR DIFFERENT COURSE</h5>
                 </div>
-                <div class="col-3 vl">
+                <div class="colam vl">
                     <div class="icons">
                         <span><img src="{{$course->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
@@ -46,7 +44,7 @@
                         Available FROM <br>
                         VARIOUS PUBLICATION</h5>
                 </div>
-                <div class="col-3 vl">
+                <div class="colam vl">
                     <div class="icons">
                         <span><img src="{{$entrance->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
 
@@ -55,7 +53,7 @@
                         PREPARATION BOOKS <br>
                         FOR DIFFERENT LEVELS</h5>
                 </div>
-                <div class="col-3 vl mt-2" >
+                <div class="colam vl" >
                     <div class="icons">
                         <span><img src="{{$second->getPostImage()}}" oncontextmenu="return false;" height="80px" width="80px"></span>
                     </div>
@@ -63,13 +61,11 @@
                         BOOK SELLING AND <br>
                         BUYING PLATFORM</h5>
                 </div>
-            </div>
-        </div>
     </div>
 
-    <div class="adds mt-5">
+    <div class="mt-5">
             <div class="add">
-                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%" height="150">
+                <img src="{{$add->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
             </div>
 {{--        <div class="col-lg-6 col-md-6 col-sm-12 add2">--}}
 {{--            <div class="add">--}}

@@ -102,42 +102,8 @@ body {
 .MultiCarousel .rightLst { right:0; }
 
 .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
-.form-control-borderless {
-    border: none;
-}
 
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
 
-.search-icon, .go-icon {
-    position: absolute;
-    top: 0;
-    height: 60px;
-    width: 86px;
-    line-height: 61px;
-    text-align: center;
-}
-.search-icon {
-    left: 0;
-    pointer-events: none;
-    font-size: 1.22em;
-    will-change: transform;
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform-origin: center center;
-    -webkit-transform-origin: center center;
-    -moz-transform-origin: center center;
-    -o-transform-origin: center center;
-    transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-    -webkit-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-    -moz-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-    -o-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-}
 .si-rotate {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
@@ -561,14 +527,6 @@ button,
 textarea {
 	-webkit-appearance: none;
 }
-textarea,
-button,
-input[type=password],
-input[type=email],
-input[type=submit],
-input[type=text] {
-	font-family: 'Roboto', sans-serif;
-}
 a:focus {
 	text-decoration: none;
 }
@@ -632,40 +590,6 @@ body {
 .contactinfo li:first-child{
 	margin-left: -15px;
 }
-
-.search {
-    width: 100%;
-    position: relative;
-    display: flex;
-}
-
-.searchTerm {
-    width: 100%;
-    border: 3px solid #00B4CC;
-    border-right: none;
-    padding: 5px;
-    height: 20px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-}
-
-.searchTerm:focus{
-    color: #00B4CC;
-}
-
-.searchButton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-}
-
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
@@ -832,6 +756,7 @@ body {
 .topmenu {
 	position: relative;
 	padding: 0 41px 0 203px;
+    height: 50px;
 	font-size: 14px;
 }
 .topmenu:after {
@@ -1664,9 +1589,8 @@ body {
 }
 .stylization input[type=email],
 .stylization input[type=tel],
-.stylization input[type=search],
-.stylization input[type=password],
-.stylization input[type=text] {
+.stylization input[type=password]
+{
 	display: block;
 	padding: 0 15px;
 	color: #ff682c;
@@ -1736,7 +1660,6 @@ body {
 	border: none;
 	transition: all 0.2s;
 	font-weight: 500;
-	background: #ff682c;
 	padding: 10px 35px;
 	color: #ffffff;
 	letter-spacing: 0.01em;
@@ -5782,23 +5705,6 @@ ul.b-crumbs {
 	content: "\f005";
 }
 .prod-comment-form input[type=submit],
-.prod-comment-form button[type=button] {
-	border: none;
-	cursor: pointer;
-	text-align: center;
-	height: auto;
-	padding: 10px 24px 11px;
-	display: inline-block;
-	margin: 0 0 15px;
-	font-size: 13px;
-	letter-spacing: 1px;
-	font-weight: 500;
-	transition: all 0.2s;
-	text-transform: uppercase;
-	color: #fff;
-	background: #373d54;
-	position: relative;
-}
 .prod-comment-form input[type=submit]:hover,
 .prod-comment-form button[type=button]:hover {
 	background: #474f6e;
@@ -8370,7 +8276,6 @@ body .component-desc.component-desc-ct {
 .contactform-field .contactform-label + input[type=password],
 .contactform-field .contactform-label + input[type=email],
 .contactform-field .contactform-label + input[type=tel],
-.contactform-field .contactform-label + input[type=search],
 .contactform-field .contactform-label + input[type=text] {
 	display: inline-block;
 	margin: 0;

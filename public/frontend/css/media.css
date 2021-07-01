@@ -1147,9 +1147,6 @@
     .overwrite span{
         padding: 0px !important;
     }
-    .add{
-        height: 110px;
-    }
     .title h4{
         font-size: 12px;
     }
@@ -1169,4 +1166,12 @@
     .mainmenu{
         z-index: 9;
     }
+}
+@media only screen and (max-width : 547px)  {
+    .top .col{
+        text-align: center;
+    }
+    .top span{
+        display:block;
+      }
 }
