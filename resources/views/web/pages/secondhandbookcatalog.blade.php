@@ -28,7 +28,7 @@
                 <div class="title" >
                     <h4>Novels and Literatures</h4>
                 </div>
-                <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('/secondhand/catalog/nobel')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
             </h3>
             <div class="container">
             <hr>
@@ -49,9 +49,11 @@
                                         <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                     </a>
                                     <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                    <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                    <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                    <p class="prod-i-price">
+                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                    </p>
                                 </div>
                             </div>
                         @endif
@@ -68,9 +70,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -87,9 +91,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -106,9 +112,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -122,7 +130,7 @@
                 <div class="title" >
                     <h4>Course Books</h4>
                 </div>
-                <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('catalog/category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('/secondhand/catalog/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
             </h3>
             <div class="container">
             <hr>
@@ -144,9 +152,11 @@
                                         <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                     </a>
                                     <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                    <h5 style="font-weight: bold; color: black!important; margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                    <p style="font-style: italic; color: black!important; font-size: 12px;">Mark Manson</p>
-                                    <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                    <p class="prod-i-price">
+                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                    </p>
                                 </div>
                             </div>
                         @endif
@@ -163,9 +173,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important;color: black!important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="font-style: italic; font-size: 12px; color: black!important; ">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -182,9 +194,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; "  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -201,9 +215,11 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -220,9 +236,137 @@
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
                                         </a>
                                         <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="color: black!important;  font-weight: bold;  margin-bottom: 1px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">Mark Manson</p>
-                                        <a href="#"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">Rs. {{$product->price}}</button></a>
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+
+            <div class="tab-2">
+                <h3 class="bbb_viewed_title">
+                    <div class="title" >
+                        <h4>Question Bank and Solution</h4>
+                    </div>
+                    <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('/secondhand/catalog/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                </h3>
+                <div class="container">
+                    <hr>
+                    <div class="tab">
+                        <button class="tablinkes active" onclick="openQuestionBank(event, 'bachelors')" id="defaultCourseOpen">Bachelor</button>
+                        <button class="tablinkes" onclick="openQuestionBank(event, 'masters')">Master</button>
+                        <button class="tablinkes" onclick="openQuestionBank(event, 'two')">+2 level</button>
+                        <button class="tablinkes" onclick="openQuestionBank(event, 'ten')">Class 10</button>
+                        <button class="tablinkes" onclick="openQuestionBank(event, 'foreigns')">Foreign Writer </button>
+                    </div>
+                </div>
+                <div class="contentsecondhand tabcontentes" id="bachelors" style="margin: 0px 50px 0px 50px; display: block;">
+                    <div class="row">
+                        @foreach($books as $product)
+                            @if($product->status=='active' && $product->level=="bachelor" && $product->sub_category=="question-bank-and-solution" )
+                                <div class="columns">
+                                    <div class="cardsecondhand">
+                                        <a href="{{url("productDetails/".$product->id)}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                        </a>
+                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="contentsecondhand tabcontentes" id="masters" style="margin: 0px 50px 0px 50px; display: none;">
+                    <div class="row">
+                        @foreach($products as $product)
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="master" && $product->sub_category=="question-bank-and-solution" )
+                                <div class="columns">
+                                    <div class="cardsecondhand">
+                                        <a href="{{url("productDetails/".$product->id)}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                        </a>
+                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="contentsecondhand tabcontentes" id="two" style="margin: 0px 50px 0px 50px; display: none;">
+                    <div class="row">
+                        @foreach($products as $product)
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="+2" && $product->sub_category=="question-bank-and-solution" )
+                                <div class="columns">
+                                    <div class="cardsecondhand">
+                                        <a href="{{url("productDetails/".$product->id)}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                        </a>
+                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="contentsecondhand tabcontentes" id="ten" style="margin: 0px 50px 0px 50px; display: none;">
+                    <div class="row">
+                        @foreach($products as $product)
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="10" && $product->sub_category=="question-bank-and-solution" )
+                                <div class="columns">
+                                    <div class="cardsecondhand">
+                                        <a href="{{url("productDetails/".$product->id)}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                        </a>
+                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="contentsecondhand tabcontentes" id="foreigns" style="margin: 0px 50px 0px 50px; display: none;">
+                    <div class="row">
+                        @foreach($products as $product)
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" && $product->sub_category=="question-bank-and-solution"  )
+                                <div class="columns">
+                                    <div class="cardsecondhand">
+                                        <a href="{{url("productDetails/".$product->id)}}">
+                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                        </a>
+                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="prod-i-price">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                        </p>
                                     </div>
                                 </div>
                             @endif
@@ -268,5 +412,18 @@
         }
 
 
+        function openQuestionBank(evt, courseBook) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontentes");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinkes");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(courseBook).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
     </script>
 @endpush

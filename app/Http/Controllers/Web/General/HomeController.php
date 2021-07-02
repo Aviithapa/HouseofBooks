@@ -284,6 +284,15 @@ class HomeController extends BaseController
         return view('web.pages.catalog.category' , $this->view_data);
     }
 
+    public function secondhandcatalog($slug=null, Request $request){
+        $slug = $slug ? $slug : 'novel';
+        $this->view_data['cod'] = $this->postRepository->findById(151);
+//        $this->view_data['category'] =$this->facultyRepository->getAll();
+//        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+//        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->findBy('sub_category',$slug,'=',true,12);
+        return view('web.pages.secondhand.catalog.novel' , $this->view_data);
+    }
      public function productDetails($id=null, Request $request){
          $this->view_data['authUser']=Auth::User();
          $this->view_data['cod'] = $this->postRepository->findById(151);

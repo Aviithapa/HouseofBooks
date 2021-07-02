@@ -16,6 +16,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/catalog/sub_category/{slug}','HomeController@categoryCatalog');
     Route::get('/catalog/nobel/{slug}','HomeController@NobelCatalog');
     Route::get('/catalog/{slug}','HomeController@catalog');
+    Route::get('/secondhand/catalog/{slug}','HomeController@secondhandcatalog');
     Route::get('/cart','HomeController@cart')->middleware('auth');
     Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth');
     Route::get('search','HomeController@search')->name('search');

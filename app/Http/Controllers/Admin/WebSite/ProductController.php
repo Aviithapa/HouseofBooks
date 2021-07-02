@@ -222,7 +222,7 @@ class ProductController extends BaseController
                 else
                     $this->productRepository->delete($id);
                 session()->flash('success', 'Book deleted successfully');
-                return redirect()->back();
+                return redirect()->route('dashboard');
             } catch (\Exception $e) {
                 $this->log->error('Content delete : ' . $e->getMessage());
                 session()->flash('danger', 'Oops! Something went wrong.');
@@ -247,7 +247,7 @@ class ProductController extends BaseController
                     return redirect()->back()->withInput();
                 }
                 session()->flash('success', 'Book have been added Sucessfully');
-                return redirect()->back();
+                return redirect()->route('dashboard');
             } catch (\Exception $e) {
                 $this->log->error('User update : ' . $e->getMessage());
                 session()->flash('danger', 'Oops! Something went wrong.');

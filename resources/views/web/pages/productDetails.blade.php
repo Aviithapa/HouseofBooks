@@ -1,7 +1,6 @@
 @extends('web.layouts.app')
 
 @section('content')
-    <!-- Main Content - start -->
     <main>
         <section class="container" >
 
@@ -15,40 +14,26 @@
                     <div class="prod-slider-wrap">
                         <div class="prod-slider">
                             <ul class="prod-slider-car">
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandFrontImage()}}">
-                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandBackImage()}}">
-                                        <img src="{{$product->getSecondHandBackImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getSecondHandEditionImage()}}">
-                                        <img src="{{$product->getSecondHandEditionImage()}}" alt="">
-                                    </a>
-                                </li>
+                                <?php $picture = explode(",", $product->image);
+                                for($i=0;$i<count($picture);$i++) {?>
+                                    <li>
+                                        <a data-fancybox-group="product" class="fancy-img" href="{{ asset('/storage/product_image/'.$picture[$i]) }}">
+                                            <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" alt="{{$product->name}}" onclick="onClick(this)" class="modal-hover-opacity">
+                                        </a>
+                                    </li>
+                                <?php }?>
                             </ul>
                         </div>
                         <div class="prod-thumbs">
                             <ul class="prod-thumbs-car">
-                                <li>
-                                    <a data-slide-index="0" href="#">
-                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-slide-index="1" href="#">
-                                        <img src="{{$product->getSecondHandBackImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-slide-index="2" href="#">
-                                        <img src="{{$product->getSecondHandEditionImage()}}" alt="">
-                                    </a>
-                                </li>
+                                <?php $picture = explode(",", $product->image);
+                                for($i=0;$i<count($picture);$i++) {?>
+                                    <li>
+                                        <a data-slide-index="{{$i}}" href="#">
+                                            <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" alt="">
+                                        </a>
+                                    </li>
+                                 <?php }?>
                             </ul>
                         </div>
                     </div>
@@ -157,7 +142,8 @@
                                     <img src="{{$related_product->getImage()}}" oncontextmenu="return false;" alt="{{$related_product->name}}">
                                 </a>
                                 <div class="prod-rel-cont">
-                                    <h4><a href="{{url('productDetails/'.$related_product->id)}}" style="color: black !important;">{{$related_product->name}}</a></h4>
+                                    <p><a href="{{url('productDetails/'.$related_product->id)}}" style="color: black !important;">{{$related_product->name}}</a></p>
+                                    <p style="color:#25a521 !important;">Rs: {{$related_product->getDicountedPrice()}}</p> <a href="{{url('add/to/cart/'.$product->id)}}" style="color:#FF8800 !important;"> <i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </div>
                             @endforeach
