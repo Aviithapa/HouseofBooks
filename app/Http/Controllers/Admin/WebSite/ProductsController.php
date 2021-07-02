@@ -165,6 +165,7 @@ class ProductsController extends BaseController
         $this->viewData['faculty']=$this->facultyRepository->getAll();
         $this->viewData['semester']=$this->semesterRepository->getAll();
         $this->viewData['category']=$this->categoryRepository->getAll();
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         $product=$this->productRepository->findById($id);
         return $this->view('web-site.products.edit', compact('role','product'),$this->viewData);
     }

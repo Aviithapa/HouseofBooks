@@ -5,7 +5,7 @@
     {{ Form::open(['url' => route('dashboard.products.store'), 'method' => 'post', 'files' => true, 'enctype'=>"multipart/form-data"]) }}
 @endif
 
-
+<link rel="stylesheet" href="https://vendor/jquery/jquery-ui/jquery-ui.css">
 <div class="grid simple ">
     <div class="grid-body ">
         <div class="row">
@@ -47,14 +47,23 @@
                 </div>
             </div>
         </div>
-        <div class="row" id="university">
-            <div class="col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-md-6 col-lg-6" id="university">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
                     {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University'),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            @if ($role === "administrator")
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('status', 'Status:', ['class' => 'form-label']) !!}
+                    {!! Form::select('status', getActiveInactiveStatus(), null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+                @endif
 
         </div>
         <div class="row" id="publication">
@@ -120,6 +129,15 @@
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            @if ($role === "administrator")
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
+                        {!! Form::number('discount',null, ['class' => 'form-control','required']) !!}
+                        {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
+                    </div>
+                </div>
+                @endif
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -202,6 +220,11 @@
 @push('scripts')
     @include('admin.partials.common.file-upload');
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script src="https://vendor/jquery/jquery-3.2.1.min.js"></script>
+
+
+    <script src="https://vendor/jquery/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+
     <script>
         function change() {
             var faculty = document.getElementById("fac").value;
@@ -275,5 +298,15 @@
             });
         });
 
+    </script>
+    <script>
+        $(document).ready(function () {
+            var dropIndex;
+            $("#thumb-output").sortable({
+                update: function(event, ui) {
+                    dropIndex = ui.item.index();
+                }
+            });
+        });
     </script>
 @endpush

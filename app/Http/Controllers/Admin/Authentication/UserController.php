@@ -263,5 +263,9 @@ class UserController extends BaseController
         }
     }
 
+    public function marking(UpdateUserRequest $updateUserRequest, $id){
+
+    }
+
 
 }

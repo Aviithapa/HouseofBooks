@@ -485,7 +485,10 @@ class HomeController extends BaseController
     public function search(Request $request)
     {
         $this->view_data['cod'] = $this->postRepository->findById(151);
-            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")->get();
+            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")
+                                            ->where('faculty','LIKE', '%' . $request->search . "%")
+                                            ->where('sub_category','LIKE', '%' . $request->search . "%")
+                                            ->get();
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
                $this->view_data['notfound'] = $this->postRepository->findById(150);

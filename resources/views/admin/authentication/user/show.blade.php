@@ -55,8 +55,28 @@
                                                         EDIT
                                                     </span>
                                                 </a>
+                                                <a href="{{route('dashboard.users.edit', $user->id)}}"
+                                                   class="btn btn-danger">
+                                                    <span class="">
 
+                                                    </span>
+                                                </a>
                                             </h5>
+                                            <h5 class="normal">
+                                                <a href="{{route('dashboard.users.edit', $user->id)}}"
+                                                   class="btn btn-primary">
+                                                    <span class="">
+                                                        Positive Rating
+                                                    </span>
+                                                </a>
+                                                <a href="{{route('dashboard.users.edit', $user->id)}}"
+                                                   class="btn btn-danger">
+                                                    <span class="">
+                                                        Negative Rating
+                                                    </span>
+                                                </a>
+                                            </h5>
+
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
