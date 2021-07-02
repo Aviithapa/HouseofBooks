@@ -1,4 +1,4 @@
-Hi <strong>{{ $user->name }}</strong>,
+Hi <strong>{{ $user }}</strong>,
 
 <p>{{$message}}</p>
 <strong>

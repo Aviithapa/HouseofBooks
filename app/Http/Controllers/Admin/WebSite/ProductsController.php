@@ -133,7 +133,7 @@ class ProductsController extends BaseController
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
-            $mailData = array('name'=>$data['user_id']);
+            $mailData = array('name'=>$data['name']);
 
             Mail::send('emails.bookupload', $mailData, function($message) use ($mailData) {
                 $message->to('houseofbooksnepal@gmail.com')
