@@ -104,6 +104,7 @@ class ProductsController extends BaseController
     {
         $data = $createProductRequest->all();
         $data['user_id']=Auth::user()['id'];
+        $data['category']="second-hand";
         $images = $createProductRequest->file('files');
         if ($createProductRequest->hasFile('files')) :
             foreach ($images as $item):
@@ -181,6 +182,7 @@ class ProductsController extends BaseController
     {
         $slug=$this->productRepository->findById($id)['slug'];
         $data = $updateProductRequest->all();
+        $data['category']="second-hand";
         $oldimages=$this->productRepository->findById($id)['image'];
 
         $images = $updateProductRequest->file('files');
