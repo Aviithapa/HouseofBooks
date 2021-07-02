@@ -3,7 +3,7 @@
 @section('content')
     @include('admin.partials.common.page-title', ['page_title' => 'Product View'])
     <style>
-        .modal {
+        .modals {
             z-index:1;
             display:none;
             padding-top:10px;
@@ -17,7 +17,7 @@
             background-color:rgba(0,0,0,0.8)
         }
 
-        .modal-content{
+        .modals-content{
             margin: auto;
             display: block;
             position: absolute;
@@ -78,9 +78,9 @@
                                     <img  src="{{ asset('/storage/product_image/'.$picture[$i]) }}"  style="width: 200px;cursor:pointer" onclick="onClick(this)" class="modal-hover-opacity"/>
                                     <?php }?>
                             </div>
-                            <div id="modal01" class="modal" onclick="this.style.display='none'">
+                            <div id="modal01" class="modals" onclick="this.style.display='none'">
                                 <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <div class="modal-content">
+                                <div class="modals-content">
                                     <img id="img01" style="max-width:100%">
                                 </div>
                             </div>
