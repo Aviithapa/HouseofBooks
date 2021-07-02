@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
@@ -264,8 +265,34 @@ class UserController extends BaseController
         }
     }
 
-    public function marking(UpdateUserRequest $updateUserRequest, $id){
-
+    public function rating(Request $updateUserRequest, $id,$rating){;
+          $use=$updateUserRequest->all();
+          $user=$this->userRepository->findById($id);
+          $rate=$user['rating'] + $rating;
+          $use['rating']=$rate;
+        try {
+            $user = $this->userRepository->update($use, $id);
+            if ($rating<0) {
+                $mailData = array('user' => $user, 'message' => $updateUserRequest->message);
+                Mail::send('emails.negativeRating', $mailData, function ($message) use ($user) {
+                    $message->to($user['email'])
+                        ->subject('Negative Rating');
+                    $message->from('sales@houseofbooks.com.np');
+                });
+            }
+            if($user == false)
+            {
+                session()->flash('danger', 'Oops! Something went wrong.');
+                return redirect()->back()->withInput();
+            }
+            session()->flash('success', 'Rating updated');
+            return redirect()->back();
+        }
+        catch (\Exception $e) {
+            $this->log->error('User update : '.$e->getMessage());
+            session()->flash('danger', 'Oops! Something went wrong.');
+            return redirect()->back();
+        }
     }
 
 

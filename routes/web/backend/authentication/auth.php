@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Authentication'], function () {
             'show' => 'dashboard.users.show',
             'update' => 'dashboard.users.update',
             'edit' => 'dashboard.users.edit',
+            'rating' => 'dashboard.users.rating',
             'destroy' => 'dashboard.users.destroy',
         ]
     ]);
@@ -42,6 +43,8 @@ Route::group(['namespace' => 'Authentication'], function () {
     Route::get('profile', 'UserController@getProfile')->name('dashboard.users.profile.get');
 
     Route::post('profile', 'UserController@postProfile')->name('dashboard.users.profile.post');
+
+    Route::get('users/rating/{id}/{rating}', 'UserController@rating')->name('dashboard.users.rating');
 
     Route::match(['put', 'patch'], 'users/approve/{user}', 'UserController@approve')->name('dashboard.users.approve');
 
