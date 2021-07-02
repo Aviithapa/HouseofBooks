@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin\WebSite;
 use App\Http\Controllers\Admin\BaseController;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
+use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
@@ -19,18 +20,23 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ProductsController extends BaseController
 {
-    private $productRepository, $log ,$facultyRepository, $semesterRepository, $categoryRepository;
+    private $productRepository, $log ,$facultyRepository, $semesterRepository, $categoryRepository, $postRepository;
     private $commonRoute='dashboard.products';
     private $commonView='web-site.products.';
     private $commonMessage='Product';
     private $viewData;
-    public function __construct(Log $log, ProductRepository $productRepository , FacultyRepository $facultyRepository,SemesterRepository $semesterRepository, CategoryRepository $categoryRepository)
+    public function __construct(Log $log, ProductRepository $productRepository ,
+                                FacultyRepository $facultyRepository,
+                                SemesterRepository $semesterRepository,
+                                PostRepository $postRepository,
+                                CategoryRepository $categoryRepository)
     {
 
         $this->productRepository = $productRepository;
         $this->facultyRepository = $facultyRepository;
         $this->semesterRepository = $semesterRepository;
         $this->categoryRepository=$categoryRepository;
+        $this->postRepository=$postRepository;
         $this->log = $log;
         $this->viewData['commonRoute']=$this->commonRoute;
         $this->viewData['commonView']=$this->commonView;
@@ -91,6 +97,7 @@ class ProductsController extends BaseController
         $this->viewData['faculty']=$this->facultyRepository->getAll();
         $this->viewData['semester']=$this->semesterRepository->getAll();
         $this->viewData['category']=$this->categoryRepository->getAll();
+        $this->viewData['terms']=$this->postRepository->findById(152);
         return $this->view('web-site.products.create',$this->viewData);
     }
 
@@ -166,6 +173,7 @@ class ProductsController extends BaseController
         $this->viewData['faculty']=$this->facultyRepository->getAll();
         $this->viewData['semester']=$this->semesterRepository->getAll();
         $this->viewData['category']=$this->categoryRepository->getAll();
+        $this->viewData['terms']=$this->postRepository->findById(152);
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         $product=$this->productRepository->findById($id);
         return $this->view('web-site.products.edit', compact('role','product'),$this->viewData);

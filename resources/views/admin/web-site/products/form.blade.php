@@ -4,6 +4,80 @@
 @else
     {{ Form::open(['url' => route('dashboard.products.store'), 'method' => 'post', 'files' => true, 'enctype'=>"multipart/form-data"]) }}
 @endif
+<style>
+    /* The Modal (background) */
+    .w3-modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width : 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .w3-modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    /* The Close Button */
+    .w3-button {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .w3-button:hover,
+    .w3-button:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    span:hover{
+        cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+    }
+
+    .modal-body {padding: 2px 16px;}
+
+    .modal-footer {
+        padding: 2px 16px;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+        from {bottom: -300px; opacity: 0}
+        to {bottom: 0; opacity: 1}
+    }
+
+    @keyframes slideIn {
+        from {bottom: -300px; opacity: 0}
+        to {bottom: 0; opacity: 1}
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+</style>
 
 <link rel="stylesheet" href="https://vendor/jquery/jquery-ui/jquery-ui.css">
 <div class="grid simple ">
@@ -19,7 +93,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('condition', ' Condition:', ['class' => 'form-label']) !!}
-                    {!! Form::select('condition',getCondition(),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('condition',getCondition(),null, ['class' => 'form-control' ,'id' => 'condition', "onchange" => "Cond()"]) !!}
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -129,6 +203,7 @@
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+
             @if ($role === "administrator")
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
@@ -137,7 +212,16 @@
                         {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                     </div>
                 </div>
-                @endif
+                @else
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
+                        {!! Form::number('discount',null, ['class' => 'form-control',"readonly",'id'=>'discount']) !!}
+                        {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
+{{--                        <small>Discount percent is based on book condition. For more info please read <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'"> terms and condition </span></small>--}}
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -183,7 +267,7 @@
                     {!! Form::label('slider', 'Image:') !!}
                     <small>Size: 1600*622 px</small><br>
                     <strong>Image Order: Front Page, Back Page , Edition Page</strong><br>
-                    <span class="danger">By uploading your books you are agree with our terms and condition</span>
+                    <small class="danger">By uploading your books you  agree with our <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'">terms and condition</span></small>
                     <input type="file" id="product_image" name="files[]" multiple>
                     <small id="slider_help_text" class="help-block"></small>
                     <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
@@ -215,6 +299,22 @@
 
 
 {{ Form::close() }}
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+            <div class="modal-header">
+                <span class="w3-button w3-display-topright"  onclick="document.getElementById('id01').style.display='none'" >&times;</span>
+                <h2 style="color: #ff682c">Terms And Condition</h2>
+            </div>
+            <div class="modal-body">
+                {!!html_entity_decode($terms->content)!!}
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
 
 
 @push('scripts')
@@ -257,6 +357,30 @@
             $("#year").hide();
             $("#sem").show();
         });
+        $(document).ready(function () {
+            var condition=document.getElementById("condition").value;
+            var discount=document.getElementById("discount");
+            if(condition==="brand_new"){
+                discount.value="40"
+            }else if(condition==="near_fine"){
+                discount.value="50"
+            }
+            else if(condition==="average"){
+                discount.value="60"
+            }
+            else if(condition==="poor"){
+                discount.value="70"
+            }
+
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
+            }
+        })
         function run() {
             var sub_category=document.getElementById("subCategory").value;
             if(sub_category==="novel"){
@@ -271,6 +395,21 @@
                 $("#publication").show();
                 $("#semester").show();
                 $("#level").show()
+            }
+        }
+        function Cond() {
+            var condition=document.getElementById("condition").value;
+            var discount=document.getElementById("discount");
+            if(condition==="brand_new"){
+              discount.value="40"
+            }else if(condition==="near_fine"){
+                discount.value="50"
+            }
+            else if(condition==="average"){
+                discount.value="60"
+            }
+            else if(condition==="poor"){
+                discount.value="70"
             }
         }
         $(document).ready(function(){
@@ -308,5 +447,13 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        window.onclick = function(event) {
+            if (event.target == id01) {
+                id01.style.display = "none";
+            }
+        }
     </script>
 @endpush

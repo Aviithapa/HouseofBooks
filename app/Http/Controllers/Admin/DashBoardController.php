@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\WebSite\PostController;
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
+use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,14 +16,16 @@ class DashBoardController extends BaseController
 {
     private $userRepository;
     private $donorRepository;
-    private $productRepository;
+    private $productRepository, $postRepository;
+
 
     public function __construct(UserRepository $userRepository, DonationRepository $donorRepository,
-ProductRepository $productRepository)
+ProductRepository $productRepository,PostRepository $postRepository)
     {
         $this->userRepository = $userRepository;
         $this->donorRepository=$donorRepository;
         $this->productRepository=$productRepository;
+        $this->postRepository=$postRepository;
         parent::__construct();
     }
 
@@ -35,7 +39,8 @@ ProductRepository $productRepository)
                 break;
             case 'customer':
                 $product = $this->productRepository->findBy('user_id',Auth::user()['id'],'=');
-                return $this->view('dashboard.customer',compact('product'));
+                $terms= $this->postRepository->findById(152);
+                return $this->view('dashboard.customer',compact('product',"terms"));
                 break;
             case 'b2b_agent':
                 return $this->view('dashboard.b2b-agent');
