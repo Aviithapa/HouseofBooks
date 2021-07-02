@@ -274,10 +274,10 @@ class UserController extends BaseController
             $user = $this->userRepository->update($use, $id);
             if ($rating<0) {
                 $mailData = array('user' => $user, 'message' => $updateUserRequest->message);
-                Mail::send('emails.negativeRating', $mailData, function ($message) use ($user) {
+                Mail::send('emails.negativeRating', $mailData, function ($message) use ($user, $mailData) {
                     $message->to($user['email'])
                         ->subject('Negative Rating');
-                    $message->from('sales@houseofbooks.com.np');
+                    $message->from('houseofbooksnepal@gmail.com');
                 });
             }
             if($user == false)
