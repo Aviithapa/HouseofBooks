@@ -44,7 +44,7 @@
                         <input id="password-confirm" placeholder="Confirm Password" type="password"  name="password_confirmation" required>
 
                 <label style="display: flex;text-align: left !important; align-items: unset !important; padding: 0px !important; ">
-                    <input type="checkbox" style="width: unset !important; margin-top: 2px !important;" required> I agree with the <a style="color: #FF8800 !important;" href="{{url('/termsandcondition')}}"> terms and condition</a>
+                    <input type="checkbox" style="width: unset !important; margin-top: 2px !important;" required> I agree with the <a style="color: #FF8800 !important;" href="{{url('/termsandcondition')}}" target="_blank"> terms and condition</a>
                 </label>
                                 <button type="submit">Register</button>
             </form>

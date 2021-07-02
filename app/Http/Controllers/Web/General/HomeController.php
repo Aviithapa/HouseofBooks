@@ -197,6 +197,7 @@ class HomeController extends BaseController
 
                     break;
                 case 'termsandcondition':
+                    $this->view_data['terms']=$this->postRepository->findById(152);
                     break;
 
                 case 'sell-book-index':

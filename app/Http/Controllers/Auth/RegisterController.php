@@ -6,6 +6,8 @@ use App\Http\Controllers\MailController;
 use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Http\Controllers\Controller;
+use App\Models\Website\Post;
+use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -38,8 +40,10 @@ class RegisterController extends Controller
     /**
      * RegisterController constructor.
      */
-    public function __construct()
+    private $postRepository;
+    public function __construct(PostRepository $postRepository)
     {
+        $this->postRepository=$postRepository;
         $this->middleware('guest');
     }
 
@@ -53,7 +57,8 @@ class RegisterController extends Controller
     public function showRegistrationForm($role)
     {
         $authUser=Auth::User();
-        return view('auth.register', compact('role','authUser'));
+        $terms=$this->postRepository->findById(152);
+        return view('auth.register', compact('role','authUser','terms'));
     }
 
 
