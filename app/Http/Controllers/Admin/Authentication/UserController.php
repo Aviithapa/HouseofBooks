@@ -44,6 +44,7 @@ class UserController extends BaseController
     public function index()
     {
         $this->authorize('read',$this->userRepository->getModel());
+        $users = $this->userRepository->getAllForDataTable();
         if(\request()->ajax()) {
             $users = $this->userRepository->getAllForDataTable();
             return DataTables::of($users)
