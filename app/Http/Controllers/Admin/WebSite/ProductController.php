@@ -246,8 +246,8 @@ class ProductController extends BaseController
                     session()->flash('danger', 'Oops! Something went wrong.');
                     return redirect()->back()->withInput();
                 }
-                session()->flash('success', 'Book have been added Sucessfully');
-                return redirect()->route('dashboard');
+                session()->flash('success', 'Book have been added Successfully');
+                return redirect()->route('dashboard.index');
             } catch (\Exception $e) {
                 $this->log->error('User update : ' . $e->getMessage());
                 session()->flash('danger', 'Oops! Something went wrong.');
