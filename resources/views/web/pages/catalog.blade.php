@@ -138,7 +138,7 @@
                 <div class="prod-items section-items">
                     @include('web.pages.flash-message')
                 @foreach($products as $product)
-                        @if($product->status=='active' && $product->category != "second-hand-book")
+                        @if($product->status=='active' && $product->category != "second-hand")
 
                     <div class="prod-i">
                         <div class="prod-i-top">

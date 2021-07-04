@@ -77,6 +77,15 @@
         from {opacity: 0}
         to {opacity: 1}
     }
+    .pip {
+        display: inline-block;
+        position: relative;
+    }
+    .remove {
+        position: absolute;
+        top: 0;
+        color: red;
+    }
 </style>
 
 <link rel="stylesheet" href="https://vendor/jquery/jquery-ui/jquery-ui.css">
@@ -255,6 +264,7 @@
                 <div class="col-md-12 col-lg-12">
                 </div>
                 <div id="thumb-output">
+
                     @if(isset($model))
                                <?php $picture = explode(",", $model->image);
                                  for($i=0;$i<count($picture);$i++) {?>
@@ -262,6 +272,7 @@
                                  <?php }?>
 
                     @endif
+
                 </div>
                 <div class="form-group col-md-12 col-lg-12">
                     {!! Form::label('slider', 'Image:') !!}
@@ -380,7 +391,7 @@
                 $("#year").hide();
                 $("#sem").show();
             }
-        })
+        });
         function run() {
             var sub_category=document.getElementById("subCategory").value;
             if(sub_category==="novel"){
@@ -413,27 +424,66 @@
             }
         }
         $(document).ready(function(){
-            $('#product_image').on('change', function(){ //on file input change
+            var fileIdCounterOnload = 0;
+            var filesToUpload = [];
+            var fileIdCounter = 0;
+            $('#product_image').on('change', function(evt){ //on file input change
                 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
                 {
+                    for (var i = 0; i < evt.target.files.length; i++) {
+                        fileIdCounter++;
+
+                        var file = evt.target.files[i];
+                        var fileId = "file" + fileIdCounter;
+
+                        filesToUpload.push({
+                            id: fileId,
+                            file: file
+                        });
+                    }
                     var data = $(this)[0].files; //this file data
 
-                    $.each(data, function(index, file){ //loop though each file
-                        if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+
+                    $.each(data, function (index, file) { //loop though each file
+                        if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
+
+
                             var fRead = new FileReader(); //new filereader
-                            fRead.onload = (function(file){ //trigger function on successful read
-                                return function(e) {
-                                    var img = $('<img/>').addClass('thumb').attr('src', e.target.result); //create image element
-                                    $('#thumb-output').append(img); //append image to output element
+                            fRead.onload = (function (file) { //trigger function on successful read
+                                return function (e) {
+                                    fileIdCounterOnload++;
+
+                                    var fileIdOnload = "file" + fileIdCounterOnload;
+                                    var img = $("<li class=\"pip\"  data-fileid=\"" + fileIdOnload + "\">" +
+                                        "<img class=\'thumb\' src=\"" + e.target.result + "\">" +
+                                        "<i class=\"fa fa-times-circle fa-2x remove removeFile\"  data-fileid=\"" + fileIdOnload + "\"></i> " +
+                                        "</li>");
+
+                                    $('#thumb-output').append(img) //append image to output element
+                                    $(".remove").click(function () {
+
+                                        var fileId = $(this).parent(".pip").data("fileid");
+
+                                        // loop through the files array and check if the name of that file matches FileName
+                                        // and get the index of the match
+                                        for (var i = 0; i < filesToUpload.length; ++i) {//here will start compare them
+                                            if (filesToUpload[i].id === fileId) {
+                                                filesToUpload.splice(i, 1);// delete a file from list.
+                                            }
+                                        }
+                                        $(this).parent(".pip").remove();// remove file from view .
+                                    });
+
                                 };
+
                             })(file);
                             fRead.readAsDataURL(file); //URL representing the file's data.
                         }
                     });
-
                 }else{
                     alert("Your browser doesn't support File API!"); //if File API is absent
                 }
+
             });
         });
 

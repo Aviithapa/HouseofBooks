@@ -258,4 +258,38 @@ class ProductController extends BaseController
         }
 
     }
+
+
+    public function secondhand(){
+        dd("You are here");
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        dd(
+            $role
+        );
+        if ($role === "administrator") {
+            $product = $this->productRepository->getAll()->where('sub_category','=', 'second-hand');
+            if (\request()->ajax()) {
+                return DataTables::of($product)
+                    ->addColumn('action', function ($products) {
+                        $data = $products;
+                        $name = 'dashboard.product';
+                        $view = true;
+                        return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
+                    })
+                    ->editColumn('product_image', function ($product) {
+                        $url = asset($product->getImage());
+                        return '<img src=' . $url . ' border="0" width="40"  />';
+                    })
+                    ->editColumn('id', 'ID: {{$id}}')
+                    ->rawColumns(['product_image', 'action'])
+                    ->make(true);
+
+            }
+            $this->viewData['role'] = $role;
+            $this->viewData['categories'] = $this->facultyRepository->getAll();
+            return $this->view('web-site.product.secondhand', $this->viewData);
+        }else{
+            return redirect()->route('dashboard.products.index');
+        }
+    }
 }

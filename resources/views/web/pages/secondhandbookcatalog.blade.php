@@ -145,7 +145,7 @@
                  <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
                 <div class="row">
                     @foreach($books as $product)
-                        @if($product->status=='active' && $product->level=="bachelor" )
+                        @if($product->status=='active' && $product->level=="bachelor" && $product->sub_category=="coursebook")
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">
@@ -166,7 +166,7 @@
                 <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="master")
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="master" && $product->sub_category=="coursebook")
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
@@ -187,7 +187,7 @@
                 <div class="contentsecondhand tabcontents" id="+2" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="+2")
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="+2" && $product->sub_category=="coursebook")
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
@@ -208,7 +208,7 @@
                 <div class="contentsecondhand tabcontents" id="10" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="10")
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="10" && $product->sub_category=="coursebook")
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
@@ -229,7 +229,7 @@
                 <div class="contentsecondhand tabcontents" id="foreign" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" )
+                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" && $product->sub_category=="coursebook")
                                 <div class="columns">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">

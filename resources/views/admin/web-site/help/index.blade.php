@@ -2,7 +2,7 @@
 @extends('admin.layout.app')
 
 @section('content')
-    <div>
+    <div class="container" style="margin-top: 30px">
         <div class="row-fluid">
             <div class="span12">
                 <div class="grid simple ">
@@ -16,11 +16,10 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>Problem</th>
-                                <th>Message</th>
+                                <th>Book Name</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th class="disabled-sorting">Action</th>
                             </tr>
                             </thead>
                         </table>
@@ -36,14 +35,14 @@
         $('#data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ route('dashboard.help.index')}}',
+            ajax: '{{ route('dashboard.products.index') }}',
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'phone', name: 'phone'},
-                {data: 'email', name: 'email'},
-                {data: 'problem', name: 'problem'},
-                {data: 'message', name: 'message'},
+                {data: 'sub_category', name: 'sub_category'},
+                {data: 'product_image', name: 'product_image'},
+               {data: 'status', name: 'status'},
+            {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
     </script>

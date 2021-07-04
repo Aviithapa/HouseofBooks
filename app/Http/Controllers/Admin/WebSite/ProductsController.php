@@ -134,7 +134,6 @@ class ProductsController extends BaseController
                 return redirect()->back()->withInput();
             }
             $mailData = array('name'=>$data['name']);
-
             Mail::send('emails.bookupload', $mailData, function($message) use ($mailData) {
                 $message->to('houseofbooksnepal@gmail.com')
                     ->subject('Welcome to our Website');

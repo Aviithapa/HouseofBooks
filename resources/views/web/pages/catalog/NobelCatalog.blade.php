@@ -137,7 +137,7 @@
                 <div class="prod-items section-items">
                     @include('web.pages.flash-message')
                     @foreach($products as $product)
-                        @if($product->status=='active' && $product->category != "second-hand-book")
+                        @if($product->status=='active' && $product->category != "second-hand")
 
                             <div class="prod-i">
                                 <div class="prod-i-top">
@@ -145,7 +145,7 @@
                                     <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
                                 </div>
                                 <div class="prod-sticker">
-                                    <p class="prod-sticker-3">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                                    <p class="prod-sticker-3" style="background-color: #FF8800 !important;">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
                                 </div>
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 28) }}</a>

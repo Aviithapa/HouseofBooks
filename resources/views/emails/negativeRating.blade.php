@@ -1,6 +1,6 @@
-Hi <strong>{{ $user }}</strong>,
+Hi <strong>{{ $name }}</strong>,
 
-<p>{{$message}}</p>
+<p>{{(string)$message}}</p>
 <strong>
     <br><br>
     Thank you!

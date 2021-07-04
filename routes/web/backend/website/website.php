@@ -1,7 +1,4 @@
 <?php
-
-
-
 Route::group(['namespace' => 'WebSite'], function () {
 
     Route::resource('posts', 'PostController', [
@@ -165,6 +162,7 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show' => 'dashboard.product.show',
             'update' => 'dashboard.product.update',
             'destroy' => 'dashboard.product.destroy',
+
         ]
     ]);
     Route::resource('products','ProductsController',[
@@ -233,5 +231,4 @@ Route::group(['namespace' => 'WebSite'], function () {
         ]
     ]);
     Route::match(['put', 'patch'], 'product/approve/{event}', 'ProductController@approve')->name('dashboard.product.approve');
-
 });
