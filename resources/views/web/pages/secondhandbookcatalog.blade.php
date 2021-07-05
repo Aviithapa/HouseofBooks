@@ -144,7 +144,7 @@
             </div>
 
 
-                <div id="bachelor">
+                <div id="bachelor" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: block;">
                             @if(count($books) > 5)
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
