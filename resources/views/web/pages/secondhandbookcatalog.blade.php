@@ -149,24 +149,16 @@
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
                                     @foreach($books as $product)
-                               <div class="owl-item">
-                                <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
-                                    <a href="{{url("productDetails/".$product->id)}}">
-                                        <div class="bbb_viewed_image" style="width: 100px !important; height: 100px !important;"><img src="{{$product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"></div>
-                                    </a>
-                                    <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
-                                        <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($product->name, 18) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="mt-3">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$product->getDicountedPrice()}}</button>
-                                            <a href="{{url('add/to/cart/'.$product->id)}}">
-                                                <button class="btn btn-primary btn-round-sm btn-sm cart-button" >ADD TO CART</button>
-                                            </a>
-                                        </p>
-
-                                        <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
-                                    </div>
-                                </div>
+                               <div class="owl-item cardsecondhand">
+                                   <a href="{{url("productDetails/".$product->id)}}">
+                                       <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                   </a>
+                                   <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                   <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                   <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                   <p class="prod-i-price">
+                                       <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                   </p>
                             </div>
                                     @endforeach
 
