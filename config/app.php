@@ -198,6 +198,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 

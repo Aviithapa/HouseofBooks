@@ -175,6 +175,16 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.products.destroy',
         ]
     ]);
+    Route::resource('secondhand','SecondHandController',[
+        'names' => [
+            'index' => 'dashboard.secondhand.index',
+            'create' => 'dashboard.secondhand.create',
+            'store' => 'dashboard.secondhand.store',
+            'edit' => 'dashboard.secondhand.edit',
+            'update' => 'dashboard.secondhand.update',
+            'destroy' => 'dashboard.secondhand.destroy',
+        ]
+    ]);
     Route::resource('order','OrderController',[
         'names' => [
             'index' => 'dashboard.order.index',

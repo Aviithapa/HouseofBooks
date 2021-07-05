@@ -148,9 +148,11 @@ class OrderController extends BaseController
         try {
             $order = $this->orderRepository->update($data, $id);
             $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
-            Mail::send('emails.orderInvoice', $mailData, function($message) use ($order) {
+            $pdf = (new \Barryvdh\DomPDF\PDF)->loadView('emails.orderInvoice', $mailData);
+            Mail::send('emails.orderInvoice', $mailData, function($message) use ($order, $pdf) {
                 $message->to( $order['email'])
-                    ->subject('Order Details update');
+                    ->subject('Order Details update')
+                    ->attachData($pdf->output(), "text.pdf");
                 $message->from('sales@houseofbooks.com.np');
             });
             if($order == false) {

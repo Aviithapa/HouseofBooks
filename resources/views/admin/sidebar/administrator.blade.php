@@ -73,12 +73,12 @@
                     <span class="title">Add Book</span>
                 </a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{route('dashboard.help.index')}}">--}}
-{{--                    <i class="material-icons">book</i>--}}
-{{--                    <span class="title">Second Hand Book</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{route('dashboard.secondhand.index')}}">
+                    <i class="material-icons">book</i>
+                    <span class="title">Second Hand Book</span>
+                </a>
+            </li>
             <li>
                 <a href="{{route('dashboard.order.index')}}">
                     <i class="fa fa-list"></i>
