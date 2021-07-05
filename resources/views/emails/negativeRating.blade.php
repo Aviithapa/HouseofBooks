@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="description" content="`{{isset($pageContent->meta_description)?$pageContent->meta_description:""}}`">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .body{
             background-color: #eeeeee;
@@ -72,9 +71,9 @@
             Website:http://houseofbooks.com.np<br>
         </div>
     </div>
-    Hi <strong>{{ $name }}</strong>,
-    <p>You got a negative marking please verify the message or contact to houseofbooksnepal for further information</p>
-    <p>{{(string)$message}}</p>
+    Hi <strong>{{ $user->name }}</strong>,
+    <p>You got a negative marking please verify the message or contact to house of books nepal for further information</p>
+    <p>{{$user->message}}</p>
     <strong>
         <br><br>
         Thank you!

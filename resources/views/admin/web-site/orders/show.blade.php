@@ -43,7 +43,10 @@
                         <div class="col-4">
                             <b>Order ID:</b> {{ $order->id }}<br>
                             <b>Amount:</b> {{ round($order->grand_total, 2) }}<br>
+                            <b>Delivery Charge:</b> {{ $order->delivery_charge }}<br>
+                            <b>Total Amount:</b> {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
                             <b>Order Status:</b> {{ $order->status }}<br>
+
                         </div>
                     </div>
                     <div class="row">
@@ -68,6 +71,13 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="total" style="height: 100px ; width: 100%;">
+                            <div class="jst" style="right: 0; bottom: 0; position: absolute; margin-right: 120px; height: 100px ">
+                            <b>Amount:</b>RS  {{ round($order->grand_total, 2) }}<br>
+                            <b>Delivery Charge:</b>RS {{ $order->delivery_charge }}<br>
+                            <b>Total Amount: </b> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
+                            </div>
                         </div>
                     </div>
                 </section>

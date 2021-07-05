@@ -52,7 +52,8 @@ class User extends Authenticatable
         'bank_voucher',
         'type',
         'verification_code',
-        'rating'
+        'rating',
+        'message'
 
     ];
 

@@ -15,6 +15,13 @@
                     {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('delivery_charge', 'Delivery Charge', ['class' => 'form-label']) !!}
+                    {!! Form::number('delivery_charge',null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('delivery_charge', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
         </div>
     </div>
 </div>
