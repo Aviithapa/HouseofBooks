@@ -207,7 +207,9 @@ class HomeController extends BaseController
                     $this->view_data['learn_more_btn']=$this->postRepository->findById(149);
                     break;
                 case 'secondhandbookcatalog':
-                    $this->view_data['books'] =$this->productRepository->findBy('category','second-hand','=',true,5);
+                    $this->view_data['books'] =$this->productRepository->getAll()->where('category','=','second-hand')
+                                                                        ->where('status','=','active')
+                                                                        ->where('sub_category','=','coursebook');
                     $this->view_data['banner'] =$this->postRepository->findById(144);
                     $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;

@@ -144,8 +144,29 @@
             </div>
                  <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
                 <div class="row">
+
                     @foreach($books as $product)
-                        @if($product->status=='active' && $product->level=="bachelor" && $product->sub_category=="coursebook")
+                            @if(count($books) > 5)
+                            <div class="owl-item">
+                                <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
+                                    <a href="{{url("productDetails/".$product->id)}}">
+                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"></div>
+                                    </a>
+                                    <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
+                                        <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($product->name, 18) }} </h5>
+                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                        <p class="mt-3">
+                                            <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$product->getDicountedPrice()}}</button>
+                                            <a href="{{url('add/to/cart/'.$product->id)}}">
+                                                <button class="btn btn-primary btn-round-sm btn-sm cart-button" >ADD TO CART</button>
+                                            </a>
+                                        </p>
+
+                                        <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            @else
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">
@@ -159,8 +180,9 @@
                                     </p>
                                 </div>
                             </div>
-                        @endif
+                            @endif
                     @endforeach
+
                 </div>
             </div>
                 <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
@@ -353,10 +375,10 @@
                     </div>
                 </div>
                 <div class="contentsecondhand tabcontentes" id="foreigns" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
+                    <div class="row carousel-showmanymoveone" id="itemslider">
                         @foreach($products as $product)
                             @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" && $product->sub_category=="question-bank-and-solution"  )
-                                <div class="columns">
+                                <div class="columns item">
                                     <div class="cardsecondhand">
                                         <a href="{{url("productDetails/".$product->id)}}">
                                             <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -377,7 +399,7 @@
             <div class="clearfix"></div>
         </section>
     </main>
-    <!-- Main Content - end -->
+        <!-- Main Content - end -->
 @endsection
 
 @push('scripts')
@@ -426,4 +448,5 @@
             evt.currentTarget.className += " active";
         }
     </script>
+
 @endpush

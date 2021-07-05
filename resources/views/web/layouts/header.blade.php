@@ -186,8 +186,8 @@
                         <ul class="mainmenu" id="mySidenav">
                             <li><a href="{{url('/')}}">Home</a></li>
                             <li><a href="{{url('about')}}">Who we are</a></li>
-{{--                            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>--}}
-{{--                            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>--}}
+                            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
+                            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                             <li><a href="{{url('blog')}}">Blog</a></li>
                             <li><a href="{{url('contact')}}">Contact Us</a></li>
                             <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
