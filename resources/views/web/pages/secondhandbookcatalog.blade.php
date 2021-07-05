@@ -142,13 +142,14 @@
                     <button class="tablink" onclick="openCourseBooks(event, 'foreign')">Foreign Writer </button>
                 </div>
             </div>
-                 <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
-                <div class="row">
-                    <div class="bbb_viewed_slider_container book">
-                        <div class="owl-carousel owl-theme bbb_viewed_slider">
-                    @foreach($books as $product)
+
+
+
                             @if(count($books) > 5)
-                            <div class="owl-item">
+                            <div class="bbb_viewed_slider_container book">
+                                <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                    @foreach($books as $product)
+                               <div class="owl-item">
                                 <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                     <a href="{{url("productDetails/".$product->id)}}">
                                         <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"></div>
@@ -167,7 +168,15 @@
                                     </div>
                                 </div>
                             </div>
+                                    @endforeach
+
+
+                                </div>
+                            </div>
                             @else
+                          <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
+                            <div class="row">
+                                @foreach($books as $product)
                             <div class="columns">
                                 <div class="cardsecondhand">
                                     <a href="{{url("productDetails/".$product->id)}}">
@@ -181,12 +190,11 @@
                                     </p>
                                 </div>
                             </div>
+                                @endforeach
+                            </div>
+                          </div>
                             @endif
-                    @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
+
                 <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
