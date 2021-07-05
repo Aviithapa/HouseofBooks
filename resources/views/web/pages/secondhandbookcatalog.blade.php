@@ -144,7 +144,7 @@
             </div>
 
 
-
+                <div id="bachelor">
                             @if(count($books) > 5)
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
@@ -152,7 +152,7 @@
                                <div class="owl-item">
                                 <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                     <a href="{{url("productDetails/".$product->id)}}">
-                                        <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"></div>
+                                        <div class="bbb_viewed_image" style="width: 100px !important; height: 100px !important;"><img src="{{$product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"></div>
                                     </a>
                                     <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                         <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($product->name, 18) }} </h5>
@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             @else
-                          <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
+                          <div class="contentsecondhand tabcontents"  style="margin: 0px 50px 0px 50px; display: block;">
                             <div class="row">
                                 @foreach($books as $product)
                             <div class="columns">
@@ -194,7 +194,7 @@
                             </div>
                           </div>
                             @endif
-
+                </div>
                 <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
                     <div class="row">
                         @foreach($products as $product)
