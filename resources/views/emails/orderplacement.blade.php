@@ -34,12 +34,44 @@
             background-color: #04AA6D;
             color: white;
         }
+        .invoice{
+            width: 100%;
+        }
+        .order_id{
+            width: 100%;
+            height: 30px;
+        }
+        .order{
+            left: 0;
+            position:absolute;
+        }
+        .date{
+            right: 0;
+            position:absolute;
+        }
+        .invoice-info{
+            margin-top: 30px;
+        }
+        .row{
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
 
 <div class="body">
+    <div class="row justify-content-center">
+        <div class="title">
+            <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" width="100" height="75">
+            <h1>House of Books Nepal</h1>
+            Shankmul Ward no 31 Kathmandu, Nepal<br>
+            Contact Details :9845769230 9848788289<br>
+            Email:houseofbooksnepal@gmail.com<br>
+            Website:http://houseofbooks.com.np<br>
+        </div>
+    </div>
     Hello <strong>House of Books</strong>,
 
     <p>You got a order from {{$name}}</p>
@@ -67,7 +99,7 @@
         <br>
 
         With Best Regards,<br>
-        <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="150"/><br>
+        <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="125"/><br>
         Sales and Marketing Department<br>
         House of Books Pvt. Ltd.<br>
         Shankhamul, Ward No 31, Kathmandu, Nepal<br>
