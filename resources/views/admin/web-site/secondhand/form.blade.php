@@ -92,21 +92,14 @@
 <div class="grid simple ">
     <div class="grid-body ">
         <div class="row">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('name', 'Book Name:', ['class' => 'form-label']) !!}
                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     {!! $errors->first('name', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="form-group">
-                    {!! Form::label('status', 'Status:', ['class' => 'form-label']) !!}
-                    {!! Form::select('status', getActiveInactiveStatus(), null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('condition', ' Condition:', ['class' => 'form-label']) !!}
                     {!! Form::select('condition',getCondition(),null, ['class' => 'form-control' ,'id' => 'condition', "onchange" => "Cond()"]) !!}

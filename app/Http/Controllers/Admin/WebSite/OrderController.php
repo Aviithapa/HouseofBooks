@@ -12,6 +12,7 @@ use App\Modules\Backend\Website\OrderItem\Repositories\OrderItemRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
 use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -141,18 +142,19 @@ class OrderController extends BaseController
         $data = $updateOrderRequest->all();
         $order = $this->orderRepository->findById($id);
         $orderlist=$this->orderItemRepository->findBy('order_id', $order->id, '=',false);
-        foreach ($orderlist as $orders) {
-            $product = $this->productRepository->findBy('id', $orders->product_id, '=', false);
-        }
-
         try {
             $order = $this->orderRepository->update($data, $id);
-            $mailData = array('order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
-            $pdf = (new \Barryvdh\DomPDF\PDF)->loadView('emails.orderInvoice', $mailData);
-            Mail::send('emails.orderInvoice', $mailData, function($message) use ($order, $pdf) {
-                $message->to( $order['email'])
+            $mailData = array('order' =>$order, 'orderlist' =>$orderlist);
+            $datas["email"]=$order['email'];
+            $datas["client_name"]=$order['name'];
+            $datas["subject"]="Order Details Update";
+            $datas['order'] = $order;
+            $pdf = \App::make('dompdf.wrapper');
+            $pdf->loadView('emails.orderInvoice', $mailData);
+            Mail::send('emails.Invoice', $mailData, function($message) use ($order, $pdf) {
+                $message->to($order['email'])
                     ->subject('Order Details update')
-                    ->attachData($pdf->output(), "text.pdf");
+                    ->attachData($pdf->output(), "invoice.pdf");
                 $message->from('sales@houseofbooks.com.np');
             });
             if($order == false) {
