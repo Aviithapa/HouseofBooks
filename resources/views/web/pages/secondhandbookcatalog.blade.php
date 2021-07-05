@@ -144,7 +144,8 @@
             </div>
                  <div class="contentsecondhand tabcontents" id="bachelor" style="margin: 0px 50px 0px 50px; display: block;">
                 <div class="row">
-
+                    <div class="bbb_viewed_slider_container book">
+                        <div class="owl-carousel owl-theme bbb_viewed_slider">
                     @foreach($books as $product)
                             @if(count($books) > 5)
                             <div class="owl-item">
@@ -182,7 +183,8 @@
                             </div>
                             @endif
                     @endforeach
-
+                        </div>
+                    </div>
                 </div>
             </div>
                 <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
