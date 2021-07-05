@@ -8,7 +8,7 @@
     <style>
         .row{
             width: 100%;
-            text-align: center;
+
         }
         .col-3{
             width: 25%;
@@ -61,6 +61,11 @@
         .invoice-info{
             margin-top: 30px;
         }
+        .col{
+            height: fit-content;
+            margin: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -70,7 +75,7 @@
         <div class="col-md-12">
             <div class="tile">
                 <section class="invoice">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" style=" text-align: center;">
                         <div class="title">
                             <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" width="100" height="75">
                             <h1>House of Books Nepal</h1>
@@ -90,13 +95,13 @@
                         </div>
                     </div>
                     <div class="row invoice-info">
-                        <div class="col-3">Placed By
+                        <div class="col">Placed By
                             <address><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}</address>
                         </div>
-                        <div class="col-3">Ship To
+                        <div class="col">Ship To
                             <address><strong class="bold">{{ $order->name }}</strong><br>{{ $order->address }}<br>{{ $order->collage_name }}, {{ $order->collage_address }} <br>{{ $order->phone_number }}<br></address>
                         </div>
-                        <div class="col-3">
+                        <div class="col">
                             <b>Order ID:</b> {{ $order->id }}<br>
                             <b>Amount:</b> {{ round($order->grand_total, 2) }}<br>
                             <b>Order Status:</b> {{ $order->status }}<br>
