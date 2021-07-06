@@ -1,6 +1,17 @@
 <html>
 <head>
     <style>
+        .logo{
+            left: 0;
+            float: left;
+        }
+        .vl {
+            border-left: 6px solid green;
+            height: 170px;
+            float: left;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
         #customers {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -34,17 +45,25 @@
 
 <div class="container">
 
-    <p class="invoice" style=" text-align: center; justify-content: center;">
-        <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" width="100" height="75">
+
+
+    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" class="logo" width="200" height="175">
+    <div class="vl"></div>
     <h1>House of Books Nepal</h1>
     Shankmul Ward no 31 Kathmandu, Nepal<br>
     Contact Details :9845769230 9848788289<br>
     Email:houseofbooksnepal@gmail.com<br>
     Website:http://houseofbooks.com.np<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     Order Id: {{ $order->id }}
-    </p>
+
 
     <span class="row invoice-info" style="left:auto;">
+                        <br>
                       Placed By
                               <address><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}</address>
                         <p class="col">Ship To
