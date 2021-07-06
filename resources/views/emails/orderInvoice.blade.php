@@ -19,6 +19,7 @@
         .invoice{
             width: 100%;
             margin-bottom: 10px;
+            height: 120px;
         }
         .col{
             width: 50%;
@@ -71,10 +72,10 @@
     <h1>Order Id: {{ $order->id }}</h1>
     <div class="invoice">
         <div class="col">
-            <address>Placed By <br><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>
+            <address>Placed By : <br><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>
         </div>
         <div class="col">
-            <address>Ship To<strong class="bold">{{ $order->name }}</strong><br>Address: {{ $order->address }}<br> Status: {{$order->status}}</address>
+            <address>Ship To : <br><strong class="bold">{{ $order->name }}</strong><br>Address: {{ $order->address }}<br> Status: {{$order->status}}</address>
         </div>
 
     </div>
