@@ -248,7 +248,7 @@
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
                                     @foreach($books as $product)
-                                        @if($product->level=="bachelor")
+                                        @if($product["level"]=="bachelor")
                                                <div class="owl-item cardsecondhand">
                                                    <a href="{{url("productDetails/".$product->id)}}">
                                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -268,7 +268,7 @@
                           <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                                    @if($product->level=="bachelor")
+                                    @if($product['level']=="bachelor")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -293,7 +293,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($books as $product)
-                                    @if($product->level=="master")
+                                    @if($product["level"]=="master")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -313,7 +313,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                                    @if($product->level=="master")
+                                    @if($product["level"]=="master")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -338,7 +338,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($books as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -358,7 +358,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -383,7 +383,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($books as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -403,7 +403,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -428,7 +428,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($books as $product)
-                                    @if($product->level=="foreign")
+                                    @if($product["level"]=="foreign")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -448,7 +448,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                                    @if($product->level=="foreign")
+                                    @if($product["level"]=="foreign")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -492,7 +492,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($question as $product)
-                                    @if($product->level=="bachelor")
+                                    @if($product["level"]=="bachelor")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -512,7 +512,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($question as $product)
-                                    @if($product->level=="bachelor")
+                                    @if($product["level"]=="bachelor")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -537,7 +537,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($question as $product)
-                                    @if($product->level=="master")
+                                    @if($product["level"]=="master")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -557,7 +557,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($question as $product)
-                                    @if($product->level=="master")
+                                    @if($product["level"]=="master")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -582,7 +582,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($question as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -602,7 +602,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($question as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -627,7 +627,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($question as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -647,7 +647,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($question as $product)
-                                    @if($product->level=="+2")
+                                    @if($product["level"]=="+2")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
@@ -672,7 +672,7 @@
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($question as $product)
-                                    @if($product->level=="foreign")
+                                    @if($product["level"]=="foreign")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
                                                 <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
@@ -692,7 +692,7 @@
                         <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($question as $product)
-                                    @if($question->level=="foreign")
+                                    @if($product["level"]=="foreign")
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
