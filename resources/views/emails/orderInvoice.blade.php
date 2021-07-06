@@ -69,7 +69,7 @@
         Website:http://houseofbooks.com.np<br>
 
     </div>
-    <h1>Order Id: {{ $order->id }}</h1>
+    <h1 style="margin-top: 20px;">Order Id: {{ $order->id }}</h1>
     <div class="invoice">
         <div class="col">
             <address>Placed By : <br><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>

@@ -380,10 +380,17 @@ class HomeController extends BaseController
                     $product = $this->productRepository->findBy('id', $orders->product_id, '=');
                 }
                 $mailData = array('name'=>  $data->name ,'order' =>$order, 'orderlist' =>$orderlist,'product' => $product);
-                Mail::send('emails.orderConfirmation', $mailData, function($message) use ($data, $mailData) {
-                    $message->to($data['email'])
-                        ->subject('Welcome to House of Books');
-                    $message->from('sales@houseofbooks.com.np	');
+                $datas["email"]=$order['email'];
+                $datas["client_name"]=$order['name'];
+                $datas["subject"]="Order Details Update";
+                $datas['order'] = $order;
+                $pdf = \App::make('dompdf.wrapper');
+                $pdf->loadView('emails.orderInvoice', $mailData);
+                Mail::send('emails.Invoice', $mailData, function($message) use ($order, $pdf) {
+                    $message->to($order['email'])
+                        ->subject('Order Details update')
+                        ->attachData($pdf->output(), "invoice.pdf");
+                    $message->from('sales@houseofbooks.com.np');
                 });
                 Mail::send('emails.orderplacement', $mailData, function($message) use ($mailData) {
                     $message->to('houseofbooksnepal@gmail.com')
