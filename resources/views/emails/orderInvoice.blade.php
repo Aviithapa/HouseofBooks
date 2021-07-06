@@ -2,12 +2,16 @@
 <head>
     <style>
         .logo{
-            left: 0;
+
             float: left;
+        }
+        .logos{
+            margin: auto;
+            width: 60%;
         }
         .vl {
             border-left: 6px solid green;
-            height: 170px;
+            height: 125px;
             float: left;
             margin-left: 20px;
             margin-right: 20px;
@@ -43,84 +47,79 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="margin-top: 20px;">
+
+    <div class="logos">
+
+        <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" class="logo" width="150" height="125">
+        <div class="vl"></div>
+        <span style="font-size:30px; font-weight: bold; margin-top: 10px; color: #FF8800;">House of Books Pvt. Ltd.</span><br>
+        Shankhamul Ward no 31 Kathmandu, Nepal<br>
+        Contact Details :9845769230 9848788289<br>
+        Email:houseofbooksnepal@gmail.com<br>
+        Website:http://houseofbooks.com.np<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <h1>Order Id: {{ $order->id }}</h1>
 
 
-
-    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" class="logo" width="200" height="175">
-    <div class="vl"></div>
-    <h1>House of Books Nepal</h1>
-    Shankmul Ward no 31 Kathmandu, Nepal<br>
-    Contact Details :9845769230 9848788289<br>
-    Email:houseofbooksnepal@gmail.com<br>
-    Website:http://houseofbooks.com.np<br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    Order Id: {{ $order->id }}
-
-
-    <span class="row invoice-info" style="left:auto;">
+    <span class="row invoice-info">
                         <br>
-                      Placed By
-                              <address><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}</address>
-                        <p class="col">Ship To
+
+                        <p class="col">
+                         Placed By
+
+                         <address><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>
+        </p>
+        <p class="col">
+                            Ship To
                             <address><strong class="bold">{{ $order->name }}</strong><br>{{ $order->address }}<br>{{ $order->collage_name }}, {{ $order->collage_address }} <br>{{ $order->phone_number }}<br></address>
         </p>
-        <p>
-                            <b>Order ID:</b> {{ $order->id }}<br>
-                            <b>Amount:</b> {{ round($order->grand_total, 2) }}<br>
-                            <b>Delivery Charge:</b> {{ $order->delivery_charge }}<br>
-                            <b>Total Amount:</b> {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
-                            <b>Order Status:</b> {{ $order->status }}<br>
-                        </p>
-                    </span>
-    <div class="table-responsive">
-        <table class="table table-striped" id="customers">
-            <tr>
-                <th>Book</th>
-                <th>Category</th>
-                <th>Qty</th>
-                <th>Subtotal</th>
-            </tr>
-            @foreach($orderlist as $item)
-                <tr>
-                    <td>{{ $item->product->name }}</td>
-                    <td>{{ $item->product->category }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>Rs. {{ round($item->price, 2) }}</td>
-                </tr>
-            @endforeach
-        </table>
-    </div>
-    <div class="total" style="height: 100px ; width: 100%;">
-        <div class="jst">
-            <b>Amount:</b>RS  {{ round($order->grand_total, 2) }}<br>
-            <b>Delivery Charge:</b>RS {{ $order->delivery_charge }}<br>
-            <b>Total Amount: </b> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
-        </div>
-    </div>
-    </section>
-</div>
-</div>
-</div>
 
-<strong>
-    <br><br>
-    Thank you!
-    <br>
-    With Best Regards,<br>
-    <img src="http://houseofbooks.com.np/storage/logo_image/Prw3mhhR9aEVYC0SFNmgU9CZGSoHSoipUErXIPNC.png" height="100" width="125"/><br>
-    Sales and Marketing Department<br>
-    House of Books Pvt. Ltd.<br>
-    Shankhamul, Ward No 31, Kathmandu, Nepal<br>
-    Contact No: +977-9845769203/ 9848788289<br>
-    Email: houseofbooksnepal@gmail.com, info@houseofbooks.com.np<br>
-    Website: www.houseofbooks.com.np<br>
-</strong>
-</div>
+                    </span>
+
+
+    <table class="table table-striped" id="customers">
+        <tr>
+            <th>Book</th>
+            <th>Category</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+        </tr>
+        @foreach($orderlist as $item)
+            <tr>
+                <td>{{ $item->product->name }}</td>
+                <td>{{ $item->product->category }}</td>
+                <td>{{ $item->quantity }}</td>
+                <td>Rs. {{ round($item->price, 2) }}</td>
+            </tr>
+        @endforeach
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Amount:</td>
+            <td>{{ round($order->grand_total, 2) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Delivery Charge::</td>
+            <td>RS {{ $order->delivery_charge }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total Amount:</td>
+            <td> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}</td>
+        </tr>
+    </table>
+
+
+    </section>
 
 </body>
 </html>
