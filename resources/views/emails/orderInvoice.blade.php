@@ -7,7 +7,7 @@
         }
         .logos{
             margin: auto;
-            width: 60%;
+            width: 80%;
         }
         .vl {
             border-left: 6px solid green;
@@ -15,6 +15,14 @@
             float: left;
             margin-left: 20px;
             margin-right: 20px;
+        }
+        .invoice{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .col{
+            width: 50%;
+            float: left;
         }
         #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -58,29 +66,18 @@
         Contact Details :9845769230 9848788289<br>
         Email:houseofbooksnepal@gmail.com<br>
         Website:http://houseofbooks.com.np<br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
     </div>
     <h1>Order Id: {{ $order->id }}</h1>
+    <div class="invoice">
+        <div class="col">
+            <address>Placed By <br><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>
+        </div>
+        <div class="col">
+            <address>Ship To<strong class="bold">{{ $order->name }}</strong><br>Address: {{ $order->address }}<br> Status: {{$order->status}}</address>
+        </div>
 
-
-    <span class="row invoice-info">
-                        <br>
-
-                        <p class="col">
-                         Placed By
-
-                         <address><strong class="bold">{{ $order->name }}</strong><br>Email: {{ $order->email }}<br>Phone: {{ $order->phone_number }}</address>
-        </p>
-        <p class="col">
-                            Ship To
-                            <address><strong class="bold">{{ $order->name }}</strong><br>{{ $order->address }}<br>{{ $order->collage_name }}, {{ $order->collage_address }} <br>{{ $order->phone_number }}<br></address>
-        </p>
-
-                    </span>
+    </div>
 
 
     <table class="table table-striped" id="customers">
@@ -102,12 +99,12 @@
             <td></td>
             <td></td>
             <td>Amount:</td>
-            <td>{{ round($order->grand_total, 2) }}</td>
+            <td>RS {{ round($order->grand_total, 2) }}</td>
         </tr>
         <tr>
             <td></td>
             <td></td>
-            <td>Delivery Charge::</td>
+            <td>Delivery Charge:</td>
             <td>RS {{ $order->delivery_charge }}</td>
         </tr>
         <tr>
