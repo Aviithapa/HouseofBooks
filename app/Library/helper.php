@@ -216,6 +216,25 @@ function getProductPrice($product_price, $quantity){
     return $final_amount;
 }
 
+function getCoursebookCount($books,$level){
+    $i=0;
+    foreach ($books as $product){
+        if ($product->level==$level){
+            $i=$i+1;
+        }
+    }
+    return $i;
+}
+function getNovelsCount($books,$novel_category){
+    $i=0;
+    foreach ($books as $product){
+        if ($product->nobel_category==$novel_category){
+            $i=$i+1;
+        }
+    }
+    return $i;
+}
+
 function getCartTotalPrice()
 {
     $mac_address = exec('getmac');

@@ -39,90 +39,190 @@
                     <button class="tablinks" onclick="openNobels(event, 'Biographies')">Biographies</button>
                 </div>
             </div>
-            <div class="contentsecondhand tabcontent" id="Motivational" style="margin: 0px 50px 0px 50px; display:block;">
-                <div class="row">
-                    @foreach($products as $product)
-                        @if($product->status=='active' && $product->nobel_category=='motivational' && $product->category=='second-hand')
-                            <div class="columns">
-                                <div class="cardsecondhand">
-                                    <a href="{{url("productDetails/".$product->id)}}">
-                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                    </a>
-                                    <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                    <p class="prod-i-price">
-                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                    </p>
-                                </div>
+                <div id="Motivational" class="tabcontent"  style="margin: 0px 50px 0px 50px; display: block;">
+                    @if(getNovelsCount($motivational,"motivational") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="motivational")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
-                        @endif
-                    @endforeach
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($motivational as $product)
+                                        @if($product->nobel_category=="motivational")
+                                            <div class="columns">
+                                                <div class="cardsecondhand">
+                                                    <a href="{{url("productDetails/".$product->id)}}">
+                                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    </a>
+                                                    <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                    <p class="prod-i-price">
+                                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-            </div>
-                <div class="contentsecondhand tabcontent" id="Knowledge" style="margin: 0px 50px 0px 50px">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->nobel_category=='skills-knowledge' && $product->category=='second-hand')
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
+
+                <div id="Knowledge" class="tabcontent"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getNovelsCount($motivational,"skills-knowledge") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="skills-knowledge")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand">
+                            <div class="row">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="skills-knowledge")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
+
+                <div id="Frictional" class="tabcontent"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getNovelsCount($motivational,"frictional") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="frictional")
+                                            <div class="owl-item cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand">
+                            <div class="row">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="frictional")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
+
+                <div id="Biographies" class="tabcontent"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getNovelsCount($motivational,"biographies") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($motivational as $product)
+                                        @if($product->nobel_category=="biographies")
+                                            <div class="owl-item cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand"  >
+                            <div class="row">
+                                @foreach($motivational as $product)
+                                    @if($product->nobel_category=="biographies")
+                                    <div class="columns">
+                                        <div class="cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontent" id="Frictional" style="margin: 0px 50px 0px 50px">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->nobel_category=='frictional' && $product->category=='second-hand')
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-                <div class="contentsecondhand tabcontent" id="Biographies" style="margin: 0px 50px 0px 50px">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->nobel_category=='biographies' && $product->category=='second-hand')
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
+
             </div>
             <div class="clearfix"></div>
             <div class="tab-2">
@@ -143,138 +243,233 @@
                 </div>
             </div>
 
-
                 <div id="bachelor" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: block;">
-                            @if(count($books) > 5)
+                            @if(getCoursebookCount($books,"bachelor") > 5)
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
                                     @foreach($books as $product)
-                               <div class="owl-item cardsecondhand">
-                                   <a href="{{url("productDetails/".$product->id)}}">
-                                       <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                   </a>
-                                   <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                   <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                   <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                   <p class="prod-i-price">
-                                       <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                   </p>
-                            </div>
+                                        @if($product->level=="bachelor")
+                                               <div class="owl-item cardsecondhand">
+                                                   <a href="{{url("productDetails/".$product->id)}}">
+                                                       <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                   </a>
+                                                   <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                   <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                   <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                   <p class="prod-i-price">
+                                                       <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                   </p>
+                                            </div>
+                                        @endif
                                     @endforeach
-
-
                                 </div>
                             </div>
                             @else
-                          <div class="contentsecondhand tabcontents"  style="margin: 0px 50px 0px 50px; display: block;">
+                          <div class="contentsecondhand" >
                             <div class="row">
                                 @foreach($books as $product)
-                            <div class="columns">
-                                <div class="cardsecondhand">
-                                    <a href="{{url("productDetails/".$product->id)}}">
-                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                    </a>
-                                    <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                    <p class="prod-i-price">
-                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                    </p>
-                                </div>
-                            </div>
+                                    @if($product->level=="bachelor")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
                                 @endforeach
                             </div>
                           </div>
                             @endif
                 </div>
-                <div class="contentsecondhand tabcontents" id="master" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="master" && $product->sub_category=="coursebook")
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="master" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($books,"master") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($books as $product)
+                                    @if($product->level=="master")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($books as $product)
+                                    @if($product->level=="master")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontents" id="+2" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="+2" && $product->sub_category=="coursebook")
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="+2" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($books,"+2") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($books as $product)
+                                    @if($product->level=="+2")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($books as $product)
+                                    @if($product->level=="+2")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontents" id="10" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="10" && $product->sub_category=="coursebook")
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="10" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($books,"+2") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($books as $product)
+                                    @if($product->level=="+2")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($books as $product)
+                                    @if($product->level=="+2")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontents" id="foreign" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" && $product->sub_category=="coursebook")
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="foreign" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($books,"foreign") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($books as $product)
+                                    @if($product->level=="foreign")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($books as $product)
+                                    @if($product->level=="foreign")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="clearfix"></div>
-
-
             <div class="tab-2">
                 <h3 class="bbb_viewed_title">
                     <div class="title" >
@@ -292,110 +487,230 @@
                         <button class="tablinkes" onclick="openQuestionBank(event, 'foreigns')">Foreign Writer </button>
                     </div>
                 </div>
-                <div class="contentsecondhand tabcontentes" id="bachelors" style="margin: 0px 50px 0px 50px; display: block;">
-                    <div class="row">
-                        @foreach($books as $product)
-                            @if($product->status=='active' && $product->level=="bachelor" && $product->sub_category=="question-bank-and-solution" )
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="bachelors" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: block;">
+                    @if(getCoursebookCount($question,"bachelor") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($question as $product)
+                                    @if($product->level=="bachelor")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($question as $product)
+                                    @if($product->level=="bachelor")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontentes" id="masters" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="master" && $product->sub_category=="question-bank-and-solution" )
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="masters" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($question,"master") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($question as $product)
+                                    @if($product->level=="master")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($question as $product)
+                                    @if($product->level=="master")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontentes" id="two" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="+2" && $product->sub_category=="question-bank-and-solution" )
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="two" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($question,"+2") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($question as $product)
+                                    @if($product->level=="+2")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($question as $product)
+                                    @if($product->level=="+2")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontentes" id="ten" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="10" && $product->sub_category=="question-bank-and-solution" )
-                                <div class="columns">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="ten" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($question,"+2") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($question as $product)
+                                    @if($product->level=="+2")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($question as $product)
+                                    @if($product->level=="+2")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <div class="contentsecondhand tabcontentes" id="foreigns" style="margin: 0px 50px 0px 50px; display: none;">
-                    <div class="row carousel-showmanymoveone" id="itemslider">
-                        @foreach($products as $product)
-                            @if($product->status=='active' && $product->category=='second-hand' && $product->level=="foreign_writer" && $product->sub_category=="question-bank-and-solution"  )
-                                <div class="columns item">
-                                    <div class="cardsecondhand">
-                                        <a href="{{url("productDetails/".$product->id)}}">
-                                            <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                        </a>
-                                        <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                        <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                        <p class="prod-i-price">
-                                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
+                <div id="foreigns" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: none;">
+                    @if(getCoursebookCount($question,"foreign") > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($question as $product)
+                                    @if($product->level=="foreign")
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                            </p>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($question as $product)
+                                    @if($question->level=="foreign")
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="clearfix"></div>

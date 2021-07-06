@@ -210,6 +210,12 @@ class HomeController extends BaseController
                     $this->view_data['books'] =$this->productRepository->getAll()->where('category','=','second-hand')
                                                                         ->where('status','=','active')
                                                                         ->where('sub_category','=','coursebook');
+                    $this->view_data['motivational'] =$this->productRepository->getAll()->where('category','=','second-hand')
+                                                                                ->where('status','=','active')
+                                                                                ->where('sub_category','=','novel');
+                    $this->view_data['question'] =$this->productRepository->getAll()->where('category','=','second-hand')
+                                                                                    ->where('status','=','active')
+                                                                                    ->where('sub_category','=','question-bank-and-solution');
                     $this->view_data['banner'] =$this->postRepository->findById(144);
                     $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;
