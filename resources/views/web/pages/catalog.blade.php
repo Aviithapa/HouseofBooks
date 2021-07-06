@@ -50,19 +50,19 @@
                             <p class="section-filter-ttl">Nobel</p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-1 frictional" value="on" type="checkbox" >
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Frictional</label>
+                                    <input id="section-filter-checkbox4-5 frictional" value="on" type="checkbox"  >
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-5" onclick="change('frictional')">Frictional</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox" onclick="change('skills-knowledge')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox" onclick="change('motivational')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox" onclick="change('biographies')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>
                                 </p>
                             </div>
@@ -71,20 +71,20 @@
                             <p class="section-filter-ttl">University</p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Tribhuwan University</label>
+                                    <input id="section-filter-checkbox4-1" value="on" type="checkbox" onclick="university('TU')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-1" >Tribhuwan University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Pokhara University</label>
+                                    <input id="section-filter-checkbox4-2" value="on" type="checkbox" onclick="university('PU')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-2">Pokhara University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Purbanchal University</label>
+                                    <input id="section-filter-checkbox4-3" value="on" type="checkbox" onclick="university('PBU')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-3">Purbanchal University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Kathmandu University</label>
+                                    <input id="section-filter-checkbox4-4" value="on" type="checkbox" onclick="university('KU')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox4-4">Kathmandu University</label>
                                 </p>
                             </div>
                         </div>
@@ -92,11 +92,11 @@
                             <p class="section-filter-ttl">Faculty <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1">
+                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1" onclick="faculty('BBA')">
                                     <label class="section-filter-radio" for="section-filter-radio1-1">BBA</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1">
+                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1" onclick="faculty('BBS')">
                                     <label class="section-filter-radio" for="section-filter-radio1-2">BBS</label>
                                 </p>
                             </div>
@@ -176,13 +176,19 @@
     @endsection
 
    @push('scripts')
-<script>
-    $(function () {
-        $("#nobel").onchange(function () {
-           alert("change in nobel");
-        });
-    });
-
-</script>
+       <script>
+           function change(slug) {
+               var base = 'http://houseofbooks.com.np/catalog/nobel/' + slug ;
+               window.location.href=base
+           }
+           function university(slug) {
+               var base = 'http://houseofbooks.com.np/catalog/university/' + slug ;
+               window.location.href=base
+           }
+           function faculty(slug) {
+               var base = 'http://houseofbooks.com.np/catalog/faculty/' + slug ;
+               window.location.href=base
+           }
+       </script>
 
    @endpush

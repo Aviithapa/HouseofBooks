@@ -47,44 +47,23 @@
                         <div class="section-filter-price">
                             <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
                         </div>
-                        <div class="section-filter-item opened" id="nobel">
-                            <p class="section-filter-ttl">Nobel</p>
-                            <div class="section-filter-fields">
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-1 frictional" value="on" type="checkbox" >
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Frictional</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>
-                                </p>
-                                <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>
-                                </p>
-                            </div>
-                        </div>
                         <div class="section-filter-item opened" id="university">
                             <p class="section-filter-ttl">University</p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox">
-                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Tribhuwan University</label>
+                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox" onclick="change('TU')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1" >Tribhuwan University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox" onclick="change('PU')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Pokhara University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox" onclick="change('PBU')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Purbanchal University</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">
+                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox" onclick="change('KU')">
                                     <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Kathmandu University</label>
                                 </p>
                             </div>
@@ -93,11 +72,11 @@
                             <p class="section-filter-ttl">Faculty <i class="fa fa-angle-down"></i></p>
                             <div class="section-filter-fields">
                                 <p class="section-filter-field">
-                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1">
+                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1" onclick="faculty('BBA')">
                                     <label class="section-filter-radio" for="section-filter-radio1-1">BBA</label>
                                 </p>
                                 <p class="section-filter-field">
-                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1">
+                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1" onclick="faculty('BBS')">
                                     <label class="section-filter-radio" for="section-filter-radio1-2">BBS</label>
                                 </p>
                             </div>
@@ -177,6 +156,15 @@
 @endsection
 
 @push('scripts')
-
+    <script>
+        function change(slug) {
+            var base = 'http://houseofbooks.com.np/catalog/university/' + slug ;
+            window.location.href=base
+        }
+        function faculty(slug) {
+            var base = 'http://houseofbooks.com.np/catalog/faculty/' + slug ;
+            window.location.href=base
+        }
+    </script>
 
 @endpush

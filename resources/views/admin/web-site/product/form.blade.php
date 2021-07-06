@@ -59,7 +59,7 @@
             <div class="col-md-6 col-lg-6" id="university">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University', 'KU' => "Kathmandu University"),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>

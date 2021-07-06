@@ -178,5 +178,10 @@
 
 @push('scripts')
 
-
+    <script>
+        function change(slug) {
+            var base = 'http://houseofbooks.com.np/catalog/nobel/' + slug ;
+            window.location.href=base
+        }
+    </script>
 @endpush
