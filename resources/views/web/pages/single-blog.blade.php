@@ -12,7 +12,7 @@
              <div class="book-content">
                   <h3>{{$product->name}}</h3>
                  <p style="font-size: 16px; font-weight: 600;">Book Author : {{$product->author}}</p>
-                 <p style="font-size: 16px; font-style: italic">{!!str_limit(html_entity_decode($product->excerpt),600)!!}</p>
+                 <p style="font-size: 16px; font-style: italic">{!!str_limit(html_entity_decode($product->description),600)!!}</p>
                  <a href="{{url("productDetails/".$product->id)}}"> <button type="button" class="btn btn-primary btn-round-sm btn-sm text-center " >Buy Now</button></a>
              </div>
               <div class="book-image">
