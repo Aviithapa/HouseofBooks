@@ -26,72 +26,6 @@
                     </ul>
                 </div>
 
-{{--                <div class="section-filter">--}}
-{{--                    <div class="section-filter-cont">--}}
-{{--                        <div class="section-filter-price">--}}
-{{--                            <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>--}}
-{{--                        </div>--}}
-{{--                        <div class="section-filter-item opened" id="nobel">--}}
-{{--                            <p class="section-filter-ttl">Nobel</p>--}}
-{{--                            <div class="section-filter-fields">--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-1 frictional" value="on" type="checkbox" >--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Frictional</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="section-filter-item opened" id="university">--}}
-{{--                            <p class="section-filter-ttl">University</p>--}}
-{{--                            <div class="section-filter-fields">--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-1" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-1">Tribhuwan University</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Pokhara University</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Purbanchal University</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox">--}}
-{{--                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Kathmandu University</label>--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="section-filter-item opened">--}}
-{{--                            <p class="section-filter-ttl">Faculty <i class="fa fa-angle-down"></i></p>--}}
-{{--                            <div class="section-filter-fields">--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-radio1-1" value="on" type="radio" name="section-filter-radio1">--}}
-{{--                                    <label class="section-filter-radio" for="section-filter-radio1-1">BBA</label>--}}
-{{--                                </p>--}}
-{{--                                <p class="section-filter-field">--}}
-{{--                                    <input id="section-filter-radio1-2" value="on" type="radio" name="section-filter-radio1">--}}
-{{--                                    <label class="section-filter-radio" for="section-filter-radio1-2">BBS</label>--}}
-{{--                                </p>--}}
-{{--                            </div>--}}
-{{--                            <div class="section-filter-buttons">--}}
-{{--                                <input class="btn btn-primary btn-round-sm btn-sm" id="set_filter" name="set_filter" value="Apply filter" type="button">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
             </div>
             <!-- Catalog Items | Gallery V1 - start -->
             <div class="section-cont">
@@ -122,7 +56,6 @@
                 <div class="prod-items section-items">
                     @include('web.pages.flash-message')
                     @foreach($products as $product)
-                        @if($product->status=='active' && $product->category == "second-hand")
 
                             <div class="prod-i">
                                 <div class="prod-i-top">
@@ -142,13 +75,12 @@
                                 <div class="prod-i-skuwrapcolor">
                                 </div>
                             </div>
-                        @endif
                     @endforeach
                 </div>
 
                 <!-- Pagination - start -->
 
-            {{$products->links( "pagination::bootstrap-4") }}
+{{--            {{$products->links( "pagination::bootstrap-4") }}--}}
             <!-- Pagination - end -->
             </div>
             <!-- Catalog Items | Gallery V1 - end -->
