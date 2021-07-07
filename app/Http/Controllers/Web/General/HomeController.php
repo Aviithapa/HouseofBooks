@@ -289,6 +289,10 @@ class HomeController extends BaseController
         $this->view_data['category'] =$this->facultyRepository->getAll();
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
+        if($slug=="nobel"){
+            $this->view_data['product']="nobel";
+        }else
+            $this->view_data['product']="others";
         $this->view_data['products']=$this->productRepository->findBy('sub_category',$slug,'=',true,12);
         return view('web.pages.catalog.category' , $this->view_data);
     }

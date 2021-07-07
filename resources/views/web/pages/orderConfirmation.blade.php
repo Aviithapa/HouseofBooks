@@ -18,7 +18,7 @@
                <img src="https://images.vexels.com/media/users/3/157931/isolated/preview/604a0cadf94914c7ee6c6e552e9b4487-curved-check-mark-circle-icon-by-vexels.png" height="100" width="100">
                 <h2>WE HAVE RECEIVED YOUR ORDER !!</h2>
                  <strong>Order No: #0007777{{$order->id}} </strong>
-            <p>Please check your email from a copy of your invoice. Thank you for <strong>ORDERING!</strong> </p>
+            <p>Please check your email or span from a copy of your invoice. Thank you for <strong>ORDERING!</strong> </p>
         </div>
         <hr>
         <div class="row">
