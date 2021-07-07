@@ -215,5 +215,9 @@
             var base = 'http://houseofbooks.com.np/catalog/faculty/' + slug ;
             window.location.href=base
         }
+        function change(slug) {
+            var base = 'http://houseofbooks.com.np/catalog/nobel/' + slug ;
+            window.location.href=base
+        }
     </script>
 @endpush

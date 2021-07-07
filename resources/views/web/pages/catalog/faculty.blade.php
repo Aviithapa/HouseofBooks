@@ -175,10 +175,6 @@
 
 @push('scripts')
     <script>
-        function change(semester) {
-            var base ={!! route('semester', $semester); !!}
-            window.location.href=base
-        }
         function faculty(slug) {
             var base = 'http://houseofbooks.com.np/catalog/faculty/' + slug ;
             window.location.href=base

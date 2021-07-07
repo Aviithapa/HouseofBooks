@@ -2410,6 +2410,7 @@ th, td {
     min-height: 450px;
     background-color: #eeeeee;
     border-radius: 30px;
+    padding-top: 10px;
 }
 .review-image{
     margin:30px;
