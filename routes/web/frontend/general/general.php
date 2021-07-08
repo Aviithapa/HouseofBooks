@@ -24,6 +24,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::post('/order_confirmation','HomeController@Order');
     Route::post('contact','HomeController@Contact');
     Route::post('request','HomeController@Request');
+    Route::post('filter','HomeController@Filter');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');

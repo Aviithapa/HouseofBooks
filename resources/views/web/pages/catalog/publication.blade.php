@@ -1,5 +1,10 @@
 @extends('web.layouts.app')
 @section('content')
+    <style>
+        .form-control{
+            border-radius: 0px !important;
+        }
+    </style>
     <!-- Main Content - start -->
     <main>
         <section class="container">

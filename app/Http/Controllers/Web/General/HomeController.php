@@ -324,6 +324,20 @@ class HomeController extends BaseController
         return view('web.pages.single-blog' , $this->view_data);
 
     }
+
+    public function filter(Request $request){
+        $university = $request->university;
+        $publication= $request->publication;
+         $course= $request->course;
+         $semester= $request->semester;
+        $this->view_data['products']=$this->productRepository->getAll()->where('univeristy','=',$university)
+                                                                        ->where('publication','=',$publication)
+                                                                        ->where('status',"=",'active')
+                                                                        ->where('course','=',$course)
+                                                                        ->where('semester','=',$semester);
+        return view('web.pages.catalog.filter' , $this->view_data);
+    }
+
     public function donation($id,Request $request){
         $this->view_data['id']=$id;
         return view('web.pages.donation',$this->view_data);

@@ -1,5 +1,10 @@
 @extends('web.layouts.app')
 @section('content')
+    <style>
+        .form-control{
+            border-radius: 0px !important;
+        }
+    </style>
     <!-- Main Content - start -->
     <main>
         <section class="container">
@@ -73,35 +78,72 @@
                     </div>
                     @else
 
-                    <div class="section-filter">
-                        <div class="section-filter-cont">
-                            <div class="section-filter-price">
-                                <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
-                            </div>
-                            <div class="section-filter-item opened" id="university">
-                                <p class="section-filter-ttl">University</p>
-                                <div class="section-filter-fields">
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox4-1" value="on" type="checkbox" onclick="university('TU')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox4-1" >Tribhuwan University</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox4-2" value="on" type="checkbox" onclick="university('PU')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox4-2">Pokhara University</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox4-3" value="on" type="checkbox" onclick="university('PBU')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox4-3">Purbanchal University</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox4-4" value="on" type="checkbox" onclick="university('KU')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox4-4">Kathmandu University</label>
-                                    </p>
+                        <div class="section-filter">
+                            <div class="section-filter-cont">
+                                <div class="section-filter-price">
+                                    <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
+                                </div>
+                                <div class="section-filter-item opened">
+                                    <p class="section-filter-ttl">Apply Filter</p>
+
+                                    <form action="{{url('filter')}}" method="POST" id="carform">
+                                        {{csrf_field() }}
+                                        <div class="form-group">
+                                            <div class="col-lg-12">
+                                                <strong>University</strong>
+                                                <select class="form-control" name="university">
+                                                    <option class="form-control" value="TU">Tribhuwan University</option>
+                                                    <option class="form-control" value="PU">Pokhara University</option>
+                                                    <option class="form-control" value="PBU">Purbanchal University</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12 mt-3">
+                                                <strong>Publication</strong>
+                                                <select class="form-control"  name="publication">
+                                                    <option class="form-control" value="asmita">Asmita</option>
+                                                    <option class="form-control" value="saraswati">Saraswati</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12 mt-3">
+                                                <strong>Course</strong>
+                                                <select class="form-control" name="course" onchange="run()" id="course">
+                                                    <option class="form-control" value="BBA">BBA</option>
+                                                    <option class="form-control" value="BBS">BBS</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12 mt-3 mb-5">
+                                                <strong>Semester/ Year</strong>
+                                                <select class="form-control" name="semester" id="semester">
+                                                    <option class="form-control" value="First Semester">First Semester</option>
+                                                    <option class="form-control" value="Second Semester">Second Semester</option>
+                                                    <option class="form-control" value="Third Semester">Third Semester</option>
+                                                    <option class="form-control" value="Fourth Semester">Fourth Semester</option>
+                                                    <option class="form-control" value="Fifth Semester">Fifth Semester</option>
+                                                    <option class="form-control" value="Sixth Semester">Sixth Semester</option>
+                                                    <option class="form-control" value="Seven Semester">Seven Semester</option>
+                                                    <option class="form-control" value="Eight Semester">Eight Semester</option>
+
+                                                    <option class="form-control" value="ESEWA">ESEWA</option>
+                                                </select>
+                                                <select class="form-control" name="semester" id="year">
+                                                    <option class="form-control" value="1_Year">1 year</option>
+                                                    <option class="form-control" value="2_Year">2 Year</option>
+                                                    <option class="form-control" value="3_Year">3 year</option>
+                                                    <option class="form-control" value="4_Year">4 Year</option>
+                                                </select>
+                                            </div>
+                                            <div class="section-filter-buttons" style="margin-top: 10px">
+                                                <input class="btn btn-primary btn-round-sm btn-sm" id="set_filter"  type="submit"  name="set_filter" value="Apply filter">
+                                            </div>
+                                        </div>
+                                    </form>
+
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="section-sb-current">
+
+                        <div class="section-sb-current">
                         <ul class="section-sb-list" id="section-sb-list">
                             <li class="categ-1">
                                 <a href="{{url('/catalog/sub_category/nobel')}}">
@@ -207,17 +249,32 @@
 @push('scripts')
 
     <script>
-        function university(slug) {
-            var base = 'http://houseofbooks.com.np/catalog/university/' + slug ;
-            window.location.href=base
+        $( document ).ready(function() {
+            $("#year").hide();
+            $("#semester").show();
+        });
+        $( document ).ready(function() {
+            var sub_category=document.getElementById("course").value;
+            if(sub_category==="BBS"){
+                $("#year").show();
+                $("#semester").hide();
+            }else
+            {
+                $("#year").hide();
+                $("#semester").show();
+            }
+        });
+        function run() {
+            var sub_category=document.getElementById("course").value;
+            if(sub_category==="BBS"){
+                $("#year").show();
+                $("#semester").hide();
+            }else
+            {
+                $("#year").hide();
+                $("#semester").show();
+            }
         }
-        function faculty(slug) {
-            var base = 'http://houseofbooks.com.np/catalog/faculty/' + slug ;
-            window.location.href=base
-        }
-        function change(slug) {
-            var base = 'http://houseofbooks.com.np/catalog/nobel/' + slug ;
-            window.location.href=base
-        }
+
     </script>
 @endpush
