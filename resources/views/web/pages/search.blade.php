@@ -74,9 +74,9 @@
                                             <option class="form-control" value="BBS">BBS</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-12 mt-3 mb-5">
+                                    <div class="col-lg-12 mt-3 mb-5" id="semester">
                                         <strong>Semester/ Year</strong>
-                                        <select class="form-control" name="semester" id="semester">
+                                        <select class="form-control" name="semester" >
                                             <option class="form-control" value="First Semester">First Semester</option>
                                             <option class="form-control" value="Second Semester">Second Semester</option>
                                             <option class="form-control" value="Third Semester">Third Semester</option>
@@ -85,14 +85,15 @@
                                             <option class="form-control" value="Sixth Semester">Sixth Semester</option>
                                             <option class="form-control" value="Seven Semester">Seven Semester</option>
                                             <option class="form-control" value="Eight Semester">Eight Semester</option>
-
-                                            <option class="form-control" value="ESEWA">ESEWA</option>
                                         </select>
-                                        <select class="form-control" name="semester" id="year">
-                                            <option class="form-control" value="1_Year">1 year</option>
-                                            <option class="form-control" value="2_Year">2 Year</option>
-                                            <option class="form-control" value="3_Year">3 year</option>
-                                            <option class="form-control" value="4_Year">4 Year</option>
+                                    </div>
+                                    <div class="col-lg-12 mt-3 mb-5" id="year">
+                                        <strong>Semester/ Year</strong>
+                                        <select class="form-control" name="semesters" >
+                                            <option class="form-control" value="1_year">1 year</option>
+                                            <option class="form-control" value="2_year">2 Year</option>
+                                            <option class="form-control" value="3_year">3 year</option>
+                                            <option class="form-control" value="4_year">4 Year</option>
                                         </select>
                                     </div>
                                     <div class="section-filter-buttons" style="margin-top: 10px">

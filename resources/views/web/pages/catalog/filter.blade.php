@@ -79,9 +79,9 @@
                                             <option class="form-control" value="BBS">BBS</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-12 mt-3 mb-5">
+                                    <div class="col-lg-12 mt-3 mb-5" id="semester">
                                         <strong>Semester/ Year</strong>
-                                        <select class="form-control" name="semester" id="semester">
+                                        <select class="form-control" name="semester" >
                                             <option class="form-control" value="First Semester">First Semester</option>
                                             <option class="form-control" value="Second Semester">Second Semester</option>
                                             <option class="form-control" value="Third Semester">Third Semester</option>
@@ -90,14 +90,15 @@
                                             <option class="form-control" value="Sixth Semester">Sixth Semester</option>
                                             <option class="form-control" value="Seven Semester">Seven Semester</option>
                                             <option class="form-control" value="Eight Semester">Eight Semester</option>
-
-                                            <option class="form-control" value="ESEWA">ESEWA</option>
                                         </select>
-                                        <select class="form-control" name="semester" id="year">
-                                            <option class="form-control" value="1_Year">1 year</option>
-                                            <option class="form-control" value="2_Year">2 Year</option>
-                                            <option class="form-control" value="3_Year">3 year</option>
-                                            <option class="form-control" value="4_Year">4 Year</option>
+                                    </div>
+                                    <div class="col-lg-12 mt-3 mb-5" id="year">
+                                        <strong>Semester/ Year</strong>
+                                        <select class="form-control" name="semesters" >
+                                            <option class="form-control" value="1_year">1 year</option>
+                                            <option class="form-control" value="2_year">2 Year</option>
+                                            <option class="form-control" value="3_year">3 year</option>
+                                            <option class="form-control" value="4_year">4 Year</option>
                                         </select>
                                     </div>
                                     <div class="section-filter-buttons" style="margin-top: 10px">
@@ -142,14 +143,13 @@
                 <div class="prod-items section-items">
                     @include('web.pages.flash-message')
                     @foreach($products as $product)
-                        @if($product->category != "second-hand")
                             <div class="prod-i">
                                 <div class="prod-i-top">
                                     <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}"><!-- NO SPACE --></a>
                                     <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
                                 </div>
                                 <div class="prod-sticker">
-                                    <p class="prod-sticker-3">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                                    <p class="prod-sticker-3" style="background-color: #FF8800 !important;">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
                                 </div>
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 20) }}</a>
@@ -162,7 +162,6 @@
                                 <div class="prod-i-skuwrapcolor">
                                 </div>
                             </div>
-                        @endif
                     @endforeach
                 </div>
 

@@ -54,7 +54,7 @@ class HomeController extends BaseController
     private $userRepository;
     private $orderRepository;
     private $orderItemRepository,$blogRepository;
-    private $request;
+    private $request,$semester;
 
     public function __construct(SliderRepository $sliderRepository,
                                 PostRepository $postRepository,
@@ -329,11 +329,16 @@ class HomeController extends BaseController
         $university = $request->university;
         $publication= $request->publication;
          $course= $request->course;
-         $semester= $request->semester;
-        $this->view_data['products']=$this->productRepository->getAll()->where('univeristy','=',$university)
+         if ($course == "BBS"){
+             $semester= $request->semesters;
+         }else{
+             $semester= $request->semester;
+         }
+
+        $this->view_data['products']=$this->productRepository->getAll()->where('university','=',$university)
                                                                         ->where('publication','=',$publication)
                                                                         ->where('status',"=",'active')
-                                                                        ->where('course','=',$course)
+                                                                        ->where('faculty','=',$course)
                                                                         ->where('semester','=',$semester);
         return view('web.pages.catalog.filter' , $this->view_data);
     }
