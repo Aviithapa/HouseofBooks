@@ -110,6 +110,11 @@ class ProductController extends BaseController
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
         if ($role === "administrator") {
             $data = $createProductRequest->all();
+            if ($data['faculty'] == "BBS"){
+                $data['semester']= $data['year'];
+            }else{
+                $data['semester']= $data['semesters'];
+            }
             $data['user_id'] = Auth::user()['id'];
             $data['image'] = $data['product_image'];
             try {
@@ -185,6 +190,11 @@ class ProductController extends BaseController
         if ($role === "administrator") {
             $slug = $this->productRepository->findById($id)['slug'];
             $data = $updateProductRequest->all();
+            if ($data['faculty'] == "BBS"){
+                $data['semester']= $data['year'];
+            }else{
+                $data['semester']= $data['semesters'];
+            }
             $data['image'] = $data['product_image'];
             try {
                 $post = $this->productRepository->update($data, $id);

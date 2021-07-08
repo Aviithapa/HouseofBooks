@@ -92,14 +92,14 @@
             <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
-                    {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('semesters',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="year">
                 <div class="form-group">
                     {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
-                    {!! Form::select('semester',getYear(),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('year',getYear(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>

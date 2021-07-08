@@ -112,6 +112,11 @@ class SecondHandController extends BaseController
         $data = $createProductRequest->all();
         $data['user_id']=Auth::user()['id'];
         $data['category']="second-hand";
+        if ($data['faculty'] == "BBS"){
+            $data['semester']= $data['year'];
+        }else{
+            $data['semester']= $data['semesters'];
+        }
         $images = $createProductRequest->file('files');
         if ($createProductRequest->hasFile('files')) :
             foreach ($images as $item):
@@ -192,6 +197,11 @@ class SecondHandController extends BaseController
         $slug=$this->productRepository->findById($id)['slug'];
         $data = $updateProductRequest->all();
         $data['category']="second-hand";
+        if ($data['faculty'] == "BBS"){
+            $data['semester']= $data['year'];
+        }else{
+            $data['semester']= $data['semesters'];
+        }
         $oldimages=$this->productRepository->findById($id)['image'];
 
         $images = $updateProductRequest->file('files');
