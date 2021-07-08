@@ -70,17 +70,12 @@
                                 <div class="card" style="border:none !important;  background-color: #e5e5e5 !important;">
                                     <h4 class="card-title mt-2" style="color: black !important; font-weight: bold; font-size: 30px">Order Summary</h4>
                                     <article class="card-body">
-                                        <dl class="dlist-align" style="text-align: justify !important;" >
-                                            <dt style="color: black !important; font-weight: bold; font-size: 16px;">Quantity: </dt>
-                                            <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">{{getCartAmount()}} </dd><br>
-                                            <dt style="color: black !important; font-weight: bold; font-size: 16px;">Amount: </dt>
-                                            <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd><br>
-                                            <dt style="color: black !important; font-weight: bold; font-size: 16px;">Delivery : </dt>
-                                            <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b">0</dd>
-                                            <hr style="height: 5px; !important;">
-                                            <dt style="color: black !important; font-weight: bold; font-size: 16px;">Total Amount: </dt>
-                                            <dd style="color: black !important; font-weight: bold; font-size: 16px;" class="text-right h5 b"> RS. {{getCartTotalPrice()}} </dd>
-
+                                        <dl class="dlist-align" style="text-align: justify !important ;color: black !important; font-weight: bold; font-size: 16px;" >
+                                            Quantity:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{getCartAmount()}}</b>  <br>
+                                            Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b><br>
+                                            Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">Considered as address</b> <br>
+                                            <hr style="height: 5px; !important;"> <br>
+                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b>
                                         </dl>
                                     </article>
 
@@ -103,7 +98,7 @@
         function run() {
           var paymentMethod =document.getElementById("payment").value;
             if( paymentMethod==="ESEWA" ) {
-                document.form.action = "https://uat.esewa.com.np/epay/main";
+                document.form.action = "https://merchant.esewa.com.np";
             }
             else if( paymentMethod === "cash_on_delivery")  {
                 document.form.action = "https://houseofbooks.com.np/order_confirmation";

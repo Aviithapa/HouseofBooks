@@ -76,6 +76,8 @@
                                 </td>
                             </tr>
                         @endforeach
+
+                        <tr>You will be charged of delivery as your address</tr>
                         </tbody>
                     </table>
                 </div>

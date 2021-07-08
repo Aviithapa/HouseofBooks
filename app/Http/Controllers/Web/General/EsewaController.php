@@ -57,7 +57,7 @@ class EsewaController extends BaseController
                     ]);
                     $datas->items()->save($orderItem);
                 }
-                $url = "https://uat.esewa.com.np/epay/transrec";
+                $url = "https://merchant.esewa.com.np/epay/transrec";
                 $data =[
                     'amt'=> $datas['grand_total'],
                     'rid'=> $request->refId,

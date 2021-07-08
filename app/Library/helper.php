@@ -6,6 +6,7 @@
  * Time: 2:17 PM
  */
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 if (!function_exists('pagination_links')) {
@@ -275,6 +276,29 @@ function getProductTotalQuanity(){
     return $final_quantity;
 }
 
+function getAllProductQuanity(){
+    $products = \App\Models\Website\Product::all()->count();
+    return $products;
+}
+
+function getSecondHandProductQuanity(){
+    $products = \App\Models\Website\Product::all()->where('category','=','second-hand')->count();
+    return $products;
+}
+function getTodayRequests(){
+    $order=\App\Models\Website\Order::all()->where('created_at','=', Carbon::today())->count();
+    return $order;
+}
+
+function TotalSell(){
+    $order=\App\Models\Website\Order::all()->where('status','=',"delivered");
+    $final_price =  0;
+    foreach($order as $product)
+    {
+        $final_price += ($product->final_amount + $product->delivery_charge);
+    }
+    return $final_price;
+}
 function getActiveProductTotalQuanity(){
     $user=Auth::user()->id;
     $products = \App\Models\Website\Product::where([
