@@ -18,7 +18,8 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/catalog/{slug}','HomeController@catalog');
     Route::get('/secondhand/catalog/{slug}','HomeController@secondhandcatalog');
     Route::get('/cart','HomeController@cart')->middleware('auth');
-    Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth');
+    Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth')->name('add.to.cart');
+    //Route::patch('update-cart', 'HomeController@update')->name('update.cart');
     Route::get('search','HomeController@search')->name('search');
     Route::get('/cart/delete/{id}','HomeController@Destroy')->name('destroy');
     Route::post('/order_confirmation','HomeController@Order');

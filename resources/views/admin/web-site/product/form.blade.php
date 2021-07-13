@@ -248,7 +248,7 @@
         });
         $( document ).ready(function() {
             var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="nobel"){
+            if(sub_category==="novel"){
                 $("#university").hide();
                 $("#publication").hide();
                 $("#semester").hide();
@@ -258,6 +258,15 @@
             {
                 $("#nobel").hide();
                 $("#best_selling").hide();
+            }
+
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
             }
         });
         function run() {

@@ -18,7 +18,7 @@
                             <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
                         </div>
                         <div class="section-filter-item opened">
-                            <p class="section-filter-ttl">Apply Filter</p>
+                            <span class="section-filter-ttl">Apply Filter</span>
 
                             <form action="{{url('filter')}}" method="POST" id="carform">
                                 {{csrf_field() }}
@@ -83,7 +83,7 @@
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
                             <a href="{{url('/catalog/sub_category/nobel')}}">
-                                <span class="categ-1-label">Nobel</span>
+                                <span class="categ-1-label">Novel</span>
                             </a>
                         </li>
                         <li class="categ-1">

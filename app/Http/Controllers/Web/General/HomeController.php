@@ -527,6 +527,7 @@ class HomeController extends BaseController
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
                $this->view_data['notfound'] = $this->postRepository->findById(150);
+
             return view('web.pages.search', $this->view_data);
     }
 

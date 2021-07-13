@@ -30,7 +30,7 @@
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
                         <div class="input-group" style="position: unset !important;">
-                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}"  type="text" style="position: unset !important; font-size: 16px;">
+                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id='books' type="text" style="position: unset !important; font-size: 16px;">
                             <div class="input-group-btn">
                                 <button type="submit" id="searchbtn">search</button>
                             </div>
@@ -107,7 +107,7 @@
                                         </li>
                                         <li>
                                             <a href="{{url('catalog/nobel/frictional')}}">
-                                                Frictional
+                                                Fictional
                                             </a>
                                         </li>
                                         <li>
@@ -251,4 +251,6 @@
 
         }
     </script>
+
+
     @endpush

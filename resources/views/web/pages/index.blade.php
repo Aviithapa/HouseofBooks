@@ -85,7 +85,7 @@
             <div class="tab">
                 <button class="tablinks active" onclick="openNobels(event, 'Motivational')" id="defaultOpen">Motivational </button>
                 <button class="tablinks" onclick="openNobels(event, 'Knowledge')">Skills and Knowledge</button>
-                <button class="tablinks" onclick="openNobels(event, 'Frictional')">Frictional</button>
+                <button class="tablinks" onclick="openNobels(event, 'Frictional')">Fictional</button>
                 <button class="tablinks" onclick="openNobels(event, 'Biographies')">Biographies</button>
             </div>
         </div>
@@ -102,7 +102,7 @@
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
                                 <p style="font-style: italic; font-size: 12px;">{{$product->author}}</p>
                                 <p style="text-align: center; margin-bottom: -15px !important;"><button class="btn btn-primary btn-round-sm btn-sm" style="font-size: 14px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
-                                    <a href="{{url('add/to/cart/'.$product->id)}}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
+                                    <a href="{{ route('add.to.cart', $product->id) }}"><button id="cartBtn"  class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 700 !important;">ADD TO CART</button></a></p>
                             </div>
                         </div>
                     @endif
