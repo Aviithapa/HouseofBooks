@@ -98,7 +98,7 @@
         function run() {
           var paymentMethod =document.getElementById("payment").value;
             if( paymentMethod==="ESEWA" ) {
-                document.form.action = "https://merchant.esewa.com.np";
+                document.form.action = "https://esewa.com.np/epay/main";
             }
             else if( paymentMethod === "cash_on_delivery")  {
                 document.form.action = "https://houseofbooks.com.np/order_confirmation";

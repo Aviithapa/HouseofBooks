@@ -101,7 +101,9 @@
                                             <strong>Publication</strong>
                                             <select class="form-control"  name="publication">
                                                 <option class="form-control" value="asmita">Asmita</option>
-                                                <option class="form-control" value="saraswati">Saraswati</option>
+                                                <option class="form-control" value="saraswati">Saraswati </option>
+                                                <option class="form-control" value="samiksya">Samiksya</option>
+                                                <option class="form-control" value="mk_publication">MK</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-12 mt-3">
@@ -215,7 +217,7 @@
                             <div class="prod-i">
                                 <div class="prod-i-top">
                                     <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="{{$product->name}}"><!-- NO SPACE --></a>
-                                    <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                                    <p class="{{url('productDetails/'.$product->id)}}"></p>
                                 </div>
                                 <div class="prod-sticker">
                                     <p class="prod-sticker-3" style="background-color: #FF8800 !important;">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>

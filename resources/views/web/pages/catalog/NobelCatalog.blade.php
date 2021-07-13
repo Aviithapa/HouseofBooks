@@ -13,6 +13,35 @@
 
 
             <div class="section-sb">
+
+                <div class="section-filter">
+                    <div class="section-filter-cont">
+                        <div class="section-filter-price">
+                            <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
+                        </div>
+                        <div class="section-filter-item opened" id="nobel">
+                            <p class="section-filter-ttl">Nobel</p>
+                            <div class="section-filter-fields">
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-5" value="on" type="checkbox" onclick="change('frictional')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-5">Fictional</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-2" value="on" type="checkbox" onclick="change('skills-knowledge')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-3" value="on" type="checkbox" onclick="change('motivational')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>
+                                </p>
+                                <p class="section-filter-field">
+                                    <input id="section-filter-checkbox3-4" value="on" type="checkbox" onclick="change('biographies')">
+                                    <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="section-sb-current">
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
@@ -85,7 +114,7 @@
                             <div class="prod-i">
                                 <div class="prod-i-top">
                                     <a href="{{url('productDetails/'.$product->id)}}" class="prod-i-img"><!-- NO SPACE --><img src="{{$product->getImage()}}" alt="{{$product->name}}"><!-- NO SPACE --></a>
-                                    <p class="{{url('productDetails/'.$product->id)}}"><i class="fa fa-info"></i></p>
+                                    <p class="{{url('productDetails/'.$product->id)}}"></p>
                                 </div>
                                 <div class="prod-sticker">
                                     <p class="prod-sticker-3" style="background-color: #FF8800 !important;">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
