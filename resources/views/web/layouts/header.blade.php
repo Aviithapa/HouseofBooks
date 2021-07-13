@@ -90,7 +90,7 @@
                             <a class="topcatalog-btn" href="#">BROWSE CATEGORIES</a>
                             <ul class="topcatalog-list">
                                 <li>
-                                    <a href="{{url('/catalog/sub_category/nobel')}}">
+                                    <a href="{{url('/catelog/sub_category/nobel')}}">
                                         Novel
                                     </a>
                                     <i class="fa fa-angle-right"></i>
@@ -118,47 +118,56 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{url('/catalog/sub_category/coursebook')}}">
+                                    <a href="{{url('/catelog/sub_category/coursebook')}}">
                                         Coursebook
                                     </a>
                                     <i class="fa fa-angle-right"></i>
                                     <ul>
                                         <li>
-                                            <a href="{{url('/catalog/university/TU')}}">
+                                            <a href="{{url('/catalog/coursebook/TU')}}">
                                                 Tribhuwan University
                                             </a>
-{{--                                            <i class="fa fa-angle-right"></i>--}}
-{{--                                            <ul>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        Management--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        Science--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                                <li>--}}
-{{--                                                    <a href="#">--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                            </ul>--}}
+                                            <i class="fa fa-angle-right"></i>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/TU/BBA')}}">
+                                                        BBA
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/TU/BBS')}}">
+                                                        BBS
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li>
-                                            <a href="{{url('/catalog/university/PU')}}">
+                                            <a href="{{url('/catalog/coursebook/PU')}}">
                                                 Pokhara University
                                             </a>
+                                            <i class="fa fa-angle-right"></i>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/PU/BBA')}}">
+                                                        BBA
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/PU/BBS')}}">
+                                                        BBS
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li>
-                                            <a href="{{url('/catalog/university/PBU')}}">
+                                            <a href="{{url('/catalog/coursebook/PBU')}}">
                                                 Purbanchal University
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/sub_category/medical-examination")}}">
+                                    <a href="{{url("catelog/sub_category/medical-examination")}}">
                                         Medical Examination
                                     </a>
                                 </li>
@@ -168,12 +177,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/sub_category/entrance-examination")}}">
+                                    <a href="{{url("catelog/sub_category/entrance-examination")}}">
                                         Entrance Examination
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
+                                    <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
                                         Question Bank and Solution
                                     </a>
                                 </li>

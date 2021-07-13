@@ -176,7 +176,7 @@
 
                 <!-- Pagination - start -->
 
-            {{$products->links( "pagination::bootstrap-4") }}
+{{--            {{$products->links( "pagination::bootstrap-4") }}--}}
             <!-- Pagination - end -->
             </div>
             <!-- Catalog Items | Gallery V1 - end -->

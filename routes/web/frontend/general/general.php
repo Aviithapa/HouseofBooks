@@ -9,11 +9,12 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('donation/{id}','HomeController@donation')->name('donation');
     Route::post('donation/{id}','HomeController@User')->name('user');
     Route::get('/productDetails/{id}','HomeController@productDetails');
-    Route::get('/catalog/university/{slug}','HomeController@UniversityCatalog');
+   // Route::get('/catalog/{category}/{university}/{faculty}','HomeController@UniversityCatalog');
+    Route::get('/catalog/{category}/{university}','HomeController@UniversityCatalog');
     Route::get('/catalog/publication/{slug}','HomeController@publicationCatalog');
     Route::get('/catalog/semester/{slug}','HomeController@semesterCatalog')->name('semester');
-    Route::get('/catalog/faculty/{slug}','HomeController@facultyCatalog');
-    Route::get('/catalog/sub_category/{slug}','HomeController@categoryCatalog');
+    Route::get('/catalog/{category}/{university}/{faculty}','HomeController@facultyCatalog');
+    Route::get('/catelog/sub_category/{slug}','HomeController@categoryCatalog');
     Route::get('/catalog/nobel/{slug}','HomeController@NobelCatalog')->name('nobel');
     Route::get('/catalog/{slug}','HomeController@catalog');
     Route::get('/secondhand/catalog/{slug}','HomeController@secondhandcatalog');

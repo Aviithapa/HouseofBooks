@@ -242,12 +242,15 @@ class HomeController extends BaseController
         $this->view_data['banner'] = $this->postRepository->findById(143);
         return view('web.pages.home' , $this->view_data);
     }
-    public function UniversityCatalog($slug=null, Request $request){
-        $slug = $slug ? $slug : 'TU';
+    public function UniversityCatalog($category=null, $university=null, Request $request){
+        $category = $category ? $category : 'coursebook';
+        $university = $university ? $university : 'TU';
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
-        $this->view_data['products']=$this->productRepository->findBy('University',$slug,'=',true,12);
+        $this->view_data['products']=$this->productRepository->getAll()->where('sub_category','=',$category)
+            ->where('status','=','active')
+            ->where('university','=',$university);
         return view('web.pages.catalog.universityCatalog' , $this->view_data);
     }
     public function NobelCatalog($slug=null, Request $request){
@@ -274,12 +277,17 @@ class HomeController extends BaseController
         $this->view_data['products']=$this->productRepository->findBy('semester',$slug,'=',true,12);
         return view('web.pages.catalog.semester' , $this->view_data);
     }
-    public function facultyCatalog($slug=null, Request $request){
+    public function facultyCatalog($category=null, $university=null,$slug=null, Request $request){
         $slug = $slug ? $slug : 'BBA';
+        $category = $category ? $category : 'coursebook';
+        $university = $university ? $university : 'TU';
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
-        $this->view_data['products']=$this->productRepository->findBy('faculty',$slug,'=',true,12);
+        $this->view_data['products']=$this->productRepository->getAll()->where('sub_category','=',$category)
+                                                                        ->where('status','=','active')
+                                                                        ->where('university','=',$university)
+                                                                        ->where('faculty','=',$slug);
         return view('web.pages.catalog.faculty' , $this->view_data);
     }
 
@@ -291,8 +299,9 @@ class HomeController extends BaseController
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         if($slug=="nobel"){
             $this->view_data['product']="nobel";
-        }else
-            $this->view_data['product']="others";
+        }else {
+            $this->view_data['product'] = "others";
+        }
         $this->view_data['products']=$this->productRepository->findBy('sub_category',$slug,'=',true,12);
         return view('web.pages.catalog.category' , $this->view_data);
     }
