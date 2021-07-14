@@ -18,6 +18,7 @@
                                 <th>Placed By</th>
                                 <th>Total Amount</th>
                                 <th>Contact Number</th>
+                                <th>Payment</th>
                                 <th>Status</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
@@ -41,6 +42,7 @@
                 {data: 'name', name: 'name'},
                 {data: 'grand_total', name: 'grand_total'},
                 {data: 'phone_number', name: 'phone_number'},
+                {data: 'payment_status', name: 'payment_status'},
                 {data: 'status', name: 'status'},
 //                {data: 'status', name: 'status'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}

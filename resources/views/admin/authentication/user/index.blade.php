@@ -23,7 +23,7 @@
                                 <th>Role</th>
                                 <th>Email</th>
                                 <th>Number</th>
-                                <th>Company</th>
+                                <th>Status</th>
                                 <th>Ref</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
@@ -49,7 +49,7 @@
                 {data: 'roles[0].display_name', name: 'roles.display_name', orderable: false},
                 {data: 'email', name: 'email'},
                 {data: 'mobile_number', name: 'mobile_number'},
-                {data: 'company_name', name: 'company_name'},
+                {data: 'status', name: 'status'},
                 {data: 'password_reference', name: 'password_reference'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
             ]

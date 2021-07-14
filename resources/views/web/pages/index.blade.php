@@ -379,7 +379,36 @@
     </div>
     </div>
 
-
+{{--    <div class="container-fluid">--}}
+{{--        <div class="bbb_viewed" style="background-color: whitesmoke !important;">--}}
+{{--            <div class="container-fluid">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="bbb_main_container" style="background-color: whitesmoke !important; margin-top: -50px">--}}
+{{--                            <div class="bbb_viewed_title_container">--}}
+{{--                                <h3 class="bbb_viewed_title">--}}
+{{--                                    <div class="title">--}}
+{{--                                        <h4>Our Partners</h4>--}}
+{{--                                    </div>--}}
+{{--                                </h3>--}}
+{{--                            </div>--}}
+{{--                            <div class="bbb_viewed_slider_container">--}}
+{{--                                <div class="owl-carousel owl-theme bbb_viewed_slider">--}}
+{{--                                            <div class="owl-item">--}}
+{{--                                                <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;">--}}
+{{--                                                    <div class="bbb_viewed_image" style="width: 50px !important; height: 50px !important;">--}}
+{{--                                                            <img src="" oncontextmenu="return false;" alt="">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     @endsection
 @push('scripts')
@@ -399,5 +428,7 @@
                 }
 
             </script>
+
+
 @endpush
 
