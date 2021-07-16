@@ -15,7 +15,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/catalog/semester/{slug}','HomeController@semesterCatalog')->name('semester');
     Route::get('/catalog/{category}/{university}/{faculty}','HomeController@facultyCatalog');
     Route::get('/catelog/sub_category/{slug}','HomeController@categoryCatalog');
-    Route::get('/catalog/nobel/{slug}','HomeController@NobelCatalog')->name('nobel');
+    Route::get('/novel/{slug}','HomeController@NobelCatalog')->name('nobel');
     Route::get('/catalog/{slug}','HomeController@catalog');
     Route::get('/secondhand/catalog/{slug}','HomeController@secondhandcatalog');
     Route::get('/cart','HomeController@cart')->middleware('auth');

@@ -138,8 +138,8 @@ class HomeController extends BaseController
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
                     $this->view_data['motivational'] = $this->productRepository->findBy('nobel_category','motivational','=',false,4);
                     $this->view_data['knowledge'] = $this->productRepository->findBy('nobel_category','skills-knowledge','=',false,4);
-                    $this->view_data['frictionals'] = $this->productRepository->findBy('nobel_category','frictional','=',false,4);
-                    $this->view_data['biographies'] = $this->productRepository->findBy('nobel_category','biographies','=',false,4);
+                    $this->view_data['frictionals'] = $this->productRepository->findBy('nobel_category','fictional','=',false,4);
+                    $this->view_data['biographies'] = $this->productRepository->findBy('nobel_category','biography','=',false,4);
                     $this->view_data['loksewa'] =$this->productRepository->findBy('sub_category','medical-examination','=',true,6);
                     $this->view_data['coursebook'] =$this->productRepository->findBy('sub_category','coursebook','=',true,6);
                     $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('sub_category','question-bank-and-solution','=',true,6);
@@ -254,7 +254,7 @@ class HomeController extends BaseController
         return view('web.pages.catalog.universityCatalog' , $this->view_data);
     }
     public function NobelCatalog($slug=null, Request $request){
-        $slug = $slug ? $slug : 'frictional';
+        $slug = $slug ? $slug : 'fictional';
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
@@ -297,8 +297,8 @@ class HomeController extends BaseController
         $this->view_data['category'] =$this->facultyRepository->getAll();
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
-        if($slug=="nobel"){
-            $this->view_data['product']="nobel";
+        if($slug=="novel"){
+            $this->view_data['product']="novel";
         }else {
             $this->view_data['product'] = "others";
         }

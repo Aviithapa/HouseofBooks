@@ -13,14 +13,14 @@
             <h2 class="main-ttl"><span> Category</span></h2>
 
             <div class="section-sb">
-                @if($product == "nobel")
+                @if($product == "novel")
                     <div class="section-filter">
                         <div class="section-filter-cont">
                             <div class="section-filter-price">
                                 <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
                             </div>
                             <div class="section-filter-item opened" id="nobel">
-                                <p class="section-filter-ttl">Nobel</p>
+                                <p class="section-filter-ttl">Novel</p>
                                 <div class="section-filter-fields">
                                     <p class="section-filter-field">
                                         <input id="section-filter-checkbox3-5" value="on" type="checkbox" onclick="change('frictional')">
@@ -45,7 +45,7 @@
                     <div class="section-sb-current">
                         <ul class="section-sb-list" id="section-sb-list">
                             <li class="categ-1">
-                                <a href="{{url('/catalog/sub_category/nobel')}}">
+                                <a href="{{url('/catalog/sub_category/novel')}}">
                                     <span class="categ-1-label">Novel</span>
                                 </a>
                             </li>
@@ -149,7 +149,7 @@
                         <div class="section-sb-current">
                         <ul class="section-sb-list" id="section-sb-list">
                             <li class="categ-1">
-                                <a href="{{url('/catalog/sub_category/nobel')}}">
+                                <a href="{{url('/catalog/sub_category/novel')}}">
                                     <span class="categ-1-label">Novel</span>
                                 </a>
                             </li>
@@ -225,8 +225,12 @@
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 20) }}</a>
                                 </h3>
+                                @if($product->sub_category=="novel")
+                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->author}} </p>
+                                @else
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->semester}} </p>
+                                @endif
                                 <p class="prod-i-price">
                                     <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
                                 </p>

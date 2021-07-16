@@ -422,8 +422,8 @@ if(!function_exists('getNobelCategory'))
             'null' =>'--SELECT-- ',
             'motivational' => 'Motivational',
             'skills-knowledge' => 'Skills and Knowledge',
-            'frictional' => 'Fictional',
-            'biographies' => 'Biographies'
+            'fictional' => 'Fictional',
+            'biography' => 'Biography'
         ];
     }
 

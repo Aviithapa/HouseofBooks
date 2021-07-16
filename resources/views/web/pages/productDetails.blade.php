@@ -72,7 +72,7 @@
                         </p>
 {{--                        </form>--}}
                     </div>
-                    @if($product->sub_category=="nobel")
+                    @if($product->sub_category=="novel")
                         <ul class="prod-i-props">
                             <li>
                                 <b>Author</b>: {{$product->author}}

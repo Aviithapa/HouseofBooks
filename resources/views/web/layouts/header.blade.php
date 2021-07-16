@@ -90,29 +90,29 @@
                             <a class="topcatalog-btn" href="#">BROWSE CATEGORIES</a>
                             <ul class="topcatalog-list">
                                 <li>
-                                    <a href="{{url('/catelog/sub_category/nobel')}}">
+                                    <a href="{{url('/catelog/sub_category/novel')}}">
                                         Novel
                                     </a>
                                     <i class="fa fa-angle-right"></i>
                                     <ul>
                                         <li>
-                                            <a href="{{url('catalog/nobel/motivational')}}">
+                                            <a href="{{url('novel/motivational')}}">
                                                 Motivational
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('catalog/nobel/skills-knowledge')}}">
+                                            <a href="{{url('novel/skills-knowledge')}}">
                                                 Skills and Knowledge
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('catalog/nobel/frictional')}}">
+                                            <a href="{{url('novel/fictional')}}">
                                                 Fictional
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('catalog/nobel/biographies')}}">
-                                                Biographies
+                                            <a href="{{url('novel/biography')}}">
+                                                Biography
                                             </a>
                                         </li>
                                     </ul>
@@ -139,6 +139,16 @@
                                                         BBS
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/TU/MBS')}}">
+                                                        MBS
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{url('/catalog/coursebook/TU/MBA')}}">
+                                                        MBA
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li>
@@ -153,8 +163,8 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{url('/catalog/coursebook/PU/BBS')}}">
-                                                        BBS
+                                                    <a href="{{url('/catalog/coursebook/PU/MBA')}}">
+                                                        MBA
                                                     </a>
                                                 </li>
                                             </ul>
