@@ -409,7 +409,20 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
+        <div class="modal fade" id="myModal" role="dialog" >
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" style="color: red !important; right: 0; position: absolute; margin-right: 10px" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{$popup->getImage()}}">
+                    </div>
+                </div>
 
+            </div>
+        </div>
     @endsection
 @push('scripts')
             <script>
@@ -429,6 +442,15 @@
 
             </script>
 
+
+    <script>
+        $(document).ready(function() {
+            if(localStorage.getItem('popState') != 'shown'){
+                $("#myModal").modal('show');
+                localStorage.setItem('popState','shown')
+            }
+        });
+    </script>
 
 @endpush
 
