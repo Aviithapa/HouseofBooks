@@ -5,9 +5,19 @@
 
     RewriteEngine On
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+
+#Comment | Force all URLs to https WITHOUT www
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://houseofbooks.com.np/$1 [R,L]
+
+#Comment | Force all URLs to https WITH www
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.houseofbooks.com.np/$1 [R,L]
+
+    # # Handle Authorization Header
+    # RewriteCond %{HTTP:Authorization} .
+    # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
