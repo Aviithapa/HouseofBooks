@@ -450,7 +450,10 @@
                 localStorage.setItem('popState','shown')
             }
         });
-    </script>
+        $(window).unload(function(){
+            localStorage.setItem('popState','hidden')
+        });
+    </script>    
 
 @endpush
 

@@ -162,50 +162,53 @@
                                     <div class="modal-body">
                                         <button data-dismiss="modal" class="close">&times;</button>
                                         <h3>Request For Book</h3>
-                                        <form class="mb-5" method="post" action="{{url('request')}}">
+                                        <form  method="post" action="{{url('request')}}">
                                             {{csrf_field() }}
                                             <div class="row">
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Name *</label>
-                                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" name="name" class="form-control" placeholder="Your Name *" value="" required />
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Email *</label>
-                                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Your email">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="email" name="email" class="form-control" placeholder="Your Email *" value="" required />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Phone Number *</label>
-                                                    <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Your name">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="number" name="phoneNumber" class="form-control" placeholder="Your Number  *" value="" required />
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Book Name *</label>
-                                                    <input type="text" class="form-control" name="bookName" id="Book Name"  placeholder="Your email">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" name="bookName" class="form-control" placeholder="Book Name *" value="" required  />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Book Faculty *</label>
-                                                    <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Book name">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" name="faculty" class="form-control" placeholder="Book Faculty *" value="" required  />
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 form-group mb-3">
-                                                    <label for="" class="col-form-label">Book Publication </label>
-                                                    <input type="text" class="form-control" name="bookName" id="Book Name"  placeholder="Book Publication">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" name="publication" class="form-control" placeholder="Book Publication *" value="" required  />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                                <div class="row">
-                                                    <div class="col-md-12 form-group mb-3">
-                                                        <label for="message" class="col-form-label">Message *</label>
-                                                        <textarea class="form-control" name="message" id="message" cols="30" rows="4"  placeholder="Write your message"></textarea>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <textarea  name="message" class="form-control Message" placeholder="Furthermore *" style="width: 100%; height: 200px; padding: 20px" required ></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-12 form-group">
-                                                        <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
-                                                        <span class="submitting"></span>
+                                                    <div class="col" style="text-align: center; font-size: 20px !important;">
+                                                        <button class="btn btn-primary btn-round-sm btn-sm"  style="   font-size: 20px;
+                            width: 350px !important; border-radius: 10px  !important; height: 50px !important; margin-bottom: 20px !important;">Send The Request</button>
                                                     </div>
                                                 </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
