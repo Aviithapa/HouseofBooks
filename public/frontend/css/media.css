@@ -1130,7 +1130,7 @@
 }
 
 
-@media only screen and (max-width : 400px) {
+@media only screen and (max-width : 450px) {
     .bestSelling{
         margin-left:10px !important;
         width: 100% !important;
@@ -1142,8 +1142,8 @@
         margin: 0px !important;
     }
     .overwrite{
-        height: 100px;
-        margin-top: -50px !important;
+        height: 75px;
+        margin-top: 10px ;
     }
     .vl{
         height: 50px;
@@ -1160,7 +1160,13 @@
     .title{
         height: 35px;
     }
+    .add{
+        margin-top: 10px !important;
+    }
+    .add img{
+        height: 100% !important;
 
+    }
     #cart{
         display: none;
     }
@@ -1169,9 +1175,31 @@
     }
     .cart-details{
         display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .column{
+        width: 50%;
+        float: left;
+    }
+    .cart-details .column a{
+        color: #FF8800 !important;
+    }
+    .cart-details .column a i{
+        color: #FF8800;
     }
     .mainmenu{
         z-index: 9;
+    }
+    .topmenu #main-menu{
+        display: none !important;
+    }
+    #main-menu{
+        color: #FF8800;
+        padding: 0px;
+        height: auto;
+        display: flex !important;
+        justify-content: flex-end;
     }
 }
 @media only screen and (max-width : 547px)  {
@@ -1190,6 +1218,6 @@
 @media only screen and (max-width : 725px)  {
     .overwrite  {
         height: 100px !important;
-        margin-top: -50px !important;
+        /*margin-top: -50px !important;*/
     }
 }

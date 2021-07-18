@@ -1401,11 +1401,11 @@
         float: none;
     }
 
-    /* Header */
-    .topmenu .mainmenu {
-        right: 39px;
-    }
-    /* Header */
+    /*!* Header *!*/
+    /*.topmenu .mainmenu {*/
+    /*    right: 39px;*/
+    /*}*/
+    /*!* Header *!*/
 
     /* Newsletter */
     .newsletter {

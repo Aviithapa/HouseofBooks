@@ -13,17 +13,19 @@
   .border-cols > [class*="col-"] {
     border-width: 0 0 1px 1px; } }
 @media all and (max-width: 768px) {
-  /* mobile devices */
-  .navbar {
-    padding: 1rem; }
+  /*!* mobile devices *!*/
+  /*.navbar {*/
+  /*  padding: 1rem; }*/
 
-  .navbar-landing {
-    transition: .5s;
-    padding-top: 7px;
-    padding-bottom: 7px; }
+  /*.navbar-landing {*/
+  /*  transition: .5s;*/
+  /*  padding-top: 7px;*/
+  /*  padding-bottom: 7px; }*/
 
-  .nav-item .btn {
-    margin: 7px 0 !important; }
+  /*.nav-item .btn {*/
+  /*  margin: 7px 0 !important; }*/
+
+
 
   .list-inline-item {
     vertical-align: middle;

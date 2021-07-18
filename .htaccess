@@ -1,9 +1,13 @@
 
 <IfMOdule mod_rewrite.c>
-    RewriteEngine On
+ RewriteEngine On
+
 
     # Redirect All Requests To The Subfolder
     RewriteRule ^(.*)$ public/$1 [L]
+
+    RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 </IfMOdule>
 

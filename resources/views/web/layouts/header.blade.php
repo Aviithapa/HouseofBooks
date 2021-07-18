@@ -71,13 +71,14 @@
 
         <div class="col-md-12 col-sm-12 cart-details">
                 <div class="column">
-                    <li> <a href="{{url("cart")}}" style="position: absolute;  text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
+                    <li> <a href="{{url("cart")}}" style="position: absolute;"><i class="fa fa-shopping-cart fa-icon-2x" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
                                     {{getCartAmount()}}
                                 @else
                                     0
-                                @endif Cart</button></a></li>
+                                @endif</a></li>
                 </div>
                 <div class="column">
+                    <span id="main-menu" onclick="openNav()">&#9776;</span>
                 </div>
         </div>
 

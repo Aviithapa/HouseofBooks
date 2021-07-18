@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{asset('asset/css/swiper.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/headerstyle.css')}}">
+<link rel="stylesheet" href="{{asset('asset/css/responsive.css')}}">
 <link rel="stylesheet" href="{{asset('asset/css/flaticon.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/media.css')}}">

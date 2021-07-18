@@ -256,6 +256,62 @@
 	$('.appointment_time').timepicker();
 
 
+    // Topmenu
+    $('.topmenu').on('click', '.mainmenu-btn', function () {
+        if ($('body').hasClass('mainmenu-show')) {
+            $('body').removeClass('mainmenu-show');
+        } else {
+            $('body').addClass('mainmenu-show');
+        }
+        return false;
+    });
+    $('html').on('click', 'body.mainmenu-show', function () {
+        $('body').removeClass('mainmenu-show');
+    });
+    $('body').on('click', '.mainmenu', function(event){
+        event.stopPropagation();
+    });
+
+    // Topmenu (mobile)
+    if ($(window).width() < 751) {
+        $('.topmenu .mainmenu li a .fa').on('click', function () {
+            alert("You yes")
+            if ($(this).parent().next('.sub-menu').hasClass('opened')) {
+                $(this).parent().next('.sub-menu').removeClass('opened');
+                $(this).parent().next('.sub-menu').slideUp();
+            } else {
+                $(this).parent().next('.sub-menu').addClass('opened');
+                $(this).parent().next('.sub-menu').slideDown();
+            }
+            return false;
+        });
+
+        $('.topcatalog').on('click', '.topcatalog-btn', function () {
+            if ($('body').hasClass('topcatalog-show')) {
+                $('body').removeClass('topcatalog-show');
+            } else {
+                $('body').addClass('topcatalog-show');
+            }
+            return false;
+        });
+        $('html').on('click', 'body.topcatalog-show', function () {
+            $('body').removeClass('topcatalog-show');
+        });
+        $('body').on('click', '.topcatalog-list', function(event){
+            event.stopPropagation();
+        });
+        $('.topcatalog li .fa').on('click', function () {
+            if ($(this).next('ul').hasClass('opened')) {
+                $(this).next('ul').removeClass('opened');
+                $(this).next('ul').slideUp();
+            } else {
+                $(this).next('ul').addClass('opened');
+                $(this).next('ul').slideDown();
+            }
+            return false;
+        });
+    }
+
 
 
 })(jQuery);
