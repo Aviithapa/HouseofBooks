@@ -24,6 +24,7 @@ RewriteRule ^(.*)$ https://www.houseofbooks.com.np/$1 [R,L]
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
+   #add
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
