@@ -1,5 +1,5 @@
-<header>
-    <div class="header">
+<header id="web-view">
+    <div class="header" >
         <div class="top">
             <div class="container-fluid">
                 <div class="row">
@@ -235,6 +235,8 @@
     <div class="bottom-nav">
     </div>
 </header>
+
+
 <div class="social-fix">
     <ul class="list-unstyled mb-0">
         <a href="{{url('/dashboard')}}"> <li><i class="fa fa-home fa-2x">
@@ -270,6 +272,21 @@
             }
 
         }
+
+
+        // function myFunction(x) {
+        //     if (x.matches) { // If media query matches
+        //         document.getElementById("web-view").style.display = "none";
+        //         document.getElementById("mobile-view").style.display = "none";
+        //     } else {
+        //         document.getElementById("mobile-menu").style.display = "none";
+        //         document.getElementById("web-view").style.display = "block";
+        //     }
+        // }
+        //
+        // var x = window.matchMedia("(max-width: 500px)")
+        // myFunction(x) // Call listener function at run time
+        // x.addListener(myFunction) // Attach listener function on state changes
     </script>
 
 
