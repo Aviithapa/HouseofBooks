@@ -253,7 +253,8 @@
     </div>
     <div class="grid simple ">
         <div class="grid-title">
-            <h4>Image</h4>
+            <h4>Upload Multiple Image</h4>
+            <h4>At least 3 Image Required</h4>
             <div class="tools">
                 <a href="javascript:;" class="collapse"></a>
             </div>

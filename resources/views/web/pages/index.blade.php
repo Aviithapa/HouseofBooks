@@ -182,7 +182,7 @@
                             <div class="title" >
                                 <h4>Question Bank and Solution</h4>
                             </div>
-                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
@@ -235,7 +235,7 @@
                                 <div class="title" >
                                     <h4>Course Books</h4>
                                 </div>
-                                <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                                <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/coursebook')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
 
                             </h3>
 
@@ -287,7 +287,7 @@
                                     <h4>Medical Examination Books</h4>
                                 </div>
                             </h3>
-                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catalog/sub_category/medical-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/medical-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
                         <div class="bbb_viewed_slider_container">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
@@ -453,7 +453,7 @@
         $(window).unload(function(){
             localStorage.setItem('popState','hidden')
         });
-    </script>    
+    </script>
 
 @endpush
 

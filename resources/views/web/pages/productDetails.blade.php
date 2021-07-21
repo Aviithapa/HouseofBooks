@@ -79,7 +79,7 @@
                             </li>
 
                             <li>
-                                <strong>Short Description</strong><br>
+                                <h3><span>Short Description</span></h3><br>
                                 {!!html_entity_decode($product->excerpt)!!}
                             </li>
 
@@ -103,7 +103,7 @@
                             </li>
                             @if($product->excerpt)
                             <li>
-                                <h3>Short Description</h3>
+                                <h3><span>Short Description</span></h3>
                                 <p style="text-align: justify;">{!!html_entity_decode($product->excerpt)!!}</p>
                             </li>
                             @endif
