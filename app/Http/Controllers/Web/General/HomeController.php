@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\WebSite\FacultyController;
 use App\Http\Controllers\Admin\WebSite\ProductController;
 use App\Http\Controllers\Web\BaseController;
 use App\Models\Auth\Role;
+use App\Models\Auth\User;
 use App\Models\Website\Cart;
 use App\Models\Website\Contact;
 use App\Models\Website\Donation;
@@ -230,6 +231,8 @@ class HomeController extends BaseController
                     $this->view_data['authUser']=Auth::User();
                     $this->view_data['order']=$this->orderRepository->findBy('user_id',auth()->user()->id,'=');
                 break;
+                case 'give-away':
+                    break;
             }
                     return view('web.pages.' . $slug, $this->view_data);
         }
@@ -528,17 +531,18 @@ class HomeController extends BaseController
     public function search(Request $request)
     {
         $this->view_data['cod'] = $this->postRepository->findById(151);
-            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->search . "%")
-                                            ->orwhere('faculty','LIKE', '%' . $request->search . "%")
-                                            ->orwhere('sub_category','LIKE', '%' . $request->search . "%")
-                                            ->orwhere('publication','LIKE', '%' . $request->search . "%")
-                                            ->orwhere('university','LIKE', '%' . $request->search . "%")
+            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->book . "%")
+//                                            ->orwhere('faculty','LIKE', '%' . $request->books . "%")
+//                                            ->orwhere('sub_category','LIKE', '%' . $request->books . "%")
+//                                            ->orwhere('publication','LIKE', '%' . $request->books . "%")
+//                                            ->orwhere('university','LIKE', '%' . $request->books . "%")
                                             ->get();
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
                $this->view_data['notfound'] = $this->postRepository->findById(150);
 
             return view('web.pages.search', $this->view_data);
+
     }
 
     public function Destroy($id){
@@ -557,4 +561,43 @@ class HomeController extends BaseController
         }
     }
 
+    public function ajaxsearch(Request $request){
+        // check if ajax request is coming or not
+
+        if($request->ajax()) {
+            // select country name from database
+            $data =  Product::where('name', 'LIKE', '%' . $request->product . "%")
+                ->paginate(8);
+            // declare an empty array for output
+            $output = '';
+            // if searched countries count is larager than zero
+            if (count($data)>0) {
+                // concatenate output to the array
+                $output = '<ul class="list-group" style="display: block; position: absolute; z-index: 111">';
+                // loop through the result array
+                foreach ($data as $row){
+                    // concatenate output to the array
+                    $output .= '<li class="list-group-item search-item"><img src="'.$row->getImage().' " height=50 width="50">' .$row->name.'</li>';
+                }
+                // end of output
+                $output .= '</ul>';
+            }
+            else {
+                // if there's no matching results according to the input
+                $output .= '<li class="list-group-item">'.'No results'.'</li>';
+            }
+            // return output result array
+            return $output;
+        }
+    }
+
+    protected function user()
+    {
+        $role = Role::where('name', 'finance')->first();
+        $user = $this->userRepository->findById(Auth::user()->id);
+        $user['role']=$role;
+        $this->userRepository->update((array)$user,Auth::user()->id);
+       // $user->attachRole($role,Auth::user()->id);
+
+    }
 }

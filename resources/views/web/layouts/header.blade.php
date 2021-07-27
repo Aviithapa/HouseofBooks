@@ -30,10 +30,14 @@
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
                         <div class="input-group" style="position: unset !important;">
-                            <input class="form-control" placeholder="Search . . ." name="search" value="{{old('search')}}" id='books' type="text" style="position: unset !important; font-size: 16px;">
+                            <input class="form-control" placeholder="Search . . ." name="book" value="{{old('search')}}" id='book' type="text" style="position: unset !important; font-size: 16px;">
+
                             <div class="input-group-btn">
                                 <button type="submit" id="searchbtn">search</button>
                             </div>
+
+                        </div>
+                        <div id="bookList">
                         </div>
                     </form>
                 </div>
@@ -210,6 +214,7 @@
                             <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                             <li><a href="{{url('blog')}}">Blog</a></li>
                             <li><a href="{{url('contact')}}">Contact Us</a></li>
+                            <li><a href="{{url('give-away')}}">Give Away</a></li>
                             <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
                             @if(\Illuminate\Support\Facades\Auth::user())
                                 @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
@@ -273,6 +278,39 @@
 
         }
 
+        $(document).ready(function () {
+            // keyup function looks at the keys typed on the search box
+            $('#book').on('keyup',function() {
+                // the text typed in the input field is assigned to a variable
+                var book= document.getElementById("book");
+                if(book !=null){
+                    var query = $(this).val();
+                    // call to an ajax function
+                    $.ajax({
+                        url:"{{ route('autocomplete.fetch') }}",
+                        type:"GET",
+                        data:{'product':query},
+                        success:function (data) {
+                            $('#bookList').html(data);
+                        }
+                    })
+                }
+
+            });
+            var CSRF_TOKEN = $('input[name="_token"]').attr('value');
+
+            $(document).on('click', '.search-item', function(){
+                var value = $(this).text();
+                $.ajax({
+                    url:"{{ route('search') }}",
+                    type:"get",
+                    data:{_token: CSRF_TOKEN,'book':value},
+                });
+                $('#book').val(value);
+                $('#bookList').html("");
+            });
+
+        });
 
         // function myFunction(x) {
         //     if (x.matches) { // If media query matches

@@ -14,6 +14,7 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body>
+<div id="preloader" scroll="no"></div>
 @include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
 
@@ -22,5 +23,11 @@
 @include('web.layouts.footer')
 @include('web.layouts.script')
 @stack('scripts')
+<script>
+    var preloader=document.getElementById("preloader");
+    window.addEventListener("load",function () {
+   preloader.style.display="none";
+    })
+</script>
 </body>
 </html>
