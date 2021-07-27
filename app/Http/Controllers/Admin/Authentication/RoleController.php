@@ -35,6 +35,7 @@ class RoleController extends BaseController
     public function index()
     {
         $this->authorize('read',$this->roleRepository->getModel());
+        $roles = $this->roleRepository->getAllForDataTable();
         if(\request()->ajax()) {
             $roles = $this->roleRepository->getAllForDataTable();
             return DataTables::of($roles)
