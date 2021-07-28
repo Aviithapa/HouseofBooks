@@ -25,8 +25,7 @@
                                             <span class="close">&times;</span>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Hello and  welcome from House of book</p>
-
+                                            {!!html_entity_decode($terms->content)!!}
                                         </div>
                                         <div class="modal-footer">
                                             @if(\Illuminate\Support\Facades\Auth::user())

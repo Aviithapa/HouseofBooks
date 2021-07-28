@@ -203,6 +203,7 @@ class HomeController extends BaseController
                     break;
 
                 case 'sell-book-index':
+                    $this->view_data['terms']=$this->postRepository->findById(152);
                     $this->view_data['sell_book_banner']=$this->postRepository->findById(146);
                     $this->view_data['work_banner']=$this->postRepository->findById(147);
                     $this->view_data['learn_more_banner']=$this->postRepository->findById(148);
