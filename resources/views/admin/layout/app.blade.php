@@ -22,10 +22,10 @@
     @case('administrator')
     @include('admin.sidebar.administrator')
     @break
-    @case("customer")
+    @case("seller")
     @include('admin.sidebar.customer')
     @break
-    @case("donor")
+    @case("customer")
     @include('admin.sidebar.donor')
     @break
     @default

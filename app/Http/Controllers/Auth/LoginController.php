@@ -73,7 +73,7 @@ class LoginController extends Controller
                         return redirect()->intended('dashboard');
                     } else if (Auth::user()->mainRole()->name === 'customer') {
                         return redirect()->intended('/');
-                    } elseif (Auth::user()->mainRole()->name === 'finance') {
+                    } elseif (Auth::user()->mainRole()->name === 'seller') {
                         return redirect()->intended('dashboard');
                     }
             }

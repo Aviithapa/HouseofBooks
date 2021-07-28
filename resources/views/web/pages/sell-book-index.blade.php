@@ -30,11 +30,16 @@
                                         </div>
                                         <div class="modal-footer">
                                             @if(\Illuminate\Support\Facades\Auth::user())
-                                                    @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "customer")
-                                                <a  href="{{route('user.role')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Agree</button></a>
-                                                @endif
+                                                    @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "customer" || \Illuminate\Support\Facades\Auth::user()->mainRole()->name == "finance" )
+                                                    <a  href="{{route('user.role')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Agree</button></a>
+                                                    <button id="close" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
+                                                    @elseif(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "seller")
+                                                    <a  href="{{url('/dashboard')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Ok</button></a>
+                                                    @endif
+                                            @else
+                                                <a  href="{{url('/register/seller')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Agree</button></a>
+                                               <button id="close" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
                                             @endif
-                                            <a  href="#"><button id="close" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button></a>
                                         </div>
                                     </div>
 

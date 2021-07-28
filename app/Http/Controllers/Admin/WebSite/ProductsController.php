@@ -51,7 +51,6 @@ class ProductsController extends BaseController
      */
     public function index()
     {
-        $this->authorize('read', $this->productRepository->getModel());
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
 
         switch ($role)
@@ -59,7 +58,7 @@ class ProductsController extends BaseController
             case 'administrator':
                 $product = $this->productRepository->getAll();
                 break;
-            case 'customer':
+            case 'seller':
                 $product = $this->productRepository->findByDataTable('user_id',Auth::user()['id'],'=');
                 break;
 

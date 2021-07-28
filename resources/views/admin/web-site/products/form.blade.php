@@ -364,10 +364,26 @@
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
         $( document ).ready(function() {
-            $("#nobel").hide();
-            $("#best_selling").hide();
-            $("#year").hide();
-            $("#sem").show();
+            var sub_category=document.getElementById("subCategory").value;
+            if(sub_category==="novel"){
+                $("#university").hide();
+                $("#publication").hide();
+                $("#semester").hide();
+                $("#nobel").show();
+                $('#level').hide();
+            }else
+            {
+                $("#nobel").hide();
+            }
+
+            var faculty = document.getElementById("fac").value;
+            if(faculty==="BBS"){
+                $("#year").show();
+                $("#sem").hide();
+            }else{
+                $("#year").hide();
+                $("#sem").show();
+            }
         });
         $(document).ready(function () {
             var condition=document.getElementById("condition").value;

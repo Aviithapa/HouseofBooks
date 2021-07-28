@@ -594,11 +594,11 @@ class HomeController extends BaseController
     protected function user()
     {
         $user = Auth::user();
-        $role = Role::where('name', 'finance')->first();
+        $role = Role::where('name', 'seller')->first();
         $data['role'] = $role->id;
         $this->userRepository->update((array)$data,Auth::user()->id);
        // $user->attachRole($role,Auth::user()->id);
-        return redirect()->route('dashboard.products.index');
+        return redirect()->route('dashboard');
 
     }
 }

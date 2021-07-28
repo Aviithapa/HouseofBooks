@@ -37,11 +37,17 @@ ProductRepository $productRepository,PostRepository $postRepository)
                 $book_created=$this->productRepository->getAllInActive();
                 return $this->view('dashboard.administrator',compact("book_created"));
                 break;
-            case 'customer':
+            case 'seller':
                 $product = $this->productRepository->findBy('user_id',Auth::user()['id'],'=');
                 $terms= $this->postRepository->findById(152);
                 return $this->view('dashboard.customer',compact('product',"terms"));
                 break;
+            case 'customer':
+                return $this->view('/');
+                break;
+            case 'finance':
+                return $this->view('/');
+            break;
             case 'b2b_agent':
                 return $this->view('dashboard.b2b-agent');
                 break;

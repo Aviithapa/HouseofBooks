@@ -214,7 +214,7 @@
                             <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                             <li><a href="{{url('blog')}}">Blog</a></li>
                             <li><a href="{{url('contact')}}">Contact Us</a></li>
-                            <li><a href="{{url('give-away')}}">Give Away</a></li>
+{{--                            <li><a href="{{url('give-away')}}">Give Away</a></li>--}}
                             <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
                             @if(\Illuminate\Support\Facades\Auth::user())
                                 @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
@@ -244,8 +244,14 @@
 
 <div class="social-fix">
     <ul class="list-unstyled mb-0">
-        <a href="{{url('/dashboard')}}"> <li><i class="fa fa-home fa-2x">
-                </i> Dashboard</li></a>
+        @if(\Illuminate\Support\Facades\Auth::user())
+            @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "customer")
+
+            @else
+                    <a href="{{url('/dashboard')}}"> <li><i class="fa fa-home fa-2x">
+                    </i> Dashboard</li></a>
+            @endif
+        @endif
     </ul>
 </div>
 @push('scripts')
