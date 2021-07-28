@@ -598,7 +598,7 @@ class HomeController extends BaseController
         $data['role'] = $role->id;
         $this->userRepository->update((array)$data,Auth::user()->id);
        // $user->attachRole($role,Auth::user()->id);
-        return redirect()->route('dashboard.customer');
+        return redirect()->route('dashboard.index');
 
     }
 }
