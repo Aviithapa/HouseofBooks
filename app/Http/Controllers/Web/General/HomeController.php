@@ -577,6 +577,7 @@ class HomeController extends BaseController
                 ->paginate(8);
             // declare an empty array for output
             $output = '';
+            $output_id ='';
             // if searched countries count is larager than zero
             if (count($data)>0) {
                 // concatenate output to the array
@@ -584,7 +585,8 @@ class HomeController extends BaseController
                 // loop through the result array
                 foreach ($data as $row){
                     // concatenate output to the array
-                    $output .= '<li class="list-group-item search-item"><img src="'.$row->getImage().' " height=50 width="50">' .$row->name.'</li>';
+                    $output .= '<li class="list-group-item search-item" value="'.$row->id.'"><img src="'.$row->getImage().' " height=50 width="50">' .$row->name.'</li>';
+                     $output_id .= $row->id;
                 }
                 // end of output
                 $output .= '</ul>';
@@ -593,6 +595,7 @@ class HomeController extends BaseController
                 // if there's no matching results according to the input
                 $output .= '<li class="list-group-item">'.'No results'.'</li>';
             }
+
             // return output result array
             return $output;
         }

@@ -2932,7 +2932,9 @@ a{
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    padding: 200px;
+    padding-left: 200px;
+    padding-right: 200px !important;
+    padding-top: 100px;
     width: 80%; /* Full width */
     height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -2997,10 +2999,15 @@ a{
 
 .modal-body {
     padding: 2px 16px;
-    height: 250px;
+    height: 500px;
     text-align: justify !important;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.modal-body{
+    width: 100%;
+    height: 500px;
 }
 .modal-body p{
     color: black !important;

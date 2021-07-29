@@ -26,7 +26,7 @@
                 <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12  logo mt-3">
                    <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="150" height="150"></a>
                 </div>
-                <div class="col-lg-5 col-md-10 col-sm-12 col-xs-13 form-search overflow-stick" style="margin-top: 25px;">
+                <div class="col-lg-5 col-md-10 col-sm-12 col-xs-13 form-search overflow-stick" id="form" style="margin-top: 25px;">
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
                         <div class="input-group" style="position: unset !important;">
@@ -289,7 +289,6 @@
                 var book= document.getElementById("book");
                 if(book !=null){
                     var query = $(this).val();
-
                     // call to an ajax function
                     $.ajax({
                         url:"{{ route('autocomplete.fetch') }}",
@@ -307,17 +306,31 @@
                 }
 
             });
+
+            $('#bookList').on('focusout',function () {
+                $('#bookList').hide();
+                alert(!$(".search-item").click())
+                if($("#bookList").click()){
+                    $('#bookList').hide();
+                }else {
+                    $(document).on('click', '.search-item', function(){
+                        var value = $(this).val();
+                        var text = $(this).text();
+                        var base = 'http://127.0.0.1:8000/productDetails/' + value ;
+                        window.location.href=base;
+                        $('#book').val(text);
+                    });
+                }
+
+
+            });
             var CSRF_TOKEN = $('input[name="_token"]').attr('value');
             $(document).on('click', '.search-item', function(){
-                var value = $(this).text();
-                $.ajax({
-                    url:"{{ route('search') }}",
-                    type:"get",
-                    data:{_token: CSRF_TOKEN,'book':value},
-                    // success:function (data) {
-                    //     html(data);
-                    // },
-                });
+                var value = $(this).val();
+                var text = $(this).text();
+                var base = 'http://127.0.0.1:8000/productDetails/' + value ;
+                window.location.href=base;
+                $('#book').val(text);
             });
 
         });
