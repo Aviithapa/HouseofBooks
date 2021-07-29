@@ -73,18 +73,16 @@
                 </div>
 
 
-        <div class="col-md-12 col-sm-12 cart-details">
-                <div class="column">
-                    <li> <a href="{{url("cart")}}" style="position: absolute;"><i class="fa fa-shopping-cart fa-icon-2x" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
-                                    {{getCartAmount()}}
-                                @else
-                                    0
-                                @endif</a></li>
-                </div>
-                <div class="column">
-                    <span id="main-menu" onclick="openNav()">&#9776;</span>
-                </div>
-        </div>
+{{--        <div class="col-md-12 col-sm-12 cart-details">--}}
+{{--                <div class="column">--}}
+{{--                    <li> <a href="{{url("cart")}}" style="position: absolute;"><i class="fa fa-shopping-cart fa-icon-2x" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())--}}
+{{--                                    {{getCartAmount()}}--}}
+{{--                                @else--}}
+{{--                                    0--}}
+{{--                                @endif</a></li>--}}
+{{--                </div>--}}
+{{--               --}}
+{{--        </div>--}}
 
     </div>
     <div class="nav">
@@ -291,46 +289,40 @@
                 var book= document.getElementById("book");
                 if(book !=null){
                     var query = $(this).val();
+
                     // call to an ajax function
                     $.ajax({
                         url:"{{ route('autocomplete.fetch') }}",
                         type:"GET",
                         data:{'product':query},
                         success:function (data) {
-                            $('#bookList').html(data);
+                            if (!query){
+                                $('#bookList').hide();
+                            }else if (query){
+                                $('#bookList').show();
+                                $('#bookList').html(data);
+                            }
                         }
                     })
                 }
 
             });
             var CSRF_TOKEN = $('input[name="_token"]').attr('value');
-
             $(document).on('click', '.search-item', function(){
                 var value = $(this).text();
                 $.ajax({
                     url:"{{ route('search') }}",
                     type:"get",
                     data:{_token: CSRF_TOKEN,'book':value},
+                    // success:function (data) {
+                    //     html(data);
+                    // },
                 });
-                $('#book').val(value);
-                $('#bookList').html("");
             });
 
         });
 
-        // function myFunction(x) {
-        //     if (x.matches) { // If media query matches
-        //         document.getElementById("web-view").style.display = "none";
-        //         document.getElementById("mobile-view").style.display = "none";
-        //     } else {
-        //         document.getElementById("mobile-menu").style.display = "none";
-        //         document.getElementById("web-view").style.display = "block";
-        //     }
-        // }
-        //
-        // var x = window.matchMedia("(max-width: 500px)")
-        // myFunction(x) // Call listener function at run time
-        // x.addListener(myFunction) // Attach listener function on state changes
+
     </script>
 
 

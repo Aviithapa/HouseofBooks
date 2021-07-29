@@ -39,6 +39,7 @@ use App\Save;
 use http\Exception\UnexpectedValueException;
 use http\Message\Body;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -531,19 +532,24 @@ class HomeController extends BaseController
     }
     public function search(Request $request)
     {
-        $this->view_data['cod'] = $this->postRepository->findById(151);
+        if($request->ajax()) {
+            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->book . "%")->get();
+
+            return redirect()->route('web.pages.search', $this->view_data)->render();
+        }else{
+            $this->view_data['cod'] = $this->postRepository->findById(151);
             $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->book . "%")
-//                                            ->orwhere('faculty','LIKE', '%' . $request->books . "%")
-//                                            ->orwhere('sub_category','LIKE', '%' . $request->books . "%")
-//                                            ->orwhere('publication','LIKE', '%' . $request->books . "%")
-//                                            ->orwhere('university','LIKE', '%' . $request->books . "%")
-                                            ->get();
+                                            ->orwhere('faculty','LIKE', '%' . $request->book . "%")
+                                            ->orwhere('sub_category','LIKE', '%' . $request->book . "%")
+                                            ->orwhere('publication','LIKE', '%' . $request->book . "%")
+                                            ->orwhere('university','LIKE', '%' . $request->book . "%")
+                ->get();
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
-               $this->view_data['notfound'] = $this->postRepository->findById(150);
+            $this->view_data['notfound'] = $this->postRepository->findById(150);
 
             return view('web.pages.search', $this->view_data);
-
+        }
     }
 
     public function Destroy($id){

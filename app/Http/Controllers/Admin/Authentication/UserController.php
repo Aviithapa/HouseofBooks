@@ -126,7 +126,6 @@ class UserController extends BaseController
     {
         $this->authorize('update',$this->userRepository->getModel());
         $data = $updateUserRequest->all();
-        dd($data);
         if(isset($data['email'])) {
             unset($data['email']);
         }
