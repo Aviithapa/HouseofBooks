@@ -307,28 +307,17 @@
 
             });
 
-            $('#bookList').on('focusout',function () {
-                $('#bookList').hide();
-                alert(!$(".search-item").click())
-                if($("#bookList").click()){
-                    $('#bookList').hide();
-                }else {
-                    $(document).on('click', '.search-item', function(){
-                        var value = $(this).val();
-                        var text = $(this).text();
-                        var base = 'http://127.0.0.1:8000/productDetails/' + value ;
-                        window.location.href=base;
-                        $('#book').val(text);
-                    });
+            var bookList = document.getElementsByClassName("search-item");
+            window.onclick = function(event) {
+                if (event.target == bookList) {
+                    document.getElementById('bookList').style.display = "none";
                 }
-
-
-            });
+            }
             var CSRF_TOKEN = $('input[name="_token"]').attr('value');
             $(document).on('click', '.search-item', function(){
                 var value = $(this).val();
                 var text = $(this).text();
-                var base = 'http://127.0.0.1:8000/productDetails/' + value ;
+                var base = 'https://houseofbooks.com.np//productDetails/' + value ;
                 window.location.href=base;
                 $('#book').val(text);
             });
