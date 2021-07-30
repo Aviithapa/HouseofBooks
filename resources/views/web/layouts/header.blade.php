@@ -307,6 +307,12 @@
 
             });
 
+            var container = document.getElementsByClassName('form-search')[0];
+            document.addEventListener('click', function( event ) {
+                if (container !== event.target && !container.contains(event.target)) {
+                    $('#bookList').hide();
+                }
+            });
             var bookList = document.getElementsByClassName("search-item");
             window.onclick = function(event) {
                 if (event.target == bookList) {
@@ -317,7 +323,7 @@
             $(document).on('click', '.search-item', function(){
                 var value = $(this).val();
                 var text = $(this).text();
-                var base = 'https://houseofbooks.com.np//productDetails/' + value ;
+                var base = 'https://houseofbooks.com.np/productDetails/' + value ;
                 window.location.href=base;
                 $('#book').val(text);
             });
@@ -326,6 +332,4 @@
 
 
     </script>
-
-
     @endpush
