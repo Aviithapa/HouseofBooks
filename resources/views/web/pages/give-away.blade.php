@@ -12,7 +12,7 @@
                     <p class="{{url('productDetails/'.$product->id)}}"></p>
                 </div>
                 <div class="prod-sticker">
-                    <p class="prod-sticker-3" style="background-color: #FF8800 !important;">-{{$product->discount}}%</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                    <p class="prod-sticker-3" style="background-color: #FF8800 !important;">HOT GIVE AWAY SALE</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
                 </div>
                 <h3>
                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 28) }}</a>
