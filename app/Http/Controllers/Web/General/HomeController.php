@@ -44,6 +44,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Expr\PostDec;
 use Session;
 use Models;
@@ -213,13 +214,16 @@ class HomeController extends BaseController
                 case 'secondhandbookcatalog':
                     $this->view_data['books'] =$this->productRepository->getAll()->where('category','=','second-hand')
                                                                         ->where('status','=','active')
-                                                                        ->where('sub_category','=','coursebook');
+                                                                        ->where('sub_category','=','coursebook')
+                        ->where('sold_out', "!=" ,'yes');
                     $this->view_data['motivational'] =$this->productRepository->getAll()->where('category','=','second-hand')
                                                                                 ->where('status','=','active')
-                                                                                ->where('sub_category','=','novel');
+                                                                                ->where('sub_category','=','novel')
+                        ->where('sold_out', "!=" ,'yes');
                     $this->view_data['question'] =$this->productRepository->getAll()->where('category','=','second-hand')
                                                                                     ->where('status','=','active')
-                                                                                    ->where('sub_category','=','question-bank-and-solution');
+                                                                                    ->where('sub_category','=','question-bank-and-solution')
+                        ->where('sold_out', "!=" ,'yes');
                     $this->view_data['banner'] =$this->postRepository->findById(144);
                     $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;
@@ -234,6 +238,7 @@ class HomeController extends BaseController
                     $this->view_data['order']=$this->orderRepository->findBy('user_id',auth()->user()->id,'=');
                 break;
                 case 'give-away':
+                    $this->view_data['products'] =$this->productRepository->findBy('give_away','yes','=') ;
                     break;
             }
                     return view('web.pages.' . $slug, $this->view_data);
@@ -317,7 +322,8 @@ class HomeController extends BaseController
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['products']=$this->productRepository->getAll()->where('category','=','second-hand')
                                                                         ->where('sub_category','=',$slug)
-                                                                        ->where('status',"=",'active');
+                                                                        ->where('status',"=",'active')
+                                                                        ->where('sold_out', "!=" ,'yes');
         return view('web.pages.secondhand.catalog.novel' , $this->view_data);
     }
      public function productDetails($id=null, Request $request){
@@ -443,7 +449,6 @@ class HomeController extends BaseController
         $cart_info = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->id)->first();
         if($cart_info)
         {
-            //here old_cart_quantity holo cart table  product ta already house of books quantity add hos ache
             $old_cart_quantity = $cart_info->quantity;
         }
         else
@@ -459,11 +464,8 @@ class HomeController extends BaseController
             }
             return redirect()->back()->with('success','Product Added to Cart');
         }
-
-        //3rd part of coding-33333333333
         else if($available_quantity >= ($request->quantity + $old_cart_quantity))
         {
-            //first part coding-111111111111
                 $data=new Cart();
                 $mac_address = exec('getmac');
                 $mac = strtok($mac_address, ' ');
@@ -476,6 +478,10 @@ class HomeController extends BaseController
                 $data->user_id=$user;
                 $data->mac=$mac;
                 $data->image=$product->image;
+                $datas=Array($product);
+                $datas['sold_out']="yes";
+                $datas['quantity']= $product->quantity-1;
+                $product=$this->productRepository->update($datas,$id);
                 $data->save();
         }
         else

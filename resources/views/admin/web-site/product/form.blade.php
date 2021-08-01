@@ -50,10 +50,15 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="best_selling">
-                <div class="form-group">
+                <div class="form-group col-md-6 col-lg-6">
                     {!! Form::label('best_selling', 'Best Selling:', ['class' => 'form-label']) !!}
                     {!! Form::select('best_selling',getBestSelling(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('best_selling', '<div class="text-danger">:message</div>') !!}
+                </div>
+                <div class="form-group col-md-6 col-lg-6">
+                    {!! Form::label('give_away', 'Give Away:', ['class' => 'form-label']) !!}
+                    {!! Form::select('give_away',getBestSelling(),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('give_away', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="university">
@@ -79,7 +84,6 @@
                     {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-
         </div>
         <div class="row" id="semester">
             <div class="col-md-6 col-lg-6">

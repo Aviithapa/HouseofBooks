@@ -2,52 +2,30 @@
 
 @section('content')
 
-    <style>
-        .give-away{
-            width: 45%;
-            float: left;
-            justify-content: center;
-            margin-left: 20px;
-            text-align: center;
-        }
-        .give-away img{
-            width: 50%;
-        }
-        .book{
-            display: grid;
-         justify-items: center;
-        }
-    </style>
-            <div class="book">
-                <div class="container">
-                            <div class="give-away">
-                        <a href="#">
-                            <img src="https://houseofbooks.com.np/storage/product_image/d9DvQKJiWb5mzziajlV9mR6x3mY1HJLQhCKa5uxc.png" alt="">
-                        </a>
-                        <input type="hidden" value="" id="pro_id">
-                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">BAC</h5>
-                        <p style="color: black!important;  font-style: italic; font-size: 12px;">ABjc</p>
-                        <p class="prod-i-price">
-                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS </button>
-                            <a href="#"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                        </p>
-                    </div>
 
-                    <div class="give-away">
-                        <a href="#">
-                            <img src="https://houseofbooks.com.np/storage/product_image/d9DvQKJiWb5mzziajlV9mR6x3mY1HJLQhCKa5uxc.png" alt="">
-                        </a>
-                        <input type="hidden" value="" id="pro_id">
-                        <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">BAC</h5>
-                        <p style="color: black!important;  font-style: italic; font-size: 12px;">ABjc</p>
-                        <p class="prod-i-price">
-                            <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS </button>
-                            <a href="#"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                        </p>
+    <div class="prod-items section-items container mt-5" style="padding-left:200px; padding-right: 200px; margin-bottom: 30px;">
+
+    @foreach($products as $product)
+                <div class="prod-i">
+                    <div class="prod-i-top">
+                        <a href="#" class="prod-i-img"><!-- NO SPACE --><img src="http://127.0.0.1:8000/storage/product_image/d9DvQKJiWb5mzziajlV9mR6x3mY1HJLQhCKa5uxc.png" oncontextmenu="return false;" alt="#"><!-- NO SPACE --></a>
+                        <p class="#"></p>
+                    </div>
+                    <div class="prod-sticker">
+                        <p class="prod-sticker-3">Hot Give Away</p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>
+                    </div>
+                    <h3>
+                        <a style="color: black !important;" href="#">{{$product->name}}</a>
+                    </h3>
+                    <p class="prod-i-price">
+                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->price}}</button><a href="#"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                    </p>
+                    <div class="prod-i-skuwrapcolor">
                     </div>
                 </div>
-            </div>
+       @endforeach
 
+    </div>
 @endsection
 @push('scripts')
 
