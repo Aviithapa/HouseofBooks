@@ -149,12 +149,12 @@
                         <div class="section-sb-current">
                         <ul class="section-sb-list" id="section-sb-list">
                             <li class="categ-1">
-                                <a href="{{url('/catalog/sub_category/novel')}}">
+                                <a href="{{url('/catelog/sub_category/novel')}}">
                                     <span class="categ-1-label">Novel</span>
                                 </a>
                             </li>
                             <li class="categ-1">
-                                <a href="{{url('/catalog/sub_category/coursebook')}}">
+                                <a href="{{url('/catelog/sub_category/coursebook')}}">
                                     <span class="categ-1-label">Coursebook</span>
                                 </a>
                             </li>

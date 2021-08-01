@@ -83,32 +83,32 @@
                 <div class="section-sb-current">
                     <ul class="section-sb-list" id="section-sb-list">
                         <li class="categ-1">
-                            <a href="{{url('/catalog/sub_category/nobel')}}">
+                            <a href="{{url('/catelog/sub_category/nobel')}}">
                                 <span class="categ-1-label">Novel</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url('/catalog/sub_category/coursebook')}}">
+                            <a href="{{url('/catelog/sub_category/coursebook')}}">
                                 <span class="categ-1-label">Coursebook</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url('/catalog/sub_category/medical-examination')}}">
+                            <a href="{{url('/catelog/sub_category/medical-examination')}}">
                                 <span class="categ-1-label">Medical Examination</span>
                             </a>
                         </li>
                         <li class="categ-1 has_child">
-                            <a href="{{url("catalog/sub_category/loksewa-examination")}}">
+                            <a href="{{url("catelog/sub_category/loksewa-examination")}}">
                                 <span class="categ-1-label">Loksewa Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/sub_category/entrance-examination")}}">
+                            <a href="{{url("catelog/sub_category/entrance-examination")}}">
                                 <span class="categ-1-label">Entrance Examination</span>
                             </a>
                         </li>
                         <li class="categ-1">
-                            <a href="{{url("catalog/sub_category/question-bank-and-solution")}}">
+                            <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
                                 <span class="categ-1-label">Question bank and Solution</span>
                             </a>
                         </li>
