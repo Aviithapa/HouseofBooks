@@ -30,3 +30,10 @@ RewriteRule ^(.*)$ https://www.houseofbooks.com.np/$1 [R,L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+
+
+<IfModule mod_security.c>
+  SecFilterEngine Off
+  SecFilterScanPOST Off
+</IfModule>
