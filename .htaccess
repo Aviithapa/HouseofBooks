@@ -1,13 +1,17 @@
 
 
+
     <IfMOdule mod_rewrite.c>
          RewriteEngine On
          # Redirect All Requests To The Subfolder
          RewriteRule ^(.*)$ public/$1 [L]
          RewriteCond %{HTTPS} off
          RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-         SecFilterEngine Off
-         SecFilterScanPOST Off
+         <IfModule mod_security.c>
+          SecFilterEngine Off
+                   SecFilterScanPOST Off
+         </IfModule>
+
     </IfMOdule>
 
 
