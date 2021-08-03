@@ -1,11 +1,8 @@
 
 
-        <ifmodule mod_security.c>
-
-            SecFilterEngine Off
-            SecFilterScanPOST Off
-
-        </ifmodule>
+       <IfModule mod_security2.c>
+       SecRuleEngine Off
+       </IfModule>
 
     <IfMOdule mod_rewrite.c>
          RewriteEngine On
