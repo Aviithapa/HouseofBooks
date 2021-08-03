@@ -1,7 +1,8 @@
-<IfModule mod_security.c>
-  SecFilterEngine Off
-  SecFilterScanPOST Off
-</IfModule>
+
+<IfMOdule  mod_security.c>
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfMOdule>
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
