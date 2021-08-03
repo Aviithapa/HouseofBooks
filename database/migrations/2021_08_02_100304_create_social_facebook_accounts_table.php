@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGiveAwayToProductsPage extends Migration
+class CreateSocialFacebookAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddGiveAwayToProductsPage extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->enum('give_away', ['yes', 'no'])->nullable()->default('no');
-            $table->enum('sold_out', ['yes', 'no'])->nullable()->default('no');
+        Schema::create('social_facebook_accounts', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->string('provider_user_id');
+            $table->string('provider');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddGiveAwayToProductsPage extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('social_facebook_accounts');
     }
 }

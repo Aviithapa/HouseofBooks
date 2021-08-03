@@ -23,3 +23,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 $this->get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
 $this->get('auth/callback/{provider}', 'Auth\AuthController@handleProviderCallback');
 $this->post('student-signup','Auth\AuthController@studentSignupStore')->name('students-signup.store');
+
+
+
+$this::get('/redirect', 'SocialAuthFacebookController@redirect');
+$this::get('/callback', 'SocialAuthFacebookController@callback');

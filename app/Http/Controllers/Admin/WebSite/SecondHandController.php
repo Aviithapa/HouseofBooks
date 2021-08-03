@@ -137,14 +137,6 @@ class SecondHandController extends BaseController
                 session()->flash('danger', 'Oops! Something went wrong.');
                 return redirect()->back()->withInput();
             }
-            $pdf = (new \Barryvdh\DomPDF\PDF)->loadView('emails.bookupload', $data);
-            $mailData = array('name'=>$data['name']);
-            Mail::send('emails.bookupload', $mailData, function($message) use ($mailData,$pdf) {
-                $message->to('houseofbooksnepal@gmail.com')
-                    ->subject('Welcome to our Website')
-                    ->attachData($pdf->output(), "text.pdf");
-                $message->from('houseofbooksnepal@gmail.com');
-            });
             session()->flash('success', 'Book created successfully');
             return redirect()->route('dashboard.secondhand.index');
         }
