@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+<IfModule mod_security.c>
+  SecFilterEngine Off
+  SecFilterScanPOST Off
+</IfModule>
 
 
 #Comment | Force all URLs to https WITHOUT www
@@ -33,7 +37,4 @@ RewriteRule ^(.*)$ https://www.houseofbooks.com.np/$1 [R,L]
 
 
 
-<IfModule mod_security.c>
-  SecFilterEngine Off
-  SecFilterScanPOST Off
-</IfModule>
+

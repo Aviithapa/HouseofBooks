@@ -1,5 +1,11 @@
 
 <IfMOdule mod_rewrite.c>
+
+<IfModule mod_security.c>
+  SecFilterEngine Off
+  SecFilterScanPOST Off
+</IfModule>
+
  RewriteEngine On
 
 
@@ -11,7 +17,3 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 </IfMOdule>
 
-<IfModule mod_security.c>
-  SecFilterEngine Off
-  SecFilterScanPOST Off
-</IfModule>
