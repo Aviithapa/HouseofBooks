@@ -1,67 +1,15 @@
 
 <IfModule mod_security.c>
-    # Turn the filtering engine On or Off
-    SecFilterEngine On
-
-    # Change Server: string
-    SecServerSignature " "
-
-    # Make sure that URL encoding is valid
-    SecFilterCheckURLEncoding On
-
-    # This setting should be set to On only if the Web site is
-    # using the Unicode encoding. Otherwise it may interfere with
-    # the normal Web site operation.
-    SecFilterCheckUnicodeEncoding Off
-
-    # Only allow bytes from this range
-    SecFilterForceByteRange 1 255
-
-    # The audit engine works independently and
-    # can be turned On of Off on the per-server or
-    # on the per-directory basis. "On" will log everything,
-    # "DynamicOrRelevant" will log dynamic requests or violations,
-    # and "RelevantOnly" will only log policy violations
-    SecAuditEngine RelevantOnly
-
-    # The name of the audit log file
-    SecAuditLog /var/log/apache2/audit_log
-
-    # Should mod_security inspect POST payloads
-    SecFilterScanPOST On
-
-    # Action to take by default
-    SecFilterDefaultAction "deny,log,status:500"
-
-    # Require HTTP_USER_AGENT and HTTP_HOST in all requests
-    SecFilterSelective "HTTP_USER_AGENT|HTTP_HOST" "^$"
-
-    # Prevent path traversal (..) attacks
-    SecFilter "../"
-
-    # Weaker XSS protection but allows common HTML tags
-    SecFilter "<[[:space:]]*script"
-
-    # Prevent XSS atacks (HTML/Javascript injection)
-    SecFilter "<(.|n)+>"
-
-    # Very crude filters to prevent SQL injection attacks
-    SecFilter "delete[[:space:]]+from"
-    SecFilter "insert[[:space:]]+into"
-    SecFilter "select.+from"
-    SecFilter "drop[[:space:]]table"
-
-    # Protecting from XSS attacks through the PHP session cookie
-    SecFilterSelective ARG_PHPSESSID "!^[0-9a-z]*$"
-    SecFilterSelective COOKIE_PHPSESSID "!^[0-9a-z]*$"
+  SecFilterEngine Off
+  SecFilterScanPOST Off
 </IfModule>
 
-    <IfMOdule mod_rewrite.c>
-         RewriteEngine On
-         # Redirect All Requests To The Subfolder
-         RewriteRule ^(.*)$ public/$1 [L]
-         RewriteCond %{HTTPS} off
-         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-    </IfMOdule>
+#    <IfMOdule mod_rewrite.c>
+#         RewriteEngine On
+#         # Redirect All Requests To The Subfolder
+#         RewriteRule ^(.*)$ public/$1 [L]
+#         RewriteCond %{HTTPS} off
+#         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+#    </IfMOdule>
 
 
