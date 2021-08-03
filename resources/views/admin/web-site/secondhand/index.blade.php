@@ -23,7 +23,8 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Type</th>
-                                <th>Image</th>
+                                <th>status</th>
+                                <th>price</th>
                                 <th class="disabled-sorting">Action</th>
                             </tr>
                             </thead>
@@ -45,8 +46,9 @@
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'category', name: 'category'},
-                {data: 'product_image', name: 'product_image'},
-//                {data: 'status', name: 'status'},
+                // {data: 'product_image', name: 'product_image'},
+               {data: 'status', name: 'status'},
+                {data: 'price', name: 'price'},
                 {className: 'td-actions', data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
