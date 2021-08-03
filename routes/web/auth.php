@@ -25,6 +25,3 @@ $this->get('auth/callback/{provider}', 'Auth\AuthController@handleProviderCallba
 $this->post('student-signup','Auth\AuthController@studentSignupStore')->name('students-signup.store');
 
 
-
-$this::get('/redirect', 'SocialAuthFacebookController@redirect');
-$this::get('/callback', 'SocialAuthFacebookController@callback');
