@@ -246,13 +246,12 @@
     </div>
     <div class="mob-header">
         <div class="col-sm-4 col-xs-4 ">
-            <p id="main-menu" onclick="openNav()"><i class="fa fa-bars fa-2x"></i></p>
+            <p id="main-menu" onclick="openMobileNav()"><i class="fa fa-bars fa-2x"></i></p>
         </div>
         <div class="col-sm-4 col-xs-4 ">
             <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="75" height="75"></a>
         </div>
         <div class="col-sm-4 col-xs-4 ">
-
             <a href="{{url("cart")}}" id="carts"><i class="fa fa-shopping-bag fa-2x"></i>@if(\Illuminate\Support\Facades\Auth::user())
                     {{getCartAmount()}}
                 @else
@@ -273,24 +272,46 @@
         </div>
         </form>
     </div>
-    <nav class="topmenu">
-        <ul class="mainmenu" id="mySidenav">
-            <li><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('about')}}">Who we are</a></li>
-            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
-            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
-            <li><a href="{{url('blog')}}">Blog</a></li>
-            <li><a href="{{url('contact')}}">Contact Us</a></li>
-            <li><a href="{{url('give-away')}}">Give Away</a></li>
-            <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
-            @if(\Illuminate\Support\Facades\Auth::user())
-                @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
-                    <li><a href="{{url('profile')}}">My Profile</a></li>
-                @endif
-            @endif
+        <div class="mobilesidenav" id="mobileSidenav">
+            <header class="mobile-header">
+                <a href="javascript:void(0)" class="mobileclosebtn"  id="mobileclosebtn" onclick="closeMobileNav()" style="display: none;">&times; QUICK NAVIGATION</a>
+            </header>
 
-        </ul>
-    </nav>
+            <div class="tabs effect-1">
+                <!-- tab-title -->
+                <input type="radio" id="tab-1" name="tab-effect-1" checked="checked">
+                <span>Mobile Menu</span>
+
+                <input type="radio" id="tab-2" name="tab-effect-1">
+                <span>Calendar</span>
+
+
+                <!-- tab-content -->
+                <div class="tab-content">
+                    <section id="tab-item-1">
+                        <ul>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li><a href="{{url('about')}}">Who we are</a></li>
+                            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
+                            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
+                            <li><a href="{{url('blog')}}">Blog</a></li>
+                            <li><a href="{{url('contact')}}">Contact Us</a></li>
+                            <li><a href="{{url('give-away')}}">Give Away</a></li>
+                            @if(\Illuminate\Support\Facades\Auth::user())
+                                @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
+                                    <li><a href="{{url('profile')}}">My Profile</a></li>
+                                @endif
+                            @endif
+                        </ul>
+                    </section>
+                    <section id="tab-item-2">
+                        <h1>Two</h1>
+                    </section>
+                </div>
+            </div>
+
+
+        </div>
 
 </header>
 <div class="social-fix">
@@ -313,6 +334,14 @@
         }
         function closeNav() {
             document.getElementById("mySidenav").style.display = "none";
+        }
+
+        function openMobileNav() {
+            document.getElementById("mobileclosebtn").style.display = "block";
+            document.getElementById("mobileSidenav").style.display = "block";
+        }
+        function closeMobileNav() {
+            document.getElementById("mobileSidenav").style.display = "none";
         }
         var x = window.matchMedia("(max-width: 1000px)");
         myFunction(x);// Call listener function at run time
