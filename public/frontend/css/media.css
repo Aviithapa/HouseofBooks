@@ -1196,8 +1196,13 @@
     }
     #main-menu{
         color: #FF8800;
-        padding: 0px;
-        height: auto;
+        padding-top: 20px;
+        display: flex !important;
+        justify-content: flex-start;
+    }
+    #carts{
+        color: #FF8800 !important;
+        padding-top: 20px;
         display: flex !important;
         justify-content: flex-end;
     }
@@ -1220,4 +1225,7 @@
         height: 100px !important;
         /*margin-top: -50px !important;*/
     }
+}
+@media only screen and (max-width : 500px)  {
+
 }

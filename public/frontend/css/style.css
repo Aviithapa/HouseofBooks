@@ -4,22 +4,14 @@
     padding:0;
     font-family: "Poppins", san-serif, serif;
 }
-html {
-    overscroll-behavior: unset !important;
-    scroll-behavior: unset !important;
-}
-body{
-    margin: 0;
-    padding: 0;
+html,body
+{
     width: 100%;
-    zoom: 100%;
-    box-sizing: border-box;
-    font-family: "poppins",Helvetica,Arial,sans-serif;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: "Poppins",Helvetica,Arial,sans-serif;
 }
 h1{
     text-align: center;
@@ -2527,9 +2519,6 @@ th, td {
     padding-top: 60px;
 }
 #main-menu{
-    padding-left: 120px;
-    padding-top: 15px;
-    height: 50px;
     width: auto;
     font-size: 16px;
     font-weight: 600px;
@@ -2537,6 +2526,64 @@ th, td {
     cursor:pointer;
     color: white;
 }
+.mob-header{
+margin-bottom: 20px;
+height: 60px;
+width: 100%;
+padding: 10px;
+}
+
+.search {
+    width: 95%;
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    margin: auto;
+}
+#mobile-view li {
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 10px;
+
+}
+#mobile-view li a{
+    font-size: 12px;
+    font-weight: 600;
+    color: #FF8800 !important;
+
+}
+#mobile-view .top{
+    text-align: justify;
+    height: 40px;
+    padding: 5px;
+}
+#mobile-view .a{
+    border-left: 3px solid #FF8800;
+    height: 30px;
+}
+.searchTerm {
+    width: 100%;
+    border: 3px solid #fff;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #fff;
+    background: #fff;
+    text-align: center;
+    color: #FF8800;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
 .sidenav li a {
     padding: 8px 8px 8px 0px;
     text-decoration: none;

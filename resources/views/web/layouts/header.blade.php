@@ -1,4 +1,4 @@
-<header id="web-view">
+<header id="web-view" >
     <div class="header" >
         <div class="top">
             <div class="container-fluid">
@@ -22,6 +22,8 @@
             </div>
         </div>
     </div>
+
+
     <div class="header-logo row">
                 <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12  logo mt-3">
                    <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="150" height="150"></a>
@@ -72,17 +74,6 @@
                     </div>
                 </div>
 
-
-{{--        <div class="col-md-12 col-sm-12 cart-details">--}}
-{{--                <div class="column">--}}
-{{--                    <li> <a href="{{url("cart")}}" style="position: absolute;"><i class="fa fa-shopping-cart fa-icon-2x" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())--}}
-{{--                                    {{getCartAmount()}}--}}
-{{--                                @else--}}
-{{--                                    0--}}
-{{--                                @endif</a></li>--}}
-{{--                </div>--}}
-{{--               --}}
-{{--        </div>--}}
 
     </div>
     <div class="nav">
@@ -239,7 +230,69 @@
     </div>
 </header>
 
+<header id="mobile-view"  >
+    <div class="header" >
+        <div class="top">
+            <div class="col-sm-4 col-xs-4">
+                <li><a href="#home">SELL WITH US</a></li>
+            </div>
+            <div class="col-sm-4 col-xs-4 a">
+                <li ><a href="#home" >CONTACT US</a></li>
+            </div>
+            <div class="col-sm-4 col-xs-4 a">
+                <li ><a href="#home">ABOUT US</a></li>
+            </div>
+        </div>
+    </div>
+    <div class="mob-header">
+        <div class="col-sm-4 col-xs-4 ">
+            <p id="main-menu" onclick="openNav()"><i class="fa fa-bars fa-2x"></i></p>
+        </div>
+        <div class="col-sm-4 col-xs-4 ">
+            <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="75" height="75"></a>
+        </div>
+        <div class="col-sm-4 col-xs-4 ">
 
+            <a href="{{url("cart")}}" id="carts"><i class="fa fa-shopping-bag fa-2x"></i>@if(\Illuminate\Support\Facades\Auth::user())
+                    {{getCartAmount()}}
+                @else
+                    0
+                @endif</a>
+        </div>
+    </div>
+    <div class="nav">
+        <form action="{{url("search")}}" method="GET" role="search" style="width: 100%">
+            {{csrf_field()}}
+        <div class="search mt-2">
+            <input type="text" class="searchTerm" name="book" value="{{old('search')}}" id='books' placeholder="What are you looking for?">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div id="bookLists">
+        </div>
+        </form>
+    </div>
+    <nav class="topmenu">
+        <ul class="mainmenu" id="mySidenav">
+            <li><a href="{{url('/')}}">Home</a></li>
+            <li><a href="{{url('about')}}">Who we are</a></li>
+            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
+            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
+            <li><a href="{{url('blog')}}">Blog</a></li>
+            <li><a href="{{url('contact')}}">Contact Us</a></li>
+            <li><a href="{{url('give-away')}}">Give Away</a></li>
+            <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
+            @if(\Illuminate\Support\Facades\Auth::user())
+                @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
+                    <li><a href="{{url('profile')}}">My Profile</a></li>
+                @endif
+            @endif
+
+        </ul>
+    </nav>
+
+</header>
 <div class="social-fix">
     <ul class="list-unstyled mb-0">
         @if(\Illuminate\Support\Facades\Auth::user())
@@ -282,11 +335,23 @@
 
         }
 
+
+        $(document).ready(function () {
+            var y= window.matchMedia("(max-width:500px)");
+            if (y.matches) { // If media query matches
+                document.getElementById("mobile-view").style.display = "block";
+                document.getElementById("web-view").style.display = "none";
+            } else {
+                document.getElementById("mobile-view").style.display = "none";
+                document.getElementById("web-view").style.display = "block";
+            }
+        })
         $(document).ready(function () {
             // keyup function looks at the keys typed on the search box
             $('#book').on('keyup',function() {
                 // the text typed in the input field is assigned to a variable
                 var book= document.getElementById("book");
+                alert(book)
                 if(book !=null){
                     var query = $(this).val();
                     // call to an ajax function
@@ -330,6 +395,53 @@
 
         });
 
+        $(document).ready(function () {
+            // keyup function looks at the keys typed on the search box
+            $('#books').on('keyup',function() {
+                // the text typed in the input field is assigned to a variable
+                var book= document.getElementById("books");
+                if(book !=null){
+                    var query = $(this).val();
+                    // call to an ajax function
+                    $.ajax({
+                        url:"{{ route('autocomplete.fetch') }}",
+                        type:"GET",
+                        data:{'product':query},
+                        success:function (data) {
+                            if (!query){
+                                $('#bookLists').hide();
+                            }else if (query){
+                                $('#bookLists').show();
+                                $('#bookLists').html(data);
+                            }
+                        }
+                    })
+                }
+
+            });
+
+            var container = document.getElementsByClassName('form-search')[0];
+            document.addEventListener('click', function( event ) {
+                if (container !== event.target && !container.contains(event.target)) {
+                    $('#bookList').hide();
+                }
+            });
+            var bookList = document.getElementsByClassName("search-item");
+            window.onclick = function(event) {
+                if (event.target == bookList) {
+                    document.getElementById('bookLists').style.display = "none";
+                }
+            }
+            var CSRF_TOKEN = $('input[name="_token"]').attr('value');
+            $(document).on('click', '.search-item', function(){
+                var value = $(this).val();
+                var text = $(this).text();
+                var base = 'https://houseofbooks.com.np/productDetails/' + value ;
+                window.location.href=base;
+                $('#book').val(text);
+            });
+
+        });
 
     </script>
     @endpush
