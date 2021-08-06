@@ -277,39 +277,139 @@
                 <a href="javascript:void(0)" class="mobileclosebtn"  id="mobileclosebtn" onclick="closeMobileNav()" style="display: none;">&times; QUICK NAVIGATION</a>
             </header>
 
-            <div class="tabs effect-1">
-                <!-- tab-title -->
-                <input type="radio" id="tab-1" name="tab-effect-1" checked="checked">
-                <span>Mobile Menu</span>
-
-                <input type="radio" id="tab-2" name="tab-effect-1">
-                <span>Calendar</span>
-
-
-                <!-- tab-content -->
-                <div class="tab-content">
-                    <section id="tab-item-1">
-                        <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="{{url('about')}}">Who we are</a></li>
-                            <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
-                            <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
-                            <li><a href="{{url('blog')}}">Blog</a></li>
-                            <li><a href="{{url('contact')}}">Contact Us</a></li>
-                            <li><a href="{{url('give-away')}}">Give Away</a></li>
-                            @if(\Illuminate\Support\Facades\Auth::user())
-                                @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
-                                    <li><a href="{{url('profile')}}">My Profile</a></li>
-                                @endif
-                            @endif
-                        </ul>
-                    </section>
-                    <section id="tab-item-2">
-                        <h1>Two</h1>
-                    </section>
-                </div>
+            <div class="menutab">
+                <button class="menutablinks active" onclick="openMenu(event, 'MobileMenu')">Menu</button>
+                <button class="menutablinks" onclick="openMenu(event, 'Category')">Category</button>
             </div>
 
+            <div id="MobileMenu" class="tabcontent" style="display: block;padding: 0 !important;">
+                <ul>
+                    <li><a href="{{url('/')}}">Home</a></li>
+                    <li><a href="{{url('about')}}">Who we are</a></li>
+                    <li><a href="{{url('secondhandbookcatalog')}}">Second hand books</a></li>
+                    <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
+                    <li><a href="{{url('blog')}}">Blog</a></li>
+                    <li><a href="{{url('contact')}}">Contact Us</a></li>
+                    <li><a href="{{url('give-away')}}">Give Away</a></li>
+                    @if(\Illuminate\Support\Facades\Auth::user())
+                        @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
+                            <li><a href="{{url('profile')}}">My Profile</a></li>
+                        @endif
+                    @endif
+                </ul>
+            </div>
+
+            <div id="Category" class="tabcontent" style="padding: 0 !important;">
+                <ul>
+                    <li>
+                        <a href="{{url('/catelog/sub_category/novel')}}">
+                            Novel
+                        </a>
+                        <i class="dropdown-btn fa fa-angle-down"></i>
+                        <ul class="dropdown-container">
+                            <li>
+                                <a href="{{url('novel/motivational')}}">
+                                    Motivational
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('novel/skills-knowledge')}}">
+                                    Skills and Knowledge
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('novel/fictional')}}">
+                                    Fictional
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url('novel/biography')}}">
+                                    Biography
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{url('/catelog/sub_category/coursebook')}}">
+                            Coursebook
+                        </a>
+                        <i class="fa fa-angle-right"></i>
+                        <ul>
+                            <li>
+                                <a href="{{url('/catalog/coursebook/TU')}}">
+                                    Tribhuwan University
+                                </a>
+                                <i class="fa fa-angle-right"></i>
+                                <ul>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/TU/BBA')}}">
+                                            BBA
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/TU/BBS')}}">
+                                            BBS
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/TU/MBS')}}">
+                                            MBS
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/TU/MBA')}}">
+                                            MBA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{url('/catalog/coursebook/PU')}}">
+                                    Pokhara University
+                                </a>
+                                <i class="fa fa-angle-right"></i>
+                                <ul>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/PU/BBA')}}">
+                                            BBA
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{url('/catalog/coursebook/PU/MBA')}}">
+                                            MBA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{url('/catalog/coursebook/PBU')}}">
+                                    Purbanchal University
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{url("catelog/sub_category/medical-examination")}}">
+                            Medical Examination
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url("catalog/sub_category/loksewa-examination")}}">
+                            Loksewa Examination
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url("catelog/sub_category/entrance-examination")}}">
+                            Entrance Examination
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
+                            Question Bank and Solution
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
         </div>
 
@@ -472,5 +572,37 @@
 
         });
 
+        function openMenu(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("menutablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+
+
+                } else {
+                    dropdownContent.style.display = "block";
+                    alert(dropdown.classList)
+                    dropdown.classList.remove("fa-angle-down")
+                    dropdown.classList.add("fa-angle-up")
+                }
+            });
+        }
     </script>
     @endpush
