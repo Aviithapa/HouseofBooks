@@ -87,7 +87,7 @@ function myFunction() {
       dots:false,
       responsive:
       {
-      0:{items:1},
+      0:{items:2},
       575:{items:2},
       768:{items:3},
       991:{items:4},
@@ -1045,3 +1045,7 @@ $(window).load(function () {
         $('.wccm-compare-table').setDraggable();
     });
 })(jQuery);
+
+
+
+

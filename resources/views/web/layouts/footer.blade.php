@@ -1,4 +1,6 @@
 
+
+
 <footer class="section footer-classic context-dark bg-image" style="background-color: #303030;;">
     <div class="container-fluid">
         <div class="row row-30">

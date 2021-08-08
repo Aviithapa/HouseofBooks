@@ -282,7 +282,7 @@
                 <button class="menutablinks" onclick="openMenu(event, 'Category')">Category</button>
             </div>
 
-            <div id="MobileMenu" class="tabcontent" style="display: block;padding: 0 !important;">
+            <div id="MobileMenu" class="mobiletabcontent" style="display: block;padding: 0 !important;">
                 <ul>
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="{{url('about')}}">Who we are</a></li>
@@ -299,7 +299,7 @@
                 </ul>
             </div>
 
-            <div id="Category" class="tabcontent" style="padding: 0 !important;">
+            <div id="Category" class="mobiletabcontent" style="padding: 0 !important;">
                 <ul>
                     <li>
                         <a href="{{url('/catelog/sub_category/novel')}}">
@@ -333,14 +333,14 @@
                         <a href="{{url('/catelog/sub_category/coursebook')}}">
                             Coursebook
                         </a>
-                        <i class="fa fa-angle-right"></i>
-                        <ul>
+                        <i class="dropdown-btn fa fa-angle-down"></i>
+                        <ul class="dropdown-container">
                             <li>
                                 <a href="{{url('/catalog/coursebook/TU')}}">
                                     Tribhuwan University
                                 </a>
-                                <i class="fa fa-angle-right"></i>
-                                <ul>
+                                <i class="dropdown-btn fa fa-angle-down"></i>
+                                <ul class="dropdown-container">
                                     <li>
                                         <a href="{{url('/catalog/coursebook/TU/BBA')}}">
                                             BBA
@@ -367,8 +367,8 @@
                                 <a href="{{url('/catalog/coursebook/PU')}}">
                                     Pokhara University
                                 </a>
-                                <i class="fa fa-angle-right"></i>
-                                <ul>
+                                <i class="dropdown-btn fa fa-angle-down"></i>
+                                <ul class="dropdown-container">
                                     <li>
                                         <a href="{{url('/catalog/coursebook/PU/BBA')}}">
                                             BBA
@@ -413,7 +413,11 @@
 
         </div>
 
+
+
 </header>
+
+@include('web.layouts.bottomnav')
 <div class="social-fix">
     <ul class="list-unstyled mb-0">
         @if(\Illuminate\Support\Facades\Auth::user())
@@ -574,7 +578,7 @@
 
         function openMenu(evt, cityName) {
             var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
+            tabcontent = document.getElementsByClassName("mobiletabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }

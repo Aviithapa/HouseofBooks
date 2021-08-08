@@ -244,7 +244,7 @@
             </div>
 
                 <div id="bachelor" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: block;">
-                            @if(getCoursebookCount($books,"bachelor") > 5)
+                            @if(getCoursebookCount($books,"bachelor") > 4)
                             <div class="bbb_viewed_slider_container book">
                                 <div class="owl-carousel owl-theme bbb_viewed_slider">
                                     @foreach($books as $product)
@@ -265,7 +265,7 @@
                                 </div>
                             </div>
                             @else
-                          <div class="contentsecondhand" >
+                          <div class="contentsecondhand">
                             <div class="row">
                                 @foreach($books as $product)
                                     @if($product['level']=="bachelor")
@@ -289,7 +289,7 @@
                             @endif
                 </div>
                 <div id="master" class="tabcontents"  style="margin: 0px 50px 0px 50px; display: none;">
-                    @if(getCoursebookCount($books,"master") > 5)
+                    @if(getCoursebookCount($books,"master") > 4)
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($books as $product)
