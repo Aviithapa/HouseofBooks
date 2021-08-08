@@ -1364,7 +1364,7 @@
     .secondhandsection h3 {
         line-height: 1 !important;
     }
-    .contentsecondhand .columns{
+    .secondhandsection .columns{
         width: 45% !important;
     }
     .secondhandsection .tabcontent{
@@ -1375,5 +1375,21 @@
     }
     .secondhandsection .tabcontentes{
         margin: 0 !important;
+    }
+    .sub-container li{
+        margin: 0px !important;
+        padding: 12px 8px !important;
+    }
+    .sub-container li a{
+         font-size: 14px !important;
+     }
+    .sub-container-sub li{
+        padding: 10px 14px !important;
+    }
+    .sub-container-sub li a{
+        font-size: 12px !important;
+    }
+    .working-step h1{
+    line-height: 1.2 !important;
     }
 }

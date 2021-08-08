@@ -237,10 +237,10 @@
                 <li><a href="#home">SELL WITH US</a></li>
             </div>
             <div class="col-sm-4 col-xs-4 a">
-                <li ><a href="#home" >CONTACT US</a></li>
+                <li><a href="#home" >CONTACT US</a></li>
             </div>
             <div class="col-sm-4 col-xs-4 a">
-                <li ><a href="#home">ABOUT US</a></li>
+                <li ><a href="#home">SIGN IN</a></li>
             </div>
         </div>
     </div>
@@ -334,13 +334,13 @@
                             Coursebook
                         </a>
                         <i class="dropdown-btn fa fa-angle-down"></i>
-                        <ul class="dropdown-container">
+                        <ul class="dropdown-container sub-container">
                             <li>
                                 <a href="{{url('/catalog/coursebook/TU')}}">
                                     Tribhuwan University
                                 </a>
                                 <i class="dropdown-btn fa fa-angle-down"></i>
-                                <ul class="dropdown-container">
+                                <ul class="dropdown-container sub-container-sub">
                                     <li>
                                         <a href="{{url('/catalog/coursebook/TU/BBA')}}">
                                             BBA
@@ -414,10 +414,10 @@
         </div>
 
 
-
+    @include('web.layouts.bottomnav')
 </header>
 
-@include('web.layouts.bottomnav')
+
 <div class="social-fix">
     <ul class="list-unstyled mb-0">
         @if(\Illuminate\Support\Facades\Auth::user())
@@ -602,7 +602,6 @@
 
                 } else {
                     dropdownContent.style.display = "block";
-                    alert(dropdown.classList)
                     dropdown.classList.remove("fa-angle-down")
                     dropdown.classList.add("fa-angle-up")
                 }

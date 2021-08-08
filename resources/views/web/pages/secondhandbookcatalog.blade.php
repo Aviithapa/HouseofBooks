@@ -65,19 +65,19 @@
                             <div class="row">
                                 @foreach($motivational as $product)
                                         @if($product->nobel_category=="motivational")
-                                            <div class="columns">
-                                                <div class="cardsecondhand">
-                                                    <a href="{{url("productDetails/".$product->id)}}">
-                                                        <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                                    </a>
-                                                    <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                                    <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                                    <p class="prod-i-price">
-                                                        <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                                    </p>
-                                                </div>
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
                                             </div>
+                                        </div>
                                     @endif
                                 @endforeach
                             </div>
@@ -164,7 +164,6 @@
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
                                                 <p class="prod-i-price">
                                                     <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
                                                 </p>
@@ -203,19 +202,18 @@
                             <div class="row">
                                 @foreach($motivational as $product)
                                     @if($product->nobel_category=="biographies")
-                                    <div class="columns">
-                                        <div class="cardsecondhand">
-                                            <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
-                                            </a>
-                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
-                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
-                                            <p class="prod-i-price">
-                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
-                                            </p>
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endif
                                 @endforeach
                             </div>
