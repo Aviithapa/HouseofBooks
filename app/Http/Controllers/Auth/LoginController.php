@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Website\Post;
+use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -20,6 +22,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    private $view_data, $postRepository;
 
     use AuthenticatesUsers;
 
@@ -32,16 +35,19 @@ class LoginController extends Controller
 
     /**
      * LoginController constructor.
+     * @param PostRepository $postRepository
      */
-    public function __construct()
+    public function __construct( PostRepository $postRepository)
     {
+        $this->postRepository = $postRepository;
         $this->middleware('guest')->except('logout');
     }
     public function showLoginForm(Request $request)
     {
         $requestData=$request->all();
+        $this->view_data['terms']= $this->postRepository->findById(152);
         $authUser=Auth::User();
-        return view('auth.login',compact('requestData','authUser'));
+        return view('auth.login',compact('requestData','authUser'),$this->view_data);
     }
     public function username()
     {

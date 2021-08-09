@@ -80,6 +80,10 @@
 </script>
 <script>
     // When the user clicks on div, open the popup
+    setTimeout(function(){
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+        }, 10000);
     function myFunction() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
