@@ -29,7 +29,7 @@
                         <tr style="text-align: center;">
 
                             <td class="cart-img">
-                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">  <img src="{{$carts->getImage()}}" alt="House of Books" oncontextmenu="return false;" width="100px" height="100px"> {{$carts->product_name}}</b></a>
+                               <a href="{{url('productDetails/'.$carts->product_id)}}"><b style="color: black !important;">  <img src="{{$carts->getImage()}}" alt="House of Books" oncontextmenu="return false;" width="100px" height="100px"> <br>{{$carts->product_name}}</b></a>
                             </td>
                             <td class="cart-price">
                                 <b style="color: black !important;">Rs {{$carts->product_price}}</b>
@@ -57,7 +57,7 @@
                                                 <br>
                                                 <i class="fa fa-trash fa-3x"></i>
                                             </div>
-                                            <div class="modal-body text-center">
+                                            <div class="modal-body text-center" style="height: 50px !important;">
                                                 <p>
                                                     Are you sure want to delete this data?
                                                 </p>

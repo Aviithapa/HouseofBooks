@@ -1044,8 +1044,25 @@
 }
 
 
-@media only screen and (max-width : 380px) {
+@media only screen and (max-width : 400px) {
 
+    .bestSelling .btn {
+          margin-bottom: 10px !important;
+        width: 50px !important;
+      }
+
+    #mobile-view li {
+         padding-left: 0px;
+    }
+    .bestSelling h5 {
+        font-size: 12px !important;
+        padding: 0px 4px !important;
+    }
+    .bestSelling #cartBtn {
+        font-size: 8px !important;
+        margin-top: -2px !important;
+        width: 60px !important;
+    }
     /* Modal Form */
     .modalform {
         width: 275px;
@@ -1158,7 +1175,7 @@
         font-size: 12px;
     }
     .title{
-        height: 35px;
+        height: 30px;
     }
     .add{
         margin-top: 10px !important;
@@ -1305,9 +1322,9 @@
     .bestSelling .card {
          padding: 0 0 20px 0;
      }
-    .bestSelling .card #cartBtn{
-        margin-top: 5px;
-    }
+    /*.bestSelling .card #cartBtn{*/
+    /*    margin-top: -5px;*/
+    /*}*/
     .tab button {
         background-color: inherit;
         padding: 2px 2px;
@@ -1347,9 +1364,9 @@
         width: 60px;
     }
     .bestSelling #cartBtn{
-        font-size: 10px !important;
-        margin-top: -5px !important;
-        width: 70px !important;
+        font-size: 10px ;
+        /*margin-top: -5px;*/
+        width: 70px ;
     }
     .bbb_viewed_content .btn {
         padding: 2px 2px;
@@ -1391,5 +1408,8 @@
     }
     .working-step h1{
     line-height: 1.2 !important;
+    }
+    .stylization h4 {
+        font-size: 14px;
     }
 }

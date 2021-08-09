@@ -3161,11 +3161,11 @@ a{
     padding: 10px 14px;
 
 }
-#MobileMenu li:hover {
-    background-color: #FF8800;
-    color: white;
+/*#MobileMenu li:hover {*/
+/*    background-color: #FF8800;*/
+/*    color: white;*/
 
-}
+/*}*/
 #MobileMenu li a{
     font-size: 16px;
     font-weight: 500;
@@ -3248,10 +3248,10 @@ a{
 .dropup-content {
     display: none;
     position: fixed;
-    background-color: #eee;
+    background-color: #fff;
     min-width: 160px;
-    margin-left: 20px;
-    bottom: 50px;
+    bottom: 55px;
+    right: 0;
     height: auto;
     z-index: 10000;
 }
@@ -3269,4 +3269,52 @@ a{
 
 .dropup:hover .dropup-content {
     display: block;
+}
+
+#MobileMenu li i {
+    float: right;
+    margin-top: 5px;
+}
+
+
+/* The actual popup */
+.popuptext {
+    visibility: visible;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 20000000;
+    bottom: 50px;
+    left: 45%;
+}
+ .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+ .show {
+    visibility: hidden;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }

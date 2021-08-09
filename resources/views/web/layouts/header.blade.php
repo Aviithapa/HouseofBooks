@@ -290,6 +290,26 @@
                     <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                     <li><a href="{{url('blog')}}">Blog</a></li>
                     <li><a href="{{url('contact')}}">Contact Us</a></li>
+                    <li>
+                        <a href="#">
+                            My Account
+                        </a>
+                        <i class="dropdown-btn fa fa-plus"></i>
+                        <ul class="dropdown-container">
+                            <li>
+                                <a href="{{url("login")}}">
+                                    Login
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{url("register/customer")}}">
+                                    Register
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     <li><a href="{{url('give-away')}}">Give Away</a></li>
                     @if(\Illuminate\Support\Facades\Auth::user())
                         @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
@@ -299,7 +319,7 @@
                 </ul>
             </div>
 
-            <div id="Category" class="mobiletabcontent" style="padding: 0 !important;">
+            <div id="Category" class="mobiletabcontent" style="display:none; padding: 0 !important;">
                 <ul>
                     <li>
                         <a href="{{url('/catelog/sub_category/novel')}}">
@@ -467,10 +487,10 @@
             }
 
         }
-
-
-        $(document).ready(function () {
-            var y= window.matchMedia("(max-width:500px)");
+        var y= window.matchMedia("(max-width:500px)");
+        mobileResponsive(y);// Call listener function at run time
+        y.addListener(mobileResponsive);
+        function mobileResponsive(y) {
             if (y.matches) { // If media query matches
                 document.getElementById("mobile-view").style.display = "block";
                 document.getElementById("web-view").style.display = "none";
@@ -478,7 +498,8 @@
                 document.getElementById("mobile-view").style.display = "none";
                 document.getElementById("web-view").style.display = "block";
             }
-        })
+        }
+
         $(document).ready(function () {
             // keyup function looks at the keys typed on the search box
             $('#book').on('keyup',function() {
@@ -595,15 +616,13 @@
         for (i = 0; i < dropdown.length; i++) {
             dropdown[i].addEventListener("click", function() {
                 this.classList.toggle("active");
+                this.classList.toggle("fa-minus");
+                this.classList.toggle("fa-angle-up");
                 var dropdownContent = this.nextElementSibling;
                 if (dropdownContent.style.display === "block") {
                     dropdownContent.style.display = "none";
-
-
                 } else {
                     dropdownContent.style.display = "block";
-                    dropdown.classList.remove("fa-angle-down")
-                    dropdown.classList.add("fa-angle-up")
                 }
             });
         }
