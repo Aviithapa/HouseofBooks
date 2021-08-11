@@ -234,7 +234,9 @@
     <div class="header" >
         <div class="top">
             <div class="col-sm-12 col-xs-12">
-                <li></li>
+                <li>
+{{--                    <img src="http://dandelihomestay.com/wp-content/uploads/2020/10/special-offer-Recovered_gif1.gif" width="400px" height="50">--}}
+                </li>
             </div>
 {{--            <div class="col-sm-4 col-xs-4 a">--}}
 {{--                <li><a href="#home" >CONTACT US</a></li>--}}
@@ -503,6 +505,7 @@
             $('#book').on('keyup',function() {
                 // the text typed in the input field is assigned to a variable
                 var book= document.getElementById("book");
+
                 if(book !=null){
                     var query = $(this).val();
                     // call to an ajax function
@@ -533,6 +536,7 @@
             window.onclick = function(event) {
                 if (event.target == bookList) {
                     document.getElementById('bookList').style.display = "none";
+
                 }
             }
             var CSRF_TOKEN = $('input[name="_token"]').attr('value');

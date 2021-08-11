@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col" style="text-align: center; font-size: 20px !important;">
                             <button class="btn btn-primary btn-round-sm btn-sm"  style="   font-size: 20px;
-                            width: 500px !important; border-radius: 10px  !important;">Send</button>
+                            width: 500px ; border-radius: 10px  !important;">Send</button>
                         </div>
                     </div>
                 </div>

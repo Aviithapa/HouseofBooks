@@ -2,10 +2,10 @@
 
 @section('content')
     <main>
-        <section class="container" >
+        <section class="container mt-2" >
 
 
-            <h2><span>{{$product->name}}</span></h2>
+            <h3><span>{{$product->name}}</span></h3>
             <!-- Single Product - start -->
             <div class="prod-wrap">
 
