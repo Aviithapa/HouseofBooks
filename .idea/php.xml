@@ -119,10 +119,8 @@
       <path value="$PROJECT_DIR$/vendor/stevebauman/location" />
       <path value="$PROJECT_DIR$/vendor/maxmind/web-service-common" />
       <path value="$PROJECT_DIR$/vendor/geoip2/geoip2" />
-      <path value="$PROJECT_DIR$/vendor/balping/json-raw-encoder" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/consoletvs/charts" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

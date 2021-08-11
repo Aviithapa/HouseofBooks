@@ -10,19 +10,19 @@
                             <div class="fh5co-intro fh5co-table-cell animate-box">
                                 <h1 class="text-center text-uppercase" style="color: white !important;">Start Selling your used books <br>with us in simple steps</h1>
                                 <h3 class="text-uppercase" style="color: white !important; margin-top: -10px; line-height: 1.2;">Be a part of sustainable economy of Nepal <br> with house of books</h3>
-                                <a  href="#"><button id="myBtn" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Start Selling</button></a>
+                                <a  href="#"><button id="myBtns" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Start Selling</button></a>
 {{--                                <p style="margin-top: 10px;">Already a seller? <a href="{{route('dashboard.products.index')}}" style="color: orange">Login Now</a> </p>--}}
 
 
                             <!-- Modal Structure -->
                                 <!-- The Modal -->
-                                <div id="myModal" class="modal">
+                                <div id="myModals" class="modal">
 
                                     <!-- Modal content -->
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h2>House of Books Pvt Ltd</h2>
-                                            <span class="close">&times;</span>
+                                            <span class="closes">&times;</span>
                                         </div>
                                         <div class="modal-body">
                                             {!!html_entity_decode($terms->content)!!}
@@ -31,21 +31,18 @@
                                             @if(\Illuminate\Support\Facades\Auth::user())
                                                     @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "customer" || \Illuminate\Support\Facades\Auth::user()->mainRole()->name == "finance" )
                                                     <a  href="{{route('user.role')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Agree</button></a>
-                                                    <button id="close" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
+                                                    <button id="closes" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
                                                     @elseif(\Illuminate\Support\Facades\Auth::user()->mainRole()->name == "seller")
                                                     <a  href="{{url('/dashboard')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Ok</button></a>
                                                     @endif
                                             @else
                                                 <a  href="{{url('/register/seller')}}"><button type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Agree</button></a>
-                                               <button id="close" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
+                                               <button id="closes" type="button" class="start-selling btn  btn-primary btn-round-sm btn-sm float-right">Disagree</button>
                                             @endif
                                         </div>
                                     </div>
 
                                 </div>
-
-
-
 
                             </div>
                         </div>
@@ -68,20 +65,22 @@
                 </div>
             </div>
 
+
+
     @endsection
 @push('scripts')
 
     <script>
         // Get the modal
-        var modal = document.getElementById("myModal");
+        var modal = document.getElementById("myModals");
 
         // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        var btn = document.getElementById("myBtns");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("closes")[0];
 
-        var close=document.getElementById("close");
+        var close=document.getElementById("closes");
         // When the user clicks the button, open the modal
         btn.onclick = function() {
             modal.style.display = "block";

@@ -1412,4 +1412,9 @@
     .stylization h4 {
         font-size: 14px;
     }
+
+    .fb_dialog_content iframe{
+        bottom: 60px !important;
+        left: 0 !important;
+    }
 }

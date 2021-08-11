@@ -230,18 +230,18 @@
     </div>
 </header>
 
-<header id="mobile-view"  >
+<header id="mobile-view" style="display: none"  >
     <div class="header" >
         <div class="top">
-            <div class="col-sm-4 col-xs-4">
-                <li><a href="#home">SELL WITH US</a></li>
+            <div class="col-sm-12 col-xs-12">
+                <li>SELL WITH US</li>
             </div>
-            <div class="col-sm-4 col-xs-4 a">
-                <li><a href="#home" >CONTACT US</a></li>
-            </div>
-            <div class="col-sm-4 col-xs-4 a">
-                <li ><a href="#home">SIGN IN</a></li>
-            </div>
+{{--            <div class="col-sm-4 col-xs-4 a">--}}
+{{--                <li><a href="#home" >CONTACT US</a></li>--}}
+{{--            </div>--}}
+{{--            <div class="col-sm-4 col-xs-4 a">--}}
+{{--                <li ><a href="#home">SIGN IN</a></li>--}}
+{{--            </div>--}}
         </div>
     </div>
     <div class="mob-header">
@@ -432,8 +432,6 @@
             </div>
 
         </div>
-
-
     @include('web.layouts.bottomnav')
 </header>
 
@@ -505,7 +503,6 @@
             $('#book').on('keyup',function() {
                 // the text typed in the input field is assigned to a variable
                 var book= document.getElementById("book");
-                alert(book)
                 if(book !=null){
                     var query = $(this).val();
                     // call to an ajax function
@@ -626,5 +623,6 @@
                 }
             });
         }
+
     </script>
     @endpush
