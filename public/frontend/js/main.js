@@ -1049,14 +1049,6 @@ $(window).load(function () {
 
 
 
-setTimeout(function(){
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}, 10000);
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
 
 var navItems = document.querySelectorAll(".mobile-bottom-nav__item-content");
 navItems.forEach(function(e, i) {

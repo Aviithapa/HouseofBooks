@@ -234,7 +234,7 @@
     <div class="header" >
         <div class="top">
             <div class="col-sm-12 col-xs-12">
-                <li>SELL WITH US</li>
+                <li></li>
             </div>
 {{--            <div class="col-sm-4 col-xs-4 a">--}}
 {{--                <li><a href="#home" >CONTACT US</a></li>--}}
