@@ -454,16 +454,46 @@ if(!function_exists('getLevelCategory'))
     }
 
 }
+if(!function_exists('getNebCategory'))
+{
+    function getNebCategory()
+    {
+        return [
+            'science' => 'Science',
+            'management' => 'Management',
+            'other' => 'Other'
+        ];
+    }
+
+}
+if(!function_exists('getUniversityCategory'))
+{
+    function getUniversityCategory()
+    {
+        return [
+            'TU' => 'Tribhuwan University ',
+            'PU' => 'Pokhara University',
+            'PBU'=>'Purbanchal University',
+            'other' => 'Other'
+        ];
+    }
+
+}
 if(!function_exists('getPublicationCategory'))
 {
     function getPublicationCategory()
     {
         return [
             'null' =>'--SELECT-- ',
-            'asmita' => 'Asmita',
-            'saraswati' => 'Saraswati',
-            'samiksya ' => 'Samiksya ',
+            'asmita' => 'Asmita Publication',
+            'saraswati' => 'Saraswati Publication',
+            'samiksya ' => 'Samiksya Publication',
             'mk_publication' => "MK Publication",
+            'kriti' => "Kriti Publication",
+            'khanal' => "Khanal Publication",
+            'shiva' => "Shivva Publication",
+            'sanjana' => "Sanjana Publication",
+            'other' => "Other"
         ];
     }
 

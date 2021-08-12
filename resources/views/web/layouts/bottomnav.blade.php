@@ -62,7 +62,8 @@
             <span class="close">&times;</span>
         </div>
         <div class="modal-body">
-            {!!html_entity_decode($terms->content)!!}
+            {!!html_entity_decode( isset($terms->content)?$terms->content:"") !!}
+ {{--            {!!html_entity_decode($terms->content)!!}--}}
         </div>
         <div class="modal-footer">
             @if(\Illuminate\Support\Facades\Auth::user())

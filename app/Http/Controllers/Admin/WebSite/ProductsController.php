@@ -132,6 +132,7 @@ class ProductsController extends BaseController
 
          $data['image']=$image;
         try {
+            dd($data);
             $post = $this->productRepository->create($data);
             if($post == false) {
                 session()->flash('danger', 'Oops! Something went wrong.');

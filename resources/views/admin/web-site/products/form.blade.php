@@ -131,32 +131,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-6" id="university">
-                <div class="form-group">
-                    {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University'),null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-            @if ($role === "administrator")
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('status', 'Status:', ['class' => 'form-label']) !!}
-                    {!! Form::select('status', getActiveInactiveStatus(), null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('status', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-                @endif
-
-        </div>
-        <div class="row" id="publication">
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
-                    {!! Form::text('publication',null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
             <div class="col-md-6 col-lg-6" id="faculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
@@ -164,8 +138,15 @@
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
+                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University' , 'NEB' => "NEB", 'other' => "Other"),null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
         </div>
-        <div class="row" id="semester">
+        <div class="row" id="publication">
             <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
@@ -180,6 +161,16 @@
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('publication', 'Publication:', ['class' => 'form-label']) !!}
+                    {!! Form::text('publication',null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('publication', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+
+        </div>
+        <div class="row" id="semester">
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('edition', 'Edition:', ['class' => 'form-label']) !!}
@@ -212,17 +203,7 @@
                     {!! $errors->first('quantity', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
-
-            @if ($role === "administrator")
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
-                        {!! Form::number('discount',null, ['class' => 'form-control','required']) !!}
-                        {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
-                    </div>
-                </div>
-                @else
-                <div class="col-md-6 col-lg-6">
+                            <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         {!! Form::label('discount', 'Discount:', ['class' => 'form-label']) !!}
                         {!! Form::number('discount',null, ['class' => 'form-control',"readonly",'id'=>'discount']) !!}
@@ -230,7 +211,6 @@
 {{--                        <small>Discount percent is based on book condition. For more info please read <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'"> terms and condition </span></small>--}}
                     </div>
                 </div>
-            @endif
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -352,9 +332,9 @@
         function levelChanage(){
             var levelCat = document.getElementById("levelCat").value;
             if (levelCat=="+2" || levelCat=="10"){
-                $("#university").hide()
+             //   $("#university").hide()
             }else{
-                $("#university").show()
+              //  $("#university").show()
             }
         }
     </script>

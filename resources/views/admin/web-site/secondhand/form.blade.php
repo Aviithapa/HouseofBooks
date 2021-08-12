@@ -31,7 +31,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('sub_category', 'Sub Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "run()"]) !!}
+                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "change('sub_category')"]) !!}
                     {!! $errors->first('sub_category', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="col-md-6 col-lg-6" id="level">
                 <div class="form-group">
                     {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
-                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "levelChanage()"]) !!}
+                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "change('level')"]) !!}
                     {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-md-6 col-lg-6" id="university">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('university',getUniversityCategory(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -80,7 +80,14 @@
             <div class="col-md-6 col-lg-6" id="faculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change()"]) !!}
+                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="2faculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getNebCategory(),null, ['class' => 'form-control','id' => '2fac']) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -89,14 +96,14 @@
             <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
-                    {!! Form::select('semesters',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control' ,'id' => 'sems']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="year">
                 <div class="form-group">
                     {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
-                    {!! Form::select('year',getYear(),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('semester',getYear(),null, ['class' => 'form-control' ,'id' => 'years']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -257,24 +264,72 @@
     <script src="https://vendor/jquery/jquery-ui/jquery-ui.js" type="text/javascript"></script>
 
     <script>
-        function change() {
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
-            }
-        }
+        function change(type) {
+            switch(type) {
+                case 'sub_category':
+                        var sub_category=document.getElementById("subCategory").value;
+                          switch (sub_category) {
+                              case 'novel':
+                                  $("#university").hide();
+                                  $("#publication").hide();
+                                  $("#semester").hide();
+                                  $('#level').hide();
+                                  $("#nobel").show();
+                                  break;
+                              case 'loksewa-examination':
+                                      $("#university").hide();
+                                      $("#semester").hide();
+                                      $('#level').hide();
+                                      $("#nobel").hide();
+                                  break;
 
-        function levelChanage(){
-            var levelCat = document.getElementById("levelCat").value;
-            if (levelCat=="+2" || levelCat=="10"){
-                $("#university").hide()
-            }else{
-                $("#university").show()
+                              default:
+                                  $("#nobel").hide();
+                                  $("#university").show();
+                                  $("#publication").show();
+                                  $("#semester").show();
+                                  $("#level").show();
+                                  break;
+                          }
+                    break;
+               case 'faculty':
+                   var faculty = document.getElementById("fac").value;
+                   if(faculty==="BBS"){
+                       $('#years').attr('name', 'semester');
+                       $("#sems").attr('name', 'nothing');
+                       $("#sem").hide();
+                       $("#year").show();
+                   }else{
+                       $('#sems').attr('name', 'semester');
+                       $("#years").attr('name', 'nothing');
+                       $("#year").hide();
+                       $("#sem").show();
+                   }
+                   break;
+               case 'level':
+                       var levelCat = document.getElementById("levelCat").value;
+                       if (levelCat=="+2" || levelCat=="10"){
+                           $('#2fac').attr('name', 'faculty');
+                           $("#fac").attr('name', 'nothing');
+                           $("#faculty").hide();
+                           $("#2faculty").show();
+                           $('#years').attr('name', 'semester');
+                           $("#sems").attr('name', 'nothing');
+                           $("#sem").hide();
+                           $("#year").show();
+                       }else{
+                           $('#fac').attr('name', 'faculty');
+                           $("#2fac").attr('name', 'nothing');
+                           $("#2faculty").hide();
+                           $("#faculty").show();
+                           $('#sems').attr('name', 'semester');
+                           $("#years").attr('name', 'nothing');
+                           $("#year").hide();
+                           $("#sem").show();
+                       }
+                   break;
             }
+
         }
     </script>
     <script>
@@ -283,10 +338,62 @@
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
         $( document ).ready(function() {
-            $("#nobel").hide();
-            $("#best_selling").hide();
-            $("#year").hide();
-            $("#sem").show();
+            var sub_category=document.getElementById("subCategory").value;
+            switch (sub_category) {
+                case 'novel':
+                    $("#university").hide();
+                    $("#publication").hide();
+                    $("#semester").hide();
+                    $('#level').hide();
+                    $("#nobel").show();
+                    break;
+                case 'loksewa-examination':
+                    $("#university").hide();
+                    $("#semester").hide();
+                    $('#level').hide();
+                    $("#nobel").hide();
+                    break;
+
+                default:
+                    $("#nobel").hide();
+                    $("#university").show();
+                    $("#publication").show();
+                    $("#semester").show();
+                    $("#level").show();
+                    break;
+            }
+            var levelCat = document.getElementById("levelCat").value;
+
+            if (levelCat=="+2" || levelCat=="10"){
+                alert(levelCat)
+                $('#2fac').attr('name', 'faculty');
+                $("#fac").attr('name', 'nothing');
+                $("#faculty").hide();
+                $("#2faculty").show();
+                $('#years').attr('name', 'semester');
+                $("#sems").attr('name', 'nothing');
+                $("#sem").hide();
+                $("#year").show();
+            }else{
+                var faculty = document.getElementById("fac").value;
+                if(faculty==="BBS"){
+                    $('#years').attr('name', 'semester');
+                    $("#sems").attr('name', 'nothing');
+                    $("#sem").hide();
+                    $("#year").show();
+                }else{
+                    $('#sems').attr('name', 'semester');
+                    $("#years").attr('name', 'nothing');
+                    $("#year").hide();
+                    $("#sem").show();
+                }
+                $('#fac').attr('name', 'faculty');
+                $("#2fac").attr('name', 'nothing');
+                $("#2faculty").hide();
+                $("#faculty").show();
+            }
+
+
         });
         $(document).ready(function () {
             var condition=document.getElementById("condition").value;
@@ -303,31 +410,7 @@
                 discount.value="70"
             }
 
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
-            }
         });
-        function run() {
-            var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="novel"){
-                $("#university").hide();
-                $("#publication").hide();
-                $("#semester").hide();
-                $('#level').hide()
-                $("#nobel").show();
-            }else{
-                $("#nobel").hide();
-                $("#university").show();
-                $("#publication").show();
-                $("#semester").show();
-                $("#level").show()
-            }
-        }
         function Cond() {
             var condition=document.getElementById("condition").value;
             var discount=document.getElementById("discount");
