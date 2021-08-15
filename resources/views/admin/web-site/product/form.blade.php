@@ -302,11 +302,15 @@
                             $("#faculty").hide();
                             $("#2faculty").hide();
                             $("#pclfaculty").hide();
+                            $("#bachelorfaculty").hide();
+                            $("#masterfaculty").hide();
                             $("#sem").hide();
                             $("#year").hide();
                             $("#entrancefaculty").show();
                             $("#level").hide();
                             break;
+
+                            case ''
                         default:
                             $("#other_books").show();
                             $("#nobel").hide();
@@ -438,24 +442,33 @@
     <script>
         $( document ).ready(function() {
             var sub_category=document.getElementById("subCategory").value;
-            $("#masterfaculty").hide();
             switch (sub_category) {
                 case 'novel':
                     $("#university").hide();
                     $("#publication").hide();
                     $("#semester").hide();
                     $('#level').hide();
-                    $("#entrancefaculty").hide();
                     $("#best_selling").show();
+                    $("#nobel").show();
+                    $("#entrancefaculty").hide();
+                    $("#other_books").hide();
                     break;
                 case 'loksewa-examination':
-                    $("#best_selling").hide();
+                    $("#other_books").show();
+                    $("#nobel").hide();
                     $("#university").hide();
                     $("#semester").hide();
                     $('#level').hide();
-                    $("#nobel").hide();
+                    $("#best_selling").hide();
                     $("#faculty").hide();
                     $("#entrancefaculty").hide();
+                    $("#masterfaculty").hide();
+                    $("#bachelorfaculty").hide();
+                    $("#2faculty").hide();
+                    $("#sem").hide();
+                    $("#year").hide();
+                    $("#pclfaculty").hide();
+
                     break;
                 case 'entrance-examination':
                     $("#best_selling").hide();
@@ -472,8 +485,12 @@
                     $("#pclfaculty").hide();
                     $("#entrancefaculty").show();
                     $("#level").hide();
+                    $("#bachelorfaculty").hide();
+                    $("#masterfaculty").hide();
+                    $("#sem").hide();
+                    $("#year").hide();
                     break;
-                case 'coursebook':
+                case 'coursebook' :
                     $("#nobel").hide();
                     $("#best_selling").hide();
                     var levelCat = document.getElementById("levelCat").value;
@@ -549,7 +566,95 @@
                         $("#sem").show();
                     }
                     break;
-                default:
+                case  'question-bank-and-solution':
+                    $("#nobel").hide();
+                    $("#best_selling").hide();
+                    var levelCat = document.getElementById("levelCat").value;
+                    if (levelCat=="+2" || levelCat=="10"){
+                        $('#2fac').attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat==="pcl" || levelCat==="foreign_writer") {
+                        $('#2fac').attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'faculty');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").show();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat == "bachelor"){
+                        var faculty =  document.querySelector('.faculty').value;
+                        if (faculty === "BBS") {
+                            $('#years').attr('name', 'semester');
+                            $("#sems").attr('name', 'nothing');
+                            $("#sem").hide();
+                            $("#year").show();
+                        } else {
+                            $('#sems').attr('name', 'semester');
+                            $("#years").attr('name', 'nothing');
+                            $("#year").hide();
+                            $("#sem").show();
+                        }
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").show();
+                        $("#masterfaculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+
+                    } else if (levelCat == "master"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").show();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+                    }
+                    else{
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#2fac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#2faculty").hide();
+                        $("#faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                    break;
+                    default:
                     $("#nobel").hide();
                     $("#university").show();
                     $("#publication").show();
