@@ -487,7 +487,7 @@
             }
 
         }
-        var y= window.matchMedia("(max-width:500px)");
+        var y= window.matchMedia("(max-width:600px)");
         mobileResponsive(y);// Call listener function at run time
         y.addListener(mobileResponsive);
         function mobileResponsive(y) {

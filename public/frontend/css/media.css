@@ -121,9 +121,6 @@
     .vl{
         height: 80px;
     }
-    .add img {
-        height: 200px;
-    }
    .icons{
        width: 50px;
        height: 50px;
@@ -1147,20 +1144,20 @@
 }
 
 
-@media only screen and (max-width : 450px) {
-    .bestSelling{
-        margin-left:10px !important;
-        width: 100% !important;
+@media only screen and (max-width : 600px) {
+    .give-away{
+        padding-left:10px !important;
+        padding-right: 10px !important;
+        margin-top: 10px;
+    }
+    .give-away .cart-button{
+        width: 100px !important;
     }
     .contentsecondhand .columns{
         margin-left: 10px !important;
     }
     .contentsecondhand{
         margin: 0px !important;
-    }
-    .overwrite{
-        height: 75px;
-        margin-top: 10px ;
     }
     .vl{
         height: 50px;
@@ -1179,10 +1176,6 @@
     }
     .add{
         margin-top: 10px !important;
-    }
-    .add img{
-        height: 100% !important;
-
     }
     #cart{
         display: none;
@@ -1212,7 +1205,7 @@
         display: none !important;
     }
     #main-menu{
-        color: #FF8800;
+        color: #FF8800 !important;
         padding-top: 20px;
         display: flex !important;
         justify-content: flex-start;
@@ -1237,14 +1230,18 @@
         height:auto;
     }
 }
-@media only screen and (max-width : 725px)  {
-    .overwrite  {
-        height: 100px !important;
-        /*margin-top: -50px !important;*/
-    }
-}
-@media only screen and (max-width : 500px) {
+/*@media only screen and (max-width : 725px)  {*/
+/*    .overwrite  {*/
+/*        height: 100px !important;*/
+/*        !*margin-top: -50px !important;*!*/
+/*    }*/
+/*}*/
+@media only screen and (max-width : 600px) {
 
+    .overwrite {
+        height: 100px;
+        margin-top: 15px;
+    }
     /* The Modal (background) */
     .modal {
         padding: 10% !important;

@@ -409,21 +409,21 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-    <div id="myModal" class="modal">
+{{--    <div id="myModal" class="modal">--}}
 
-        <!-- Modal content -->
-        <div class="modal-content">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close" id="close">&times;</span>
-                    </div>
-                    <div class="modal-body">
-                        <img src="{{$popup->getImage()}}">
-                    </div>
-                </div>
-        </div>
-        </div>
+{{--        <!-- Modal content -->--}}
+{{--        <div class="modal-content">--}}
+{{--                <!-- Modal content-->--}}
+{{--                <div class="modal-content">--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <span class="close" id="close">&times;</span>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <img src="{{$popup->getImage()}}">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--        </div>--}}
+{{--        </div>--}}
     @endsection
 @push('scripts')
             <script>
@@ -446,20 +446,20 @@
 
     <script>
         // Get the modal
-        var modal = document.getElementById("myModal");
-        $(document).ready(function() {
-            if(localStorage.getItem('popState') !== 'shown'){
-                $("#myModal").modal('show');
-                localStorage.setItem('popState','shown');
-                var close=document.getElementById("close");
-                close.onclick = function() {
-                    $("#myModal").modal('hide')
-                }
-            }
-        });
-        $(window).unload(function(){
-            localStorage.setItem('popState','hidden')
-        });
+        // var modal = document.getElementById("myModal");
+        // $(document).ready(function() {
+        //     if(localStorage.getItem('popState') !== 'shown'){
+        //         $("#myModal").modal('show');
+        //         localStorage.setItem('popState','shown');
+        //         var close=document.getElementById("close");
+        //         close.onclick = function() {
+        //             $("#myModal").modal('hide')
+        //         }
+        //     }
+        // });
+        // $(window).unload(function(){
+        //     localStorage.setItem('popState','hidden')
+        // });
 
 
 

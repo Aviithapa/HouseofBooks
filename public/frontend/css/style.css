@@ -3094,7 +3094,8 @@ a{
     border: 1px solid #BFBFBF;
     box-shadow: -5px 10px 100px #aaaaaa;
     background-color: #fff;
-    overflow: hidden;
+    overflow: scroll;
+    padding-bottom: 50px;
     transition: 0.5s;
 }
 .mobilesidenav li{

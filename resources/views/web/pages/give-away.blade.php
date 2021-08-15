@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="prod-items section-items container mt-5" style="padding-left:200px; padding-right: 200px; margin-bottom: 30px;">
+    <div class="prod-items give-away section-items container mt-5" style="padding-left:200px; padding-right: 200px; margin-bottom: 30px;">
 
     @foreach($products as $product)
             <div class="prod-i">

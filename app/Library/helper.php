@@ -449,7 +449,8 @@ if(!function_exists('getLevelCategory'))
             'master' => 'Master',
             '+2' => '+2 level',
             '10' => 'Class 10',
-            'foreign_writer ' => 'Foreign Writer',
+            'pcl' => 'PCL',
+            'foreign_writer' => 'Foreign Writer',
         ];
     }
 
@@ -464,8 +465,70 @@ if(!function_exists('getNebCategory'))
             'other' => 'Other'
         ];
     }
+}
+if(!function_exists('getEntranceCategory'))
+{
+    function getEntranceCategory()
+    {
+        return [
+            'CMAT' => 'CMAT',
+            'KUMAT' => 'KUMAT',
+            'IOE' => 'IOE',
+            'IOM' => 'IOM',
+            'IAAS' => 'IAAS',
+            'Medical' => 'Medical',
+            'other' => 'Other'
+        ];
+    }
 
 }
+
+if(!function_exists('getLevelWiseFacultyCategory'))
+{
+    function getLevelWiseFacultyCategory($level)
+    {
+        switch ($level){
+            case 'bachelor':
+                return [
+                    'BBA' => 'Bachelor in Business Administration',
+                    'BBS' => 'Bachelor in Business Studies',
+                    'BIM' => 'Bachelor of Information Management',
+                    'BTTM' => 'Bachelor of Travel and Tourism Management',
+                    'BHM' => 'Bachelor of Hotel Management',
+                    'BBM' => 'Bachelor of Business Management',
+                    'BPA' => 'Bachelor of Public Administration',
+                    'BMS' => 'Bachelor of Mountaineering Studies',
+                    'LL.B' => 'Bachelor of Laws',
+                    'BALLB' => 'Bachelor of Arts Bachelor of Laws',
+                    'BA' => 'Bachelor of Arts',
+                    'BSW' => 'Bachelor in Social Work',
+                    'BFA' => 'Bachelor in Fine Arts',
+                    'BCA' => 'Bachelor in Computer Application',
+                    'BED' => 'B.Ed',
+                    'other' => 'Other'
+                ];
+                break;
+            case 'master':
+                return [
+                    'MBA' => 'Master of Business Administration',
+                    'MBA-F' => 'Master of Business Administration in Finance',
+                    'MBA-IT' => 'Master of Business Administration in Information Technology',
+                    'MTTM' => 'Master of Travel and Tourism Management',
+                    'MHM' => 'Master of Hospitality Management',
+                    'MFC' => 'Master of finance Control ',
+                    'MBM' => 'Master of Business Management',
+                    'MBS' => 'Master of Business Studies',
+                    'LL.M' => 'Master of Laws',
+                    'MED' => 'M. Ed',
+                    'other' => 'Other'
+                ];
+                break;
+
+        }
+    }
+
+}
+
 if(!function_exists('getUniversityCategory'))
 {
     function getUniversityCategory()
@@ -474,6 +537,7 @@ if(!function_exists('getUniversityCategory'))
             'TU' => 'Tribhuwan University ',
             'PU' => 'Pokhara University',
             'PBU'=>'Purbanchal University',
+            'NEB'=>"Nation Examination Board",
             'other' => 'Other'
         ];
     }
