@@ -111,7 +111,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('sub_category', 'Sub Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "run()"]) !!}
+                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "change('sub_category')"]) !!}
                     {!! $errors->first('sub_category', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -125,23 +125,51 @@
             <div class="col-md-6 col-lg-6" id="level">
                 <div class="form-group">
                     {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
-                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "levelChanage()"]) !!}
+                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "change('level')"]) !!}
                     {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-6" id="faculty">
+        <div class="row" id="faculty">
+            <div class="col-md-6 col-lg-6" id="bachelorfaculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change()"]) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('bachelor'),null, ['class' => 'form-control faculty','id' => 'bachelorfac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="masterfaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('master'),null, ['class' => 'form-control faculty','id' => 'masterfac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="entrancefaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getEntranceCategory(),null, ['class' => 'form-control faculty','id' => 'entrancefac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="2faculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getNebCategory(),null, ['class' => 'form-control faculty','id' => '2fac']) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="pclfaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::text('faculty',null, ['class' => 'form-control','id' => 'pclfac']) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University' , 'NEB' => "NEB", 'other' => "Other"),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('university',getUniversityCategory(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -170,7 +198,7 @@
             </div>
 
         </div>
-        <div class="row" id="semester">
+        <div class="row">
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('edition', 'Edition:', ['class' => 'form-label']) !!}
@@ -318,16 +346,171 @@
     <script src="https://vendor/jquery/jquery-ui/jquery-ui.js" type="text/javascript"></script>
 
     <script>
-        function change() {
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
-            }
+        function change(type) {
+           switch (type) {
+               case 'sub_category':
+                   var sub_category=document.getElementById("subCategory").value;
+                   switch (sub_category) {
+                       case 'novel':
+                           $("#faculty").hide();
+                           $("#level").hide();
+                           $("#publication").hide();
+                           $("#sem").hide();
+                           $("#year").hide();
+                           $("#nobel").show();
+                           break;
+                           case 'coursebook':
+                               var level=document.getElementById("levelCat").value;
+                                 switch (level) {
+                                     case 'bachelor':
+                                         $("#faculty").show();
+                                         $('#2fac').attr('name', 'nothing');
+                                         $("#bachelorfac").attr('name', 'faculty');
+                                         $("#pclfac").attr('name', 'nothing');
+                                         $("#masterfac").attr('name', 'nothing');
+                                         $("#entrancefac").attr('name', 'nothing');
+                                         $("#masterfaculty").hide();
+                                         $("#2faculty").hide();
+                                         $("#pclfaculty").hide();
+                                         $("#entrancefaculty").hide();
+                                         $("#bachelorfaculty").show();
+                                         $("#sem").show();
+                                         $("#year").hide();
+                                         break;
+                                         case 'master':
+                                             $("#faculty").show();
+                                             $('#2fac').attr('name', 'nothing');
+                                             $("#bachelorfac").attr('name', 'nothing');
+                                             $("#pclfac").attr('name', 'nothing');
+                                             $("#masterfac").attr('name', 'faculty');
+                                             $("#entrancefac").attr('name', 'nothing');
+                                             $("#masterfaculty").show();
+                                             $("#2faculty").hide();
+                                             $("#pclfaculty").hide();
+                                             $("#entrancefaculty").hide();
+                                             $("#bachelorfaculty").hide();
+                                             $("#sem").show();
+                                             $("#year").hide();
+                                             break;
+                                             case '+2':
+                                                 $("#faculty").show();
+                                                 $('#2fac').attr('name', 'faculty');
+                                                 $("#bachelorfac").attr('name', 'nothing');
+                                                 $("#pclfac").attr('name', 'nothing');
+                                                 $("#masterfac").attr('name', 'nothing');
+                                                 $("#entrancefac").attr('name', 'nothing');
+                                                 $("#masterfaculty").hide();
+                                                 $("#2faculty").show();
+                                                 $("#pclfaculty").hide();
+                                                 $("#entrancefaculty").hide();
+                                                 $("#bachelorfaculty").hide();
+                                                 $("#sem").hide();
+                                                 $("#year").show();
+                                                 break;
+
+                                                 case 'pcl':
+                                                     $("#faculty").show();
+                                                     $('#2fac').attr('name', 'nothing');
+                                                     $("#pclfac").attr('name', 'faculty');
+                                                     $("#entrancefac").attr('name', 'nothing');
+                                                     $("#bachelorfac").attr('name', 'nothing');
+                                                     $("#masterfac").attr('name', 'nothing');
+                                                     $("#bachelorfaculty").hide();
+                                                     $("#masterfaculty").hide();
+                                                     $("#entrancefaculty").hide();
+                                                     $("#2faculty").hide();
+                                                     $("#pclfaculty").show();
+                                                     $('#years').attr('name', 'semester');
+                                                     $("#sems").attr('name', 'nothing');
+                                                     $("#sem").hide();
+                                                     $("#year").show();
+                                                     break;
+                                 }
+                               break;
+                   }
+                   break;
+               case 'level':
+                   var level=document.getElementById("levelCat").value;
+                   switch (level) {
+                       case 'bachelor':
+                           $("#faculty").show();
+                           $('#2fac').attr('name', 'nothing');
+                           $("#bachelorfac").attr('name', 'faculty');
+                           $("#pclfac").attr('name', 'nothing');
+                           $("#masterfac").attr('name', 'nothing');
+                           $("#entrancefac").attr('name', 'nothing');
+                           $("#masterfaculty").hide();
+                           $("#2faculty").hide();
+                           $("#pclfaculty").hide();
+                           $("#entrancefaculty").hide();
+                           $("#bachelorfaculty").show();
+                           $("#sem").show();
+                           $("#year").hide();
+                           break;
+                       case 'master':
+                           $("#faculty").show();
+                           $('#2fac').attr('name', 'nothing');
+                           $("#bachelorfac").attr('name', 'nothing');
+                           $("#pclfac").attr('name', 'nothing');
+                           $("#masterfac").attr('name', 'faculty');
+                           $("#entrancefac").attr('name', 'nothing');
+                           $("#masterfaculty").show();
+                           $("#2faculty").hide();
+                           $("#pclfaculty").hide();
+                           $("#entrancefaculty").hide();
+                           $("#bachelorfaculty").hide();
+                           $("#sem").show();
+                           $("#year").hide();
+                           break;
+                       case '+2':
+                           $("#faculty").show();
+                           $('#2fac').attr('name', 'faculty');
+                           $("#bachelorfac").attr('name', 'nothing');
+                           $("#pclfac").attr('name', 'nothing');
+                           $("#masterfac").attr('name', 'nothing');
+                           $("#entrancefac").attr('name', 'nothing');
+                           $("#masterfaculty").hide();
+                           $("#2faculty").show();
+                           $("#pclfaculty").hide();
+                           $("#entrancefaculty").hide();
+                           $("#bachelorfaculty").hide();
+                           $("#sem").hide();
+                           $("#year").show();
+                           break;
+
+                       case 'pcl':
+                           $("#faculty").show();
+                           $('#2fac').attr('name', 'nothing');
+                           $("#pclfac").attr('name', 'faculty');
+                           $("#entrancefac").attr('name', 'nothing');
+                           $("#bachelorfac").attr('name', 'nothing');
+                           $("#masterfac").attr('name', 'nothing');
+                           $("#bachelorfaculty").hide();
+                           $("#masterfaculty").hide();
+                           $("#entrancefaculty").hide();
+                           $("#2faculty").hide();
+                           $("#pclfaculty").show();
+                           $('#years').attr('name', 'semester');
+                           $("#sems").attr('name', 'nothing');
+                           $("#sem").hide();
+                           $("#year").show();
+                           break;
+                   }
+                   break;
+           }
         }
+
+
+        // function change() {
+        //     var faculty = document.getElementById("fac").value;
+        //     if(faculty==="BBS"){
+        //         $("#year").show();
+        //         $("#sem").hide();
+        //     }else{
+        //         $("#year").hide();
+        //         $("#sem").show();
+        //     }
+        // }
 
         function levelChanage(){
             var levelCat = document.getElementById("levelCat").value;

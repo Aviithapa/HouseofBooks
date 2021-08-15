@@ -309,8 +309,6 @@
                             $("#entrancefaculty").show();
                             $("#level").hide();
                             break;
-
-                            case ''
                         default:
                             $("#other_books").show();
                             $("#nobel").hide();
