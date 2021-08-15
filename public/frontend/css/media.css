@@ -1146,8 +1146,11 @@
 
 @media only screen and (max-width : 600px) {
     .give-away{
-        padding-left:10px !important;
-        padding-right: 10px !important;
+        padding-left:20px !important;
+        padding-right: 20px !important;
+        width: 100%;
+        margin-left: auto;
+        margin-right:auto ;
         margin-top: 10px;
     }
     .give-away .cart-button{

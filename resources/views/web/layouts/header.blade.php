@@ -203,7 +203,7 @@
                             <li><a href="{{url('sell-book-index')}}">Sell Books</a></li>
                             <li><a href="{{url('blog')}}">Blog</a></li>
                             <li><a href="{{url('contact')}}">Contact Us</a></li>
-                            <li><a href="{{url('give-away')}}">Give Away</a></li>
+                            <li><a href="{{url('give-away')}}">GiveAway</a></li>
                             <a href="javascript:void(0)" class="closebtn"  id="closebtn" onclick="closeNav()" style="display: none;">&times;</a>
                             @if(\Illuminate\Support\Facades\Auth::user())
                                 @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
@@ -312,7 +312,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="{{url('give-away')}}">Give Away</a></li>
+                    <li><a href="{{url('give-away')}}">GiveAway</a></li>
                     @if(\Illuminate\Support\Facades\Auth::user())
                         @if(\Illuminate\Support\Facades\Auth::user()->mainRole()->name ==='customer')
                             <li><a href="{{url('profile')}}">My Profile</a></li>
