@@ -35,7 +35,7 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('sub_category', 'Sub Category:', ['class' => 'form-label']) !!}
-                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "run()"]) !!}
+                    {!! Form::select('sub_category', getSubCategory(),null, ['class' => 'form-control','id' => 'subCategory', "onchange" => "change('sub_category')"]) !!}
                     {!! $errors->first('sub_category', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -61,20 +61,70 @@
                     {!! $errors->first('give_away', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+
+        </div>
+        <div class="row" id="other_books">
+            <div class="col-md-6 col-lg-6" id="level">
+                <div class="form-group">
+                    {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
+                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control','id' => 'levelCat', "onchange" => "change('level')"]) !!}
+                    {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="bachelorfaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('bachelor'),null, ['class' => 'form-control faculty','id' => 'bachelorfac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="masterfaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('master'),null, ['class' => 'form-control faculty','id' => 'masterfac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="entrancefaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getEntranceCategory(),null, ['class' => 'form-control faculty','id' => 'entrancefac', "onchange" => "change('faculty')"]) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="2faculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::select('faculty',getNebCategory(),null, ['class' => 'form-control faculty','id' => '2fac']) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="pclfaculty">
+                <div class="form-group">
+                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
+                    {!! Form::text('faculty',null, ['class' => 'form-control','id' => 'pclfac']) !!}
+                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="sem">
+                <div class="form-group">
+                    {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
+                    {!! Form::select('semester',$semester->pluck('display_name','name'),null, ['class' => 'form-control' ,'id' => 'sems']) !!}
+                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6" id="year">
+                <div class="form-group">
+                    {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
+                    {!! Form::select('semester',getYear(),null, ['class' => 'form-control' ,'id' => 'years']) !!}
+                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
             <div class="col-md-6 col-lg-6" id="university">
                 <div class="form-group">
                     {!! Form::label('university', 'University:', ['class' => 'form-label']) !!}
-                    {!! Form::select('university',array('null'=>'-- Select --','TU' => 'Tribhuwan University ', 'PU' => 'Pokhara University ','PBU'=>'Purbanchal University', 'KU' => "Kathmandu University"),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('university',getUniversityCategory(),null, ['class' => 'form-control']) !!}
                     {!! $errors->first('university', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-        </div>
-        <div class="row" id="publication">
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('level', 'Level:', ['class' => 'form-label']) !!}
-                    {!! Form::select('level', getLevelCategory(), null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('level', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6">
@@ -86,27 +136,7 @@
             </div>
         </div>
         <div class="row" id="semester">
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',$faculty->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'fac', "onchange" => "change()"]) !!}
-                    {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6" id="sem">
-                <div class="form-group">
-                    {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
-                    {!! Form::select('semesters',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6" id="year">
-                <div class="form-group">
-                    {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
-                    {!! Form::select('year',getYear(),null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
-                </div>
-            </div>
+
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6">
@@ -230,64 +260,354 @@
     @include('admin.partials.common.file-upload');
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
-        function change() {
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
+        function change(type) {
+            switch(type) {
+                case 'sub_category':
+                    var sub_category=document.getElementById("subCategory").value;
+                    switch (sub_category) {
+                        case 'novel':
+                            $("#university").hide();
+                            $("#publication").hide();
+                            $("#semester").hide();
+                            $('#level').hide();
+                            $("#best_selling").show();
+                            $("#nobel").show();
+                            $("#entrancefaculty").hide();
+                            $("#other_books").hide();
+                            break;
+                        case 'loksewa-examination':
+                            $("#other_books").show();
+                            $("#nobel").hide();
+                            $("#university").hide();
+                            $("#semester").hide();
+                            $('#level').hide();
+                            $("#best_selling").hide();
+                            $("#faculty").hide();
+                            $("#entrancefaculty").hide();
+                            $("#masterfaculty").hide();
+                            $("#bachelorfaculty").hide();
+                            $("#2faculty").hide();
+                            $("#sem").hide();
+                            $("#year").hide();
+                            break;
+                        case 'entrance-examination':
+                            $("#other_books").show();
+                            $("#nobel").hide();
+                            $("#best_selling").hide();
+                            $("#semester").hide();
+                            $('#2fac').attr('name', 'nothing');
+                            $("#bachelorfac").attr('name', 'nothing');
+                            $("#pclfac").attr('name', 'nothing');
+                            $("#entrancefac").attr('name', 'faculty');
+                            $("#faculty").hide();
+                            $("#2faculty").hide();
+                            $("#pclfaculty").hide();
+                            $("#sem").hide();
+                            $("#year").hide();
+                            $("#entrancefaculty").show();
+                            $("#level").hide();
+                            break;
+                        default:
+                            $("#other_books").show();
+                            $("#nobel").hide();
+                            $("#best_selling").hide();
+                            $("#university").show();
+                            $("#publication").show();
+                            $("#semester").show();
+                            $("#level").show();
+                            $("#faculty").show();
+                            $("#entrancefaculty").hide();
+                            break;
+                    }
+                    break;
+                case 'faculty':
+                    var levelCat = document.getElementById("levelCat").value;
+                    var faculty =  document.querySelector('.faculty').value;
+                    if (levelCat === "bachelor") {
+                        if (faculty === "BBS") {
+                            $('#years').attr('name', 'semester');
+                            $("#sems").attr('name', 'nothing');
+                            $("#sem").hide();
+                            $("#year").show();
+                        } else {
+                            $('#sems').attr('name', 'semester');
+                            $("#years").attr('name', 'nothing');
+                            $("#year").hide();
+                            $("#sem").show();
+                        }
+                    }else{
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                    break;
+                case 'level':
+                    var levelCat = document.getElementById("levelCat").value;
+                    if (levelCat=="+2" || levelCat=="10"){
+                        $('#2fac').attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat==="pcl" || levelCat==="foreign_writer") {
+                        $('#2fac').attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'faculty');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").show();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat == "bachelor"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").show();
+                        $("#masterfaculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+                        var faculty =  document.querySelector('.faculty').value;
+                        if(faculty==="BBS"){
+                            $('#years').attr('name', 'semester');
+                            $("#sems").attr('name', 'nothing');
+                            $("#sem").hide();
+                            $("#year").show();
+                        }else{
+                            $('#sems').attr('name', 'semester');
+                            $("#years").attr('name', 'nothing');
+                            $("#year").hide();
+                            $("#sem").show();
+                        }
+                    } else if (levelCat == "master"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").show();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                    else{
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#2fac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#2faculty").hide();
+                        $("#faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                    break;
             }
+
         }
     </script>
     <script>
+        $( document ).ready(function() {
+            var sub_category=document.getElementById("subCategory").value;
+            $("#masterfaculty").hide();
+            switch (sub_category) {
+                case 'novel':
+                    $("#university").hide();
+                    $("#publication").hide();
+                    $("#semester").hide();
+                    $('#level').hide();
+                    $("#entrancefaculty").hide();
+                    $("#best_selling").show();
+                    break;
+                case 'loksewa-examination':
+                    $("#best_selling").hide();
+                    $("#university").hide();
+                    $("#semester").hide();
+                    $('#level').hide();
+                    $("#nobel").hide();
+                    $("#faculty").hide();
+                    $("#entrancefaculty").hide();
+                    break;
+                case 'entrance-examination':
+                    $("#best_selling").hide();
+                    $("#nobel").hide();
+                    $("#semester").hide();
+                    $('#2fac').attr('name', 'nothing');
+                    $("#bachelorfac").attr('name', 'nothing');
+                    $("#pclfac").attr('name', 'nothing');
+                    $("#masterfac").attr('name', 'nothing');
+                    $("#entrancefac").attr('name', 'faculty');
+                    $("#masterfaculty").hide();
+                    $("#faculty").hide();
+                    $("#2faculty").hide();
+                    $("#pclfaculty").hide();
+                    $("#entrancefaculty").show();
+                    $("#level").hide();
+                    break;
+                case 'coursebook':
+                    $("#nobel").hide();
+                    $("#best_selling").hide();
+                    var levelCat = document.getElementById("levelCat").value;
+                    if (levelCat=="+2" || levelCat=="10"){
+                        $('#2fac').attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat==="pcl" || levelCat==="foreign_writer") {
+                        $('#2fac').attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'faculty');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").show();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat == "bachelor"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").show();
+                        $("#masterfaculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+
+                    } else if (levelCat == "master"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").show();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+                    }
+                    else{
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#2fac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#2faculty").hide();
+                        $("#faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                    break;
+                default:
+                    $("#nobel").hide();
+                    $("#university").show();
+                    $("#publication").show();
+                    $("#semester").show();
+                    $("#level").show();
+                    $("#faculty").show();
+                    $("#masterfaculty").hide();
+                    $("#entrancefaculty").hide();
+                    break;
+            };
+
+        });
         CKEDITOR.replace( 'ckeditor', {
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
-        $( document ).ready(function() {
-            $("#year").hide();
-            $("#sem").show();
-        });
-        $( document ).ready(function() {
-            var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="novel"){
-                $("#university").hide();
-                $("#publication").hide();
-                $("#semester").hide();
-                $("#nobel").show();
-                $("#best_selling").show();
-            }else
-            {
-                $("#nobel").hide();
-                $("#best_selling").hide();
-            }
-
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
-                $("#sem").hide();
-            }else{
-                $("#year").hide();
-                $("#sem").show();
-            }
-        });
-        function run() {
-            var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="novel"){
-                $("#university").hide();
-                $("#publication").hide();
-                $("#semester").hide();
-                $("#nobel").show();
-                $("#best_selling").show();
-            }else{
-                $("#nobel").hide();
-                $("#best_selling").hide();
-                $("#university").show();
-                $("#publication").show();
-                $("#semester").show();
-            }
-        }
+        // $( document ).ready(function() {
+        //     $("#year").hide();
+        //     $("#sem").show();
+        // });
+        // $( document ).ready(function() {
+        //     var sub_category=document.getElementById("subCategory").value;
+        //     if(sub_category==="novel"){
+        //         $("#university").hide();
+        //         $("#publication").hide();
+        //         $("#semester").hide();
+        //         $("#nobel").show();
+        //         $("#best_selling").show();
+        //     }else
+        //     {
+        //         $("#nobel").hide();
+        //         $("#best_selling").hide();
+        //     }
+        //
+        //     var faculty = document.getElementById("fac").value;
+        //     if(faculty==="BBS"){
+        //         $("#year").show();
+        //         $("#sem").hide();
+        //     }else{
+        //         $("#year").hide();
+        //         $("#sem").show();
+        //     }
+        // });
+        // function run() {
+        //     var sub_category=document.getElementById("subCategory").value;
+        //     if(sub_category==="novel"){
+        //         $("#university").hide();
+        //         $("#publication").hide();
+        //         $("#semester").hide();
+        //         $("#nobel").show();
+        //         $("#best_selling").show();
+        //     }else{
+        //         $("#nobel").hide();
+        //         $("#best_selling").hide();
+        //         $("#university").show();
+        //         $("#publication").show();
+        //         $("#semester").show();
+        //     }
+        // }
     </script>
 @endpush

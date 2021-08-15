@@ -87,28 +87,28 @@
             <div class="col-md-6 col-lg-6" id="bachelorfaculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',getLevelWiseFacultyCategory('bachelor'),null, ['class' => 'form-control','id' => 'bachelorfac', "onchange" => "change('faculty')"]) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('bachelor'),null, ['class' => 'form-control faculty','id' => 'bachelorfac', "onchange" => "change('faculty')"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="masterfaculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',getLevelWiseFacultyCategory('master'),null, ['class' => 'form-control','id' => 'masterfac', "onchange" => "change('faculty')"]) !!}
+                    {!! Form::select('faculty',getLevelWiseFacultyCategory('master'),null, ['class' => 'form-control faculty','id' => 'masterfac', "onchange" => "change('faculty')"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="entrancefaculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',getEntranceCategory(),null, ['class' => 'form-control','id' => 'entrancefac', "onchange" => "change('faculty')"]) !!}
+                    {!! Form::select('faculty',getEntranceCategory(),null, ['class' => 'form-control faculty','id' => 'entrancefac', "onchange" => "change('faculty')"]) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="2faculty">
                 <div class="form-group">
                     {!! Form::label('faculty', 'Faculty:', ['class' => 'form-label']) !!}
-                    {!! Form::select('faculty',getNebCategory(),null, ['class' => 'form-control','id' => '2fac']) !!}
+                    {!! Form::select('faculty',getNebCategory(),null, ['class' => 'form-control faculty','id' => '2fac']) !!}
                     {!! $errors->first('faculty', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -312,6 +312,8 @@
                                       $("#nobel").hide();
                                       $("#faculty").hide();
                                       $("#entrancefaculty").hide();
+                                      $("#masterfaculty").hide();
+                                      $("#2faculty").hide();
                                   break;
                                   case 'entrance-examination':
                                       $("#nobel").hide();
@@ -338,12 +340,20 @@
                           }
                     break;
                case 'faculty':
-                   var faculty = document.getElementById("fac").value;
-                   if(faculty==="BBS"){
-                       $('#years').attr('name', 'semester');
-                       $("#sems").attr('name', 'nothing');
-                       $("#sem").hide();
-                       $("#year").show();
+                   var levelCat = document.getElementById("levelCat").value;
+                   var faculty =  document.querySelector('.faculty').value;
+                   if (levelCat === "bachlor") {
+                       if (faculty === "BBS") {
+                           $('#years').attr('name', 'semester');
+                           $("#sems").attr('name', 'nothing');
+                           $("#sem").hide();
+                           $("#year").show();
+                       } else {
+                           $('#sems').attr('name', 'semester');
+                           $("#years").attr('name', 'nothing');
+                           $("#year").hide();
+                           $("#sem").show();
+                       }
                    }else{
                        $('#sems').attr('name', 'semester');
                        $("#years").attr('name', 'nothing');
@@ -396,7 +406,18 @@
                            $("#masterfaculty").hide();
                            $("#2faculty").hide();
                            $("#pclfaculty").hide();
-
+                           var faculty =  document.querySelector('.faculty').value;
+                           if(faculty==="BBS"){
+                               $('#years').attr('name', 'semester');
+                               $("#sems").attr('name', 'nothing');
+                               $("#sem").hide();
+                               $("#year").show();
+                           }else{
+                               $('#sems').attr('name', 'semester');
+                               $("#years").attr('name', 'nothing');
+                               $("#year").hide();
+                               $("#sem").show();
+                           }
                        } else if (levelCat == "master"){
                            $('#2fac').attr('name', 'nothing');
                            $("#bachelorfac").attr('name', 'nothing');
@@ -408,6 +429,10 @@
                            $("#masterfaculty").show();
                            $("#2faculty").hide();
                            $("#pclfaculty").hide();
+                           $('#sems').attr('name', 'semester');
+                           $("#years").attr('name', 'nothing');
+                           $("#year").hide();
+                           $("#sem").show();
                        }
                        else{
                            $("#bachelorfac").attr('name', 'faculty');
@@ -457,15 +482,92 @@
                     $("#nobel").hide();
                     $("#semester").hide();
                     $('#2fac').attr('name', 'nothing');
-                    $("#fac").attr('name', 'nothing');
+                    $("#bachelorfac").attr('name', 'nothing');
                     $("#pclfac").attr('name', 'nothing');
+                    $("#masterfac").attr('name', 'nothing');
                     $("#entrancefac").attr('name', 'faculty');
+                    $("#masterfaculty").hide();
                     $("#faculty").hide();
                     $("#2faculty").hide();
                     $("#pclfaculty").hide();
                     $("#entrancefaculty").show();
                     $("#level").hide();
                     break;
+                case 'coursebook':
+                        $("#nobel").hide();
+                    var levelCat = document.getElementById("levelCat").value;
+                    if (levelCat=="+2" || levelCat=="10"){
+                        $('#2fac').attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat==="pcl" || levelCat==="foreign_writer") {
+                        $('#2fac').attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'faculty');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").hide();
+                        $("#entrancefaculty").hide();
+                        $("#faculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").show();
+                        $('#years').attr('name', 'semester');
+                        $("#sems").attr('name', 'nothing');
+                        $("#sem").hide();
+                        $("#year").show();
+                    }else if (levelCat == "bachelor"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").show();
+                        $("#masterfaculty").hide();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+
+                    } else if (levelCat == "master"){
+                        $('#2fac').attr('name', 'nothing');
+                        $("#bachelorfac").attr('name', 'nothing');
+                        $("#masterfac").attr('name', 'faculty');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#bachelorfaculty").hide();
+                        $("#masterfaculty").show();
+                        $("#2faculty").hide();
+                        $("#pclfaculty").hide();
+                    }
+                    else{
+                        $("#bachelorfac").attr('name', 'faculty');
+                        $("#masterfac").attr('name', 'nothing');
+                        $("#2fac").attr('name', 'nothing');
+                        $("#pclfac").attr('name', 'nothing');
+                        $("#entrancefac").attr('name', 'nothing');
+                        $("#entrancefaculty").hide();
+                        $("#2faculty").hide();
+                        $("#faculty").show();
+                        $("#pclfaculty").hide();
+                        $('#sems').attr('name', 'semester');
+                        $("#years").attr('name', 'nothing');
+                        $("#year").hide();
+                        $("#sem").show();
+                    }
+                        break;
                 default:
                     $("#nobel").hide();
                     $("#university").show();
@@ -476,73 +578,6 @@
                     $("#entrancefaculty").hide();
                     break;
             };
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $('#years').attr('name', 'semester');
-                $("#sems").attr('name', 'nothing');
-                $("#sem").hide();
-                $("#year").show();
-            }else{
-                $('#sems').attr('name', 'semester');
-                $("#years").attr('name', 'nothing');
-                $("#year").hide();
-                $("#sem").show();
-            }
-
-
-            var levelCat = document.getElementById("levelCat").value;
-            if (levelCat=="+2" || levelCat=="10"){
-                $('#2fac').attr('name', 'faculty');
-                $("#fac").attr('name', 'nothing');
-                $("#pclfac").attr('name', 'nothing');
-                $("#faculty").hide();
-                $("#2faculty").show();
-                $("#pclfaculty").hide();
-                $('#years').attr('name', 'semester');
-                $("#sems").attr('name', 'nothing');
-                $("#sem").hide();
-                $("#year").show();
-            }else if (levelCat=="pcl") {
-                var faculty = document.getElementById("fac").value;
-                if(faculty==="BBS"){
-                    $('#years').attr('name', 'semester');
-                    $("#sems").attr('name', 'nothing');
-                    $("#sem").hide();
-                    $("#year").show();
-                }else{
-                    $('#sems').attr('name', 'semester');
-                    $("#years").attr('name', 'nothing');
-                    $("#year").hide();
-                    $("#sem").show();
-                }
-                $('#2fac').attr('name', 'nothing');
-                $("#fac").attr('name', 'nothing');
-                $("#pclfac").attr('name', 'faculty');
-                $("#faculty").hide();
-                $("#2faculty").hide();
-                $("#pclfaculty").show();
-
-            }else{
-                var faculty = document.getElementById("fac").value;
-                if(faculty==="BBS"){
-                    $('#years').attr('name', 'semester');
-                    $("#sems").attr('name', 'nothing');
-                    $("#sem").hide();
-                    $("#year").show();
-                }else{
-                    $('#sems').attr('name', 'semester');
-                    $("#years").attr('name', 'nothing');
-                    $("#year").hide();
-                    $("#sem").show();
-                }
-                $('#fac').attr('name', 'faculty');
-                $("#2fac").attr('name', 'nothing');
-                $("#pclfac").attr('name', 'nothing');
-                $("#2faculty").hide();
-                $("#faculty").show();
-                $("#pclfaculty").hide();
-            }
-
 
         });
         $(document).ready(function () {
