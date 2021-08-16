@@ -178,14 +178,14 @@
             <div class="col-md-6 col-lg-6" id="sem">
                 <div class="form-group">
                     {!! Form::label('semester', 'Semester:', ['class' => 'form-label']) !!}
-                    {!! Form::select('semesters',$semester->pluck('display_name','name'),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('semesters',$semester->pluck('display_name','name'),null, ['class' => 'form-control','id' => 'sems']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
             <div class="col-md-6 col-lg-6" id="year">
                 <div class="form-group">
                     {!! Form::label('semester', 'Year:', ['class' => 'form-label']) !!}
-                    {!! Form::select('year',getYear(),null, ['class' => 'form-control']) !!}
+                    {!! Form::select('year',getYear(),null, ['class' => 'form-control','id' => 'years']) !!}
                     {!! $errors->first('semester', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
@@ -566,7 +566,6 @@
         } );
         $( document ).ready(function() {
                     var sub_category=document.getElementById("subCategory").value;
-                    alert(sub_category)
                     switch (sub_category) {
                         case 'novel':
                             $("#faculty").hide();
@@ -584,8 +583,7 @@
                             $("#level").show();
                             $("#publication").show();
                             $("#university").show();
-                            var level=document.getElementById("levelCat").value;
-                            alert(level)
+                            var level = document.getElementById("levelCat").value;
                             switch (level) {
                                 case 'bachelor':
                                     $("#faculty").show();
@@ -651,21 +649,21 @@
                                     $("#year").show();
                                     break;
 
-                                    default:
-                                        $("#faculty").show();
-                                        $('#2fac').attr('name', 'nothing');
-                                        $("#bachelorfac").attr('name', 'faculty');
-                                        $("#pclfac").attr('name', 'nothing');
-                                        $("#masterfac").attr('name', 'nothing');
-                                        $("#entrancefac").attr('name', 'nothing');
-                                        $("#masterfaculty").hide();
-                                        $("#2faculty").hide();
-                                        $("#pclfaculty").hide();
-                                        $("#entrancefaculty").hide();
-                                        $("#bachelorfaculty").show();
-                                        $("#sem").show();
-                                        $("#year").hide();
-                                        break;
+                                default:
+                                    $("#faculty").show();
+                                    $('#2fac').attr('name', 'nothing');
+                                    $("#bachelorfac").attr('name', 'faculty');
+                                    $("#pclfac").attr('name', 'nothing');
+                                    $("#masterfac").attr('name', 'nothing');
+                                    $("#entrancefac").attr('name', 'nothing');
+                                    $("#masterfaculty").hide();
+                                    $("#2faculty").hide();
+                                    $("#pclfaculty").hide();
+                                    $("#entrancefaculty").hide();
+                                    $("#bachelorfaculty").show();
+                                    $("#sem").show();
+                                    $("#year").hide();
+                                    break;
                             }
                             break;
                         case 'loksewa-examination':
@@ -683,7 +681,6 @@
                             $("#sem").hide();
                             $("#year").hide();
                             break;
-
                         case 'entrance-examination':
                             $("#other_books").show();
                             $("#nobel").hide();
@@ -704,7 +701,7 @@
                             $("#level").hide();
                             $("#university").show();
                             break;
-                case 'level':
+                    }
                     var level=document.getElementById("levelCat").value;
                     switch (level) {
                         case 'bachelor':
@@ -771,23 +768,9 @@
                             $("#year").show();
                             break;
                     }
-                    break;
-                case 'faculty':
-                    var fac = document.getElementById("bachelorfac").value;
-                    if (fac === "BBS"){
-                        $('#years').attr('name', 'semester');
-                        $("#sems").attr('name', 'nothing');
-                        $("#sem").hide();
-                        $("#year").show();
-                    }else{
-                        $('#sems').attr('name', 'semester');
-                        $("#years").attr('name', 'nothing');
-                        $("#year").hide();
-                        $("#sem").show();
-                    }
-                    break
 
-            }
+
+
         });
         $(document).ready(function () {
             var condition=document.getElementById("condition").value;
@@ -804,31 +787,19 @@
                 discount.value="70"
             }
 
-            var faculty = document.getElementById("fac").value;
-            if(faculty==="BBS"){
-                $("#year").show();
+            var fac = document.getElementById("bachelorfac").value;
+            if (fac === "BBS"){
+                $('#years').attr('name', 'semester');
+                $("#sems").attr('name', 'nothing');
                 $("#sem").hide();
+                $("#year").show();
             }else{
+                $('#sems').attr('name', 'semester');
+                $("#years").attr('name', 'nothing');
                 $("#year").hide();
                 $("#sem").show();
             }
         });
-        function run() {
-            var sub_category=document.getElementById("subCategory").value;
-            if(sub_category==="novel"){
-                $("#university").hide();
-                $("#publication").hide();
-                $("#semester").hide();
-                $('#level').hide()
-                $("#nobel").show();
-            }else{
-                $("#nobel").hide();
-                $("#university").show();
-                $("#publication").show();
-                $("#semester").show();
-                $("#level").show()
-            }
-        }
         function Cond() {
             var condition=document.getElementById("condition").value;
             var discount=document.getElementById("discount");
