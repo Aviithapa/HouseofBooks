@@ -3338,3 +3338,42 @@ a{
         text-shadow: 0 0 0 #fff, 0 0 30px #1F881B, 0 0 40px #1F881B, 0 0 50px #1F881B, 0 0 60px #1F881B, 0 0 70px #1F881B, 0 0 80px #1F881B;
     }
 }
+
+.alert{
+    width: 300px;
+    right: 0 !important;
+    position: fixed;
+    z-index: 300000;
+    top: 0 !important;
+    float: right;
+}
+:root {
+    --main-color: #111;
+    --loader-color: #4CAF50;
+    --back-color: #A5D6A7;
+    --time: 5s;
+    --size: 3px;
+}
+
+
+
+.loader__element {
+
+    height: var(--size);
+    width: 100%;
+    background: var(--back-color);
+    bottom: 0;
+}
+
+.loader__element:before {
+    content: '';
+    display: block;
+    background-color: var(--loader-color);
+    height: var(--size);
+    width: 0;
+    animation: getWidth var(--time) ease-in infinite;
+}
+
+@keyframes getWidth {
+    100% { width: 100%; }
+}
