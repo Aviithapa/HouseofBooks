@@ -173,6 +173,20 @@
         </div>
     </div>
 
+<div class="add">
+    <div class="row" style="margin-top: 20px; padding:20px;">
+        <div class="col-sm-4 col-md-4">
+            <img src="{{url("/asset/img/Adspace-1.jpg")}}" style="border-radius: 15px; border: 2px solid #000;">
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px; border: 2px solid #000;">
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px; border: 2px solid #000;">
+        </div>
+    </div>
+</div>
+
     <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
             <div class="row">
@@ -203,7 +217,10 @@
                                                     <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                                 </div>
                                                 <ul class="item_marks">
-                                                    <li class="item_mark item_discount">-{{$rakshya->discount}} %</li>
+{{--                                                    <div class="prod-sticker">--}}
+{{--                                                        <p class="prod-sticker-3" style="background-color: #FF8800 !important;">Rakshya Bandhan Special </p><p class="prod-sticker-4 countdown" data-date="29 Jan 2017, 14:30:00"></p>--}}
+{{--                                                    </div>--}}
+{{--                                                    <li class="item_mark item_discount">-{{$rakshya->discount}} %</li>--}}
                                                     <li class="item_mark item_new">new</li>
                                                 </ul>
                                             </div>
@@ -263,12 +280,11 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
-
-
-    <div class="bbb_viewed">
+    <div class="bbb_viewed mt-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">

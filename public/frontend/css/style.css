@@ -317,7 +317,7 @@ h5{
 
 
 .bbb_viewed {
-    padding-top: 51px;
+    padding-top: 20px;
     padding-bottom: 60px;
 }
 
@@ -3331,10 +3331,10 @@ a{
 
 @-webkit-keyframes glow {
     from {
-        text-shadow: 0 0 0 #fff, 0 0 20px #fff, 0 0 30px #FF8800, 0 0 40px #FF8800, 0 0 50px #FF8800, 0 0 60px #FF8800, 0 0 70px #FF8800;
+        text-shadow: 0 0 0 #fff, 0 0 20px #fff, 0 0 30px #2ECC28, 0 0 40px #2ECC28, 0 0 50px #2ECC28, 0 0 60px #2ECC28, 0 0 70px #2ECC28;
     }
 
     to {
-        text-shadow: 0 0 0 #fff, 0 0 30px #25a521, 0 0 40px #25a521, 0 0 50px #25a521, 0 0 60px #25a521, 0 0 70px #25a521, 0 0 80px #25a521;
+        text-shadow: 0 0 0 #fff, 0 0 30px #1F881B, 0 0 40px #1F881B, 0 0 50px #1F881B, 0 0 60px #1F881B, 0 0 70px #1F881B, 0 0 80px #1F881B;
     }
 }
