@@ -175,6 +175,49 @@
 
     <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="bbb_main_container" style="background-color: whitesmoke !important;">
+                        <div class="bbb_viewed_title_container">
+                            <div class="title" >
+                                <h4 class="glow">Rakshya Bandhan Special</h4>
+                            </div>
+                         </div>
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($Rakshya as $rakshya)
+                                        <div class="owl-item">
+                                            <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
+                                                <a href="{{url("productDetails/".$rakshya->id)}}">
+                                                    <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$rakshya->getImage()}}" oncontextmenu="return false;" alt="{{$rakshya->name}}"></div>
+                                                </a>
+                                                <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
+                                                    <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($rakshya->name, 18) }} </h5>
+                                                    <p class="mt-3">
+                                                        <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$rakshya->getDicountedPrice()}}</button>
+                                                        <a href="{{url('add/to/cart/'.$rakshya->id)}}">
+                                                            <button class="btn btn-primary btn-round-sm btn-sm cart-button" >ADD TO CART</button>
+                                                        </a>
+                                                    </p>
+
+                                                    <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
+                                                </div>
+                                                <ul class="item_marks">
+                                                    <li class="item_mark item_discount">-{{$rakshya->discount}} %</li>
+                                                    <li class="item_mark item_new">new</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bbb_viewed" style="background-color: whitesmoke !important;">
+        <div class="container-fluid">
            <div class="row">
                 <div class="col">
                     <div class="bbb_main_container" style="background-color: whitesmoke !important;">

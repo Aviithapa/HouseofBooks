@@ -68,7 +68,7 @@ html {
 }
 body {
   direction: ltr;
-  background-color: #323237;
+  /*background-color: #323237;*/
   color: #6f7b8a;
   font-family: 'Arial';
   font-size: 13px;
@@ -598,7 +598,7 @@ body.boxed-layout .footer-widget {
   font-weight: normal;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > a.open {
-  background: #313131;
+  /*background: #313131;*/
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > a i {
   font-size: 19px;
@@ -855,8 +855,7 @@ body.boxed-layout .footer-widget {
 .page-sidebar .page-sidebar-wrapper > ul > li.open > a,
 .page-sidebar .page-sidebar-wrapper > ul > li > a:hover,
 .page-sidebar .page-sidebar-wrapper > ul > li:hover > a {
-  background: #323237;
-  color: #ffffff;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 .page-sidebar.mini .page-sidebar-wrapper > ul > li a > .label {
   display: none;

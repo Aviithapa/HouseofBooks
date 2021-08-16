@@ -8,6 +8,7 @@ use App\Modules\Backend\Authentication\Role\Repositories\RoleRepository;
 use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
 use App\Modules\Backend\Authentication\User\Requests\CreateUserRequest;
 use App\Modules\Backend\Authentication\User\Requests\UpdateUserRequest;
+use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class UserController extends BaseController
 {
-    private $userRepository, $roleRepository, $log;
+    private $userRepository, $roleRepository, $log, $postRepository;
     use SendsPasswordResetEmails;
 
 
@@ -28,11 +29,13 @@ class UserController extends BaseController
      * @param UserRepository $userRepository
      * @param RoleRepository $roleRepository
      * @param Log $log
+     * @param PostRepository $postRepository
      */
-    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository, Log $log)
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository, Log $log, PostRepository $postRepository)
     {
         $this->userRepository = $userRepository;
         $this->roleRepository = $roleRepository;
+        $this->postRepository = $postRepository;
         $this->log = $log;
         parent::__construct();
     }
@@ -59,7 +62,8 @@ class UserController extends BaseController
                 ->make(true);
 
         }
-        return $this->view('authentication.user.index', compact('users'));
+        $terms= $this->postRepository->findById(152);
+        return $this->view('authentication.user.index', compact('users', 'terms'));
     }
 
     /**
@@ -107,7 +111,8 @@ class UserController extends BaseController
         $this->authorize('read', $this->userRepository->getModel());
         $user = $this->userRepository->findById($id);
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        return $this->view('authentication.user.show', compact('user','role'));
+        $terms= $this->postRepository->findById(152);
+        return $this->view('authentication.user.show', compact('user','role', 'terms'));
     }
     /**
      * Edit User
@@ -118,7 +123,8 @@ class UserController extends BaseController
     {
         $this->authorize('update',$this->userRepository->getModel());
         $user = $this->userRepository->findById($id);
-        return $this->view('authentication.user.edit', compact('user'));
+        $terms= $this->postRepository->findById(152);
+        return $this->view('authentication.user.edit', compact('user','terms'));
     }
 
 
@@ -221,8 +227,9 @@ class UserController extends BaseController
     {
         $id = Auth::id();
         $user = $this->userRepository->findById($id);
+        $terms= $this->postRepository->findById(152);
         $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
-        return $this->view('authentication.user.profile', compact('user','role'));
+        return $this->view('authentication.user.profile', compact('user','role','terms'));
     }
 
     public function postProfile(UpdateUserRequest $updateUserRequest)

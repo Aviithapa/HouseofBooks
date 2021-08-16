@@ -147,6 +147,7 @@ class HomeController extends BaseController
                     $this->view_data['loksewa'] =$this->productRepository->findBy('sub_category','medical-examination','=',true,6);
                     $this->view_data['coursebook'] =$this->productRepository->findBy('sub_category','coursebook','=',true,6);
                     $this->view_data['questionbankandsolution'] =$this->productRepository->findBy('sub_category','question-bank-and-solution','=',true,6);
+                    $this->view_data['Rakshya'] =$this->productRepository->findBy('sub_category','Rakshya','=',true,6);
                     $this->view_data['question'] = $this->postRepository->findById(135);
                     $this->view_data['course'] = $this->postRepository->findById(136);
                     $this->view_data['entrance'] = $this->postRepository->findById(137);

@@ -82,6 +82,7 @@ class ProductsController extends BaseController
         }
         $this->viewData['role']=$role;
         $this->viewData['categories'] = $this->facultyRepository->getAll();
+        $this->viewData['terms'] = $this->postRepository->findById(152);
         return $this->view('web-site.products.index',$this->viewData);
     }
 

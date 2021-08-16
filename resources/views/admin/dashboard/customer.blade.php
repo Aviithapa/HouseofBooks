@@ -113,17 +113,5 @@
         </div>
     </div>
     </div>
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-                <div class="modal-header">
-                    <span class="w3-button w3-display-topright"  onclick="document.getElementById('id01').style.display='none'" >&times;</span>
-                    <h2 style="color: #ff682c">Terms And Condition</h2>
-                </div>
-                <div class="modal-body">
-                    {!!html_entity_decode($terms->content)!!}
-                </div>
-            </div>
-        </div>
-    </div>
+
 @endsection

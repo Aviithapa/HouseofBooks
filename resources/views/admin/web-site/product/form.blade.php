@@ -265,6 +265,16 @@
                 case 'sub_category':
                     var sub_category=document.getElementById("subCategory").value;
                     switch (sub_category) {
+                        case 'Rakshya':
+                            $("#university").hide();
+                            $("#publication").hide();
+                            $("#semester").hide();
+                            $('#level').hide();
+                            $("#best_selling").hide();
+                            $("#nobel").hide();
+                            $("#entrancefaculty").hide();
+                            $("#other_books").hide();
+                            break;
                         case 'novel':
                             $("#university").hide();
                             $("#publication").hide();
@@ -309,6 +319,7 @@
                             $("#entrancefaculty").show();
                             $("#level").hide();
                             break;
+
                         default:
                             $("#other_books").show();
                             $("#nobel").hide();
@@ -441,6 +452,16 @@
         $( document ).ready(function() {
             var sub_category=document.getElementById("subCategory").value;
             switch (sub_category) {
+                case 'Rakshya':
+                    $("#university").hide();
+                    $("#publication").hide();
+                    $("#semester").hide();
+                    $('#level').hide();
+                    $("#best_selling").hide();
+                    $("#nobel").hide();
+                    $("#entrancefaculty").hide();
+                    $("#other_books").hide();
+                    break;
                 case 'novel':
                     $("#university").hide();
                     $("#publication").hide();

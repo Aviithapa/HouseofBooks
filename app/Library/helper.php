@@ -583,6 +583,7 @@ if(!function_exists('getSubCategory'))
         return [
             'coursebook' => 'Coursebook',
             'novel' => 'Novel',
+            'Rakshya' => 'Rakshya Bandhan',
             'question-bank-and-solution' => 'Question bank and Solution',
             'loksewa-examination' => 'Loksewa Examination',
             'entrance-examination' => 'Entrance Examination',

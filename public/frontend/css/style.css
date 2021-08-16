@@ -3325,3 +3325,16 @@ a{
     from {opacity: 0;}
     to {opacity:1 ;}
 }
+.glow {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 0 #fff, 0 0 20px #fff, 0 0 30px #FF8800, 0 0 40px #FF8800, 0 0 50px #FF8800, 0 0 60px #FF8800, 0 0 70px #FF8800;
+    }
+
+    to {
+        text-shadow: 0 0 0 #fff, 0 0 30px #25a521, 0 0 40px #25a521, 0 0 50px #25a521, 0 0 60px #25a521, 0 0 70px #25a521, 0 0 80px #25a521;
+    }
+}
