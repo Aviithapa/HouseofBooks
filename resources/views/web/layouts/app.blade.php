@@ -15,6 +15,8 @@
 <!-- BEGIN BODY -->
 <body>
 <div id="preloader" scroll="no"></div>
+
+@include('web.pages.flash-message')
 @include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
 
@@ -27,6 +29,7 @@
     var preloader=document.getElementById("preloader");
     window.addEventListener("load",function () {
    preloader.style.display="none";
+
     })
 </script>
 </body>

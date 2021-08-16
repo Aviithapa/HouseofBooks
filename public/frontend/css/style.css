@@ -2970,8 +2970,13 @@ a{
     overflow:hidden;
     z-index: 200;
 }
-
-
+#video{
+    width: 100%;
+    height:100%;
+    position:fixed;
+    overflow:hidden;
+    z-index: 201;
+}
 
 
 /* The Modal (background) */
@@ -3343,7 +3348,7 @@ a{
     width: 300px;
     right: 0 !important;
     position: fixed;
-    z-index: 300000;
+    z-index: 2000;
     top: 0 !important;
     float: right;
 }
@@ -3354,9 +3359,6 @@ a{
     --time: 5s;
     --size: 3px;
 }
-
-
-
 .loader__element {
 
     height: var(--size);

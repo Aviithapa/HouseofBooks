@@ -42,7 +42,6 @@
             setTimeout(function(){
                 $("div.alert").remove();
             }, 3000 ); // 5 secs
-
         });
     </script>
     @endpush

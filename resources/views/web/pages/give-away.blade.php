@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('content')
-    @include('web.pages.flash-message')
+
 
     <div class="prod-items give-away section-items container mt-5" style=" display: flex;
   align-items: center;

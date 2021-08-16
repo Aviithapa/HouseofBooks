@@ -75,7 +75,6 @@
 {{--            </div>--}}
 {{--        </div>--}}
     </div>
-    @include('web.pages.flash-message')
     <div class="container-fluid mt-5" >
         <div class="bbb_viewed_title_container">
             <div class="title" >
@@ -179,10 +178,10 @@
             <img src="{{url("/asset/img/Adspace-1.jpg")}}" style="border-radius: 15px; border: 2px solid #000;">
         </div>
         <div class="col-sm-4 col-md-4">
-            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px; border: 2px solid #000;">
+            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px;">
         </div>
         <div class="col-sm-4 col-md-4">
-            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px; border: 2px solid #000;">
+            <img src="{{url("/asset/img/Adspace-3.png")}}" style="border-radius: 15px;" >
         </div>
     </div>
 </div>
