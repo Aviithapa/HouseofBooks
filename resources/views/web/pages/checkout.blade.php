@@ -94,7 +94,7 @@
 @endsection
 @push('scripts')
     <script>
-        document.form.action = "http://houseofbooks.com.np/order_confirmation";
+        document.form.action = "https://houseofbooks.com.np/order_confirmation";
         function run() {
           var paymentMethod =document.getElementById("payment").value;
             if( paymentMethod==="ESEWA" ) {

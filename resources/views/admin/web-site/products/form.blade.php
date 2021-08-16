@@ -90,7 +90,7 @@
 
 <link rel="stylesheet" href="https://vendor/jquery/jquery-ui/jquery-ui.css">
 <div class="grid simple ">
-    <div class="grid-body ">
+    <div class="grid-body">
         <div class="row">
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
@@ -497,6 +497,10 @@
                            break;
                    }
                    break;
+                   case 'faculty':
+                        var fac = document.getElementById("").value;
+                       break
+
            }
         }
 
