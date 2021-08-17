@@ -204,7 +204,7 @@
                                         <div class="owl-item">
                                             <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                                 <a href="{{url("productDetails/".$rakshya->id)}}">
-                                                    <div class="bbb_viewed_image rakshya" style="width: 220px ; height: 220px ;">
+                                                    <div class="bbb_viewed_image rakshya" style="width: 200px ; height: 230px ;">
                                                         <img src="{{$rakshya->getImage()}}" oncontextmenu="return false;" alt="{{$rakshya->name}}"></div>
                                                 </a>
                                                 <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
