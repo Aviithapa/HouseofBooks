@@ -178,10 +178,10 @@
             <img src="{{url("/asset/img/Adspace-1.jpg")}}" style="border-radius: 15px; border: 2px solid #000;">
         </div>
         <div class="col-sm-4 col-md-4">
-            <img src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px;">
+            <img class='image' src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px;">
         </div>
         <div class="col-sm-4 col-md-4">
-            <img src="{{url("/asset/img/Adspace-3.png")}}" style="border-radius: 15px;" >
+            <img class='image' src="{{url("/asset/img/Adspace-3.png")}}" style="border-radius: 15px;" >
         </div>
     </div>
 </div>
@@ -202,7 +202,8 @@
                                         <div class="owl-item">
                                             <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
                                                 <a href="{{url("productDetails/".$rakshya->id)}}">
-                                                    <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$rakshya->getImage()}}" oncontextmenu="return false;" alt="{{$rakshya->name}}"></div>
+                                                    <div class="bbb_viewed_image rakshya" style="width: 220px ; height: 220px ;">
+                                                        <img src="{{$rakshya->getImage()}}" oncontextmenu="return false;" alt="{{$rakshya->name}}"></div>
                                                 </a>
                                                 <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
                                                     <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($rakshya->name, 18) }} </h5>
