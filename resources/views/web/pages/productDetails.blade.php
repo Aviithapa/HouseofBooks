@@ -125,6 +125,8 @@
                         <div class="prod-tab prod-tab-video" id="prod-tab-3">
                             {{$product->youtube_link}}
                         </div>
+                    </div>
+                </div>
 
             </div>
             <!-- Single Product - end -->
