@@ -11,7 +11,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/productDetails/{id}','HomeController@productDetails');
    // Route::get('/catalog/{category}/{university}/{faculty}','HomeController@UniversityCatalog');
     Route::get('/catalog/{category}/{university}','HomeController@UniversityCatalog');
-    Route::get('/catalog/publication/{slug}','HomeController@publicationCatalog');
+    Route::get('/publication/{slug}','HomeController@publicationCatalog')->name('publication');
     Route::get('/catalog/semester/{slug}','HomeController@semesterCatalog')->name('semester');
     Route::get('/catalog/{category}/{university}/{faculty}','HomeController@facultyCatalog');
     Route::get('/catelog/sub_category/{slug}','HomeController@categoryCatalog');
@@ -29,6 +29,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::post('filter','HomeController@Filter');
     Route::get('/autocomplete/fetch', 'HomeController@ajaxsearch')->name('autocomplete.fetch');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
+    Route::get('/publicationData','HomeController@publicationData')->name('publication.data');
     Route::get('change','HomeController@user')->name('user.role');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');

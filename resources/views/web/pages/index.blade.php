@@ -175,7 +175,9 @@
 <div class="add">
     <div class="row" style="margin-top: 20px; padding:20px;">
         <div class="col-sm-4 col-md-4">
-            <img src="{{url("/asset/img/Adspace-1.jpg")}}" style="border-radius: 15px; border: 2px solid #000;">
+            <a href="{{url('publication/saraswati')}}">
+              <img src="{{url("/asset/img/Adspace-1.jpg")}}" style="border-radius: 15px; border: 2px solid #000;">
+            </a>
         </div>
         <div class="col-sm-4 col-md-4">
             <img class='image' src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px;">

@@ -316,13 +316,15 @@ class HomeController extends BaseController
         return view('web.pages.catalog.NobelCatalog' , $this->view_data);
     }
     public function publicationCatalog($slug=null, Request $request){
+
         $slug = $slug ? $slug : 'asmita';
         $this->view_data['terms']=$this->postRepository->findById(152);
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['faculty'] =$this->facultyRepository->getAll();
         $this->view_data['semester'] =$this->semesterRepository->getAll();
         $this->view_data['products']=$this->productRepository->findBy('publication',$slug,'=',true,12);
-        return view('web.pages.catalog.faculty' , $this->view_data);
+
+        return view('web.pages.catalog.publication' , $this->view_data);
     }
     public function semesterCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'First Semester';
@@ -672,4 +674,5 @@ class HomeController extends BaseController
         return redirect()->route('dashboard.index');
 
     }
+
 }

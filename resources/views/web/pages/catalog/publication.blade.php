@@ -12,41 +12,6 @@
             <h2 class="main-ttl"><span> Category</span></h2>
             <!-- Catalog Sidebar - start -->
             <div class="section-sb">
-                <div class="section-sb-current">
-                    <ul class="section-sb-list" id="section-sb-list">
-                        <li class="categ-1">
-                            <a href="{{url('/catelog/sub_category/nobel')}}">
-                                <span class="categ-1-label">Novel</span>
-                            </a>
-                        </li>
-                        <li class="categ-1">
-                            <a href="{{url('/catelog/sub_category/coursebook')}}">
-                                <span class="categ-1-label">Coursebook</span>
-                            </a>
-                        </li>
-                        <li class="categ-1 has_child">
-                            <a href="{{url('/catelog/sub_category/medical-examination')}}">
-                                <span class="categ-1-label">Medical Examination</span>
-                            </a>
-                        </li>
-                        <li class="categ-1 has_child">
-                            <a href="{{url("catelog/sub_category/loksewa-examination")}}">
-                                <span class="categ-1-label">Loksewa Examination</span>
-                            </a>
-                        </li>
-                        <li class="categ-1">
-                            <a href="{{url("catelog/sub_category/entrance-examination")}}">
-                                <span class="categ-1-label">Entrance Examination</span>
-                            </a>
-                        </li>
-                        <li class="categ-1">
-                            <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
-                                <span class="categ-1-label">Question bank and Solution</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
                 <div class="section-filter">
                     <div class="section-filter-cont">
                         <div class="section-filter-price">
@@ -55,26 +20,26 @@
                         <div class="section-filter-item opened">
                             <span class="section-filter-ttl">Apply Filter</span>
 
-                            <form action="{{url('filter')}}" method="POST" id="carform">
+                            <form method="GET" id="carform">
                                 {{csrf_field() }}
                                 <div class="form-group">
                                     <div class="col-lg-12">
                                         <strong>University</strong>
-                                        <select class="form-control" name="university">
+                                        <select class="form-control" name="university" id="university">
                                             <option class="form-control" value="TU">Tribhuwan University</option>
                                             <option class="form-control" value="PU">Pokhara University</option>
                                             <option class="form-control" value="PBU">Purbanchal University</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-12 mt-3">
-                                        <strong>Publication</strong>
-                                        <select class="form-control"  name="publication">
-                                            <option class="form-control" value="asmita">Asmita</option>
-                                            <option class="form-control" value="saraswati">Saraswati</option>
-                                            <option class="form-control" value="samiksya">Samiksya</option>
-                                            <option class="form-control" value="mk_publication">MK</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="col-lg-12 mt-3">--}}
+{{--                                        <strong>Publication</strong>--}}
+{{--                                        <select class="form-control"  name="publication">--}}
+{{--                                            <option class="form-control" value="asmita">Asmita</option>--}}
+{{--                                            <option class="form-control" value="saraswati">Saraswati</option>--}}
+{{--                                            <option class="form-control" value="samiksya">Samiksya</option>--}}
+{{--                                            <option class="form-control" value="mk_publication">MK</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                     <div class="col-lg-12 mt-3">
                                         <strong>Course</strong>
                                         <select class="form-control" name="course" onchange="run()" id="course">
@@ -143,8 +108,7 @@
 
                 </div>
                 <!-- Catalog Topbar - end -->
-                <div class="prod-items section-items">
-                    @include('web.pages.flash-message')
+                <div class="prod-items section-items" id="product_display">
                     @foreach($products as $product)
                         @if($product->status=='active' && $product->category != "second-hand")
 
@@ -190,5 +154,27 @@
             var base = 'http://houseofbooks.com.np/catalog/nobel/' + slug ;
             window.location.href=base
         }
+    </script>
+    <script>
+
+{{--        $(document).ready(function () {--}}
+{{--            // keyup function looks at the keys typed on the search box--}}
+{{--            $('#set_filter').on('click', function () {--}}
+{{--                // the text typed in the input field is assigned to a variable--}}
+{{--                var university = document.getElementById("university").value;--}}
+{{--                var course = document.getElementById("course").value;--}}
+
+{{--                    // call to an ajax function--}}
+{{--                    $.ajax({--}}
+{{--                        url: "{{ route('publication.data') }}",--}}
+{{--                        type: "GET",--}}
+{{--                        data: {'university': university, 'course' : course},--}}
+{{--                        success: function (data) {--}}
+{{--                                $('#product_display').html(data);--}}
+{{--                        }--}}
+{{--                    })--}}
+
+{{--            });--}}
+{{--        })--}}
     </script>
 @endpush
