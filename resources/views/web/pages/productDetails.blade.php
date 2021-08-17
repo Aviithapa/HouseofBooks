@@ -5,7 +5,7 @@
         <section class="container mt-2" >
 
 
-            <h3><span>{{$product->name}}</span></h3>
+            <h2><span>{{$product->name}}</span></h2>
             <!-- Single Product - start -->
             <div class="prod-wrap">
 
@@ -68,7 +68,7 @@
 {{--                           Quantity : <input type="number" name="quantity" min="1" value="1">--}}
 {{--                        </div>--}}
                         <p class="prod-addwrap" >
-                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add" style="background-color: #FF8800 !important;" rel="nofollow">Add to cart</a>
+                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add buttonfont" style="background-color: #FF8800 !important;" rel="nofollow">Add to cart</a>
                         </p>
 {{--                        </form>--}}
                     </div>
@@ -113,19 +113,18 @@
                 </div>
                 <div class="prod-tabs-wrap">
                     <ul class="prod-tabs">
-                        <li><a data-prodtab-num="1" class="active" href="#" data-prodtab="#prod-tab-1" style="background-color: #FF8800 !important;">Description</a></li>
-
+                        <li><a data-prodtab-num="1" class="active buttonfont" href="#" data-prodtab="#prod-tab-1">Description</a></li>
+                        <li><a data-prodtab-num="3"  class="buttonfont" href="#" data-prodtab="#prod-tab-3">Video</a></li>
                     </ul>
                     <div class="prod-tab-cont">
-
                         <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
                         <div class="prod-tab stylization" id="prod-tab-1">
                             {!!html_entity_decode($product->description)!!}
                         </div>
-                    </div>
-                </div>
-
-
+                        <p data-prodtab-num="3" class="prod-tab-mob" data-prodtab="#prod-tab-3">Video</p>
+                        <div class="prod-tab prod-tab-video" id="prod-tab-3">
+                            {{$product->youtube_link}}
+                        </div>
 
             </div>
             <!-- Single Product - end -->

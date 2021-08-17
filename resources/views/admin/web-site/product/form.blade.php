@@ -177,6 +177,13 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="form-group">
+                {!! Form::label('youtube_link', 'Youtube Link:', ['class' => 'form-label']) !!}
+                {!! Form::text('youtube_link',null, ['class' => 'form-control']) !!}
+                {!! $errors->first('youtube_link', '<div class="text-danger">:message</div>') !!}
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">

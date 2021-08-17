@@ -4603,14 +4603,14 @@ ul.b-crumbs {
 	font-size: 14px;
 	position: relative;
 	font-weight: 500;
-	color:  #ff682c;
+	color:  #000 !important;
 }
 .prod-tabs li a:hover {
 	color: #3a89cf;
 	text-decoration: none;
 }
 .prod-tabs li a.active {
-	color: #fff;
+	color: #fff !important;
 	background:  #ff682c;
 	margin: -1px 0;
 	padding: 16px 22px 16px;

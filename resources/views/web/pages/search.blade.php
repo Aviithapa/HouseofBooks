@@ -156,7 +156,7 @@
                         <img src="{{$notfound->getImage()}}" alt="House of books" height="600" width="600" class="center">
 
 
-                        <div id="request" class="modal fade" role="dialog">
+                        <div id="request" class= "modal fade" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-body">

@@ -3379,3 +3379,7 @@ a{
 @keyframes getWidth {
     100% { width: 100%; }
 }
+
+.buttonfont{
+    font-weight: 700 !important;
+}

@@ -52,6 +52,45 @@ $(document).ready(function () {
     initParadoxWay();
 });
 
+$(document).ready(function () {
+
+    // Single Product Tabs
+    $('.prod-tabs li').on('click', 'a', function () {
+        if ($(this).hasClass('active') || $(this).attr('data-prodtab') == '')
+            return false;
+        $(this).parents('.prod-tabs').find('li a').removeClass('active');
+        $(this).addClass('active');
+
+        // mobile
+        $('.prod-tab-mob[data-prodtab-num=' + $(this).data('prodtab-num') + ']').parents('.prod-tab-cont').find('.prod-tab-mob').removeClass('active');
+        $('.prod-tab-mob[data-prodtab-num=' + $(this).data('prodtab-num') + ']').addClass('active');
+
+        $($(this).attr('data-prodtab')).parents('.prod-tab-cont').find('.prod-tab').css('height', '0px');
+        $($(this).attr('data-prodtab')).css('height', 'auto');
+        return false;
+    });
+
+    // Single Product Tabs (mobile)
+    $('.prod-tab-cont').on('click', '.prod-tab-mob', function () {
+        if ($(this).hasClass('active') || $(this).attr('data-prodtab') == '')
+            return false;
+        $(this).parents('.prod-tab-cont').find('.prod-tab-mob').removeClass('active');
+        $(this).addClass('active');
+
+        // main
+        $('.prod-tabs li a[data-prodtab-num=' + $(this).data('prodtab-num') + ']').parents('.prod-tabs').find('li a').removeClass('active');
+        $('.prod-tabs li a[data-prodtab-num=' + $(this).data('prodtab-num') + ']').addClass('active');
+
+        $($(this).attr('data-prodtab')).parents('.prod-tab-cont').find('.prod-tab').css('height', '0px');
+        $($(this).attr('data-prodtab')).css('height', 'auto').hide().fadeIn();
+        return false;
+    });
+
+
+
+
+});
+
 
 function myFunction() {
     var x = document.getElementById("myTopnav");
