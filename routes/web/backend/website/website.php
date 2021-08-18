@@ -235,6 +235,15 @@ Route::group(['namespace' => 'WebSite'], function () {
             'store'  => 'dashboard.categories.store',
          ]
     ]);
+    Route::resource('mail', 'MailController', [
+        'names' => [
+            'index' => 'dashboard.mail.index',
+            'edit' => 'dashboard.mail.edit',
+            'create' => 'dashboard.mail.create',
+            'update' => 'dashboard.mail.update',
+            'store'  => 'dashboard.mail.store',
+        ]
+    ]);
     Route::resource('invoice','InvoiceController',[
         'names' => [
             'show' => 'dashboard.invoice.show',

@@ -113,7 +113,12 @@
                     <li><a href="{{route('dashboard.permissions.index')}}">Permission</a></li>
                 </ul>
             </li>
-
+            <li>
+                <a onclick="openForm()">
+                    <i class="fa fa-envelope-open"></i>
+                    <span class="title">Send Mail</span>
+                </a>
+            </li>
 
         </ul>
         <div class="clearfix"></div>
@@ -122,3 +127,101 @@
 </div>
 <a href="#" class="scrollup">Scroll</a>
 <!-- END SIDEBAR -->
+<div class="form-popup" id="myForm">
+    <form action="{{route("dashboard.mail.store")}}" method="POST" class="form-container">
+        {{ csrf_field() }}
+        <h1>Send Mail</h1>
+
+        <label for="email"><b>Subject</b></label>
+        <input type="text" placeholder="Enter Email" name="subject" required>
+
+        <div class="form-group">
+            <label for="excerpt" class="form-label">Message:</label>
+            {!! Form::textarea('description',null, ['class' => 'form-control ckeditor','id'=>'ckeditor']) !!}
+         </div>
+        <button type="submit" class="btn">Send Mail</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
+
+<style>
+
+
+    /* The popup form - hidden by default */
+    .form-popup {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 9; /* Sit on top */
+        left: 0;
+        top: 0;
+        padding-left: 300px;
+        padding-right: 300px !important;
+        padding-top: 50px !important;
+        padding-bottom:50px !important;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+        min-width: 500px;
+        padding: 20px;
+        background-color: white;
+    }
+
+    /* Full-width input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 40%;
+        margin-left:20px;
+        opacity: 0.8;
+        float: left;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+    }
+</style>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'ckeditor', {
+//        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+//        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
+    } );
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>

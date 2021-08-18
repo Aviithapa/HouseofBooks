@@ -644,7 +644,7 @@ class HomeController extends BaseController
             // if searched countries count is larager than zero
             if (count($data)>0) {
                 // concatenate output to the array
-                $output = '<ul class="list-group" style="display: block; position: absolute; z-index: 111">';
+                $output = '<ul class="list-group" style="display: block; position: absolute; z-index: 111; width: 77%;">';
                 // loop through the result array
                 foreach ($data as $row){
                     // concatenate output to the array

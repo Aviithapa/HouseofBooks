@@ -13,9 +13,9 @@
 <div class="body">
     Hello <strong>House of Books</strong>,
 
-    <p>You got a second hand book from {{$name}}</p>
-    <p>Please Verify the book </p>
-
+    <p>You got a second hand book named as {!!html_entity_decode($name)!!}</p>
+    <p>Please Check it and Verify the book </p>
+    <a href="https://houseofbooks.com.np/dashboard">Go to Dashboard</a>
     <strong>
         <br><br>
         Thank you!

@@ -39,7 +39,7 @@
                             </div>
 
                         </div>
-                        <div id="bookList">
+                        <div id="bookList" class="col-12" >
                         </div>
                     </form>
                 </div>

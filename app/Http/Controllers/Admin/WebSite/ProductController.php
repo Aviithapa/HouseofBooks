@@ -292,4 +292,5 @@ class ProductController extends BaseController
             return redirect()->route('dashboard.products.index');
         }
     }
+
 }
