@@ -123,7 +123,7 @@
                         </div>
                         <p data-prodtab-num="3" class="prod-tab-mob" data-prodtab="#prod-tab-3">Video</p>
                         <div class="prod-tab prod-tab-video" id="prod-tab-3">
-                            {{$product->youtube_link}}
+                            <iframe width="853" height="480" src="{{$product->youtube_link}}?rel=0&amp;showinfo=0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

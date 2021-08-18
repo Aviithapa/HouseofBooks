@@ -197,7 +197,8 @@
                             <div class="title" >
                                 <h4 class="glow">Rakshya Bandhan Special</h4>
                             </div>
-                         </div>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/Rakshya')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                        </div>
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
                                 @foreach($Rakshya as $rakshya)

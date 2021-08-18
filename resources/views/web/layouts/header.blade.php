@@ -190,6 +190,11 @@
                                         Question Bank and Solution
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{url("catelog/sub_category/Rakshya")}}">
+                                        Rakshya Bandhan Special
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <!-- Catalog menu - end -->
@@ -428,6 +433,11 @@
                     <li>
                         <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
                             Question Bank and Solution
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url("catelog/sub_category/Rakshya")}}">
+                            Rakshya Bandhan Special
                         </a>
                     </li>
                 </ul>
