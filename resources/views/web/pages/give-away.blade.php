@@ -26,7 +26,6 @@
                 <div class="prod-i-skuwrapcolor">
                 </div>
             </div>
-
        @endforeach
 
     </div>
