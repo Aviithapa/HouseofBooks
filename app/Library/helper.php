@@ -211,6 +211,11 @@ function getAllProduct()
      return $products;
 }
 
+function getAllRequest(){
+    $request=0;
+    $request = \App\Models\Website\Request::all()->count();
+    return $request;
+}
 
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;

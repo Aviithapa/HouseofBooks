@@ -67,17 +67,15 @@
                     <li><a href="{{route('dashboard.semester.index')}}">Semester</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="{{route('dashboard.product.index')}}">
-                    <i class="material-icons">book</i>
-                    <span class="title">Add Book</span>
+
+            <li class="start ">
+                <a href="javascript:void(0)"><i class="material-icons">book</i>
+                    <span class="title">Book</span> <span class="selected"></span> <span class="arrow "></span>
                 </a>
-            </li>
-            <li>
-                <a href="{{route('dashboard.secondhand.index')}}">
-                    <i class="material-icons">book</i>
-                    <span class="title">Second Hand Book</span>
-                </a>
+                <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.product.index')}}">Book</a></li>
+                    <li><a href="{{route('dashboard.secondhand.index')}}">Second HandBook</a></li>
+                </ul>
             </li>
             <li>
                 <a href="{{route('dashboard.order.index')}}">
@@ -87,9 +85,10 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('dashboard.users.index')}}">
-                    <i class="fa fa-users"></i>
-                    <span class="title">User</span>
+                <a href="{{route('dashboard.request.index')}}">
+                    <i class="material-icons">mark_email_unread</i>
+                    <span class="title">Request</span>
+                    <span class="badge">{{getAllRequest()}}</span>
                 </a>
             </li>
             <li>
@@ -98,17 +97,12 @@
                     <span class="title">Contact</span>
                 </a>
             </li>
-            <li>
-                <a href="{{route('dashboard.categories.index')}}">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Categories</span>
-                </a>
-            </li>
             <li class="start ">
                 <a href="javascript:void(0)"><i class="material-icons">rowing</i>
                     <span class="title">Auth Setting</span> <span class="selected"></span> <span class="arrow "></span>
                 </a>
                 <ul class="sub-menu">
+                    <li><a href="{{route('dashboard.users.index')}}">User</a></li>
                     <li><a href="{{route('dashboard.roles.index')}}">Role</a></li>
                     <li><a href="{{route('dashboard.permissions.index')}}">Permission</a></li>
                 </ul>

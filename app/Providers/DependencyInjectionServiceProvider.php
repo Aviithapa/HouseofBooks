@@ -30,6 +30,8 @@ use App\Modules\Backend\Website\Post\Repositories\EloquentPostRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\EloquentProductRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
+use App\Modules\Backend\Website\Request\Repositories\EloquentRequestRepository;
+use App\Modules\Backend\Website\Request\Repositories\RequestRepository;
 use App\Modules\Backend\Website\RequestQuote\Repositories\EloquentGetTouchRepository;
 use App\Modules\Backend\Website\RequestQuote\Repositories\GetTouchRepository;
 use App\Modules\Backend\Website\Semester\Repositories\EloquentSemesterRepository;
@@ -174,6 +176,11 @@ class DependencyInjectionServiceProvider extends ServiceProvider
        $this->app->bind(
            BlogRepository::class,
            EloquentBlogRepository::class
+       );
+
+       $this->app->bind(
+           RequestRepository::class,
+           EloquentRequestRepository::class
        );
     }
 }
