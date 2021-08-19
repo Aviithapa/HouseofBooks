@@ -9,6 +9,12 @@
     <meta name="keywords" content="buy books online in nepal,online bookstore nepal,buy books nepal,buy nepali books online,online bookshop nepal,buy books online nepal,buy used books in nepal,buy second hand books nepal,buy used books in nepal,used books nepal, sell second hand book nepal, sell used book nepal, used book, used books">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="House of Books Pvt. Ltd | Online Book Store - Nepal" />
+    <meta property="og:description" content="{{ isset($pageContent->meta_description)?$pageContent->meta_description:""}} {{ isset($product->description)?$product->description:""}}"/>
+    <meta property="og:url" content="https://houseofbooks.com.np/" />
+    <meta property="og:site_name" content="House of Books" />
     @include('web.layouts.style')
     @stack('styles')
   </head>
