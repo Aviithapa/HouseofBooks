@@ -66,15 +66,15 @@ class MailController extends BaseController
         $this->authorize('read',$this->userRepository->getModel());
         $data = $createPostRequest->all();
         $users=$this->userRepository->getAll();
-        $mailData = array('name'=>htmlspecialchars($data['description']));
-        Mail::send('emails.bookupload', $mailData, function($message) use ($mailData) {
-            $message->to('abhishekthapa115@gmail.com')
-                ->subject('Welcome to our Website');
-            $message->from('houseofbooksnepal@gmail.com');
-        });
-//        foreach ($users as $user){
-//            dd($user['email']);
-//        }
+
+        foreach ($users as $user){
+            $mailData = array('name'=>htmlspecialchars($data['description']),'subject' => $data['subject'],'email' => $user['email']);
+            Mail::send('emails.promotion', $mailData, function($message) use ($mailData) {
+                $message->to($mailData['email'])
+                    ->subject($mailData['subject']);
+                $message->from($address ='houseofbooksnepal@gmail.com', $name = 'House of Books Pvt Ltd');
+            });
+        }
         return redirect()->back();
     }
 
