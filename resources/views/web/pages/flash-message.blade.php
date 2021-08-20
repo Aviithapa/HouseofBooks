@@ -3,12 +3,10 @@
         <strong>{{ $message }}</strong>
         <div class="loader__element"></div>
     </div>
-
 @endif
 
 
 @if ($message = Session::get('error'))
-
     <div class="alert alert-danger alert-block">
         <strong>{{ $message }}</strong>
     </div>

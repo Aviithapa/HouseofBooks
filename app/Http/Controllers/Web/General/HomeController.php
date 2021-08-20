@@ -526,9 +526,9 @@ class HomeController extends BaseController
             $data['quantity']=$cart_info->quantity + 1;
             $cart=$this->cartRepository->update($data,$cart_info->id);
             if ($cart==false){
-                return redirect()->back()->with('error',"Error while adding product to the cart");
+                return response()->json(['Error while Adding to  Cart']);
             }
-            return redirect()->back()->with('success','Product Added to Cart');
+            return response()->json(['Book Added to Cart']);
         }
         else if($available_quantity >= ($request->quantity + $old_cart_quantity))
         {
@@ -555,8 +555,8 @@ class HomeController extends BaseController
             $short_amount = $request->quantity - $available_quantity;
             session()->flash('danger', 'not available quantity, shortage amount is '.$short_amount);
             return redirect()->back();
-        };
-        return redirect()->back()->with('success','Product Added to Cart');
+        }
+        return response()->json(['Book Added to Cart']);
     }
 
     public function Contact(Request $req){

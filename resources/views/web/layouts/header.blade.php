@@ -221,7 +221,8 @@
                     </nav>
                 </div>
         <li id="cart"> <a href="{{url("cart")}}" style="position: absolute; right: 0; text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm buttonfont"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
-                        {{getCartAmount()}}
+                                {{getCartAmount()}}
+
                     @else
                         0
                     @endif Cart</button></a></li>

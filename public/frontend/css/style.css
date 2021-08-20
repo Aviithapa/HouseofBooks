@@ -3383,3 +3383,10 @@ a{
 .buttonfont{
     font-weight: 700 !important;
 }
+
+#msg{
+    position: absolute;
+    right: 0;
+    z-index: 20000;
+    margin-top: 15px;
+}

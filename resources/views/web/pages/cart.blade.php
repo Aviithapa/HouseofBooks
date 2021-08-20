@@ -23,7 +23,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @include('web.pages.flash-message')
                         @foreach($cart as $carts)
 
                         <tr style="text-align: center;">
@@ -101,7 +100,11 @@
                                 </article>
 
                                 <div class="col-md-12 mt-4">
-                                    <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                    @if( getCartAmount() == 0)
+                                    <a href="{{url('/')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Start Shopping Now</button></a>
+                                     @else
+                                        <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

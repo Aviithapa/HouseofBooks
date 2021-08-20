@@ -22,7 +22,7 @@
 <!-- BEGIN BODY -->
 <body>
 <div id="preloader" scroll="no"></div>
-
+<div id="msg"></div>
 @include('web.pages.flash-message')
 @include('web.layouts.header')
 <!-- BEGIN CONTAINER -->
@@ -41,6 +41,8 @@
    // preloader.style.display="none";
    //
    //  })
+
+
 </script>
 </body>
 </html>

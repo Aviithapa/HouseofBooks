@@ -68,7 +68,7 @@
 {{--                           Quantity : <input type="number" name="quantity" min="1" value="1">--}}
 {{--                        </div>--}}
                         <p class="prod-addwrap" >
-                            <a href="{{url('add/to/cart/'.$product->id)}}" class="prod-add buttonfont" style="background-color: #FF8800 !important;" rel="nofollow">Add to cart</a>
+                            <a href="#" onclick="addtoCart({{ $product->id }})" class="prod-add buttonfont" style="background-color: #FF8800 !important;" rel="nofollow">Add to cart</a>
                         </p>
 {{--                        </form>--}}
                     </div>
@@ -147,7 +147,7 @@
                                 </a>
                                 <div class="prod-rel-cont">
                                     <p><a href="{{url('productDetails/'.$related_product->id)}}" style="color: black !important;">{{$related_product->name}}</a></p>
-                                    <p style="color:#25a521 !important;">Rs: {{$related_product->getDicountedPrice()}}</p> <a href="{{url('add/to/cart/'.$product->id)}}" style="color:#FF8800 !important;"> <i class="fa fa-shopping-cart"></i></a>
+                                    <p style="color:#25a521 !important;">Rs: {{$related_product->getDicountedPrice()}}</p>  <i  onclick="addtoCart({{ $product->id }})" class="fa fa-shopping-cart"></i>
                                 </div>
                             </div>
                             @endforeach
@@ -163,4 +163,24 @@
     <!-- Main Content - end -->
 @endsection
 @push('scripts')
+    <script>
+        function addtoCart(id) {
+            var product_id = id;
+            var url = "add/to/cart/" +product_id;
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (data) {
+                    var tr_str = "<div id='alertmsg' class='alert alert-success alert-block'>" +
+                        "<strong>" + 'Book has been added successfully' + "</strong>" +
+                        "<div class='loader__element'></div>" +
+                        "</div>";
+                    $("#msg").append(tr_str);
+                    setTimeout(function(){
+                        $("#alertmsg").remove();
+                    }, 3000 ); // 3 secs
+                }
+            })
+        }
+    </script>
     @endpush

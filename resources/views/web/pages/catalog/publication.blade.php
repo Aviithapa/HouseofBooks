@@ -126,7 +126,8 @@
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->publication}} </p>
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
                                 <p class="prod-i-price">
-                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button><a href="{{url('add/to/cart/'.$product->id)}}"><button class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button></a>
+                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
+                                    <button onclick="addtoCart({{ $product->id }})" class="btn btn-primary btn-round-sm btn-sm cart-button" style="font-size: 10px; font-weight: 600;">ADD TO CART</button>
                                 </p>
                                 <div class="prod-i-skuwrapcolor">
                                 </div>
@@ -156,6 +157,24 @@
         }
     </script>
     <script>
+        function addtoCart(id) {
+            var product_id = id;
+            var url = "add/to/cart/" +product_id;
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (data) {
+                    var tr_str = "<div id='alertmsg' class='alert alert-success alert-block'>" +
+                        "<strong>" + data[0] + "</strong>" +
+                        "<div class='loader__element'></div>" +
+                        "</div>";
+                    $("#msg").append(tr_str);
+                    setTimeout(function(){
+                        $("#alertmsg").remove();
+                    }, 3000 ); // 3 secs
+                }
+            })
+        }
 
 {{--        $(document).ready(function () {--}}
 {{--            // keyup function looks at the keys typed on the search box--}}
