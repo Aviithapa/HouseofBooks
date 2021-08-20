@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<div class="container-fluid orderConfirmation" >
+<div class="container-fluid orderConfirmation col-sm-12 col-md-12" >
     <div class="header-area text-center">
         <img src="https://images.vexels.com/media/users/3/157931/isolated/preview/604a0cadf94914c7ee6c6e552e9b4487-curved-check-mark-circle-icon-by-vexels.png" height="100" width="100">
         <h2>WE HAVE RECEIVED YOUR ORDER !!</h2>

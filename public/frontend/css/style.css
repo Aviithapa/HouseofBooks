@@ -631,8 +631,8 @@ ul, ol {
 
 .login button {
     border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
+    border: 1px solid #FF8800;
+    background-color: #FF8800;
     color: white !important;
     border-radius: 30px !important;
     font-size: 12px;
@@ -751,8 +751,8 @@ ul, ol {
 
 .overlay {
     background: #25a521  !important;
-    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    background: -webkit-linear-gradient(to right, #FF8800, #FF416C);
+    background: linear-gradient(to right, #FF8800, #FF416C);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

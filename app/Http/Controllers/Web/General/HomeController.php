@@ -174,6 +174,18 @@ class HomeController extends BaseController
                         ->orderBy('created_at', 'desc')
                         ->limit(8)
                         ->get();
+                    $this->view_data['loksewas'] =  Product::select("*")
+                        ->where('sub_category','loksewa-examination')
+                        ->where('category','brand-new')
+                        ->orderBy('created_at', 'desc')
+                        ->limit(8)
+                        ->get();
+                    $this->view_data['nepali_novel'] =  Product::select("*")
+                        ->where('sub_category','nepali_novel')
+                        ->where('category','brand-new')
+                        ->orderBy('created_at', 'desc')
+                        ->limit(8)
+                        ->get();
                     $this->view_data['coursebook'] = Product::select("*")
                         ->where('sub_category','coursebook')
                         ->where('category','brand-new')

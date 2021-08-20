@@ -283,6 +283,7 @@
                             $("#other_books").hide();
                             break;
                         case 'novel':
+                         case 'nepali_novel' :
                             $("#university").hide();
                             $("#publication").hide();
                             $("#semester").hide();
@@ -470,6 +471,7 @@
                     $("#other_books").hide();
                     break;
                 case 'novel':
+                case 'nepali_novel':
                     $("#university").hide();
                     $("#publication").hide();
                     $("#semester").hide();
@@ -697,48 +699,5 @@
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
-        // $( document ).ready(function() {
-        //     $("#year").hide();
-        //     $("#sem").show();
-        // });
-        // $( document ).ready(function() {
-        //     var sub_category=document.getElementById("subCategory").value;
-        //     if(sub_category==="novel"){
-        //         $("#university").hide();
-        //         $("#publication").hide();
-        //         $("#semester").hide();
-        //         $("#nobel").show();
-        //         $("#best_selling").show();
-        //     }else
-        //     {
-        //         $("#nobel").hide();
-        //         $("#best_selling").hide();
-        //     }
-        //
-        //     var faculty = document.getElementById("fac").value;
-        //     if(faculty==="BBS"){
-        //         $("#year").show();
-        //         $("#sem").hide();
-        //     }else{
-        //         $("#year").hide();
-        //         $("#sem").show();
-        //     }
-        // });
-        // function run() {
-        //     var sub_category=document.getElementById("subCategory").value;
-        //     if(sub_category==="novel"){
-        //         $("#university").hide();
-        //         $("#publication").hide();
-        //         $("#semester").hide();
-        //         $("#nobel").show();
-        //         $("#best_selling").show();
-        //     }else{
-        //         $("#nobel").hide();
-        //         $("#best_selling").hide();
-        //         $("#university").show();
-        //         $("#publication").show();
-        //         $("#semester").show();
-        //     }
-        // }
     </script>
 @endpush
