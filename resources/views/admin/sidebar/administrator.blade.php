@@ -94,8 +94,8 @@
             <li>
                 <a href="{{route('dashboard.cart.index')}}">
                     <i class="material-icons">shopping_bag</i>
-                    <span class="title">Cart</span>
-                    <span class="badge">{{getAllRequest()}}</span>
+                    <span class="title">Cart View</span>
+                    <span class="badge">{{getAllCartView()}}</span>
                 </a>
             </li>
             <li>

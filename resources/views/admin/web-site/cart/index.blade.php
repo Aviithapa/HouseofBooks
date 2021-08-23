@@ -15,8 +15,8 @@
                                 <tr>
                                     <th>S.N</th>
                                     <th>Name</th>
-                                    <th>Contact</th>
-                                    <th>Book Name</th>
+                                    <th>Mac Address</th>
+                                    <th>Created At</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>

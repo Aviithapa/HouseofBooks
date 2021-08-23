@@ -217,6 +217,11 @@ function getAllRequest(){
     return $request;
 }
 
+function getAllCartView(){
+    $request=0;
+    $request = \App\Models\Website\Cart::all()->count();
+    return $request;
+}
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;
     return $final_amount;

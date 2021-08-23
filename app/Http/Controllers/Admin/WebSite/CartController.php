@@ -86,7 +86,7 @@ class CartController extends BaseController
 
             $cart = $this->cartRepository->findById($id);
             $user = $this->userRepository->findById($cart->user_id);
-            return $this->view('web-site.product.show', compact('cart', 'user'));
+            return $this->view('web-site.cart.show', compact('cart', 'user'));
 
     }
 
