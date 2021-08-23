@@ -562,6 +562,7 @@ if(!function_exists('getPublicationCategory'))
             'khanal' => "Khanal Publication",
             'shiva' => "Shivva Publication",
             'sanjana' => "Sanjana Publication",
+            'goodwill' => "GoodWill Publication",
             'other' => "Other"
         ];
     }
