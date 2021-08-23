@@ -140,65 +140,16 @@ class HomeController extends BaseController
                     $this->view_data['add'] = $this->postRepository->findById(125);
                     $this->view_data['add1'] = $this->postRepository->findById(126);
                     $this->view_data['testimonial'] = $this->postRepository->findBy('type', 'testimonial', '=');
-                    $this->view_data['motivational'] = Product::select("*")
-                        ->where('nobel_category','motivational')
-                        ->where('category','brand-new')
-                        ->where('best_selling','yes')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(4)
-                        ->get();
-                    $this->view_data['knowledge'] =Product::select("*")
-                        ->where('nobel_category','skills-knowledge')
-                        ->where('category','brand-new')
-                        ->where('best_selling','yes')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(4)
-                        ->get();
-                     $this->view_data['frictionals'] = Product::select("*")
-                         ->where('nobel_category','fictional')
-                         ->where('category','brand-new')
-                         ->where('best_selling','yes')
-                         ->orderBy('created_at', 'desc')
-                         ->limit(4)
-                         ->get();
-                    $this->view_data['biographies'] = Product::select("*")
-                        ->where('nobel_category','biography')
-                        ->where('category','brand-new')
-                        ->where('best_selling','yes')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(4)
-                        ->get();
-                    $this->view_data['loksewa'] =  Product::select("*")
-                        ->where('sub_category','medical-examination')
-                        ->where('category','brand-new')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(8)
-                        ->get();
-                    $this->view_data['loksewas'] =  Product::select("*")
-                        ->where('sub_category','loksewa-examination')
-                        ->where('category','brand-new')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(8)
-                        ->get();
-                    $this->view_data['nepali_novel'] =  Product::select("*")
-                        ->where('sub_category','nepali_novel')
-                        ->where('category','brand-new')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(8)
-                        ->get();
-                    $this->view_data['coursebook'] = Product::select("*")
-                        ->where('sub_category','coursebook')
-                        ->where('category','brand-new')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(8)
-                        ->get();
-                    $this->view_data['questionbankandsolution'] =Product::select("*")
-                        ->where('sub_category','question-bank-and-solution')
-                        ->where('category','brand-new')
-                        ->orderBy('created_at', 'desc')
-                        ->limit(8)
-                        ->get();
-                    $this->view_data['Rakshya'] =$this->productRepository->findBy('sub_category','Rakshya','=',true,6);
+                    $this->view_data['motivational'] = $this->productRepository->Nobel('motivational');
+                    $this->view_data['knowledge'] =$this->productRepository->Nobel('skills-knowledge');
+                     $this->view_data['frictionals'] =$this->productRepository->Nobel('fictional');
+                    $this->view_data['biographies'] =  $this->productRepository->Nobel('biography');
+                    $this->view_data['loksewa'] = $this->productRepository->BrandNewBook('medical-examination');
+                    $this->view_data['loksewas'] = $this->productRepository->BrandNewBook('loksewa-examination');
+                    $this->view_data['nepali_novel'] = $this->productRepository->BrandNewBook('nepali_novel');
+                    $this->view_data['coursebook'] =$this->productRepository->BrandNewBook('coursebook');
+                    $this->view_data['questionbankandsolution'] = $this->productRepository->BrandNewBook('question-bank-and-solution');
+                    $this->view_data['Rakshya'] =$this->productRepository->BrandNewBook('Rakshya');
                     $this->view_data['question'] = $this->postRepository->findById(135);
                     $this->view_data['course'] = $this->postRepository->findById(136);
                     $this->view_data['entrance'] = $this->postRepository->findById(137);
@@ -265,18 +216,9 @@ class HomeController extends BaseController
                     $this->view_data['learn_more_btn']=$this->postRepository->findById(149);
                     break;
                 case 'secondhandbookcatalog':
-                    $this->view_data['books'] =$this->productRepository->getAll()->where('category','=','second-hand')
-                                                                        ->where('status','=','active')
-                                                                        ->where('sub_category','=','coursebook')
-                        ->where('sold_out', "!=" ,'yes');
-                    $this->view_data['motivational'] =$this->productRepository->getAll()->where('category','=','second-hand')
-                                                                                ->where('status','=','active')
-                                                                                ->where('sub_category','=','novel')
-                        ->where('sold_out', "!=" ,'yes');
-                    $this->view_data['question'] =$this->productRepository->getAll()->where('category','=','second-hand')
-                                                                                    ->where('status','=','active')
-                                                                                    ->where('sub_category','=','question-bank-and-solution')
-                        ->where('sold_out', "!=" ,'yes');
+                    $this->view_data['books'] =$this->productRepository->secondHand('coursebook');
+                    $this->view_data['motivational'] =$this->productRepository->secondHand('novel');
+                    $this->view_data['question'] =$this->productRepository->secondHand('question-bank-and-solution');
                     $this->view_data['banner'] =$this->postRepository->findById(144);
                     $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;

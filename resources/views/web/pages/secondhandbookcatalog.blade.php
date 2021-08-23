@@ -47,7 +47,7 @@
                                     @if($product->nobel_category=="motivational")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -69,7 +69,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -95,7 +95,7 @@
                                     @if($product->nobel_category=="skills-knowledge")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -117,7 +117,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -143,7 +143,7 @@
                                     @if($product->nobel_category=="frictional")
                                             <div class="owl-item cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -165,7 +165,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -190,7 +190,7 @@
                                         @if($product->nobel_category=="biographies")
                                             <div class="owl-item cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -212,7 +212,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -257,7 +257,7 @@
                                         @if($product["level"]=="bachelor")
                                                <div class="owl-item cardsecondhand">
                                                    <a href="{{url("productDetails/".$product->id)}}">
-                                                       <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                       <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                    </a>
                                                    <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                    <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -279,7 +279,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -304,7 +304,7 @@
                                     @if($product["level"]=="master")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -326,7 +326,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -351,7 +351,7 @@
                                     @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -373,7 +373,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -398,7 +398,7 @@
                                     @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -420,7 +420,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -445,7 +445,7 @@
                                     @if($product["level"]=="foreign")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -467,7 +467,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -511,7 +511,7 @@
                                     @if($product["level"]=="bachelor")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -533,7 +533,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -558,7 +558,7 @@
                                     @if($product["level"]=="master")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -580,7 +580,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -605,7 +605,7 @@
                                     @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -627,7 +627,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -652,7 +652,7 @@
                                     @if($product["level"]=="+2")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -674,7 +674,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -699,7 +699,7 @@
                                     @if($product["level"]=="foreign")
                                         <div class="owl-item cardsecondhand">
                                             <a href="{{url("productDetails/".$product->id)}}">
-                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
@@ -721,7 +721,7 @@
                                         <div class="columns">
                                             <div class="cardsecondhand">
                                                 <a href="{{url("productDetails/".$product->id)}}">
-                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
