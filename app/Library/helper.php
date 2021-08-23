@@ -222,6 +222,10 @@ function getAllCartView(){
     $request = \App\Models\Website\Cart::all()->count();
     return $request;
 }
+function getUserName($id){
+    $request = \App\Models\Auth\User::all()->where("id",'=',$id);
+    return $request[0]->name;
+}
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;
     return $final_amount;

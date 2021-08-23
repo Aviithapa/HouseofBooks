@@ -119,4 +119,8 @@ class User extends Authenticatable
             return imageNotFound();
         }
     }
+
+    public function name(){
+
+    }
 }

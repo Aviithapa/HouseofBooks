@@ -14,8 +14,8 @@
                                 <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Name</th>
-                                    <th>Mac Address</th>
+                                    <th>Book Name</th>
+                                    <th>User Name</th>
                                     <th>Created At</th>
                                     <th>Action</th>
                                 </tr>
@@ -28,7 +28,7 @@
                                             {{$book_created->product_name}}
                                         </td>
                                         <td>
-                                            {{$book_created->mac}}
+                                            {{getUserName($book_created->user_id)}}
                                         </td>
                                         <td>
                                             {{$book_created->created_at}}
