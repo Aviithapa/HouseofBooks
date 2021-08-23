@@ -258,7 +258,7 @@
                                             <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;background:whitesmoke;">
                                                 <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
                                                     <a href="{{url("productDetails/".$coursework->id)}}">
-                                                        <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}">
+                                                        <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}" style="height: 250px;">
                                                     </a>
                                                 </div>
                                                 <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
@@ -413,7 +413,7 @@
                                                 </div>
                                                 <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
                                                     <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 20) }} </h5>
-                                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$coursework->faculty}} </p>
+                                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$coursework->publication}} </p>
                                                     <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->getDicountedPrice()}}</button>
                                                        <button onclick="addtoCart({{ $coursework->id }})" class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></p>
 

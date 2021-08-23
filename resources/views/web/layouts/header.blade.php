@@ -438,7 +438,7 @@
                     </li>
                     <li>
                         <a href="{{url("catelog/sub_category/Rakshya")}}">
-                            Rakshya Bandhan Special
+                            Book Packs
                         </a>
                     </li>
                 </ul>
