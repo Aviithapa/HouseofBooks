@@ -1470,7 +1470,7 @@
     .login .sign-in-container {
         width: 100%;
         z-index: 2;
-        height: 500px;
+        height: 600px;
         float: left;
         display: contents;
     }

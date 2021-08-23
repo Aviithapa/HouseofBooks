@@ -297,9 +297,7 @@
                              style="width: 0%">
                         </div>
                     </div>
-                    <input type="hidden" id="product_image_path" name="product_image" class="form-control"
-                           value="{{isset($model)?$model->image:''}}"/>
-                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+
                 </div>
             </div>
 
@@ -351,6 +349,7 @@
                case 'sub_category':
                    var sub_category=document.getElementById("subCategory").value;
                    switch (sub_category) {
+                       case 'nepali_novel':
                        case 'novel':
                            $("#faculty").hide();
                            $("#level").hide();
@@ -567,6 +566,7 @@
         $( document ).ready(function() {
                     var sub_category=document.getElementById("subCategory").value;
                     switch (sub_category) {
+                        case 'nepali_novel':
                         case 'novel':
                             $("#faculty").hide();
                             $("#level").hide();
@@ -824,7 +824,6 @@
                 {
                     for (var i = 0; i < evt.target.files.length; i++) {
                         fileIdCounter++;
-
                         var file = evt.target.files[i];
                         var fileId = "file" + fileIdCounter;
 
@@ -832,9 +831,10 @@
                             id: fileId,
                             file: file
                         });
+                        console.log(filesToUpload)
                     }
                     var data = $(this)[0].files; //this file data
-
+                    console.log(data)
 
                     $.each(data, function (index, file) { //loop though each file
                         if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type

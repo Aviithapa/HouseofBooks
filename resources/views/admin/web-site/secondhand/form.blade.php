@@ -297,6 +297,7 @@
                 case 'sub_category':
                         var sub_category=document.getElementById("subCategory").value;
                           switch (sub_category) {
+                              case 'nepali_novel':
                               case 'novel':
                                   $("#university").hide();
                                   $("#publication").hide();
@@ -462,6 +463,7 @@
         $( document ).ready(function() {
             var sub_category=document.getElementById("subCategory").value;
             switch (sub_category) {
+                case 'nepali_novel':
                 case 'novel':
                     $("#university").hide();
                     $("#publication").hide();
