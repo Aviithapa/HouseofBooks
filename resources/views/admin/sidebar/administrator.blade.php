@@ -92,6 +92,13 @@
                 </a>
             </li>
             <li>
+                <a href="{{route('dashboard.cart.index')}}">
+                    <i class="material-icons">shopping_bag</i>
+                    <span class="title">Cart</span>
+                    <span class="badge">{{getAllRequest()}}</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{route('dashboard.contact.index')}}">
                     <i class="fa fa-users"></i>
                     <span class="title">Contact</span>

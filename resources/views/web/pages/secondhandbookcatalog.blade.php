@@ -51,7 +51,7 @@
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->author}}</p>
                                             <p class="prod-i-price">
                                                 <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                                 <button  onclick="addtoCart({{ $product->id }})" class="btn btn-primary btn-round-sm btn-sm " style="font-size: 12px; font-weight: 600;">ADD TO CART</button>
@@ -73,7 +73,7 @@
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->author}}</p>
                                                 <p class="prod-i-price">
                                                     <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                                     <button  onclick="addtoCart({{ $product->id }})" class="btn btn-primary btn-round-sm btn-sm" style="font-size: 12px; font-weight: 600;">ADD TO CART</button>
@@ -99,7 +99,7 @@
                                             </a>
                                             <input type="hidden" value="{{$product->id}}" id="pro_id">
                                             <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->author}}</p>
                                             <p class="prod-i-price">
                                                 <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                                 <button  onclick="addtoCart({{ $product->id }})" class="btn btn-primary btn-round-sm btn-sm " style="font-size: 12px; font-weight: 600;">ADD TO CART</button>
@@ -121,7 +121,7 @@
                                                 </a>
                                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
-                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->author}}</p>
                                                 <p class="prod-i-price">
                                                     <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
                                                     <button  onclick="addtoCart({{ $product->id }})" class="btn btn-primary btn-round-sm btn-sm " style="font-size: 12px; font-weight: 600;">ADD TO CART</button>

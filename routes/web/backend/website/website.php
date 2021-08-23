@@ -74,12 +74,6 @@ Route::group(['namespace' => 'WebSite'], function () {
             'destroy' => 'dashboard.events.destroy',
         ]
     ]);
-    Route::resource('cart', 'CartController', [
-        'names' => [
-            'index' => 'dashboard.cart.index',
-            'destroy' => 'dashboard.cart.destroy',
-        ]
-    ]);
     Route::resource('pages', 'PagesController', [
         'names' => [
             'index' => 'dashboard.pages.index',
@@ -252,6 +246,16 @@ Route::group(['namespace' => 'WebSite'], function () {
             'update' => 'dashboard.request.update',
             'store'  => 'dashboard.request.store',
             'show'  => 'dashboard.request.show',
+        ]
+    ]);
+    Route::resource('cart', 'CartController', [
+        'names' => [
+            'index' => 'dashboard.cart.index',
+            'edit' => 'dashboard.cart.edit',
+            'create' => 'dashboard.cart.create',
+            'update' => 'dashboard.cart.update',
+            'store'  => 'dashboard.cart.store',
+            'show'  => 'dashboard.cart.show',
         ]
     ]);
     Route::resource('invoice','InvoiceController',[

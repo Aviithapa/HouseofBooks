@@ -4,21 +4,28 @@
 namespace App\Http\Controllers\Admin\WebSite;
 
 
-use App\Http\Controllers\Web\BaseController;
+use App\Http\Controllers\Admin\BaseController;
+use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
 use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
+use App\Modules\Backend\Website\Product\Requests\CreateProductRequest;
+use App\Modules\Backend\Website\Product\Requests\UpdateProductRequest;
 use Illuminate\Contracts\Logging\Log;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends BaseController
 {
-    private $cartRepository, $log;
+    private $cartRepository, $log, $userRepository;
+
     /**
      * CategoryController constructor.
-     * @param CartController $cartRepository
      * @param Log $log
+     * @param CartRepository $cartRepository
+     * @param UserRepository $userRepository
      */
-    public function __construct(Log $log,CartRepository $cartRepository )
+    public function __construct(Log $log,CartRepository $cartRepository, UserRepository $userRepository)
     {
         $this->cartRepository = $cartRepository;
+        $this->userRepository=$userRepository;
         $this->log = $log;
         parent::__construct();
     }
@@ -26,20 +33,8 @@ class CartController extends BaseController
 
     public function index()
     {
-        if(\request()->ajax()) {
-            $cart = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
-            return DataTables::of($cart)
-                ->addColumn('action', function ($cart) {
-                    $data = $cart;
-                    $name = 'cart';
-                    $view = false;
-                    return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
-                })
-                ->editColumn('id', 'ID: {{$id}}')
-                ->make(true);
-
-        }
-        return $this->view('web.pages.cart');
+        $request = $this->cartRepository->getAll();
+        return $this->view('web-site.cart.index',compact('request'));
     }
 
     public function destroy($id)
@@ -58,4 +53,62 @@ class CartController extends BaseController
             return redirect()->back();
         }
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateProductRequest $createProductRequest)
+    {
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Website\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+
+            $cart = $this->cartRepository->findById($id);
+            $user = $this->userRepository->findById($cart->user_id);
+            return $this->view('web-site.product.show', compact('cart', 'user'));
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Website\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Website\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateProductRequest $updateProductRequest, $id)
+    {
+    }
+
 }
