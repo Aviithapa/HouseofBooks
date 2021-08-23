@@ -223,8 +223,11 @@ function getAllCartView(){
     return $request;
 }
 function getUserName($id){
+    $name="";
     $request = \App\Models\Auth\User::all()->where("id",'=',$id);
-    return $request['0']->name;
+    foreach ($request as $req)
+        $name=$req->name;
+    return $name;
 }
 function getProductPrice($product_price, $quantity){
         $final_amount = $product_price *$quantity;
