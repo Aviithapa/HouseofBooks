@@ -184,19 +184,40 @@
     <script>
         function addtoCart(id) {
             var product_id = id;
-            var url = "add/to/cart/" +product_id;
+            var url = "/add/to/cart/" +product_id;
             $.ajax({
                 url: url,
                 type: "GET",
                 success: function (data) {
+                    console.log("here");
                     var tr_str = "<div id='alertmsg' class='alert alert-success alert-block'>" +
-                        "<strong>" + data[0] + "</strong>" +
-                        "<div class='loader__element'></div>" +
+                        "<div class='col-md-2 col-sm-2 col-lg-2'><i class='fa fa-check-circle-o fa-2x' style='color: #fff !important'></i> </div>" +
+                        "<div class='col-md-10 col-sm-10 col-lg-10'><strong>" + "Success !" + "</strong>" +
+                        "<p>" + data[0] + "</p>" +
+                        "</div>" +
+                        "<div class='bottom'> <div class='loader__element'></div></div>" +
                         "</div>";
                     $("#msg").append(tr_str);
+                    var value=$("#cart").val();
+                    $("#cartValue").text(value++);
+                    console.log(value++);
                     setTimeout(function(){
                         $("#alertmsg").remove();
-                    }, 3000 ); // 3 secs
+                    }, 5000 ); // 3 secs
+                },
+                error: function(xhr) {
+                    if (xhr.status==401){
+                        location.replace(window.location.href+"login")
+                    }else{
+                        var tr_str = "<div style='background-color: red;' id='alertmsg' class='alert alert-danger alert-block'>" +
+                            "<strong>" + "Internal Server Error" + "</strong>" +
+                            "<div class='loader__element'></div>" +
+                            "</div>";
+                        $("#msg").append(tr_str);
+                        setTimeout(function(){
+                            $("#alertmsg").remove();
+                        }, 3000 ); // 3 secs
+                    }
                 }
             })
         }

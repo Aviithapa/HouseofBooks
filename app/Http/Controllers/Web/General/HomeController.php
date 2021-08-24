@@ -450,57 +450,50 @@ class HomeController extends BaseController
          return view('web.pages.cart' , $this->view_data);
     }
 
-    public function addtocart(Request $request, $id){
-        $mac_address = exec('getmac');
-        $mac = strtok($mac_address, ' ');
-        $available_quantity = Product::find($request->id)->quantity;
-        $cart_info = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->id)->first();
-        if($cart_info)
-        {
-            $old_cart_quantity = $cart_info->quantity;
-        }
-        else
-        {
-            $old_cart_quantity = 0;
-        }
-
-        if ($old_cart_quantity != null){
-            $data['quantity']=$cart_info->quantity + 1;
-            $cart=$this->cartRepository->update($data,$cart_info->id);
-            if ($cart==false){
-                return response()->json(['Error while Adding to  Cart']);
+    public function addtocart(Request $request, $id)
+    {
+            $mac_address = exec('getmac');
+            $mac = strtok($mac_address, ' ');
+            $available_quantity = Product::find($request->id)->quantity;
+            $cart_info = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->id)->first();
+            if ($cart_info) {
+                $old_cart_quantity = $cart_info->quantity;
+            } else {
+                $old_cart_quantity = 0;
             }
-            return response()->json(['Book Added to Cart']);
-        }
-        else if($available_quantity >= ($request->quantity + $old_cart_quantity))
-        {
-                $data=new Cart();
+
+            if ($old_cart_quantity != null) {
+                $data['quantity'] = $cart_info->quantity + 1;
+                $cart = $this->cartRepository->update($data, $cart_info->id);
+                if ($cart == false) {
+                    return response()->json(['Error while Adding to  Cart']);
+                }
+                return response()->json(['Book Has Been Successfully added to Cart']);
+            } else if ($available_quantity >= ($request->quantity + $old_cart_quantity)) {
+                $data = new Cart();
                 $mac_address = exec('getmac');
                 $mac = strtok($mac_address, ' ');
-                $user= Auth::user()->id;
-                $product=$this->productRepository->findById($id);
-                $data->product_name=$product->name;
-                $data->product_price=$product->price;
-                $data->product_id=$product->id;
-                $data->quantity="1";
-                $data->user_id=$user;
-                $data->mac=$mac;
-                $data->image=$product->image;
-                $datas=Array($product);
-                $datas['sold_out']="yes";
-                $datas['quantity']= $product->quantity-1;
-                $product=$this->productRepository->update($datas,$id);
+                $user = Auth::user()->id;
+                $product = $this->productRepository->findById($id);
+                $data->product_name = $product->name;
+                $data->product_price = $product->price;
+                $data->product_id = $product->id;
+                $data->quantity = "1";
+                $data->user_id = $user;
+                $data->mac = $mac;
+                $data->image = $product->image;
+                $datas = Array($product);
+                $datas['sold_out'] = "yes";
+                $datas['quantity'] = $product->quantity - 1;
+                $product = $this->productRepository->update($datas, $id);
                 $data->save();
-        }
-        else
-        {
-            $short_amount = $request->quantity - $available_quantity;
-            session()->flash('danger', 'not available quantity, shortage amount is '.$short_amount);
-            return redirect()->back();
-        }
-        return response()->json(['Book Added to Cart']);
+            } else {
+                $short_amount = $request->quantity - $available_quantity;
+         //       session()->flash('danger', 'not available quantity, shortage amount is ' . $short_amount);
+                return  response()->json(['not available quantity, shortage amount is']);
+            }
+            return response()->json(['Book Has Been Successfully added to Cart']);
     }
-
     public function Contact(Request $req){
         try {
             $this->view_data['terms']=$this->postRepository->findById(152);

@@ -220,9 +220,14 @@
                         <!-- Main menu - end -->
                     </nav>
                 </div>
-        <li id="cart"> <a href="{{url("cart")}}" style="position: absolute; right: 0; text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm buttonfont"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
-                                {{getCartAmount()}}
-
+        <li id="cart" value="
+@if(\Illuminate\Support\Facades\Auth::user())
+            {{getCartAmount()}}
+        @else
+            0
+        @endif
+"> <a href="{{url("cart")}}" style="position: absolute; right: 0; text-decoration: none !important;"><button class="btn btn-primary btn-round-sm btn-sm buttonfont"><i class="fa fa-shopping-cart" style="margin-right: 10px;"></i>@if(\Illuminate\Support\Facades\Auth::user())
+                               <span style="color: white !important;" id="cartValue"> {{getCartAmount()}}</span>
                     @else
                         0
                     @endif Cart</button></a></li>
