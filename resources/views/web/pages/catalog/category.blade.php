@@ -13,7 +13,7 @@
             <h2 class="main-ttl"><span> Category</span></h2>
 
             <div class="section-sb">
-                @if($product == "novel")
+                @if($product == "novel" || $product == "nepali_novel")
                     <div class="section-filter">
                         <div class="section-filter-cont">
                             <div class="section-filter-price">
@@ -225,7 +225,7 @@
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 20) }}</a>
                                 </h3>
-                                @if($product->sub_category=="novel")
+                                @if($product->sub_category=="novel" || $product->sub_category=="nepali_novel")
                                     <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->author}} </p>
                                 @else
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
