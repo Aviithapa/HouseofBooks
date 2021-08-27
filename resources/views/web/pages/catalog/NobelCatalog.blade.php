@@ -156,7 +156,6 @@
             url: url,
             type: "GET",
             success: function (data) {
-                console.log("here");
                 var tr_str = "<div id='alertmsg' class='alert alert-success alert-block'>" +
                     "<div class='col-md-2 col-sm-2 col-lg-2'><i class='fa fa-check-circle-o fa-2x' style='color: #fff !important'></i> </div>" +
                     "<div class='col-md-10 col-sm-10 col-lg-10'><strong>" + "Success !" + "</strong>" +
@@ -174,7 +173,7 @@
             },
             error: function(xhr) {
                 if (xhr.status==401){
-                    location.replace(window.location.href+"login")
+                    location.replace("https://houseofbooks.com.np/login")
                 }else{
                     var tr_str = "<div style='background-color: red;' id='alertmsg' class='alert alert-danger alert-block'>" +
                         "<strong>" + "Internal Server Error" + "</strong>" +

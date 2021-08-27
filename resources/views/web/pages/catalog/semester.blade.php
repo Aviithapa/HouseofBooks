@@ -216,7 +216,7 @@
                 },
                 error: function(xhr) {
                     if (xhr.status==401){
-                        location.replace(window.location.href+"login")
+                        location.replace("https://houseofbooks.com.np/login")
                     }else{
                         var tr_str = "<div style='background-color: red;' id='alertmsg' class='alert alert-danger alert-block'>" +
                             "<strong>" + "Internal Server Error" + "</strong>" +

@@ -105,7 +105,7 @@
             </li>
             <li>
                 <a href="{{route('dashboard.products.index')}}">
-                    <i class="material-icons">book</i>
+                    <i class="fa fa-book"></i>
                     <span class="title" style="color: black !important;">My Books</span>
                 </a>
             </li>
