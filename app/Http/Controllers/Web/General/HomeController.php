@@ -542,7 +542,13 @@ class HomeController extends BaseController
     public function search(Request $request)
     {
         if($request->ajax()) {
-            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->book . "%")->get();
+            $this->view_data['products'] = Product::where('name', 'LIKE', '%' . $request->book . "%")
+                                                ->orwhere('author','LIKE', '%' . $request->book . "%")
+
+                ->orwhere('faculty','LIKE', '%' . $request->book . "%")
+                ->orwhere('sub_category','LIKE', '%' . $request->book . "%")
+                ->orwhere('publication','LIKE', '%' . $request->book . "%")
+                ->orwhere('university','LIKE', '%' . $request->book . "%")->get();
             $this->view_data['terms']=$this->postRepository->findById(152);
             return redirect()->route('web.pages.search', $this->view_data)->render();
         }else{
@@ -552,7 +558,8 @@ class HomeController extends BaseController
                                             ->orwhere('sub_category','LIKE', '%' . $request->book . "%")
                                             ->orwhere('publication','LIKE', '%' . $request->book . "%")
                                             ->orwhere('university','LIKE', '%' . $request->book . "%")
-                ->get();
+                                             ->orwhere('author','LIKE', '%' . $request->book . "%")
+                                           ->get();
             $this->view_data['terms']=$this->postRepository->findById(152);
             $this->view_data['faculty'] = $this->facultyRepository->getAll();
             $this->view_data['semester'] = $this->semesterRepository->getAll();
@@ -584,6 +591,11 @@ class HomeController extends BaseController
         if($request->ajax()) {
             // select country name from database
             $data =  Product::where('name', 'LIKE', '%' . $request->product . "%")
+                ->orwhere('author','LIKE', '%' . $request->product . "%")
+                ->orwhere('faculty','LIKE', '%' . $request->product . "%")
+                ->orwhere('sub_category','LIKE', '%' . $request->product . "%")
+                ->orwhere('publication','LIKE', '%' . $request->product . "%")
+                ->orwhere('university','LIKE', '%' . $request->product . "%")
                 ->paginate(8);
             // declare an empty array for output
             $output = '';
