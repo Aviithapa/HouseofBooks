@@ -7,6 +7,8 @@ function initParadoxWay() {
             slidesPerView: 3,
             spaceBetween: 20,
             loop: true,
+            autoplay:true,
+            autoplayTimeout:6000,
             grabCursor: true,
             mousewheel: false,
             centeredSlides: true,
@@ -119,7 +121,7 @@ function myFunction() {
       viewedSlider.owlCarousel(
       {
       loop:true,
-      margin:30,
+      margin:15,
       autoplay:true,
       autoplayTimeout:6000,
       nav:false,
@@ -129,8 +131,8 @@ function myFunction() {
       0:{items:2},
       575:{items:2},
       768:{items:3},
-      991:{items:4},
-      1199:{items:5}
+      991:{items:5},
+      1199:{items:6}
       }
       });
 

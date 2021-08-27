@@ -227,7 +227,9 @@
                                 </h3>
                                 @if($product->sub_category=="novel" || $product->sub_category=="nepali_novel")
                                     <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->author}} </p>
-                                @else
+                                @elseif($product->subcategory=="Rakshya")
+
+                                    @else
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->semester}} </p>
                                 @endif
