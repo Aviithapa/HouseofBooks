@@ -97,7 +97,7 @@
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}" style="height: 240px;">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -117,7 +117,7 @@
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}" style="height: 240px;">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -137,7 +137,7 @@
                         <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}" style="height: 240px;">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
@@ -157,7 +157,7 @@
                     <div class="columns bestSelling" style="width: 18%;">
                             <div class="card">
                                 <a href="{{url("productDetails/".$product->id)}}">
-                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}">
+                                    <img src="{{$product->getImage()}}" oncontextmenu="return false;" alt="{{$product->name}}" style="height: 240px;">
                                 </a>
                                 <input type="hidden" value="{{$product->id}}" id="pro_id">
                                 <h5 style="font-weight: bold;  margin-bottom: 1px !important; line-height: 20px;">{{ str_limit($product->name, 14) }} </h5>
