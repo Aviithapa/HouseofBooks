@@ -575,6 +575,7 @@ if(!function_exists('getPublicationCategory'))
             'shiva' => "Shivva Publication",
             'sanjana' => "Sanjana Publication",
             'goodwill' => "GoodWill Publication",
+            'Buddha'=>"Buddha Publication",
             'other' => "Other"
         ];
     }
