@@ -28,6 +28,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::post('contact','HomeController@Contact');
     Route::post('request','HomeController@Request');
     Route::post('filter','HomeController@Filter');
+    Route::post('filters','HomeController@Filters')->name('filters');
     Route::get('/autocomplete/fetch', 'HomeController@ajaxsearch')->name('autocomplete.fetch');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
     Route::get('/publicationData','HomeController@publicationData')->name('publication.data');

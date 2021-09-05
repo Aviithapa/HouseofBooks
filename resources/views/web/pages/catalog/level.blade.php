@@ -21,20 +21,12 @@
                             <div class="section-filter-item opened">
                                 <span class="section-filter-ttl">Apply Filter</span>
 
-                                <form action="{{url('filter')}}" method="POST" id="carform">
+                                <form action="{{route('filters')}}" id="carform" method="POST">
                                     {{csrf_field() }}
                                     <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <strong>University</strong>
-                                            <select class="form-control" name="university">
-                                                <option class="form-control" value="TU">Tribhuwan University</option>
-                                                <option class="form-control" value="PU">Pokhara University</option>
-                                                <option class="form-control" value="PBU">Purbanchal University</option>
-                                            </select>
-                                        </div>
                                         <div class="col-lg-12 mt-3">
                                             <strong>Publication</strong>
-                                            <select class="form-control"  name="publication">
+                                            <select class="form-control"  name="publication" id="publication">
                                                 <option class="form-control" value="asmita">Asmita</option>
                                                 <option class="form-control" value="saraswati">Saraswati </option>
                                                 <option class="form-control" value="samiksya">Samiksya</option>
@@ -43,31 +35,16 @@
                                         </div>
                                         <div class="col-lg-12 mt-3">
                                             <strong>Course</strong>
-                                            <select class="form-control" name="course" onchange="run()" id="course">
-                                                <option class="form-control" value="BBA">BBA</option>
-                                                <option class="form-control" value="BBS">BBS</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-12 mt-3 mb-5" id="semester">
-                                            <strong>Semester/ Year</strong>
-                                            <select class="form-control" name="semester" >
-                                                <option class="form-control" value="First Semester">First Semester</option>
-                                                <option class="form-control" value="Second Semester">Second Semester</option>
-                                                <option class="form-control" value="Third Semester">Third Semester</option>
-                                                <option class="form-control" value="Fourth Semester">Fourth Semester</option>
-                                                <option class="form-control" value="Fifth Semester">Fifth Semester</option>
-                                                <option class="form-control" value="Sixth Semester">Sixth Semester</option>
-                                                <option class="form-control" value="Seven Semester">Seven Semester</option>
-                                                <option class="form-control" value="Eight Semester">Eight Semester</option>
+                                            <select class="form-control" name="course"  id="course">
+                                                <option class="form-control" value="science">Science</option>
+                                                <option class="form-control" value="management">Management</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-12 mt-3 mb-5" id="year">
-                                            <strong>Semester/ Year</strong>
-                                            <select class="form-control" name="semesters" >
+                                            <strong>Year</strong>
+                                            <select class="form-control" name="year" id="year" >
                                                 <option class="form-control" value="1_year">1 year</option>
                                                 <option class="form-control" value="2_year">2 Year</option>
-                                                <option class="form-control" value="3_year">3 year</option>
-                                                <option class="form-control" value="4_year">4 Year</option>
                                             </select>
                                         </div>
                                         <div class="section-filter-buttons" style="margin-top: 10px">
@@ -75,8 +52,6 @@
                                         </div>
                                     </div>
                                 </form>
-
-
                             </div>
                         </div>
                     </div>
@@ -220,32 +195,6 @@
             })
         }
 
-        $( document ).ready(function() {
-            $("#year").hide();
-            $("#semester").show();
-        });
-        $( document ).ready(function() {
-            var sub_category=document.getElementById("course").value;
-            if(sub_category==="BBS"){
-                $("#year").show();
-                $("#semester").hide();
-            }else
-            {
-                $("#year").hide();
-                $("#semester").show();
-            }
-        });
-        function run() {
-            var sub_category=document.getElementById("course").value;
-            if(sub_category==="BBS"){
-                $("#year").show();
-                $("#semester").hide();
-            }else
-            {
-                $("#year").hide();
-                $("#semester").show();
-            }
-        }
 
     </script>
 @endpush

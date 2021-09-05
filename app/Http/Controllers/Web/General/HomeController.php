@@ -386,6 +386,19 @@ class HomeController extends BaseController
         return view('web.pages.catalog.filter' , $this->view_data);
     }
 
+    public function filters(Request $request){
+        $publication= $request->publication;
+        $course= $request->course;
+        $year=$request->year;
+
+        $this->view_data['products']=$this->productRepository->getAll()
+            ->where('publication','=',$publication)
+            ->where('status',"=",'active')
+            ->where('faculty','=',$course)
+            ->where('semester','=',$year);
+        return redirect()->back()->with($this->view_data);
+    }
+
     public function donation($id,Request $request){
         $this->view_data['id']=$id;
         return view('web.pages.donation',$this->view_data);

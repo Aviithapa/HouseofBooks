@@ -20,7 +20,7 @@
                         <div class="section-filter-item opened">
                             <span class="section-filter-ttl">Apply Filter</span>
 
-                            <form action="{{url('filter')}}" method="POST" id="carform">
+                            <form action="{{route('filters')}}" method="POST" id="carform">
                                 {{csrf_field() }}
                                 <div class="form-group">
                                     <div class="col-lg-12">
