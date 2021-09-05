@@ -13,71 +13,6 @@
             <h2 class="main-ttl"><span> Category</span></h2>
 
             <div class="section-sb">
-                @if($product == "novel" || $product == "nepali_novel")
-                    <div class="section-filter">
-                        <div class="section-filter-cont">
-                            <div class="section-filter-price">
-                                <div class="range-slider section-filter-price" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-grid="false"></div>
-                            </div>
-                            <div class="section-filter-item opened" id="nobel">
-                                <p class="section-filter-ttl">Novel</p>
-                                <div class="section-filter-fields">
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox3-5" value="on" type="checkbox" onclick="change('frictional')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox3-5">Fictional</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox3-2" value="on" type="checkbox" onclick="change('skills-knowledge')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox3-2">Skill and Knowledge</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox3-3" value="on" type="checkbox" onclick="change('motivational')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox3-3">Motivation</label>
-                                    </p>
-                                    <p class="section-filter-field">
-                                        <input id="section-filter-checkbox3-4" value="on" type="checkbox" onclick="change('biographies')">
-                                        <label class="section-filter-checkbox" for="section-filter-checkbox3-4">Biographies</label>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section-sb-current">
-                        <ul class="section-sb-list" id="section-sb-list">
-                            <li class="categ-1">
-                                <a href="{{url('/catelog/sub_category/novel')}}">
-                                    <span class="categ-1-label">Novel</span>
-                                </a>
-                            </li>
-                            <li class="categ-1">
-                                <a href="{{url('/catelog/sub_category/coursebook')}}">
-                                    <span class="categ-1-label">Coursebook</span>
-                                </a>
-                            </li>
-                            <li class="categ-1 has_child">
-                                <a href="{{url('/catelog/sub_category/medical-examination')}}">
-                                    <span class="categ-1-label">Medical Examination</span>
-                                </a>
-                            </li>
-                            <li class="categ-1 has_child">
-                                <a href="{{url("catelog/sub_category/loksewa-examination")}}">
-                                    <span class="categ-1-label">Loksewa Examination</span>
-                                </a>
-                            </li>
-                            <li class="categ-1">
-                                <a href="{{url("catelog/sub_category/entrance-examination")}}">
-                                    <span class="categ-1-label">Entrance Examination</span>
-                                </a>
-                            </li>
-                            <li class="categ-1">
-                                <a href="{{url("catelog/sub_category/question-bank-and-solution")}}">
-                                    <span class="categ-1-label">Question bank and Solution</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    @else
-
                     <div class="section-filter">
                         <div class="section-filter-cont">
                             <div class="section-filter-price">
@@ -146,7 +81,7 @@
                         </div>
                     </div>
 
-                        <div class="section-sb-current">
+                    <div class="section-sb-current">
                         <ul class="section-sb-list" id="section-sb-list">
                             <li class="categ-1">
                                 <a href="{{url('/catelog/sub_category/novel')}}">
@@ -180,7 +115,6 @@
                             </li>
                         </ul>
                     </div>
-                    @endif
             </div>
 
             <!-- Catalog Items | Gallery V1 - start -->
@@ -225,16 +159,9 @@
                                 <h3>
                                     <a style="color: black !important;" href="{{url('productDetails/'.$product->id)}}">{{ str_limit($product->name, 20) }}</a>
                                 </h3>
-                                @if($product->sub_category=="novel" || $product->sub_category=="nepali_novel")
-                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->author}} </p>
-                                @elseif($product->sub_category=="Rakshya")
 
-                                    @elseif($product->sub_category=="loksewa-examination")
-                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->publication}} </p>
-                                    @else
-                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
-                                <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->semester}} </p>
-                                @endif
+                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
+
                                 <p class="prod-i-price">
                                     <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
 
@@ -247,9 +174,6 @@
                     @endforeach
                 </div>
 
-                <!-- Pagination - start -->
-
-            {{$products->links( "pagination::bootstrap-4") }}
             <!-- Pagination - end -->
             </div>
             <!-- Catalog Items | Gallery V1 - end -->

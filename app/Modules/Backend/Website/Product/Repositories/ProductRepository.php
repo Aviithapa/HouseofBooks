@@ -17,4 +17,6 @@ interface ProductRepository extends Repository
     public function Nobel($nobel_category);
 
     public function secondHand($sub_category);
+
+    public function coursebook($level);
 }

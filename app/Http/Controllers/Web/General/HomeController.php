@@ -148,6 +148,7 @@ class HomeController extends BaseController
                     $this->view_data['loksewas'] = $this->productRepository->BrandNewBook('loksewa-examination');
                     $this->view_data['nepali_novel'] = $this->productRepository->BrandNewBook('nepali_novel');
                     $this->view_data['coursebook'] =$this->productRepository->BrandNewBook('coursebook');
+                    $this->view_data['two_coursebook']=$this->productRepository->coursebook("+2");
                     $this->view_data['questionbankandsolution'] = $this->productRepository->BrandNewBook('question-bank-and-solution');
                     $this->view_data['Rakshya'] =$this->productRepository->BrandNewBook('Rakshya');
                     $this->view_data['question'] = $this->postRepository->findById(135);
@@ -260,6 +261,21 @@ class HomeController extends BaseController
             ->where('university','=',$university);
         return view('web.pages.catalog.universityCatalog' , $this->view_data);
     }
+
+    public function levelCatalog($slug=null,Request $request){
+        $slug = $slug ? $slug : '+2';
+        $this->view_data['terms']=$this->postRepository->findById(152);
+        $this->view_data['cod'] = $this->postRepository->findById(151);
+        $this->view_data['faculty'] =$this->facultyRepository->getAll();
+        $this->view_data['semester'] =$this->semesterRepository->getAll();
+        $this->view_data['products']=$this->productRepository->getAll()->where('sub_category','coursebook')
+            ->where('status','active')
+            ->where('category','brand-new')
+            ->where('level',$slug);
+        return view('web.pages.catalog.level' , $this->view_data);
+    }
+
+
     public function NobelCatalog($slug=null, Request $request){
         $slug = $slug ? $slug : 'fictional';
         $this->view_data['terms']=$this->postRepository->findById(152);

@@ -56,4 +56,13 @@ class EloquentProductRepository extends RepositoryImplementation implements Prod
             ->where('sold_out', "!=" ,'yes')
             ->get();
     }
-}
+
+    public function coursebook($level){
+       return $this->getModel()->where('sub_category','coursebook')
+           ->where('status','active')
+           ->where('category','brand-new')
+           ->where('level','+2')
+           ->orderBy('created_at', 'desc')
+           ->limit(10)
+           ->get();
+    }}
