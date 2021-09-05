@@ -261,9 +261,18 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    {!! Form::open( 'files' => true, [ 'class' => 'dropzone','id'=>"image-upload"]) !!}
-                    {!! Form::close() !!}
-                    
+                    {!! Form::label('description', 'Description:', ['class' => 'form-label']) !!}
+                    {!! Form::textarea('description',null, ['class' => 'form-control dropzone','id'=>'dropzone']) !!}
+                    {!! $errors->first('description', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+{{--                    {!! Form::open( 'files' => true, [ 'class' => 'dropzone','id'=>"image-upload"]) !!}--}}
+{{--                    {!! Form::close() !!}--}}
+
                 </div>
             </div>
         </div>
@@ -909,24 +918,13 @@
     </script>
 
     <script type="text/javascript">
-        Dropzone.options.dropzone =
-            {
-                maxFilesize: 12,
-                renameFile: function(file) {
-                    var dt = new Date();
-                    var time = dt.getTime();
-                    return time+file.name;
-                },
-                acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                timeout: 5000,
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            };
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone(".dropzone",{
+            maxFilesize: 3,  // 3 mb
+            acceptedFiles: ".jpeg,.jpg,.png,.pdf",
+        });
+        myDropzone.on("sending", function(file, xhr, formData) {
+            formData.append("_token", CSRF_TOKEN);
+        });
     </script>
 @endpush

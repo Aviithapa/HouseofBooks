@@ -4,9 +4,6 @@
 @else
     {{ Form::open(['url' => route('dashboard.secondhand.store'), 'method' => 'post', 'files' => true, 'enctype'=>"multipart/form-data"]) }}
 @endif
-<style>
-
-</style>
 
 <link rel="stylesheet" href="https://vendor/jquery/jquery-ui/jquery-ui.css">
 <div class="grid simple ">
@@ -288,6 +285,8 @@
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script src="https://vendor/jquery/jquery-3.2.1.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 
     <script src="https://vendor/jquery/jquery-ui/jquery-ui.js" type="text/javascript"></script>
 
@@ -633,11 +632,8 @@
                     }
                     var data = $(this)[0].files; //this file data
 
-
                     $.each(data, function (index, file) { //loop though each file
                         if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
-
-
                             var fRead = new FileReader(); //new filereader
                             fRead.onload = (function (file) { //trigger function on successful read
                                 return function (e) {

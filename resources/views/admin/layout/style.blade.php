@@ -21,6 +21,10 @@
 <link href="{{asset('assets/plugins/jquery-scrollbar/jquery.scrollbar.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('nestable/nestable.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{url('assets/sweetalert2/dist/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="{{asset('dropzone/dist/min/dropzone.min.css')}}">
+
+
 <!-- END PLUGIN CSS -->
 <!-- BEGIN CORE CSS FRAMEWORK -->
 <link href="{{asset('webarch/css/themes/webarch.coporate.css')}}" rel="stylesheet" type="text/css" />
