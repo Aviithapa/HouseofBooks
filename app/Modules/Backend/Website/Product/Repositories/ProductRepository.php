@@ -19,4 +19,5 @@ interface ProductRepository extends Repository
     public function secondHand($sub_category);
 
     public function coursebook($level);
+    public function RelatedBooks($category, $sub_category,$id);
 }

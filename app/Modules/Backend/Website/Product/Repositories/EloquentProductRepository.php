@@ -65,4 +65,17 @@ class EloquentProductRepository extends RepositoryImplementation implements Prod
            ->orderBy('created_at', 'desc')
            ->limit(10)
            ->get();
-    }}
+    }
+
+
+    public function RelatedBooks($category, $sub_category,$id){
+        return $this->getModel()->where('category',$category)
+            ->where('status','active')
+            ->where('sub_category',$sub_category)
+            ->where('sold_out','no')
+            ->where('id',"!=",$id)
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+    }
+}

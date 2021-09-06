@@ -60,7 +60,8 @@
                     </p>
                     <div class="prod-info">
                         <p class="prod-price">
-                           <h3> <b class="item_current_price" style="color:#25a521 !important;">Rs. {{$product->getDicountedPrice()}}</b></h3>
+                           <h3> <del style="color:red !important;">Rs. {{$product->price}}</del><br>
+                            <b class="item_current_price" style="color:#25a521 !important; margin-top: 10px !important; font-weight: 800 !important;">Rs. {{$product->getDicountedPrice()}}</b></h3>
                         </p>
 {{--                        <form  method="post" action="{{url('add/to/cart/'.$product->id)}}">--}}
 {{--                            {{csrf_field() }}--}}
@@ -140,10 +141,11 @@
                 <div class="prod-related-car" id="prod-related-car">
                     <ul class="slides">
                         <li class="prod-rel-wrap">
-                            @foreach($related_product as $related_product)
+                            @if($related_products)
+                            @foreach($related_products as $related_product)
                             <div class="prod-rel">
                                 <a href="{{url('productDetails/'.$related_product->id)}}" class="prod-rel-img">
-                                    <img src="{{$related_product->getImage()}}" oncontextmenu="return false;" alt="{{$related_product->name}}">
+                                    <img src="{{$related_product->getSecondHandFrontImage()}}" oncontextmenu="return false;" alt="{{$related_product->name}}">
                                 </a>
                                 <div class="prod-rel-cont">
                                     <p><a href="{{url('productDetails/'.$related_product->id)}}" style="color: black !important;">{{$related_product->name}}</a></p>
@@ -151,6 +153,7 @@
                                 </div>
                             </div>
                             @endforeach
+                                @endif
 
                         </li>
                     </ul>

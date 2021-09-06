@@ -352,8 +352,7 @@ class HomeController extends BaseController
          $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['pageContent'] = $this->postRepository->findBySlug('/productDetails/'.$id, false);
          $this->view_data['product'] = $this->productRepository->findById($id);
-         $this->view_data['related_product']=$this->productRepository->findBy('sub_category',$this->view_data['product']->sub_category,'=',false,6)
-         ->where('id',"!=",$this->view_data['product']->id);
+         $this->view_data['related_products']=$this->productRepository->RelatedBooks($this->view_data['product']->category,$this->view_data['product']->sub_category,$this->view_data['product']->id);
         return view('web.pages.productDetails' , $this->view_data);
 
     }
