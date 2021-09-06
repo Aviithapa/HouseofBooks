@@ -183,7 +183,9 @@
             <img class='image' src="{{url("/asset/img/Adspace-2.png")}}" style="border-radius: 15px;">
         </div>
         <div class="col-sm-4 col-md-4">
+            <a href="{{url('catelog/sub_category/novel')}}">
             <img class='image' src="{{url("/asset/img/Adspace-3.png")}}" style="border-radius: 15px;" >
+            </a>
         </div>
     </div>
 </div>
@@ -205,7 +207,7 @@
                                     @if($coursework->status=='active')
                                         <div class="owl-item">
                                             <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;background:whitesmoke;">
-                                                <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
+                                                <div class="bbb_viewed_image books" style="width: 230px !important; height: 230px !important;">
                                                     <a href="{{url("productDetails/".$coursework->id)}}">
                                                         <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}" style="height: 250px;">
                                                     </a>
