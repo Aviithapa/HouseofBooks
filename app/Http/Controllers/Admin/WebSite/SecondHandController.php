@@ -109,8 +109,11 @@ class SecondHandController extends BaseController
     public function store(CreateProductRequest $createProductRequest)
     {
         $data = $createProductRequest->all();
+        dd($data);
         $data['user_id']=Auth::user()['id'];
         $data['category']="second-hand";
+//        $data['image']=$data['product_image'];
+
         $images = $createProductRequest->file('files');
         if ($createProductRequest->hasFile('files')) :
             foreach ($images as $item):
@@ -141,6 +144,9 @@ class SecondHandController extends BaseController
             return redirect()->back()->withInput();
         }
     }
+
+    // We are submitting are image along with userid and with the help of user id we are updateing our record
+
 
     /**
      * Display the specified resource.

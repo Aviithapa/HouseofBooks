@@ -36,6 +36,8 @@ Route::group(['namespace' => 'General'], function () {
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');
     Route::match(['get', 'post'],'esewa/fail','EsewaController@fail')->name('esewa.fail');
+    Route::post('/file-upload', 'HomeContoller@storeImage')
+        ->name('storeImage'); //FOR CREATE
     });
 
 

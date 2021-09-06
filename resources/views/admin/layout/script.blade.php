@@ -15,8 +15,6 @@
 <script src="{{asset('assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}" type="text/javascript"></script>
 
-<!-- JS -->
-<script src="{{asset('dropzone/dist/min/dropzone.min.js')}}" type="text/javascript"></script>
 <!-- END CORE JS DEPENDECENCIES-->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{asset('webarch/js/webarch.js')}}" type="text/javascript"></script>

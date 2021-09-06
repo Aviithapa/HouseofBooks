@@ -1151,6 +1151,20 @@
 
 @media only screen and (max-width : 600px) {
 
+    .cardsecondhand img{
+        width: auto !important;
+        height: 150px !important;
+
+    }
+    .cardsecondhand .price{
+        width: 50px !important;
+        font-size: 8px !important;
+    }
+    .cardsecondhand .car{
+        font-size: 7px !important;
+        font-weight: 600;
+        width: 60px !important;
+    }
     .bestSelling img{
         height:auto !important;
     }

@@ -74,4 +74,24 @@ class BaseController extends Controller
             dd($e);
         }
     }
+
+//    public function storeImage(Request $request)
+//    {
+//        if($request->file('file')){
+//
+//            $img = $request->file('file');
+//
+//            foreach ($img as $item):
+//                $var = date_create();
+//                $time = date_format($var, 'YmdHis');
+//                $imageName = $time . '-' . $item->getClientOriginalName();
+//                $item->move(base_path() . '/storage/app/public/product_image', $imageName);
+//                $arr[] = $imageName;
+//            endforeach;
+//            $image = implode(",", $arr);
+//            $response['image_name'] = $image;
+//
+//            return response()->json(['status'=>"success",'imgdata'=>$original_name,'userid'=>$userid]);
+//        }
+//    }
 }
