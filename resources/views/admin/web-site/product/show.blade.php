@@ -73,10 +73,18 @@
                     <div class="grid-body ">
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                    <?php $picture = explode(",", $product->image);
-                                    for($i=0;$i<count($picture);$i++) {?>
-                                    <img  src="{{ asset('/storage/product_image/'.$picture[$i]) }}"  style="width: 200px;cursor:pointer" onclick="onClick(this)" class="modal-hover-opacity"/>
-                                    <?php }?>
+                                <div class="col-md-4 col-lg-4">
+                                    <img src="{{url(isset($product)?$product->getImage():imageNotFound())}}" height="250" width="250"
+                                         id="product_middle_image_img">
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <img src="{{url(isset($product)?$product->getMiddleImage():imageNotFound())}}" height="250" width="250"
+                                         id="product_middle_image_img">
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <img src="{{url(isset($product)?$product->getlastImage():imageNotFound())}}" height="250" width="250"
+                                         id="product_middle_image_img">
+                                </div>
                             </div>
                             <div id="modal01" class="modals" onclick="this.style.display='none'">
                                 <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>

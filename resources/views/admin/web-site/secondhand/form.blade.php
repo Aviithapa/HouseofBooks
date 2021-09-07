@@ -225,7 +225,7 @@
                     </div>
 
                     <div class="form-group col-md-12 col-lg-12">
-                    {!! Form::label('slider', 'Image:') !!}
+                    {!! Form::label('slider', 'Front Page Image:') !!}
                     <small>Size: 1600*622 px</small>
                     <input type="file" id="product_image" name="product_image_image"
                            onclick="anyFileUploader('product_image')">
@@ -255,7 +255,7 @@
                     </div>
 
                     <div class="form-group col-md-12 col-lg-12">
-                        {!! Form::label('slider', 'Image:') !!}
+                        {!! Form::label('slider', 'Middle Page Image:') !!}
                         <small>Size: 1600*622 px</small>
                         <input type="file" id="product_middle_image" name="product_middle_image_image"
                                onclick="anyFileUploader('product_middle_image')">
@@ -285,7 +285,7 @@
                     </div>
 
                     <div class="form-group col-md-12 col-lg-12">
-                        {!! Form::label('slider', 'Image:') !!}
+                        {!! Form::label('slider', 'Back Page Image:') !!}
                         <small>Size: 1600*622 px</small>
                         <input type="file" id="product_last_image" name="product_last_image_image"
                                onclick="anyFileUploader('product_last_image')">

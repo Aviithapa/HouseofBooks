@@ -14,26 +14,45 @@
                     <div class="prod-slider-wrap">
                         <div class="prod-slider">
                             <ul class="prod-slider-car">
-                                <?php $picture = explode(",", $product->image);
-                                for($i=0;$i<count($picture);$i++) {?>
-                                    <li>
-                                        <a data-fancybox-group="product" class="fancy-img" href="{{ asset('/storage/product_image/'.$picture[$i]) }}">
-                                            <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" alt="{{$product->name}}" onclick="onClick(this)" class="modal-hover-opacity">
-                                        </a>
-                                    </li>
-                                <?php }?>
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">
+                                        <img src="{{$product->getImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getMiddleImage()}}">
+                                        <img src="{{$product->getMiddleImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getlastImage()}}">
+                                        <img src="{{$product->getlastImage()}}" alt="">
+                                    </a>
+                                </li>
+{{--                                    <li>--}}
+{{--                                        <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">--}}
+{{--                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}" onclick="onClick(this)" class="modal-hover-opacity">--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
                             </ul>
                         </div>
                         <div class="prod-thumbs">
                             <ul class="prod-thumbs-car">
-                                <?php $picture = explode(",", $product->image);
-                                for($i=0;$i<count($picture);$i++) {?>
-                                    <li>
-                                        <a data-slide-index="{{$i}}" href="#">
-                                            <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" alt="">
-                                        </a>
-                                    </li>
-                                 <?php }?>
+                                <li>
+                                    <a data-slide-index="0" href="#">
+                                        <img src="{{$product->getImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-slide-index="1" href="#">
+                                        <img src="{{$product->getMiddleImage()}}" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-slide-index="2" href="#">
+                                        <img src="{{$product->getlastImage()}}" alt="">
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -205,6 +224,25 @@
                     }
                 }
             })
+        }
+
+        if ($('.prod-slider-car').length > 0) {
+            $('.prod-slider-car').each(function () {
+                $(this).bxSlider({
+                    pagerCustom: $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car'),
+                    adaptiveHeight: true,
+                    infiniteLoop: false,
+                });
+                $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car').bxSlider({
+                    slideWidth: 5000,
+                    slideMargin: 8,
+                    moveSlides: 1,
+                    infiniteLoop: false,
+                    minSlides: 5,
+                    maxSlides: 5,
+                    pager: false,
+                });
+            });
         }
     </script>
     @endpush

@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 @section('content')
     <!-- Main Content - start -->
-    <main>
+    <main style="margin-bottom: 20px !important;">
         <section class="secondhandsection container-fluid">
             <h1 style="font-weight: 800;">Second Hand Books</h1>
             <h3>"PROMOTING SUSTAINABILITY THROUGH REUSE OF BOOKS"</h3>

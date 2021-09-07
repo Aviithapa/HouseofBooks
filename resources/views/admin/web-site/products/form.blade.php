@@ -269,36 +269,26 @@
 
 
     </div>
-    <div class="grid simple ">
-        <div class="grid-title">
-            <h4>Upload Multiple Image</h4>
-            <h4>At least 3 Image Required</h4>
-            <div class="tools">
-                <a href="javascript:;" class="collapse"></a>
-            </div>
-        </div>
 
-        <div class="grid-body ">
-            <div class="row" >
+    <div class="grid-body ">
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
                 <div class="col-md-12 col-lg-12">
-                </div>
-                <div id="thumb-output">
-
                     @if(isset($model))
-                               <?php $picture = explode(",", $model->image);
-                                 for($i=0;$i<count($picture);$i++) {?>
-                                   <img src="{{ asset('/storage/product_image/'.$picture[$i]) }}" style="height:120px; width:200px"/>
-                                 <?php }?>
+                        <img src="{{url(isset($model)?$model->getImage():imageNotFound())}}" height="250" width="250"
+                             id="product_image_img">
 
+                    @else
+                        <img src="{{isset($model)?$model->getImage():imageNotFound()}}" height="250" width="250"
+                             id="product_image_img">
                     @endif
-
                 </div>
+
                 <div class="form-group col-md-12 col-lg-12">
-                    {!! Form::label('slider', 'Image:') !!}
-                    <small>Size: 1600*622 px</small><br>
-                    <strong>Image Order: Front Page, Back Page , Edition Page</strong><br>
-                    <small class="danger">By uploading your books you  agree with our <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'">terms and condition</span></small>
-                    <input type="file" id="product_image" name="files[]" multiple>
+                    {!! Form::label('slider', 'Front Page Image:') !!}
+                    <small>Size: 1600*622 px</small>
+                    <input type="file" id="product_image" name="product_image_image"
+                           onclick="anyFileUploader('product_image')">
                     <small id="slider_help_text" class="help-block"></small>
                     <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
                          aria-valuemax="100"
@@ -307,12 +297,74 @@
                              style="width: 0%">
                         </div>
                     </div>
-
+                    <input type="hidden" id="product_image_path" name="product_image" class="form-control"
+                           value="{{isset($model)?$model->image:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="col-md-12 col-lg-12">
+                    @if(isset($model))
+                        <img src="{{url(isset($model)?$model->getMiddleImage():imageNotFound())}}" height="250" width="250"
+                             id="product_middle_image_img">
 
+                    @else
+                        <img src="{{isset($model)?$model->getMiddleImage():imageNotFound()}}" height="250" width="250"
+                             id="product_middle_image_img">
+                    @endif
+                </div>
 
+                <div class="form-group col-md-12 col-lg-12">
+                    {!! Form::label('slider', 'Middle Page Image:') !!}
+                    <small>Size: 1600*622 px</small>
+                    <input type="file" id="product_middle_image" name="product_middle_image_image"
+                           onclick="anyFileUploader('product_middle_image')">
+                    <small id="slider_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="product_middle_image_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div>
+                    <input type="hidden" id="product_middle_image_path" name="product_middle_image" class="form-control"
+                           value="{{isset($model)?$model->image:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="col-md-12 col-lg-12">
+                    @if(isset($model))
+                        <img src="{{url(isset($model)?$model->getlastImage():imageNotFound())}}" height="250" width="250"
+                             id="product_last_image_img">
+
+                    @else
+                        <img src="{{isset($model)?$model->getlastImage():imageNotFound()}}" height="250" width="250"
+                             id="product_last_image_img">
+                    @endif
+                </div>
+
+                <div class="form-group col-md-12 col-lg-12">
+                    {!! Form::label('slider', 'Back Page Image:') !!}
+                    <small>Size: 1600*622 px</small>
+                    <input type="file" id="product_last_image" name="product_last_image_image"
+                           onclick="anyFileUploader('product_last_image')">
+                    <small id="slider_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="product_last_image_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div>
+                    <input type="hidden" id="product_last_image_path" name="product_last_image" class="form-control"
+                           value="{{isset($model)?$model->image:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+            </div>
         </div>
+
+
     </div>
 </div>
 
@@ -835,80 +887,7 @@
                 discount.value="70"
             }
         }
-        $(document).ready(function(){
-            var fileIdCounterOnload = 0;
-            var filesToUpload = [];
-            var fileIdCounter = 0;
-            $('#product_image').on('change', function(evt){ //on file input change
-                if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
-                {
-                    for (var i = 0; i < evt.target.files.length; i++) {
-                        fileIdCounter++;
-                        var file = evt.target.files[i];
-                        var fileId = "file" + fileIdCounter;
 
-                        filesToUpload.push({
-                            id: fileId,
-                            file: file
-                        });
-                        console.log(filesToUpload)
-                    }
-                    var data = $(this)[0].files; //this file data
-                    console.log(data)
-
-                    $.each(data, function (index, file) { //loop though each file
-                        if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
-
-
-                            var fRead = new FileReader(); //new filereader
-                            fRead.onload = (function (file) { //trigger function on successful read
-                                return function (e) {
-                                    fileIdCounterOnload++;
-
-                                    var fileIdOnload = "file" + fileIdCounterOnload;
-                                    var img = $("<li class=\"pip\"  data-fileid=\"" + fileIdOnload + "\">" +
-                                        "<img class=\'thumb\' src=\"" + e.target.result + "\">" +
-                                        "<i class=\"fa fa-times-circle fa-2x remove removeFile\"  data-fileid=\"" + fileIdOnload + "\"></i> " +
-                                        "</li>");
-
-                                    $('#thumb-output').append(img) //append image to output element
-                                    $(".remove").click(function () {
-
-                                        var fileId = $(this).parent(".pip").data("fileid");
-
-                                        // loop through the files array and check if the name of that file matches FileName
-                                        // and get the index of the match
-                                        for (var i = 0; i < filesToUpload.length; ++i) {//here will start compare them
-                                            if (filesToUpload[i].id === fileId) {
-                                                filesToUpload.splice(i, 1);// delete a file from list.
-                                            }
-                                        }
-                                        $(this).parent(".pip").remove();// remove file from view .
-                                    });
-
-                                };
-
-                            })(file);
-                            fRead.readAsDataURL(file); //URL representing the file's data.
-                        }
-                    });
-                }else{
-                    alert("Your browser doesn't support File API!"); //if File API is absent
-                }
-
-            });
-        });
-
-    </script>
-    <script>
-        $(document).ready(function () {
-            var dropIndex;
-            $("#thumb-output").sortable({
-                update: function(event, ui) {
-                    dropIndex = ui.item.index();
-                }
-            });
-        });
     </script>
 
     <script>
@@ -919,14 +898,5 @@
         }
     </script>
 
-    <script type="text/javascript">
-        Dropzone.autoDiscover = false;
-        var myDropzone = new Dropzone(".dropzone",{
-            maxFilesize: 3,  // 3 mb
-            acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-        });
-        myDropzone.on("sending", function(file, xhr, formData) {
-            formData.append("_token", CSRF_TOKEN);
-        });
-    </script>
+   
 @endpush
