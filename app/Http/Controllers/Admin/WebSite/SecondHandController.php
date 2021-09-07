@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\WebSite;
 
 
 use App\Http\Controllers\Admin\BaseController;
+use App\Modules\Backend\Authentication\User\Repositories\UserRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
@@ -20,7 +21,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SecondHandController extends BaseController
 {
-    private $productRepository, $log ,$facultyRepository, $semesterRepository, $categoryRepository, $postRepository;
+    private $productRepository, $log ,$facultyRepository, $userRepository,$semesterRepository, $categoryRepository, $postRepository;
     private $commonRoute='dashboard.secondhand';
     private $commonView='web-site.secondhand.';
     private $commonMessage='Book';
@@ -29,7 +30,8 @@ class SecondHandController extends BaseController
                                 FacultyRepository $facultyRepository,
                                 SemesterRepository $semesterRepository,
                                 PostRepository $postRepository,
-                                CategoryRepository $categoryRepository)
+                                CategoryRepository $categoryRepository,
+                                  UserRepository $userRepository  )
     {
 
         $this->productRepository = $productRepository;
@@ -37,6 +39,7 @@ class SecondHandController extends BaseController
         $this->semesterRepository = $semesterRepository;
         $this->categoryRepository=$categoryRepository;
         $this->postRepository=$postRepository;
+        $this->userRepository=$userRepository;
         $this->log = $log;
         $this->viewData['commonRoute']=$this->commonRoute;
         $this->viewData['commonView']=$this->commonView;
@@ -68,15 +71,10 @@ class SecondHandController extends BaseController
                 ->addColumn('action', function ($products) {
                     $data = $products;
                     $name = 'dashboard.secondhand';
-                    $view = false;
+                    $view = true;
                     return $this->view('partials.common.action', compact('data', 'name', 'view'))->render();
                 })
-                ->editColumn('product_image', function ($product) {
-                    $url=asset($product->getImage());
-                    return '<img src='.$url.' border="0" width="40"  />';
-                })
                 ->editColumn('id', 'ID: {{$id}}')
-                ->rawColumns(['product_image', 'action'])
                 ->make(true);
 
         }
@@ -138,9 +136,18 @@ class SecondHandController extends BaseController
      * @param  \App\Models\Website\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $this->authorize('read', $this->productRepository->getModel());
+        $role = Auth::user()->mainRole()?Auth::user()->mainRole()->name:'default';
+        if ($role === "administrator") {
+            $product = $this->productRepository->findById($id);
+            $user = $this->userRepository->findById($product->user_id);
+            return $this->view('web-site.secondhand.show', compact('product', 'user'));
+        }
+        else{
+            return redirect()->route('dashboard.products.index');
+        }
     }
 
     /**

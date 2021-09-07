@@ -174,6 +174,7 @@ Route::group(['namespace' => 'WebSite'], function () {
             'index' => 'dashboard.secondhand.index',
             'create' => 'dashboard.secondhand.create',
             'store' => 'dashboard.secondhand.store',
+            'show' => 'dashboard.secondhand.show',
             'edit' => 'dashboard.secondhand.edit',
             'update' => 'dashboard.secondhand.update',
             'destroy' => 'dashboard.secondhand.destroy',
