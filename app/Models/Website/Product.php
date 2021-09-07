@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table="products";
-    protected $fillable = ['name','description','price','quantity','image','semester','faculty','edition','university','discount','publication','excerpt','user_id',"category","status","author","sub_category","nobel_category","level","best_selling","condition","give_away","sold_out","youtube_link"];
+    protected $fillable = ['name','description','price','quantity','image','semester','faculty','edition','university','discount','publication','excerpt','user_id',"category","status","author","sub_category","nobel_category","level","best_selling","condition","give_away","sold_out","youtube_link","middle_image","last_image"];
 
     public function getDicountedPrice()
     {
@@ -24,7 +24,22 @@ class Product extends Model
             return imageNotFound();
         }
     }
-
+    public function getMiddleImage(){
+        if(isset($this->middle_image)) {
+            return uploadedAsset('product_middle_image', $this->middle_image);
+        }
+        else {
+            return imageNotFound();
+        }
+    }
+    public function getlastImage(){
+        if(isset($this->last_image)) {
+            return uploadedAsset('product_last_image', $this->last_image);
+        }
+        else {
+            return imageNotFound();
+        }
+    }
     public function getSecondHandFrontImage(){
         if(isset($this->image)) {
             $image = explode(",", $this->image);

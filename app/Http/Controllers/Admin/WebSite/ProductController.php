@@ -111,7 +111,6 @@ class ProductController extends BaseController
         if ($role === "administrator") {
             $data = $createProductRequest->all();
             $data['user_id'] = Auth::user()['id'];
-            $data['image'] = $data['product_image'];
             try {
                 $post = $this->productRepository->create($data);
                 if ($post == false) {

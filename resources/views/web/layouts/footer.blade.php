@@ -38,6 +38,7 @@
                     <li><a href="{{url('about')}}">About</a></li>
                     <li><a href="{{url('privacy')}}">Privacy</a></li>
                     <li><a href="{{url('termsandcondition')}}">Terms and Condition</a></li>
+                    <li><a href="{{url('request')}}">Request a book</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-xl-3">

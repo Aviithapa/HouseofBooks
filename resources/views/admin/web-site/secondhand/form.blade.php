@@ -1,27 +1,7 @@
-
-    {{-- CSS assets in head section --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dropzone.css') }}">
-    <script src="{{ asset('assets/js/dropzone.js') }}"></script>
-    <style>
-        .dropzoneDragArea {
-            background-color: #fbfdff;
-            border: 1px dashed #c0ccda;
-            border-radius: 6px;
-            padding: 60px;
-            text-align: center;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-        .dropzone{
-            box-shadow: 0px 2px 20px 0px #f2f2f2;
-            border-radius: 10px;
-        }
-    </style>
-
 @if(isset($model))
     {{ Form::model($model, ['url' => route('dashboard.secondhand.update', $model->id), 'method' => 'PUT','files' => true]) }}
 @else
-    {{ Form::open(['url' => route('dashboard.secondhand.store'), "name"=>"demoform", "id"=>"demoform", 'method' => 'post', 'files' => true, 'enctype'=>"multipart/form-data", 'class' => 'dropzone']) }}
+    {{ Form::open(['url' => route('dashboard.secondhand.store'), 'method' => 'post', 'files' => true]) }}
 @endif
 
 
@@ -221,20 +201,112 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="dropzoneDragArea" name="files[]" class="dz-default dz-message dropzoneDragArea">
-                    <i class="fas fa-cloud-upload"></i>
-                    <span>Drag and Drop <br>or<br> click here to upload image</span>
-                </div>
-                <div class="dropzone-previews"></div>
+    </div>
+    <div class="grid simple ">
+        <div class="grid-title">
+            <h4>Image</h4>
+            <div class="tools">
+                <a href="javascript:;" class="collapse"></a>
             </div>
         </div>
+
+        <div class="grid-body ">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <div class="col-md-12 col-lg-12">
+                        @if(isset($model))
+                            <img src="{{url(isset($model)?$model->getImage():imageNotFound())}}" height="250" width="250"
+                                 id="product_image_img">
+
+                        @else
+                            <img src="{{isset($model)?$model->getImage():imageNotFound()}}" height="250" width="250"
+                                 id="product_image_img">
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-12 col-lg-12">
+                    {!! Form::label('slider', 'Image:') !!}
+                    <small>Size: 1600*622 px</small>
+                    <input type="file" id="product_image" name="product_image_image"
+                           onclick="anyFileUploader('product_image')">
+                    <small id="slider_help_text" class="help-block"></small>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0">
+                        <div id="product_image_progress" class="progress-bar progress-bar-success"
+                             style="width: 0%">
+                        </div>
+                    </div>
+                    <input type="hidden" id="product_image_path" name="product_image" class="form-control"
+                           value="{{isset($model)?$model->image:''}}"/>
+                    {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="col-md-12 col-lg-12">
+                        @if(isset($model))
+                            <img src="{{url(isset($model)?$model->getMiddleImage():imageNotFound())}}" height="250" width="250"
+                                 id="product_middle_image_img">
+
+                        @else
+                            <img src="{{isset($model)?$model->getMiddleImage():imageNotFound()}}" height="250" width="250"
+                                 id="product_middle_image_img">
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-12 col-lg-12">
+                        {!! Form::label('slider', 'Image:') !!}
+                        <small>Size: 1600*622 px</small>
+                        <input type="file" id="product_middle_image" name="product_middle_image_image"
+                               onclick="anyFileUploader('product_middle_image')">
+                        <small id="slider_help_text" class="help-block"></small>
+                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="0">
+                            <div id="product_middle_image_progress" class="progress-bar progress-bar-success"
+                                 style="width: 0%">
+                            </div>
+                        </div>
+                        <input type="hidden" id="product_middle_image_path" name="product_middle_image" class="form-control"
+                               value="{{isset($model)?$model->image:''}}"/>
+                        {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="col-md-12 col-lg-12">
+                        @if(isset($model))
+                            <img src="{{url(isset($model)?$model->getlastImage():imageNotFound())}}" height="250" width="250"
+                                 id="product_last_image_img">
+
+                        @else
+                            <img src="{{isset($model)?$model->getlastImage():imageNotFound()}}" height="250" width="250"
+                                 id="product_last_image_img">
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-12 col-lg-12">
+                        {!! Form::label('slider', 'Image:') !!}
+                        <small>Size: 1600*622 px</small>
+                        <input type="file" id="product_last_image" name="product_last_image_image"
+                               onclick="anyFileUploader('product_last_image')">
+                        <small id="slider_help_text" class="help-block"></small>
+                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0"
+                             aria-valuemax="100"
+                             aria-valuenow="0">
+                            <div id="product_last_image_progress" class="progress-bar progress-bar-success"
+                                 style="width: 0%">
+                            </div>
+                        </div>
+                        <input type="hidden" id="product_last_image_path" name="product_last_image" class="form-control"
+                               value="{{isset($model)?$model->image:''}}"/>
+                        {!! $errors->first('image', '<div class="text-danger">:message</div>') !!}
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-
-
-
-
 </div>
 
 <div class="row">
@@ -267,37 +339,7 @@
 
 
 @push('scripts')
-
-    <script>
-        Dropzone.autoDiscover = false;
-        // Dropzone.options.demoform = false;
-        let token = $('meta[name="csrf-token"]').attr('content');
-        $(function() {
-            var myDropzone = new Dropzone("div#dropzoneDragArea", {
-                paramName: "file",
-                url: "{{ url('/file-upload') }}",
-                acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                previewsContainer: 'div.dropzone-previews',
-                addRemoveLinks: true,
-                autoProcessQueue: true,
-                uploadMultiple: true,
-                parallelUploads: 1,
-                maxFiles: 3,
-                params: {
-                    _token: token
-                },
-                success: function(response)
-                {
-                    console.log(response);
-                },
-                error: function(response)
-                {
-                    return false;
-                }
-            });
-            alert(myDropzone);
-        });
-    </script>
+    @include('admin.partials.common.file-upload');
     <script>
         function change(type) {
             switch(type) {
@@ -620,78 +662,9 @@
                 discount.value="70"
             }
         }
-        // $(document).ready(function(){
-        //     var fileIdCounterOnload = 0;
-        //     var filesToUpload = [];
-        //     var fileIdCounter = 0;
-        //     $('#product_image').on('change', function(evt){ //on file input change
-        //         if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
-        //         {
-        //             for (var i = 0; i < evt.target.files.length; i++) {
-        //                 fileIdCounter++;
-        //
-        //                 var file = evt.target.files[i];
-        //                 var fileId = "file" + fileIdCounter;
-        //
-        //                 filesToUpload.push({
-        //                     id: fileId,
-        //                     file: file
-        //                 });
-        //             }
-        //             var data = $(this)[0].files; //this file data
-        //
-        //             $.each(data, function (index, file) { //loop though each file
-        //                 if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
-        //                     var fRead = new FileReader(); //new filereader
-        //                     fRead.onload = (function (file) { //trigger function on successful read
-        //                         return function (e) {
-        //                             fileIdCounterOnload++;
-        //
-        //                             var fileIdOnload = "file" + fileIdCounterOnload;
-        //                             var img = $("<li class=\"pip\"  data-fileid=\"" + fileIdOnload + "\">" +
-        //                                 "<img class=\'thumb\' src=\"" + e.target.result + "\">" +
-        //                                 "<i class=\"fa fa-times-circle fa-2x remove removeFile\"  data-fileid=\"" + fileIdOnload + "\"></i> " +
-        //                                 "</li>");
-        //
-        //                             $('#thumb-output').append(img) //append image to output element
-        //                             $(".remove").click(function () {
-        //
-        //                                 var fileId = $(this).parent(".pip").data("fileid");
-        //
-        //                                 // loop through the files array and check if the name of that file matches FileName
-        //                                 // and get the index of the match
-        //                                 for (var i = 0; i < filesToUpload.length; ++i) {//here will start compare them
-        //                                     if (filesToUpload[i].id === fileId) {
-        //                                         filesToUpload.splice(i, 1);// delete a file from list.
-        //                                     }
-        //                                 }
-        //                                 $(this).parent(".pip").remove();// remove file from view .
-        //                             });
-        //
-        //                         };
-        //
-        //                     })(file);
-        //                     fRead.readAsDataURL(file); //URL representing the file's data.
-        //                 }
-        //             });
-        //         }else{
-        //             alert("Your browser doesn't support File API!"); //if File API is absent
-        //         }
-        //
-        //     });
-        // });
 
     </script>
-    <script>
-        $(document).ready(function () {
-            var dropIndex;
-            $("#thumb-output").sortable({
-                update: function(event, ui) {
-                    dropIndex = ui.item.index();
-                }
-            });
-        });
-    </script>
+
 
     <script>
         window.onclick = function(event) {

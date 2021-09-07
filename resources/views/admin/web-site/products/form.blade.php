@@ -218,10 +218,18 @@
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     {!! Form::label('price', 'MRP:', ['class' => 'form-label']) !!}
-                    {!! Form::number('price',null, ['class' => 'form-control','required']) !!}
+                    {!! Form::number('price',null, ['class' => 'form-control','required','id'=>'price','onkeyup'=>'priceChange()']) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
                 </div>
             </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    {!! Form::label('discount', 'Price with Discount:', ['class' => 'form-label']) !!}
+                    {!! Form::number('pricewithdiscount',null, ['class' => 'form-control',"readonly",'id'=>'discountprice',"style"=>"background-color:red;color:white;font-weight:600;"]) !!}
+                    {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
+                    {{--                        <small>Discount percent is based on book condition. For more info please read <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'"> terms and condition </span></small>--}}
+                </div>
+            </div
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6">
@@ -565,6 +573,14 @@
 //        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
 //        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'
         } );
+
+        function priceChange(){
+            var price=document.getElementById("price").value;
+            var discount=document.getElementById("discount").value;
+            var discountprice=price - (price * discount /100);
+            var disprice=document.getElementById("discountprice");
+            disprice.value=discountprice;
+        }
         $( document ).ready(function() {
                     var sub_category=document.getElementById("subCategory").value;
                     switch (sub_category) {
@@ -788,6 +804,8 @@
             else if(condition==="poor"){
                 discount.value="70"
             }
+
+
 
             var fac = document.getElementById("bachelorfac").value;
             if (fac === "BBS"){

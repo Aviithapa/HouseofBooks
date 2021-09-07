@@ -643,7 +643,7 @@ class HomeController extends BaseController
             }
             else {
                 // if there's no matching results according to the input
-                $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                $output .= '<li class="list-group-item">'.'No results '.'<a href="/request" style="color: blue !important;">'.'Click here to Request Now'.'</a></li>';
             }
 
             // return output result array
