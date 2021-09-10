@@ -1169,11 +1169,11 @@
         height:auto !important;
     }
     .books{
-        height: 0px !important;
+        height: auto !important;
     }
     .books img{
         height: auto !important;
-        width: 60% !important;
+        width: 70% !important;
         margin: auto;
     }
     .add  .image{
