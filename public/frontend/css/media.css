@@ -1168,6 +1168,9 @@
     .bestSelling img{
         height:auto !important;
     }
+    .books{
+        height: 0px !important;
+    }
     .books img{
         height: auto !important;
         width: 60% !important;
