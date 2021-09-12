@@ -104,7 +104,7 @@
                             </li>
 
                         </ul>
-                        @else
+                        @elseif($product->sub_category=="coursebook" || $product->sub_category=="question-bank-and-solution")
                         <ul class="prod-i-props">
                             <li>
                                 <b>Faculty</b> : {{$product->faculty}}
@@ -126,6 +126,42 @@
                                 <h3><span>Short Description</span></h3>
                                 <p style="text-align: justify;">{!!html_entity_decode($product->excerpt)!!}</p>
                             </li>
+                            @endif
+                        </ul>
+                        @elseif($product->sub_category=="loksewa-examination" || $product->sub_category=="medical-examination")
+                        <ul class="prod-i-props">
+                            <li>
+                                <b>Publication</b>: <strong class="text-uppercase">{{$product->publication}}</strong>
+                            </li>
+                            <li>
+                                <b>Edition</b>: {{$product->edition}}
+                            </li>
+                            <li>
+                                <b>Author</b>: <strong class="text-capitalize">{{$product->author}}</strong>
+                            </li>
+                            @if($product->excerpt)
+                                <li>
+                                    <h3><span>Short Description</span></h3>
+                                    <p style="text-align: justify;">{!!html_entity_decode($product->excerpt)!!}</p>
+                                </li>
+                            @endif
+                        </ul>
+                    @elseif($product->sub_category=="Rakshya")
+                        <ul class="prod-i-props">
+                            <li>
+                                <b>Publication</b>: <strong class="text-uppercase">{{$product->publication}}</strong>
+                            </li>
+                            <li>
+                                <b>Edition</b>: {{$product->edition}}
+                            </li>
+                            <li>
+                                <b>Author</b>: <strong class="text-capitalize">{{$product->author}}</strong>
+                            </li>
+                            @if($product->excerpt)
+                                <li>
+                                    <h3><span>Short Description</span></h3>
+                                    <p style="text-align: justify;">{!!html_entity_decode($product->excerpt)!!}</p>
+                                </li>
                             @endif
                         </ul>
                         @endif

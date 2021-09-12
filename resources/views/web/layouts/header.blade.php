@@ -176,7 +176,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url("catalog/sub_category/loksewa-examination")}}">
+                                    <a href="{{url("catelog/sub_category/loksewa-examination")}}">
                                         Loksewa Examination
                                     </a>
                                 </li>
@@ -192,7 +192,7 @@
                                 </li>
                                 <li>
                                     <a href="{{url("catelog/sub_category/Rakshya")}}">
-                                        Rakshya Bandhan Special
+                                        Book Packs
                                     </a>
                                 </li>
                             </ul>
