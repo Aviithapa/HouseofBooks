@@ -380,54 +380,53 @@
         </div>
     </div>
 
-    <div class="bbb_viewed mt-5">
+
+    <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <div class="bbb_main_container">
-                        <div class="bbb_viewed_title_container" style="margin-top: -50px">
-                            <h3 class="bbb_viewed_title">
-                                <div class="title" >
-                                    <h4>+2 Course Books</h4>
-                                </div>
-                                <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('level/+2')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
-
-                            </h3>
-
+                    <div class="bbb_main_container" style="background-color: whitesmoke !important;">
+                        <div class="bbb_viewed_title_container">
+                            <div class="title" >
+                                <h4>+2 Course Books</h4>
+                            </div>
+                            <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/question-bank-and-solution')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
                         <div class="bbb_viewed_slider_container book">
                             <div class="owl-carousel owl-theme bbb_viewed_slider">
-                                @foreach($two_coursebook as $coursework)
-                                    @if($coursework->status=='active')
+                                @foreach($two_coursebook as $questionbankandsolution)
+                                    @if($questionbankandsolution->status=='active')
                                         <div class="owl-item">
-                                            <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;background:whitesmoke;">
-                                                <div class="bbb_viewed_image" style="width: 230px !important; height: 230px !important;">
-                                                    <a href="{{url("productDetails/".$coursework->id)}}">
-                                                        <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}">
-                                                    </a>
-                                                </div>
-                                                <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
-                                                    <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 20) }} </h5>
-                                                    <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase;">{{$coursework->faculty}} </p>
-                                                    <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->getDicountedPrice()}}</button>
-                                                        <button onclick="addtoCart({{ $coursework->id }})" class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></p>
+                                            <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center"  style="border-radius: 20px; ">
+                                                <a href="{{url("productDetails/".$questionbankandsolution->id)}}">
+                                                    <div class="bbb_viewed_image" style="width: 220px !important; height: 220px !important;"><img src="{{$questionbankandsolution->getImage()}}" oncontextmenu="return false;" alt="{{$questionbankandsolution->name}}"></div>
+                                                </a>
+                                                <div class="bbb_viewed_content text-center" style="margin-top: -5px;">
+                                                    <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($questionbankandsolution->name, 18) }} </h5>
+                                                    <p style="color:black; font-style: italic; font-size: 12px; text-transform: capitalize;">{{$questionbankandsolution->faculty}}</p>
+                                                    <p class="mt-3">
+                                                        <button class="btn btn-primary btn-round-sm btn-sm price">RS {{$questionbankandsolution->getDicountedPrice()}}</button>
+                                                        <button onclick="addtoCart({{ $questionbankandsolution->id }})" class="btn btn-primary btn-round-sm btn-sm cart-button" >ADD TO CART</button>
+                                                    </p>
 
                                                     <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
                                                 </div>
                                                 <ul class="item_marks">
-                                                    <li class="item_mark item_discount">-{{$coursework->discount}}%</li>
+                                                    <li class="item_mark item_discount">-{{$questionbankandsolution->discount}} %</li>
                                                     <li class="item_mark item_new">new</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     @endif
                                 @endforeach
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="bbb_viewed mt-5">
