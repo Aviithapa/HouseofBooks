@@ -227,9 +227,9 @@
                                 </h3>
                                 @if($product->sub_category=="novel" || $product->sub_category=="nepali_novel")
                                     <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->author}} </p>
-                                @elseif($product->sub_category=="Rakshya")
+                                @elseif($product->sub_category=="Rakshya"|| $product->sub_category=="entrance-examination")
 
-                                    @elseif($product->sub_category=="loksewa-examination")
+                                    @elseif($product->sub_category=="loksewa-examination" || $product->sub_category=="medical-examination")
                                     <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.7;">{{$product->publication}} </p>
                                     @else
                                 <p style="color:black; font-style: italic; font-size: 15px; text-transform: uppercase; text-align: center; line-height: 0.8;">{{$product->faculty}} </p>
