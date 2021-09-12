@@ -374,10 +374,7 @@ h5{
     width: 100%;
     background: #FFFFFF;
     border-radius: 2px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-    padding-right: 30px
+    padding:15px;
 }
 .bbb_viewed_title .title{
     max-width: 350px ;
@@ -515,6 +512,7 @@ h5{
 .gtco-testimonials .owl-dots .active {
     box-shadow: none;
 }
+
 .gtco-testimonials .owl-dots .active span {
     background: #FF8800  ;
     box-shadow: none;

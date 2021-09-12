@@ -121,7 +121,7 @@ function myFunction() {
       viewedSlider.owlCarousel(
       {
       loop:true,
-      margin:15,
+      margin:10,
       autoplay:true,
       autoplayTimeout:6000,
       nav:false,
@@ -132,8 +132,8 @@ function myFunction() {
       575:{items:2},
       768:{items:3},
       991:{items:4},
-          1000:{items:5},
-      1400:{items:6}
+          1300:{items:5},
+      1500:{items:6}
       }
       });
 
