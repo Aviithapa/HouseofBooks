@@ -156,7 +156,7 @@ class HomeController extends BaseController
                     $this->view_data['entrance'] = $this->postRepository->findById(137);
                     $this->view_data['second'] = $this->postRepository->findById(138);
                     $this->view_data['popup'] = $this->postRepository->findById(153);
-                    $this->view_data['secondhand_banner'] = $this->postRepository->findById(154);
+                    $this->view_data['secondhand_banner'] = $this->postRepository->findById(156);
                      break;
                 case 'catalog':
                     $this->view_data['products'] = Product::paginate(18);
