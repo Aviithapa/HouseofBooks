@@ -14,6 +14,8 @@ use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
 use App\Modules\Backend\Website\Category\Repositories\EloquentCategoryRepository;
 use App\Modules\Backend\Website\Contact\Repositories\ContactRepository;
 use App\Modules\Backend\Website\Contact\Repositories\EloquentContactRepository;
+use App\Modules\Backend\Website\Coupons\Repositories\CouponsRepository;
+use App\Modules\Backend\Website\Coupons\Repositories\EloquentCouponsRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Donation\Repositories\EloquentDonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EloquentEventRepository;
@@ -181,6 +183,11 @@ class DependencyInjectionServiceProvider extends ServiceProvider
        $this->app->bind(
            RequestRepository::class,
            EloquentRequestRepository::class
+       );
+
+       $this->app->bind(
+           CouponsRepository::class,
+           EloquentCouponsRepository::class
        );
     }
 }

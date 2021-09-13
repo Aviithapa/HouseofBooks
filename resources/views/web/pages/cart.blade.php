@@ -75,6 +75,17 @@
                              </td>
                         </tr>
                             @endforeach
+{{--                        <tr>--}}
+{{--                            <td>--}}
+{{--                                <div class="col-md-12">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <strong>Coupon Code</strong>--}}
+{{--                                        <input type="text" class="form-control"  name="coupon">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+{{--                            </td>--}}
+{{--                        </tr>--}}
                         </tbody>
                     </table>
                 </div>

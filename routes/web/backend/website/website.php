@@ -264,5 +264,16 @@ Route::group(['namespace' => 'WebSite'], function () {
             'show' => 'dashboard.invoice.show',
         ]
     ]);
+    Route::resource('coupons','CouponsController',[
+        'names' => [
+            'index' => 'dashboard.coupons.index',
+            'create' => 'dashboard.coupons.create',
+            'store' => 'dashboard.coupons.store',
+            'edit' => 'dashboard.coupons.edit',
+           // 'show' => 'dashboard.coupons.show',
+            'update' => 'dashboard.coupons.update',
+            'destroy' => 'dashboard.coupons.destroy',
+        ]
+    ]);
     Route::match(['put', 'patch'], 'product/approve/{event}', 'ProductController@approve')->name('dashboard.product.approve');
 });

@@ -380,6 +380,11 @@
         </div>
     </div>
 
+    <div>
+        <div class="add">
+            <img src="{{$secondhand_banner->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
+        </div>
+    </div>
 
     <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
@@ -428,6 +433,7 @@
         </div>
 
     </div>
+
 
     <div class="bbb_viewed mt-5">
         <div class="container-fluid">

@@ -120,6 +120,12 @@
                     <span class="title">Send Mail</span>
                 </a>
             </li>
+            <li>
+                <a href="{{route('dashboard.coupons.index')}}">
+                    <i class="fa fa-gift"></i>
+                    <span class="title">Coupons</span>
+                </a>
+            </li>
 
         </ul>
         <div class="clearfix"></div>
