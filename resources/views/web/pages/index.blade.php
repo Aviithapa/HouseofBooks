@@ -8,11 +8,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner overflow-hidden">
                 <div class="item active">
-                    <img src="{{$banner->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
+                    <img class="lazy" src="{{$banner->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
                 </div>
                 @foreach($banners as $banners)
                 <div class="item">
-                    <img src="{{$banners->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
+                    <img class="lazy" src="{{$banners->getImage()}}" alt="House of Books"  oncontextmenu="return false;">
                 </div>
                 @endforeach
             </div>
@@ -635,7 +635,12 @@
 {{--        </div>--}}
     @endsection
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+
             <script>
+                $("img").lazyload({
+                    effect : "fadeIn"
+                });
                 function addtoCart(id) {
                     var product_id = id;
                     var url = "/add/to/cart/" +product_id;
@@ -694,12 +699,12 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('#cartBtn').on('click', function () {
-
-
-            });
-        });
+        // $(document).ready(function() {
+        //     $(".bbb_viewed_item").attr('id','preloader')
+        //     $(".bbb_viewed_item img").addEventListener('load', (event) => {
+        //         console.log('The logo has been loaded');
+        //     });
+        // });
 
 
 

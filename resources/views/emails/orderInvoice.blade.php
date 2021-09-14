@@ -108,12 +108,28 @@
             <td>Delivery Charge:</td>
             <td>RS {{ $order->delivery_charge }}</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total Amount:</td>
-            <td> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}</td>
-        </tr>
+        @if($order->coupons_total)
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Discount Amount With Coupon:</td>
+                <td> RS {{ round($order->coupons_total, 2)}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total Amount:</td>
+                <td> RS {{ round($order->coupons_total, 2) + $order->delivery_charge}}</td>
+            </tr>
+        @else
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total Amount:</td>
+                <td> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}</td>
+            </tr>
+        @endif
+
     </table>
 
 

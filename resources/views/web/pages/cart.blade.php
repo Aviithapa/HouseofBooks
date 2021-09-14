@@ -8,9 +8,12 @@
             <h1 style="align-content: center" ><span>Shopping Cart</span></h1>
 
             <!-- Cart Items - start -->
+
             <div class="row">
+                <form action="{{route('checkout')}}" method="POST" style="color: black !important;">
+                    {{ csrf_field() }}
                 <div class="col-lg-8 col-md-12">
-            <form action="#" style="color: black !important;">
+
                 <div class="cart-items-wrap">
                     <table class="cart-items">
                         <thead>
@@ -75,24 +78,23 @@
                              </td>
                         </tr>
                             @endforeach
-{{--                        <tr>--}}
-{{--                            <td>--}}
-{{--                                <div class="col-md-12">--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <strong>Coupon Code</strong>--}}
-{{--                                        <input type="text" class="form-control"  name="coupon">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                            </td>--}}
-{{--                        </tr>--}}
+                        <tr>
+                            <td>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <strong>Coupon Code</strong>
+                                        <input type="text" class="form-control"  name="coupons">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
                 <ul class="cart-total">
                     <li class="cart-summ">TOTAL: <b>{{getCartTotalPrice()}}</b></li>
                 </ul>
-            </form>
+
                 </div>
                 <!-- Cart Items - end -->
                 <div class="col-lg-4 col-md-12">
@@ -114,7 +116,7 @@
                                     @if( getCartAmount() == 0)
                                     <a href="{{url('/')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Start Shopping Now</button></a>
                                      @else
-                                        <a href="{{url('checkout')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                      <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button>
                                     @endif
                                 </div>
                             </div>
@@ -122,6 +124,7 @@
 
                     </div>
                 </div>
+                </form>
             </div>
         </section>
     </main>

@@ -26,10 +26,12 @@ use App\Modules\Backend\Schools\SchoolProgram\Repositories\SchoolProgramReposito
 use App\Modules\Backend\Website\Blog\Repositories\BlogRepository;
 use App\Modules\Backend\Website\Cart\Repositories\CartRepository;
 use App\Modules\Backend\Website\Category\Repositories\CategoryRepository;
+use App\Modules\Backend\Website\Coupons\Repositories\CouponsRepository;
 use App\Modules\Backend\Website\Donation\Repositories\DonationRepository;
 use App\Modules\Backend\Website\Event\Repositories\EventRepository;
 use App\Modules\Backend\Website\Faculty\Repositories\FacultyRepository;
 use App\Modules\Backend\Website\Order\Repositories\OrderRepository;
+use App\Modules\Backend\Website\Order\Requests\UpdateOrderRequest;
 use App\Modules\Backend\Website\OrderItem\Repositories\OrderItemRepository;
 use App\Modules\Backend\Website\Post\Repositories\PostRepository;
 use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
@@ -58,6 +60,7 @@ class HomeController extends BaseController
     private $orderRepository;
     private $orderItemRepository,$blogRepository;
     private $request,$semester;
+    private $couponRepository;
 
     public function __construct(SliderRepository $sliderRepository,
                                 PostRepository $postRepository,
@@ -65,7 +68,7 @@ class HomeController extends BaseController
                                 UserRepository $userRepository,
                                 OrderRepository $orderRepository,
                                 OrderItemRepository $orderItemRepository,
-                                BlogRepository $blogRepository,
+                                BlogRepository $blogRepository,CouponsRepository $couponRepository,
                                 Request $request,FacultyRepository $facultyRepository,SemesterRepository $semesterRepository,  ProductRepository $productRepository,CartRepository $cartRepository)
     {
         $this->sliderRepository = $sliderRepository;
@@ -79,6 +82,7 @@ class HomeController extends BaseController
         $this->orderRepository=$orderRepository;
         $this->orderItemRepository = $orderItemRepository;
         $this->blogRepository=$blogRepository;
+        $this->couponRepository=$couponRepository;
         $this->request = $request;
 
         parent::__construct();
@@ -523,6 +527,23 @@ class HomeController extends BaseController
             }
             return response()->json(['Book Has Been Successfully added to Cart']);
     }
+    public function checkout(Request $request){
+        $coupons=$request->coupons;
+        $isCoupon=$this->couponRepository->Coupon($coupons);
+        $cartDetails=$this->orderRepository->findByFirst('user_id','=',Auth::user()->id);
+        $data=$cartDetails;
+        $couponsDiscount=0;
+        if($isCoupon){
+            $couponsDiscount=$isCoupon;
+            $total= $cartDetails->grand_total - (($cartDetails->grand_total*$isCoupon)/100);
+            $data['coupons_total']=$total;
+            $data["coupons_type"]=$coupons;
+            $data['coupons_discount']=$isCoupon;
+            $cartDetails->update((array)$data);
+
+        }
+        return view('web.pages.checkout',compact('couponsDiscount',"isCoupon"));
+    }
     public function Contact(Request $req){
         try {
             $this->view_data['terms']=$this->postRepository->findById(152);
@@ -663,24 +684,7 @@ class HomeController extends BaseController
 
     }
 
-    public function storeImage(Request $request)
-    {
-        if($request->file('file')){
 
-            $img = $request->file('file');
 
-            foreach ($img as $item):
-                $var = date_create();
-                $time = date_format($var, 'YmdHis');
-                $imageName = $time . '-' . $item->getClientOriginalName();
-                $item->move(base_path() . '/storage/app/public/product_image', $imageName);
-                $arr[] = $imageName;
-            endforeach;
-            $image = implode(",", $arr);
-            $response['image_name'] = $image;
-
-            return response()->json(['status'=>"success",'imgdata'=>$response]);
-        }
-    }
 
 }

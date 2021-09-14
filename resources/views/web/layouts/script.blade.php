@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
 <script>
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -44,5 +46,8 @@
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    }
+    };
+    $(document).ready(function() {
+        $("img").lazyload({effect : "fadeIn"});
+    });
 </script>

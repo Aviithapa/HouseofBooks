@@ -9,7 +9,6 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('donation/{id}','HomeController@donation')->name('donation');
     Route::post('donation/{id}','HomeController@User')->name('user');
     Route::get('/productDetails/{id}','HomeController@productDetails');
-   // Route::get('/catalog/{category}/{university}/{faculty}','HomeController@UniversityCatalog');
     Route::get('/catalog/{category}/{university}','HomeController@UniversityCatalog');
     Route::get('/publication/{slug}','HomeController@publicationCatalog')->name('publication');
     Route::get('/catalog/semester/{slug}','HomeController@semesterCatalog')->name('semester');
@@ -21,7 +20,6 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/secondhand/catalog/{slug}','HomeController@secondhandcatalog');
     Route::get('/cart','HomeController@cart')->middleware('auth');
     Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth')->name('add.to.cart');
-    //Route::patch('update-cart', 'HomeController@update')->name('update.cart');
     Route::get('search','HomeController@search')->name('search');
     Route::get('/cart/delete/{id}','HomeController@Destroy')->name('destroy');
     Route::post('/order_confirmation','HomeController@Order');
@@ -31,13 +29,12 @@ Route::group(['namespace' => 'General'], function () {
     Route::post('filters','HomeController@Filters')->name('filters');
     Route::get('/autocomplete/fetch', 'HomeController@ajaxsearch')->name('autocomplete.fetch');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
+    Route::post('/checkout/coupons','HomeController@checkout')->name('checkout');
     Route::get('/publicationData','HomeController@publicationData')->name('publication.data');
     Route::get('change','HomeController@user')->name('user.role');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');
     Route::match(['get', 'post'],'esewa/fail','EsewaController@fail')->name('esewa.fail');
-    Route::post('/file-upload', 'HomeContoller@storeImage')
-        ->name('storeImage'); //FOR CREATE
     });
 
 

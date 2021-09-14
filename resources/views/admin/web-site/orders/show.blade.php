@@ -76,7 +76,12 @@
                             <div class="jst" style="right: 0; bottom: 0; position: absolute; margin-right: 120px; height: 100px ">
                             <b>Amount:</b>RS  {{ round($order->grand_total, 2) }}<br>
                             <b>Delivery Charge:</b>RS {{ $order->delivery_charge }}<br>
+                                @if($order->coupons_total)
+                                    <b>Discount Amount With Coupon: </b> RS {{ round($order->coupons_total, 2)}}<br>
+                                    <b>Total Amount: </b> RS {{ round($order->coupons_total, 2) + $order->delivery_charge}}<br>
+                                    @else
                             <b>Total Amount: </b> RS {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
+                                    @endif
                             </div>
                         </div>
                     </div>

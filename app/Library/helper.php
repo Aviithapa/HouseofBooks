@@ -266,6 +266,13 @@ function getCartTotalPrice()
     }
     return $final_amount;
 }
+function getCartWithCouponDiscount($totalprice, $coupondiscount)
+{
+    $final_amount = 0;
+    $final_amount=$totalprice - (($totalprice * $coupondiscount)/100);
+    return $final_amount;
+}
+
 function getTotalQuanity(){
     $user=Auth::user()->id;
     $cart_products = \App\Models\Website\Cart::where('user_id', $user)->get();

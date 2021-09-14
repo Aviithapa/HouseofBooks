@@ -12,7 +12,8 @@ class Order extends Model
 
     protected $fillable = [
         'id','name', 'user_id', 'status', 'grand_total', 'item_count','email','collage_name','collage_address',
-        'address', 'phone_number', 'notes' ,"payment_method" , "payment_status" ,"delivery_charge"
+        'address', 'phone_number', 'notes' ,"payment_method" , "payment_status" ,"delivery_charge","coupons_total",
+        "coupons_type","coupons_discount"
     ];
 
      public function user()
