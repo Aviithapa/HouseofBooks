@@ -3407,3 +3407,49 @@ a{
     z-index: 20000;
     margin-top: 15px;
 }
+
+
+.coupon .input-text {
+    border: 1px solid #ddd;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1em 1.8em;
+    display: block;
+    width: 100%;
+    /* padding: .594rem 1rem; */
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.714;
+    color: #333e48;
+    background-color: #fff;
+    background-clip: padding-box;
+    appearance: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.coupon .button {
+    border-radius: 1.571em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -4px;
+    position: relative;
+    white-space: pre;
+    font-weight: 700;
+    font-size: .875rem;
+    padding: 1.2em 2.5em;
+    background-color: #FF8800;
+    color: #fff;
+    line-height: 1.18em;
+}
+.coupon .button:hover {
+    background-color: #FF8800;
+
+}
+.coupon {
+    flex: 0 0 auto;
+    width: 100%;
+    float: left;
+    text-align: left;
+    display: flex;
+}

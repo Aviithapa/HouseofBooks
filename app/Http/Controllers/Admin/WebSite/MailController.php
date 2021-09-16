@@ -72,7 +72,7 @@ class MailController extends BaseController
             Mail::send('emails.promotion', $mailData, function($message) use ($mailData) {
                 $message->to($mailData['email'])
                     ->subject($mailData['subject']);
-                $message->from($address ='houseofbooksnepal@gmail.com', $name = 'House of Books Pvt Ltd');
+                $message->from($address ='sales@houseofbooks.com.np', $name = 'House of Books Pvt Ltd');
             });
         }
         return redirect()->back();

@@ -480,7 +480,8 @@ class HomeController extends BaseController
         $this->view_data['cod'] = $this->postRepository->findById(151);
         $this->view_data['terms']=$this->postRepository->findById(152);
         $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
-         return view('web.pages.cart' , $this->view_data);
+       $isCoupon="";
+         return view('web.pages.cart' , $this->view_data,compact('isCoupon'));
     }
 
     public function addtocart(Request $request, $id)
@@ -528,10 +529,14 @@ class HomeController extends BaseController
             return response()->json(['Book Has Been Successfully added to Cart']);
     }
     public function checkout(Request $request){
+        $this->view_data['cod'] = $this->postRepository->findById(151);
+        $this->view_data['terms']=$this->postRepository->findById(152);
+        $this->view_data['cart'] = $this->cartRepository->getAll()->where('user_id','=',Auth::user()->id);
         $coupons=$request->coupons;
         $isCoupon=$this->couponRepository->Coupon($coupons);
         $cartDetails=$this->orderRepository->findByFirst('user_id','=',Auth::user()->id);
         $data=$cartDetails;
+        $data['coupons_total']=$cartDetails->grand_total;
         $couponsDiscount=0;
         if($isCoupon){
             $couponsDiscount=$isCoupon;
@@ -540,9 +545,21 @@ class HomeController extends BaseController
             $data["coupons_type"]=$coupons;
             $data['coupons_discount']=$isCoupon;
             $cartDetails->update((array)$data);
+            return view('web.pages.cart',compact('couponsDiscount',"isCoupon","total"),$this->view_data);
 
+        }else{
+            return redirect()->back()->with('error',"Coupon '$coupons' does not exits");
         }
-        return view('web.pages.checkout',compact('couponsDiscount',"isCoupon"));
+    }
+    public function checkouts($coupon=null){
+        if ($coupon=="null"){
+            $isCoupon =0;
+            return view('web.pages.checkout',compact("isCoupon"));
+        }else{
+            $isCoupon=$coupon;
+            return view('web.pages.checkout',compact("isCoupon"));
+        }
+
     }
     public function Contact(Request $req){
         try {

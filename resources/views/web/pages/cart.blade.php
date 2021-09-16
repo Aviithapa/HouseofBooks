@@ -10,8 +10,6 @@
             <!-- Cart Items - start -->
 
             <div class="row">
-                <form action="{{route('checkout')}}" method="POST" style="color: black !important;">
-                    {{ csrf_field() }}
                 <div class="col-lg-8 col-md-12">
 
                 <div class="cart-items-wrap">
@@ -80,19 +78,27 @@
                             @endforeach
                         <tr>
                             <td>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <strong>Coupon Code</strong>
-                                        <input type="text" class="form-control"  name="coupons">
-                                    </div>
+                                <form action="{{route('checkout')}}" method="POST" style="color: black !important;">
+                                    {{ csrf_field() }}
+                                <label for="coupon_code">Coupon:</label><br>
+                                <div class="coupon">
+                                    <input type="text" name="coupons" class="input-text" id="coupon_code" value="" placeholder="Coupon code">
+                                    <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
                                 </div>
+                                </form>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <ul class="cart-total">
-                    <li class="cart-summ">TOTAL: <b>{{getCartTotalPrice()}}</b></li>
+                    @if($isCoupon)
+                        Coupon Discount : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{$isCoupon}} %</b> <br>
+                        <li class="cart-summ">TOTAL: <b> {{getCartWithCouponDiscount(getCartTotalPrice(),$couponsDiscount)}}</b></li>
+                   @else
+                        <li class="cart-summ">TOTAL: <b> {{getCartTotalPrice()}}</b></li>
+                    @endif
+
                 </ul>
 
                 </div>
@@ -108,7 +114,13 @@
                                         Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b><br>
                                         Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">Considered as address</b> <br>
                                         <hr style="height: 5px; !important;"> <br>
-                                        Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b>
+                                        @if($isCoupon)
+                                            Coupon Discount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> {{$isCoupon}} % </b><br>
+                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$couponsDiscount)}} </b>
+                                        @else
+                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b>
+                                        @endif
+
                                     </dl>
                                 </article>
 
@@ -116,7 +128,11 @@
                                     @if( getCartAmount() == 0)
                                     <a href="{{url('/')}}"> <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Start Shopping Now</button></a>
                                      @else
-                                      <button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button>
+                                        @if($isCoupon)
+                                            <a href="{{url('checkouts',$isCoupon)}}"><button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                        @else
+                                            <a href="{{url('/checkouts/null')}}"><button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                            @endif
                                     @endif
                                 </div>
                             </div>
@@ -124,7 +140,6 @@
 
                     </div>
                 </div>
-                </form>
             </div>
         </section>
     </main>

@@ -140,7 +140,7 @@
         <h1>Send Mail</h1>
 
         <label for="email"><b>Subject</b></label>
-        <input type="text" placeholder="Enter Email" name="subject" required>
+        <input type="text" placeholder="Enter Your Subject" name="subject" required>
 
         <div class="form-group">
             <label for="excerpt" class="form-label">Message:</label>

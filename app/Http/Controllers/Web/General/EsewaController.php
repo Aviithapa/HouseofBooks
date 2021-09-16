@@ -59,7 +59,7 @@ class EsewaController extends BaseController
                 }
                 $url = "https://esewa.com.np/epay/transrec";
                 $data =[
-                    'amt'=> $datas['grand_total'],
+                    'amt'=> $datas['coupons_total'],
                     'rid'=> $request->refId,
                     'pid'=> $request->oid,
                     'scd'=> 'NP-ES-HOUSE'

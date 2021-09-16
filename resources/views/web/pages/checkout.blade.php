@@ -75,10 +75,13 @@
                                             Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b><br>
                                             Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">Considered as address</b> <br>
                                             @if($isCoupon)
-                                                Coupon Discount : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{$isCoupon}}</b> <br>
+                                                Coupon Discount : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{$isCoupon}} %</b> <br>
+                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
+                                                @else
+                                                <hr style="height: 5px; !important;"> <br>
+                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
                                             @endif
-                                            <hr style="height: 5px; !important;"> <br>
-                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$couponsDiscount)}} </b>
+
                                         </dl>
                                     </article>
 

@@ -30,6 +30,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('/autocomplete/fetch', 'HomeController@ajaxsearch')->name('autocomplete.fetch');
     Route::get('/single-blog/{id}','HomeController@singleBlog');
     Route::post('/checkout/coupons','HomeController@checkout')->name('checkout');
+    Route::get('/checkouts/{coupon}','HomeController@checkouts');
     Route::get('/publicationData','HomeController@publicationData')->name('publication.data');
     Route::get('change','HomeController@user')->name('user.role');
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
