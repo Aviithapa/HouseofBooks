@@ -78,6 +78,22 @@
     /*    color: red;*/
     /*}*/
 }
+@media screen and (max-width: 1300px) {
+    .modal-body {
+         height: 350px;
+    }
+}
+@media screen and (max-width: 1500px) {
+    .modal-body {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .modal-body {
+        height: 450px;
+    }
+}
 @media screen and (max-width: 1100px) {
     .columns{
         width:30% !important;
