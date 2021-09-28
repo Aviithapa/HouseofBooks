@@ -25,10 +25,12 @@
 
 
     <div class="header-logo row">
-                <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12  logo mt-3">
-                   <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="150" height="150"></a>
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12  logo mt-3 img-fluid" style="
+    padding: 0px !important;">
+                   <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" style="    width: 70%;
+    height: 100%;"></a>
                 </div>
-                <div class="col-lg-5 col-md-10 col-sm-12 col-xs-13 form-search overflow-stick" id="form" style="margin-top: 25px;">
+                <div class="col-lg-4 col-md-10 col-sm-12 col-xs-13 form-search overflow-stick" id="form" style="margin-top: 25px;">
                     <form action="{{url("search")}}" method="GET" role="search">
                         {{csrf_field()}}
                         <div class="input-group" style="position: unset !important;">
