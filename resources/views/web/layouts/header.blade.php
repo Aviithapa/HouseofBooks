@@ -25,7 +25,7 @@
 
 
     <div class="header-logo row">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12  logo mt-3 img-fluid" style="
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12  logo mt-4 img-fluid" style="
     padding: 0px !important;">
                    <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" style="    width: 70%;
     height: auto;"></a>
