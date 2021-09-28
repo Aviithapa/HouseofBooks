@@ -15,6 +15,7 @@
     <meta property="og:description" content="{{ isset($pageContent->meta_description)?$pageContent->meta_description:""}} {{ isset($product->description)?$product->description:""}}"/>
     <meta property="og:url" content="https://houseofbooks.com.np/" />
     <meta property="og:site_name" content="House of Books" />
+    <meta name="google-site-verification" content="Yhc26xzF-IVOlKrtNkYa-_t4NbxhHoyZArPfqhuw8-4" />
     @include('web.layouts.style')
     @stack('styles')
   </head>
