@@ -260,13 +260,13 @@
         </div>
     </div>
     <div class="mob-header">
-        <div class="col-sm-4 col-xs-4 ">
+        <div class="col-sm-3 col-xs-3 ">
             <p id="main-menu" onclick="openMobileNav()"><i class="fa fa-bars fa-2x"></i></p>
         </div>
-        <div class="col-sm-4 col-xs-4 ">
-            <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="75" height="75"></a>
+        <div class="col-sm-6 col-xs-6 mt-3">
+            <a href="{{url('/')}}"><img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" alt="House of Books" width="250" height="150"></a>
         </div>
-        <div class="col-sm-4 col-xs-4 ">
+        <div class="col-sm-3 col-xs-3 ">
             <a href="{{url("cart")}}" id="carts"><i class="fa fa-shopping-bag fa-2x"></i>@if(\Illuminate\Support\Facades\Auth::user())
                     {{getCartAmount()}}
                 @else

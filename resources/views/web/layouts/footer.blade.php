@@ -7,7 +7,7 @@
             <div class="col-md-4 col-xl-5" style="text-align:center;">
                 <div class="pr-xl-4"><a class="brand" href="{{url("/")}}">
                         <div class="logo-holder mt-5 center-block">
-                            <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="140px" height="140px" class="mt-4">
+                            <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="140px" height="140px" class="mt-5">
                         </div>
                     </a>
                     <h2 style="font-weight: bold">HOUSE OF BOOKS PVT. LTD</h2>
