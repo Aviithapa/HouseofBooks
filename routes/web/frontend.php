@@ -20,6 +20,14 @@ Route::get('/migrate', function(){
     $exitcode=Artisan::call('migrate');
     return "Migration Successful Linked Successfully";
 });
+Route::get('/dump-autoload', function(){
+    $exitcode=Composer::call('dump-autoload');
+    return "Dump Autoload  Successfully";
+});
+Route::get('/view-clear', function(){
+    $exitcode=\Illuminate\Support\Facades\Artisan::call('view:clear');
+    return "Dump Autoload  Successfully";
+});
 
 Route::group(['namespace' => 'Web'], function () {
 
