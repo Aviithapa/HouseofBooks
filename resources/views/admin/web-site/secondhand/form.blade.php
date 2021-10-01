@@ -391,8 +391,8 @@
                     break;
                case 'faculty':
                    var levelCat = document.getElementById("levelCat").value;
-                   var faculty =  document.querySelector('.faculty').value;
-                   if (levelCat === "bachlor") {
+                   var faculty =  document.getElementsByClassName('faculty').value;
+                   if (levelCat === "bachelor") {
                        if (faculty === "BBS") {
                            $('#years').attr('name', 'semester');
                            $("#sems").attr('name', 'nothing');
@@ -456,7 +456,8 @@
                            $("#masterfaculty").hide();
                            $("#2faculty").hide();
                            $("#pclfaculty").hide();
-                           var faculty =  document.querySelector('.faculty').value;
+                           var faculty =  document.getElementsByClassName('faculty').value;
+                           alert(faculty,"BBS");
                            if(faculty==="BBS"){
                                $('#years').attr('name', 'semester');
                                $("#sems").attr('name', 'nothing');
@@ -606,6 +607,7 @@
                     else{
                         $("#bachelorfac").attr('name', 'faculty');
                         $("#masterfac").attr('name', 'nothing');
+                        $("#masterfaculty").hide();
                         $("#2fac").attr('name', 'nothing');
                         $("#pclfac").attr('name', 'nothing');
                         $("#entrancefac").attr('name', 'nothing');

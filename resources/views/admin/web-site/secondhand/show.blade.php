@@ -100,8 +100,10 @@
                         <h3><span>Category : {{$product->category}}</span></h3>
                         <h3><span>Condition : {{$product->condition}}</span></h3>
                         <h3> <span>Sub Category :{{$product->sub_category}}</span></h3>
-                        <h3><span>Status : {{$product->status}}</span><br></h3>
-                        <h3><span>Nobel Category : {{$product->nobel_category}}</span><br></h3>
+                                @if($product->sub_category=="nobel")
+                                    <h3><span>Status : {{$product->status}}</span><br></h3>
+                                    <h3><span>Nobel Category : {{$product->nobel_category}}</span><br></h3>
+                                    @endif
                         <h3><span>University : {{$product->university}}</span><br></h3>
                         <h3> <span>Publication : {{$product->publication}}</span><br></h3>
                         <h3> <span>Semester : {{$product->semester}}</span><br></h3>
