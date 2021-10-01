@@ -565,7 +565,7 @@ if(!function_exists('getUniversityCategory'))
     function getUniversityCategory()
     {
         return [
-            'TU' => 'Tribhuwan University ',
+            'TU' => 'Tribhuvan University ',
             'PU' => 'Pokhara University',
             'PBU'=>'Purbanchal University',
             'NEB'=>"Nation Examination Board",
@@ -617,7 +617,7 @@ if(!function_exists('getSubCategory'))
             'coursebook' => 'Coursebook',
             'novel' => 'Novel',
             'nepali_novel' => "Nepali Novel",
-            'Rakshya' => 'Rakshya Bandhan',
+            'Rakshya' => 'Book Pack',
             'question-bank-and-solution' => 'Question bank and Solution',
             'loksewa-examination' => 'Loksewa Examination',
             'entrance-examination' => 'Entrance Examination',

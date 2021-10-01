@@ -121,7 +121,7 @@
                                     <ul>
                                         <li>
                                             <a href="{{url('/catalog/coursebook/TU')}}">
-                                                Tribhuwan University
+                                                Tribhuvan University
                                             </a>
                                             <i class="fa fa-angle-right"></i>
                                             <ul>
@@ -372,7 +372,7 @@
                         <ul class="dropdown-container sub-container">
                             <li>
                                 <a href="{{url('/catalog/coursebook/TU')}}">
-                                    Tribhuwan University
+                                    Tribhuvan University
                                 </a>
                                 <i class="dropdown-btn fa fa-angle-down"></i>
                                 <ul class="dropdown-container sub-container-sub">
