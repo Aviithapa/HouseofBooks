@@ -51,7 +51,7 @@
         </div>
     </div>
 </nav>
-<span class="popuptext" id="myPopup">Start Selling</span>
+{{--<span class="popuptext" id="myPopup">Start Selling</span>--}}
 
 <div id="myModal" class="modal">
 

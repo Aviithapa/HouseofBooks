@@ -535,6 +535,7 @@ if(!function_exists('getLevelWiseFacultyCategory'))
                     'BSW' => 'Bachelor in Social Work',
                     'BFA' => 'Bachelor in Fine Arts',
                     'BCA' => 'Bachelor in Computer Application',
+                    'BN' => 'Bachelor in Nursing',
                     'BED' => 'B.Ed',
                     'other' => 'Other'
                 ];
