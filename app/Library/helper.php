@@ -243,6 +243,13 @@ function getCoursebookCount($books,$level){
     }
     return $i;
 }
+function getLoksewabookCount($books){
+    $i=0;
+    foreach ($books as $product){
+            $i=$i+1;
+    }
+    return $i;
+}
 function getNovelsCount($books,$novel_category){
     $i=0;
     foreach ($books as $product){

@@ -503,13 +503,6 @@
                 </h3>
                 <div class="container">
                     <hr>
-                    <div class="tab">
-                        <button class="tablinkes active" onclick="openQuestionBank(event, 'bachelors')" id="defaultCourseOpen">Bachelor</button>
-                        <button class="tablinkes" onclick="openQuestionBank(event, 'masters')">Master</button>
-                        <button class="tablinkes" onclick="openQuestionBank(event, 'two')">+2 level</button>
-                        <button class="tablinkes" onclick="openQuestionBank(event, 'ten')">Class 10</button>
-                        <button class="tablinkes" onclick="openQuestionBank(event, 'foreigns')">Foreign Writer </button>
-                    </div>
                 </div>
                 <div id="bachelors" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: block;">
                     @if(getCoursebookCount($question,"bachelor") > 5)
@@ -741,6 +734,64 @@
                                             </div>
                                         </div>
                                     @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+
+
+            <div class="tab-2">
+                <h3 class="bbb_viewed_title">
+                    <div class="title" >
+                        <h4>Loksewa Books</h4>
+                    </div>
+                    <p class="viewallbtn" style="float: right; margin-top: -40px; margin-right: 70px;"><a href="{{url('/secondhand/catalog/loksewa-examination')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
+                </h3>
+                <div class="container">
+                    <hr>
+                </div>
+                <div id="bachelors" class="tabcontentes"  style="margin: 0px 50px 0px 50px; display: block;">
+                    @if(getLoksewabookCount($loksewa) > 5)
+                        <div class="bbb_viewed_slider_container book">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                @foreach($loksewa as $product)
+                                        <div class="owl-item cardsecondhand">
+                                            <a href="{{url("productDetails/".$product->id)}}">
+                                                <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
+                                            </a>
+                                            <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                            <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                            <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                            <p class="prod-i-price">
+                                                <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
+                                                <button  onclick="addtoCart({{ $product->id }})" class="car btn btn-primary btn-round-sm btn-sm " style="font-size: 12px; font-weight: 600;">ADD TO CART</button>
+                                            </p>
+                                        </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="contentsecondhand" >
+                            <div class="row">
+                                @foreach($loksewa as $product)
+                                        <div class="columns">
+                                            <div class="cardsecondhand">
+                                                <a href="{{url("productDetails/".$product->id)}}">
+                                                    <img src="{{$product->getSecondHandFrontImage()}}" alt="{{$product->name}}" style="width:250px; height:250px;">
+                                                </a>
+                                                <input type="hidden" value="{{$product->id}}" id="pro_id">
+                                                <h5 style="font-weight: bold;  margin-bottom: 1px !important; color: black!important; font-size: 14px !important;"  style="line-height: 20px;">{{ str_limit($product->name, 20) }} </h5>
+                                                <p style="color: black!important;  font-style: italic; font-size: 12px;">{{$product->faculty}}</p>
+                                                <p class="prod-i-price">
+                                                    <button class="btn btn-primary btn-round-sm btn-sm price" style=" width:70px; font-size: 10px;background-color:#25a521 !important; border-color:#25a521 !important; margin-right:3px; font-weight: 700 !important;">RS {{$product->getDicountedPrice()}}</button>
+                                                    <button  onclick="addtoCart({{ $product->id }})" class="car btn btn-primary btn-round-sm btn-sm " style="font-size: 12px; font-weight: 600;">ADD TO CART</button>
+                                                </p>
+                                            </div>
+                                        </div>
                                 @endforeach
                             </div>
                         </div>

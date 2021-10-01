@@ -225,6 +225,7 @@ class HomeController extends BaseController
                     $this->view_data['books'] =$this->productRepository->secondHand('coursebook');
                     $this->view_data['motivational'] =$this->productRepository->secondHand('novel');
                     $this->view_data['question'] =$this->productRepository->secondHand('question-bank-and-solution');
+                    $this->view_data['loksewa'] =$this->productRepository->secondHand('loksewa-examination');
                     $this->view_data['banner'] =$this->postRepository->findById(144);
                     $this->view_data['products'] =$this->productRepository->findBy('category','second-hand','=') ;
                     break;
