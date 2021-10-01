@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel = "icon" class="img-fluid" href ="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" type = "image/x-icon">
     <title>{{getSiteSetting('site_title') != null? getSiteSetting('site_title'): ''}} | {{ isset($pageContent->meta_link)?$pageContent->meta_link:""}}</title>
-    <meta charset="utf-8">
     <meta name="description" content="{{ isset($pageContent->meta_description)?$pageContent->meta_description:""}} {{ isset($product->description)?$product->description:""}}">
     <meta name="keywords" content="{{ isset($product->name)?$product->name:""}}">
     <meta name="keywords" content="buy books online in nepal,online bookstore nepal,buy books nepal,buy nepali books online,online bookshop nepal,buy books online nepal,buy used books in nepal,buy second hand books nepal,buy used books in nepal,used books nepal, sell second hand book nepal, sell used book nepal, used book, used books">
