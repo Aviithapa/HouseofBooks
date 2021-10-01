@@ -1,6 +1,47 @@
 @extends('web.layouts.app')
 
 @section('content')
+
+    <style>
+        .image-gallery {
+            margin: 10px;
+            display: table;
+            width: 50%;
+            float: left;
+        }
+
+        .primary,
+        .thumbnails {
+            display: table-cell;
+        }
+        /*.thumbnails {*/
+        /*    !*width: 150px;*!*/
+        /*}*/
+
+        .primary {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background-color: #cccccc;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .thumbnail:hover .thumbnail-image, .selected .thumbnail-image {
+            border: 4px solid red;
+        }
+
+        .thumbnail-image {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border: 4px solid transparent;
+        }
+    </style>
     <main>
         <section class="container mt-2" >
 
@@ -11,51 +52,66 @@
 
                 <!-- Product Images -->
                 @if($product->category=="second-hand")
-                    <div class="prod-slider-wrap">
-                        <div class="prod-slider">
-                            <ul class="prod-slider-car">
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">
-                                        <img src="{{$product->getImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getMiddleImage()}}">
-                                        <img src="{{$product->getMiddleImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getlastImage()}}">
-                                        <img src="{{$product->getlastImage()}}" alt="">
-                                    </a>
-                                </li>
-{{--                                    <li>--}}
-{{--                                        <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">--}}
-{{--                                            <img src="{{$product->getImage()}}" alt="{{$product->name}}" onclick="onClick(this)" class="modal-hover-opacity">--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-                            </ul>
-                        </div>
-                        <div class="prod-thumbs">
-                            <ul class="prod-thumbs-car">
-                                <li>
-                                    <a data-slide-index="0" href="#">
-                                        <img src="{{$product->getImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-slide-index="1" href="#">
-                                        <img src="{{$product->getMiddleImage()}}" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-slide-index="2" href="#">
-                                        <img src="{{$product->getlastImage()}}" alt="">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="image-gallery">
+                        <aside class="thumbnails">
+                            <a href="#" class="selected thumbnail" data-big="{{$product->getImage()}}">
+                                <div class="thumbnail-image" style="background-image: url({{$product->getImage()}})"></div>
+                            </a>
+                            <a href="#" class="thumbnail" data-big="{{$product->getMiddleImage()}}">
+                                <div class="thumbnail-image" style="background-image: url({{$product->getMiddleImage()}})"></div>
+                            </a>
+                            <a href="#" class="thumbnail" data-big="{{$product->getlastImage()}}">
+                                <div class="thumbnail-image" style="background-image: url({{$product->getlastImage()}})"></div>
+                            </a>
+                        </aside>
+
+                        <main class="primary" style="background-image: url({{$product->getImage()}});"></main>
                     </div>
+
+
+
+
+
+{{--                    <div class="prod-slider-wrap">--}}
+{{--                        <div class="prod-slider">--}}
+{{--                            <ul class="prod-slider-car">--}}
+{{--                                <li>--}}
+{{--                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getImage()}}">--}}
+{{--                                        <img src="{{$product->getImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getMiddleImage()}}">--}}
+{{--                                        <img src="{{$product->getMiddleImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a data-fancybox-group="product" class="fancy-img" href="{{$product->getlastImage()}}">--}}
+{{--                                        <img src="{{$product->getlastImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                        <div class="prod-thumbs">--}}
+{{--                            <ul class="prod-thumbs-car">--}}
+{{--                                <li>--}}
+{{--                                    <a data-slide-index="0" href="#">--}}
+{{--                                        <img src="{{$product->getImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a data-slide-index="1" href="#">--}}
+{{--                                        <img src="{{$product->getMiddleImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a data-slide-index="2" href="#">--}}
+{{--                                        <img src="{{$product->getlastImage()}}" alt="">--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     @else
                     <div class="prod-slider-wrap">
@@ -262,23 +318,34 @@
             })
         }
 
-        if ($('.prod-slider-car').length > 0) {
-            $('.prod-slider-car').each(function () {
-                $(this).bxSlider({
-                    pagerCustom: $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car'),
-                    adaptiveHeight: true,
-                    infiniteLoop: false,
+        $(document).ready(function() {
+            if ($('.prod-slider-car').length > 0) {
+                $('.prod-slider-car').each(function () {
+                    $(this).bxSlider({
+                        pagerCustom: $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car'),
+                        adaptiveHeight: true,
+                        infiniteLoop: false,
+                    });
+                    $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car').bxSlider({
+                        slideWidth: 5000,
+                        slideMargin: 8,
+                        moveSlides: 1,
+                        infiniteLoop: false,
+                        minSlides: 5,
+                        maxSlides: 5,
+                        pager: false,
+                    });
                 });
-                $(this).parents('.prod-slider-wrap').find('.prod-thumbs-car').bxSlider({
-                    slideWidth: 5000,
-                    slideMargin: 8,
-                    moveSlides: 1,
-                    infiniteLoop: false,
-                    minSlides: 5,
-                    maxSlides: 5,
-                    pager: false,
-                });
-            });
-        }
+            }
+        });
+
+        $('.thumbnail').on('click', function() {
+            var clicked = $(this);
+            var newSelection = clicked.data('big');
+            var $img = $('.primary').css("background-image","url(" + newSelection + ")");
+            clicked.parent().find('.thumbnail').removeClass('selected');
+            clicked.addClass('selected');
+            $('.primary').empty().append($img.hide().fadeIn('slow'));
+        });
     </script>
     @endpush
