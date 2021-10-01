@@ -6,9 +6,9 @@
         <div class="row row-30">
             <div class="col-md-4 col-xl-5" style="text-align:center;">
                 <div class="pr-xl-4"><a class="brand" href="{{url("/")}}">
-                        <div class="logo-holder mt-5 center-block">
-                            <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="140px" height="140px" class="mt-5">
-                        </div>
+{{--                        <div class="logo-holder mt-5 center-block">--}}
+                            <img src="{{getSiteSetting('logo_image') != null? getSiteSetting('logo_image'): ''}}" width="240px" height="240px" class="mt-5">
+{{--                        </div>--}}
                     </a>
                     <h2 style="font-weight: bold">HOUSE OF BOOKS PVT. LTD</h2>
                     <p style="margin-top: 10px; font-weight: 600; font-size: 16px;">We are the group of young motivated individuals devoted toward providing a platform for selling and buying second  hand books as well as first hand books.</p>

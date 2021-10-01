@@ -382,7 +382,9 @@
 
     <div>
         <div class="add">
+            <a href={{url("secondhandbookcatalog")}}>
             <img src="{{$secondhand_banner->getImage()}}" oncontextmenu="return false;" alt="houseofbooks" width="100%">
+            </a>
         </div>
     </div>
 
