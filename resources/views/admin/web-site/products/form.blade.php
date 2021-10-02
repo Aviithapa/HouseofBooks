@@ -227,9 +227,9 @@
                     {!! Form::label('discount', 'Price with Discount:', ['class' => 'form-label']) !!}
                     {!! Form::number('pricewithdiscount',null, ['class' => 'form-control',"readonly",'id'=>'discountprice',"style"=>"background-color:red;color:white;font-weight:600;"]) !!}
                     {!! $errors->first('price', '<div class="text-danger">:message</div>') !!}
-                    {{--                        <small>Discount percent is based on book condition. For more info please read <span style="color: #ff682c" onclick="document.getElementById('id01').style.display='block'"> terms and condition </span></small>--}}
+                <strong style="text-color:green;">As a service charge, 10% of the total will be deducted from the discounted price.</strong>
                 </div>
-            </div
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6">
@@ -632,6 +632,13 @@
             var discountprice=price - (price * discount /100);
             var disprice=document.getElementById("discountprice");
             disprice.value=discountprice;
+        }
+        function getServiceCharge(){
+            var price=document.getElementById("price").value;
+            var discount=document.getElementById("discount").value;
+            var discountprice=price - (price * discount /100);
+            var servicechargediscount = discountprice - (discountprice * 0.1)
+            return servicechargediscount
         }
         $( document ).ready(function() {
                     var sub_category=document.getElementById("subCategory").value;
