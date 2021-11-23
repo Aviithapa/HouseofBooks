@@ -51,10 +51,11 @@
                                     <select class="form-control" onchange="run()" name="payment_method" id="payment">
                                         <option class="form-control" value="cash_on_delivery">Cash On Delivery</option>
                                         <option class="form-control" value="ESEWA">ESEWA</option>
+                                        <option class="form-control" value="KHALTI">Pay With Khalti</option>
                                     </select>
                                 </div>
                         <input value="{{getCartTotalPrice()}}" name="tAmt" type="hidden">
-                        <input value="{{getCartTotalPrice()}}" name="amt" type="hidden">
+                        <input value="{{getCartTotalPrice()}}" id="amt" name="amt" type="hidden">
                         <input value="0" name="txAmt" type="hidden">
                         <input value="0" name="psc" type="hidden">
                         <input value="0" name="pdc" type="hidden">
@@ -86,7 +87,7 @@
                                     </article>
 
                                     <div class="col-md-12 mt-4">
-                                        <button type="submit" style="background-color: #25a521 !important; border: none !important; color: white !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button>
+                                        <button type="submit" id="payment-button" style="background-color: #25a521 !important; border: none !important; color: white !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button>
                                     </div>
                                 </div>
                             </div>
@@ -99,6 +100,7 @@
     </section>
 @endsection
 @push('scripts')
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
     <script>
         document.form.action = "https://houseofbooks.com.np/order_confirmation";
         function run() {
@@ -108,6 +110,61 @@
             }
             else if( paymentMethod === "cash_on_delivery")  {
                 document.form.action = "https://houseofbooks.com.np/order_confirmation";
+            }else if(paymentMethod === "KHALTI"){
+                var config = {
+                    // replace the publicKey with yours
+                    "publicKey": "test_public_key_7fa08d3502054e3497322c7103f7bab2",
+                    "productIdentity": "1234567890",
+                    "productName": "Dragon",
+                    "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+                    "paymentPreference": [
+                        "KHALTI",
+                        "EBANKING",
+                        "MOBILE_BANKING",
+                        "CONNECT_IPS",
+                        "SCT",
+                    ],
+                    "eventHandler": {
+                        onSuccess (payload) {
+                            // hit merchant api for initiating verfication
+
+                            console.log(payload);
+
+                            if(payload.idx){
+                                $.ajaxSetup({
+                                    headers:{
+                                        'X-CSRF-TOKEN' : '{{csrf_token()}}'
+                                    }
+                                });
+                                $.ajax({
+                                    method : 'post',
+                                    url : "{{ route('khalti.verifyPayment') }}",
+                                    data: payload,
+                                    success : function(response){
+                                        console.log(response)
+                                        if(response.success== 1){
+                                            console.log("true")
+                                        }else {
+                                            console.log("error")
+                                        }
+                                    },
+                                    error : function (e) {
+                                        console.log(e)
+                                    }
+                                });
+                            }
+                        },
+                        onError (error) {
+                            console.log(error);
+                        },
+                        onClose () {
+                            console.log('widget is closing');
+                        }
+                    }
+                };
+                var checkout = new KhaltiCheckout(config);
+                checkout.show({amount: 1000});
+
             }
         }
     </script>

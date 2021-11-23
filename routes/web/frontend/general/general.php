@@ -1,4 +1,6 @@
 <?php
+
+
 Route::any('esewa/success', 'EsewaController@success')->name('esewa.success');
 Route::any('esewa/fail', 'EsewaController@fail')->name('esewa.fail');
 
@@ -36,7 +38,9 @@ Route::group(['namespace' => 'General'], function () {
     Route::match(['get', 'post'], '/{slug}', 'HomeController@slug')->where('slug', '.*');
     Route::match(['get', 'post'],'esewa/success','EsewaController@success')->name('esewa.success');
     Route::match(['get', 'post'],'esewa/fail','EsewaController@fail')->name('esewa.fail');
-    });
+    Route::post('/khalti/payment/verify','KhaltiController@verifyPayment')->name('khalti.verifyPayment');
+    Route::post('/khalti/payment/store','KhaltiController@storePayment')->name('khalti.storePayment');
+});
 
 
 
