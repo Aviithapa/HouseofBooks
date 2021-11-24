@@ -102,7 +102,7 @@ class KhaltiController extends BaseController
         foreach ($orderlist as $orders) {
             $product = $this->productRepository->findBy('id', $orders->product_id, '=');
         }
-        return view('web.pages.orderConfirmation',compact('order','orderlist','product'));
+        return view('web.pages.orderConfirmation',compact('order','orderlist','product'))->render();
 
     }
 
