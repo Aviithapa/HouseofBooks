@@ -5,10 +5,34 @@ namespace App\Http\Controllers\Web\General;
 
 
 use App\Http\Controllers\Web\BaseController;
+use App\Models\Website\Cart;
+use App\Models\Website\Order;
+use App\Models\Website\OrderItem;
+use App\Modules\Backend\Website\Order\Repositories\OrderRepository;
+use App\Modules\Backend\Website\OrderItem\Repositories\OrderItemRepository;
+use App\Modules\Backend\Website\Product\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
 class KhaltiController extends BaseController
 {
+
+    private $orderRepository;
+    private $orderItemRepository;
+    private $productRepository;
+
+    public function __construct(OrderRepository $orderRepository,
+                                OrderItemRepository $orderItemRepository,
+                                Request $request,  ProductRepository $productRepository)
+    {
+
+        $this->productRepository= $productRepository;
+        $this->orderRepository=$orderRepository;
+        $this->orderItemRepository = $orderItemRepository;
+        $this->request = $request;
+
+        parent::__construct();
+    }
+
     public function verifyPayment(Request $request)
     {
 
@@ -42,9 +66,44 @@ class KhaltiController extends BaseController
 
     public function storePayment(Request $request)
     {
-        // $response = $request->response;
-        // store the data to database here
-        return response()->noContent();
+        $datas=new Order();
+        $datas->name=auth()->user()->name;
+        $datas->address=auth()->user()->address ;
+        $datas->payment_method="ESEWA";
+        $datas->phone_number=auth()->user()->phone_number;
+        $datas->email=auth()->user()->email;
+        $datas['user_id']=auth()->user()->id;
+        $datas['grand_total']=getCartTotalPrice();
+        $datas['item_count']=getTotalQuanity();
+        $datas['status'] = "received";
+        $datas->save();
+        if ($datas) {
+            $items =Cart::all()->where('user_id','=',auth()->user()->id);
+            foreach ($items as $item)
+            {
+                $orderItem = new OrderItem([
+                    'order_id'      => $datas['id'],
+                    'product_id'    =>  $item->product_id,
+                    'quantity'      =>  $item->quantity,
+                    'price'         =>  $item->product_price
+                ]);
+                $datas->items()->save($orderItem);
+            }
+           $datas["payment_status"]="payed";
+           $datas->save();
+           $items=Cart::all()->where('user_id','=',auth()->user()->id);
+            foreach ($items as $item)
+            {
+                Cart::destroy($item->id);
+            }
+        }
+        $order=$this->orderRepository->findById($datas->id);
+        $orderlist=$this->orderItemRepository->findBy('order_id', $datas->id, '=');
+        foreach ($orderlist as $orders) {
+            $product = $this->productRepository->findBy('id', $orders->product_id, '=');
+        }
+        return view('web.pages.orderConfirmation',compact('order','orderlist','product'));
+
     }
 
 }

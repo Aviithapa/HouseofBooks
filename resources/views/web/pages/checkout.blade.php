@@ -144,6 +144,7 @@
                                         },
                                         success: function (res) {
                                             console.log('transaction successfull');
+                                            console.log(res)
                                         }
                                     });
                                     console.log(res);
