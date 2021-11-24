@@ -104,13 +104,12 @@
     <script>
         document.form.action = "https://houseofbooks.com.np/order_confirmation";
         function run() {
-          var paymentMethod =document.getElementById("payment").value;
-            if( paymentMethod==="ESEWA" ) {
+            var paymentMethod = document.getElementById("payment").value;
+            if (paymentMethod === "ESEWA") {
                 document.form.action = "https://esewa.com.np/epay/main";
-            }
-            else if( paymentMethod === "cash_on_delivery")  {
+            } else if (paymentMethod === "cash_on_delivery") {
                 document.form.action = "https://houseofbooks.com.np/order_confirmation";
-            }else if(paymentMethod === "KHALTI"){
+            } else if (paymentMethod === "KHALTI") {
                 var config = {
                     // replace the publicKey with yours
                     "publicKey": "test_public_key_7fa08d3502054e3497322c7103f7bab2",
@@ -125,39 +124,37 @@
                         "SCT",
                     ],
                     "eventHandler": {
-                        onSuccess (payload) {
+                        onSuccess(payload) {
                             // hit merchant api for initiating verfication
-
-                            console.log(payload);
-
-                            if(payload.idx){
-                                $.ajaxSetup({
-                                    headers:{
-                                        'X-CSRF-TOKEN' : '{{csrf_token()}}'
-                                    }
-                                });
-                                $.ajax({
-                                    method : 'post',
-                                    url : "{{ route('khalti.verifyPayment') }}",
-                                    data: payload,
-                                    success : function(response){
-                                        console.log(response)
-                                        if(response.success== 1){
-                                            console.log("true")
-                                        }else {
-                                            console.log("error")
+                            $.ajax({
+                                type: 'GET',
+                                url: "{{ route('khalti.verifyPayment') }}",
+                                data: {
+                                    token: payload.token,
+                                    amount: payload.amount,
+                                    "_token": "{{ csrf_token() }}"
+                                },
+                                success: function (res) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "{{ route('khalti.storePayment') }}",
+                                        data: {
+                                            response: res,
+                                            "_token": "{{ csrf_token() }}"
+                                        },
+                                        success: function (res) {
+                                            console.log('transaction successfull');
                                         }
-                                    },
-                                    error : function (e) {
-                                        console.log(e)
-                                    }
-                                });
-                            }
+                                    });
+                                    console.log(res);
+                                }
+                            });
+                            console.log(payload);
                         },
-                        onError (error) {
+                        onError(error) {
                             console.log(error);
                         },
-                        onClose () {
+                        onClose() {
                             console.log('widget is closing');
                         }
                     }

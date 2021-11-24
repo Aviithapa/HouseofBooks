@@ -703,6 +703,11 @@ class HomeController extends BaseController
     }
 
 
-
+    public function verifyPayment(Request $request)
+    {
+        if($request->ajax()) {
+            return "hello";
+        }
+    }
 
 }

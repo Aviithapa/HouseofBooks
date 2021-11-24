@@ -11,8 +11,8 @@ class KhaltiController extends BaseController
 {
     public function verifyPayment(Request $request)
     {
+
         $token = $request->token;
-        $amount = $request->amount;
 
         $args = http_build_query(array(
             'token' => $token,
@@ -27,21 +27,17 @@ class KhaltiController extends BaseController
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $secret_key = config('app.khalti_secret_key');
 
-        $headers = ["Authorization: Key $secret_key"];
+
+        $headers = ["Authorization: Key test_secret_key_1f6cd432ed3f40e5845c7d77163721e3"];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         // Response
         $response = curl_exec($ch);
         $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+        return $response;
 
-        if ($status_code == 200){
-            return response()->json(['success'=> 1 , 'redirectTo'=>'Abhishek']);
-        }else{
-            return response()->json(['error'=> 1 , 'message'=>'Payment Failed']);
-        }
     }
 
     public function storePayment(Request $request)
