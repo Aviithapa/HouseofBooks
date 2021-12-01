@@ -104,9 +104,8 @@ class KhaltiController extends BaseController
             $product = $this->productRepository->findBy('id', $orders->product_id, '=');
         }
 
-        return redirect()->route('web.pages.orderConfirmation', ['order' => $order, 'orderlist' => $orderlist , 'product' => $product]);
-
-
+        $response = ['order' => $order, 'orderlist' => $orderlist , 'product' => $product];
+        return $response;
     }
 
 }
