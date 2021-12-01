@@ -105,6 +105,7 @@
         document.form.action = "https://houseofbooks.com.np/order_confirmation";
         function run() {
             var paymentMethod = document.getElementById("payment").value;
+            var amt=document.getElementById("amt").value;
             if (paymentMethod === "ESEWA") {
                 document.form.action = "https://esewa.com.np/epay/main";
             } else if (paymentMethod === "cash_on_delivery") {
@@ -142,15 +143,12 @@
                                             response: res,
                                             "_token": "{{ csrf_token() }}"
                                         },
-                                        success: function (res) {
-                                            console.log('transaction successfull');
-                                            console.log(res)
+                                        success:function (response) {
+                                            location.href = "https://houseofbooks.com.np/order_confirmation"
                                         }
                                     });
-                                    console.log(res);
                                 }
                             });
-                            console.log(payload);
                         },
                         onError(error) {
                             console.log(error);
@@ -161,7 +159,7 @@
                     }
                 };
                 var checkout = new KhaltiCheckout(config);
-                checkout.show({amount: 1000});
+                checkout.show({amount: amt*100});
 
             }
         }

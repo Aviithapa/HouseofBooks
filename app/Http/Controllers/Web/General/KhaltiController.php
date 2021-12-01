@@ -37,10 +37,11 @@ class KhaltiController extends BaseController
     {
 
         $token = $request->token;
+        $amount= $request->amount;
 
         $args = http_build_query(array(
             'token' => $token,
-            'amount'  => 1000
+            'amount'  => $amount
         ));
 
         $url = "https://khalti.com/api/v2/payment/verify/";
@@ -102,7 +103,9 @@ class KhaltiController extends BaseController
         foreach ($orderlist as $orders) {
             $product = $this->productRepository->findBy('id', $orders->product_id, '=');
         }
-        return view('web.pages.orderConfirmation',compact('order','orderlist','product'))->render();
+
+        return redirect()->route('web.pages.orderConfirmation', ['order' => $order, 'orderlist' => $orderlist , 'product' => $product]);
+
 
     }
 

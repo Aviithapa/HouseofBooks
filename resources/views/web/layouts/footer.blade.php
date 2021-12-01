@@ -45,6 +45,7 @@
                 <h3 style="font-weight: bold; color: #FF8800 !important;">Payment Options</h3>
                     <div id="eSewaLogoSection" class="mt-2"></div>
                     <div class="cod mt-2"><img src="/storage/banner/tKb1b8o0M29h3stTXagYFqxlB8gBj0ZkAEiQq8Be.png" alt="House of books" width="150px"></div>
+                    <div class="cod mt-2"><img src="https://www.pikpng.com/pngl/m/292-2923069_khalti-digital-wallet-logo-khalti-clipart.png" alt="House of books" width="150px"></div>
             </div>
         </div>
     </div>
