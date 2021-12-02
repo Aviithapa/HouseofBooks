@@ -1,5 +1,15 @@
 
 
+<style>
+    .background-color{
+        background-color: white;
+        /*border-radius: 2px solid black;*/
+        /*padding: 5px 5px;*/
+        width: fit-content;
+        margin-top: 10px;
+        height: 80px;
+    }
+</style>
 
 <footer class="section footer-classic context-dark bg-image" style="background-color: #303030;;">
     <div class="container-fluid">
@@ -43,9 +53,12 @@
             </div>
             <div class="col-md-3 col-xl-3">
                 <h3 style="font-weight: bold; color: #FF8800 !important;">Payment Options</h3>
+
                     <div id="eSewaLogoSection" class="mt-2"></div>
-                    <div class="cod mt-2"><img src="/storage/banner/tKb1b8o0M29h3stTXagYFqxlB8gBj0ZkAEiQq8Be.png" alt="House of books" width="150px"></div>
-                    <div class="cod mt-2"><img src="{{url("/asset/img/khalti.png")}}" alt="House of books" width="150px"></div>
+                                  <div class="cod mt-2"><img src="/storage/banner/tKb1b8o0M29h3stTXagYFqxlB8gBj0ZkAEiQq8Be.png" alt="House of books" width="150px"></div>
+            <div class="background-color">
+            <div class="cod mt-2"><img src="{{url("/asset/img/khalti.png")}}" alt="House of books" width="150px"></div>
+            </div>
             </div>
         </div>
     </div>

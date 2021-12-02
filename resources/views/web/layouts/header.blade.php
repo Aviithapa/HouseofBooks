@@ -268,7 +268,7 @@
         </div>
         <div class="col-sm-3 col-xs-3 ">
             <a href="{{url("cart")}}" id="carts"><i class="fa fa-shopping-bag fa-2x"></i>@if(\Illuminate\Support\Facades\Auth::user())
-                    {{getCartAmount()}}
+                    {{ count((array) session('cart')) }}
                 @else
                     0
                 @endif</a>

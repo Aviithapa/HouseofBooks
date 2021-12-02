@@ -490,6 +490,7 @@ class HomeController extends BaseController
             $mac_address = exec('getmac');
             $mac = strtok($mac_address, ' ');
             $available_quantity = Product::find($request->id)->quantity;
+             $cart = session()->get('cart', []);
             $cart_info = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->id)->first();
             if ($cart_info) {
                 $old_cart_quantity = $cart_info->quantity;
@@ -527,6 +528,12 @@ class HomeController extends BaseController
          //       session()->flash('danger', 'not available quantity, shortage amount is ' . $short_amount);
                 return  response()->json(['not available quantity, shortage amount is']);
             }
+        $mac_address = exec('getmac');
+        $mac = strtok($mac_address, ' ');
+        $user=Auth::user()->id;
+         $cart = \App\Models\Website\Cart::where('user_id', $user)->count();
+         dd($cart);
+         session()->put('cart', $cart);
             return response()->json(['Book Has Been Successfully added to Cart']);
     }
     public function checkout(Request $request){
