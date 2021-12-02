@@ -620,25 +620,31 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-{{--    <div id="myModal" class="modal">--}}
 
-{{--        <!-- Modal content -->--}}
-{{--        <div class="modal-content">--}}
-{{--                <!-- Modal content-->--}}
-{{--                <div class="modal-content">--}}
-{{--                    <div class="modal-header">--}}
-{{--                        <span class="close" id="close">&times;</span>--}}
-{{--                    </div>--}}
-{{--                    <div class="modal-body">--}}
-{{--                        <img src="{{$popup->getImage()}}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--        </div>--}}
-{{--        </div>--}}
+
+
+    <div class="popup" id="login">
+        <div class="popup-inner">
+            <img src="{{$popup->getImage()}}" alt="">
+            <div class="close">x</div>
+        </div>
+    </div>
+
     @endsection
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+<script>
+    $(".popup-btn").click(function () {
+        var target = $(this).attr("href");
+        $(target).fadeIn();
+    });
 
+    $(".popup .close").click(function () {
+        $(".popup").fadeOut();
+    });
+    setTimeout(function(){    $(".popup").fadeIn(); }, 3000);
+    setTimeout(function(){    $(".popup").fadeOut(); }, 6000);
+</script>
             <script>
                 $("img").lazyload({
                     effect : "fadeIn"

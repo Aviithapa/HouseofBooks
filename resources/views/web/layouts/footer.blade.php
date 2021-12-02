@@ -57,7 +57,7 @@
                     <div id="eSewaLogoSection" class="mt-2"></div>
                                   <div class="cod mt-2"><img src="/storage/banner/tKb1b8o0M29h3stTXagYFqxlB8gBj0ZkAEiQq8Be.png" alt="House of books" width="150px"></div>
             <div class="background-color">
-            <div class="cod mt-2"><img src="{{url("/asset/img/khalti.png")}}" alt="House of books" width="150px"></div>
+            <div class="cod mt-2"><a href="https://bit.ly/Khalti_App"><img src="{{url("/asset/img/khalti.png")}}" alt="House of books" width="150px"></a> </div>
             </div>
             </div>
         </div>
