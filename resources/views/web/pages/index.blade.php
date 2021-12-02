@@ -643,7 +643,7 @@
         $(".popup").fadeOut();
     });
     setTimeout(function(){    $(".popup").fadeIn(); }, 3000);
-    setTimeout(function(){    $(".popup").fadeOut(); }, 6000);
+    setTimeout(function(){    $(".popup").fadeOut(); }, 10000);
 </script>
             <script>
                 $("img").lazyload({
