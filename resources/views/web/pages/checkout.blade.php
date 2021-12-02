@@ -144,10 +144,7 @@
                                             "_token": "{{ csrf_token() }}"
                                         },
                                         success:function (response) {
-                                            console.log(response);
-                                            location.href = "https://houseofbooks.com.np/order_confirmation";
-                                            console.log("payment Sucessfull");
-                                            location.replace("https://houseofbooks.com.np/order_confirmation")
+                                            window.location.replace(response);
                                         }
                                     });
                                 }

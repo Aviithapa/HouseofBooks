@@ -105,7 +105,7 @@ class KhaltiController extends BaseController
         }
 
         $response = ['order' => $order, 'orderlist' => $orderlist , 'product' => $product];
-        return $response;
+        return route('orderConfirmation',['order' => $order, 'orderlist' => $orderlist , 'product' => $product]);
     }
 
 }

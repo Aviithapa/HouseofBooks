@@ -24,7 +24,7 @@ Route::group(['namespace' => 'General'], function () {
     Route::get('add/to/cart/{id}', 'HomeController@addtocart')->middleware('auth')->name('add.to.cart');
     Route::get('search','HomeController@search')->name('search');
     Route::get('/cart/delete/{id}','HomeController@Destroy')->name('destroy');
-    Route::post('/order_confirmation','HomeController@Order');
+    Route::post('/order_confirmation','HomeController@Order')->name('orderConfirmation');
     Route::post('contact','HomeController@Contact');
     Route::post('request','HomeController@Request');
     Route::post('filter','HomeController@Filter');
