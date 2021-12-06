@@ -102,14 +102,14 @@
 @push('scripts')
     <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
     <script>
-        document.form.action = "https://houseofbooks.com.np/order_confirmation";
+        document.form.action = "https://houseofbooks.com.np//payment/order_confirmation";
         function run() {
             var paymentMethod = document.getElementById("payment").value;
             var amt=document.getElementById("amt").value;
             if (paymentMethod === "ESEWA") {
                 document.form.action = "https://esewa.com.np/epay/main";
             } else if (paymentMethod === "cash_on_delivery") {
-                document.form.action = "https://houseofbooks.com.np/order_confirmation";
+                document.form.action = "https://houseofbooks.com.np/payment/order_confirmation";
             } else if (paymentMethod === "KHALTI") {
                 var config = {
                     // replace the publicKey with yours
@@ -145,7 +145,7 @@
                                         },
                                         success:function (response) {
                                             console.log(response);
-                                            window.location.replace("https://houseofbooks.com.np/order_confirmation");
+                                            window.location.replace({{route('orderConfirmation')}});
                                         }
                                     });
                                 }
