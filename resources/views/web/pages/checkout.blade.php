@@ -21,7 +21,7 @@
                     @endif
                 </div>
             </div>
-            <form action="/" method="POST" role="form" id="form" name="form">
+            <form action="{{route('orderConfirmation')}}" method="POST" role="form" id="form" name="form">
                 {{csrf_field() }}
                 <div class="row">
                     <div class="col-md-8">
@@ -102,67 +102,66 @@
 @push('scripts')
     <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
     <script>
-        document.form.action = "https://houseofbooks.com.np//payment/order_confirmation";
-        function run() {
-            var paymentMethod = document.getElementById("payment").value;
-            var amt=document.getElementById("amt").value;
-            if (paymentMethod === "ESEWA") {
-                document.form.action = "https://esewa.com.np/epay/main";
-            } else if (paymentMethod === "cash_on_delivery") {
-                document.form.action = "https://houseofbooks.com.np/payment/order_confirmation";
-            } else if (paymentMethod === "KHALTI") {
-                var config = {
-                    // replace the publicKey with yours
-                    "publicKey": "test_public_key_7fa08d3502054e3497322c7103f7bab2",
-                    "productIdentity": "1234567890",
-                    "productName": "Dragon",
-                    "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
-                    "paymentPreference": [
-                        "KHALTI",
-                        "EBANKING",
-                        "MOBILE_BANKING",
-                        "CONNECT_IPS",
-                        "SCT",
-                    ],
-                    "eventHandler": {
-                        onSuccess(payload) {
-                            // hit merchant api for initiating verfication
-                            $.ajax({
-                                type: 'GET',
-                                url: "{{ route('khalti.verifyPayment') }}",
-                                data: {
-                                    token: payload.token,
-                                    amount: payload.amount,
-                                    "_token": "{{ csrf_token() }}"
-                                },
-                                success: function (res) {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "{{ route('khalti.storePayment') }}",
-                                        data: {
-                                            response: res,
-                                            "_token": "{{ csrf_token() }}"
-                                        },
-                                        success:function (response) {
-                                            console.log(response);
-                                            window.location.replace({{route('orderConfirmation')}});
-                                        }
-                                    });
-                                }
-                            });
-                        },
-                        onError(error) {
-                            console.log(error);
-                        },
-                        onClose() {
-                            console.log('widget is closing');
+        document.form.action = "{{route('orderConfirmation')}}";
+            function run() {
+                var paymentMethod = document.getElementById("payment").value;
+                var amt = document.getElementById("amt").value;
+                if (paymentMethod === "ESEWA") {
+                    document.form.action = "https://esewa.com.np/epay/main";
+                } else if (paymentMethod === "cash_on_delivery") {
+                    document.form.action = "{{route('orderConfirmation')}}";
+                } else if (paymentMethod === "KHALTI") {
+                    var config = {
+                        // replace the publicKey with yours
+                        "publicKey": "test_public_key_7fa08d3502054e3497322c7103f7bab2",
+                        "productIdentity": "1234567890",
+                        "productName": "Dragon",
+                        "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+                        "paymentPreference": [
+                            "KHALTI",
+                            "EBANKING",
+                            "MOBILE_BANKING",
+                            "CONNECT_IPS",
+                            "SCT",
+                        ],
+                        "eventHandler": {
+                            onSuccess(payload) {
+                                // hit merchant api for initiating verfication
+                                $.ajax({
+                                    type: 'GET',
+                                    url: "{{ route('khalti.verifyPayment') }}",
+                                    data: {
+                                        token: payload.token,
+                                        amount: payload.amount,
+                                        "_token": "{{ csrf_token() }}"
+                                    },
+                                    success: function (res) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "{{ route('khalti.storePayment') }}",
+                                            data: {
+                                                response: res,
+                                                "_token": "{{ csrf_token() }}"
+                                            },
+                                            success: function (response) {
+                                                window.location.replace({{route('orderConfirmation')}});
+                                            }
+                                        });
+                                    }
+                                });
+                            },
+                            onError(error) {
+                                console.log(error);
+                            },
+                            onClose() {
+                                console.log('widget is closing');
+                            }
                         }
-                    }
-                };
-                var checkout = new KhaltiCheckout(config);
-                checkout.show({amount: amt*100});
+                    };
+                    var checkout = new KhaltiCheckout(config);
+                    checkout.show({amount: amt * 100});
 
+                }
             }
-        }
     </script>
     @endpush
