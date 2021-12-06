@@ -113,7 +113,7 @@
             } else if (paymentMethod === "KHALTI") {
                 var config = {
                     // replace the publicKey with yours
-                    "publicKey": "live_public_key_29c9afa4510e4fc49c1ee731e846c3c5",
+                    "publicKey": "test_public_key_7fa08d3502054e3497322c7103f7bab2",
                     "productIdentity": "1234567890",
                     "productName": "Dragon",
                     "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
@@ -144,7 +144,8 @@
                                             "_token": "{{ csrf_token() }}"
                                         },
                                         success:function (response) {
-                                            window.location.replace(response);
+                                            console.log(response);
+                                            window.location.replace("https://houseofbooks.com.np/order_confirmation");
                                         }
                                     });
                                 }

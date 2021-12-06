@@ -131,7 +131,7 @@
                                         @if($isCoupon)
                                             <a href="{{url('checkouts',$isCoupon)}}"><button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
                                         @else
-                                            <a href="{{url('/checkouts/payment')}}"><button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
+                                            <a href="{{url('/checkouts/null')}}"><button type="submit" style="background-color: #25a521 !important;" class="subscribe btn btn-round-sm btn-lg btn-block">Checkout</button></a>
                                             @endif
                                     @endif
                                 </div>

@@ -54,7 +54,7 @@ class KhaltiController extends BaseController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 
-        $headers = ["Authorization: Key live_secret_key_b3b7402cb9e94d1e81518bed403469cd"];
+        $headers = ["Authorization: Key test_secret_key_1f6cd432ed3f40e5845c7d77163721e3"];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         // Response

@@ -528,12 +528,6 @@ class HomeController extends BaseController
          //       session()->flash('danger', 'not available quantity, shortage amount is ' . $short_amount);
                 return  response()->json(['not available quantity, shortage amount is']);
             }
-        $mac_address = exec('getmac');
-        $mac = strtok($mac_address, ' ');
-        $user=Auth::user()->id;
-         $cart = \App\Models\Website\Cart::where('user_id', $user)->count();
-         dd($cart);
-         session()->put('cart', $cart);
             return response()->json(['Book Has Been Successfully added to Cart']);
     }
     public function checkout(Request $request){
