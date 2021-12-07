@@ -35,9 +35,18 @@
 @stack('scripts')
 <script>
     var preloader=document.getElementById("preloader");
-    setTimeout(function(){
+
+
+
+    if(window.localStorage.getItem('preloader') === "Activated"){
         preloader.style.display="none";
+    }else {
+        setTimeout(function(){
+            preloader.style.display="none";
+            window.localStorage.setItem('preloader', 'Activated');
         }, 3000);
+
+    }
    //  window.addEventListener("load",function () {
    // preloader.style.display="none";
    //

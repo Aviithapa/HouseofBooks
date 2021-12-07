@@ -128,7 +128,28 @@
                                         "eventHandler": {
                                             onSuccess(payload) {
                                                 // hit merchant api for initiating verfication
-
+                                                $.ajax({
+                                                    type: 'GET',
+                                                    url: "{{ route('khalti.verifyPayment') }}",
+                                                    data: {
+                                                        token: payload.token,
+                                                        amount: payload.amount,
+                                                        "_token": "{{ csrf_token() }}"
+                                                    },
+                                                    success: function (res) {
+                                                        {{--$.ajax({--}}
+                                                        {{--    type: "POST",--}}
+                                                        {{--    url: "{{ route('khalti.storePayment') }}",--}}
+                                                        {{--    data: {--}}
+                                                        {{--        response: res,--}}
+                                                        {{--        "_token": "{{ csrf_token() }}"--}}
+                                                        {{--    },--}}
+                                                        {{--    success: function (response) {--}}
+                                                        {{--        window.location.replace({{route('orderConfirmation')}});--}}
+                                                        {{--    }--}}
+                                                        {{--});--}}
+                                                    }
+                                                });
                                             },
                                             // onError(error) {
                                             //     console.log(error);
