@@ -200,6 +200,8 @@ class HomeController extends BaseController
                     foreach ($orderlist as $orders) {
                         $product = $this->productRepository->findBy('id', $orders->product_id, '=');
                     }
+                    $this->view_data['order']=$order;
+                    $this->view_data['orderlist']=$orderlist;
                     break;
                 case 'blog':
                     $this->view_data['first_blog']=$this->blogRepository->findById(1);
@@ -489,15 +491,14 @@ class HomeController extends BaseController
     {
             $mac_address = exec('getmac');
             $mac = strtok($mac_address, ' ');
+        $user = Auth::user()->id;
             $available_quantity = Product::find($request->id)->quantity;
-             $cart = session()->get('cart', []);
             $cart_info = Cart::where('user_id', Auth::user()->id)->where('product_id', $request->id)->first();
             if ($cart_info) {
                 $old_cart_quantity = $cart_info->quantity;
             } else {
                 $old_cart_quantity = 0;
             }
-
             if ($old_cart_quantity != null) {
                 $data['quantity'] = $cart_info->quantity + 1;
                 $cart = $this->cartRepository->update($data, $cart_info->id);

@@ -54,7 +54,7 @@ class KhaltiController extends BaseController
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 
-        $headers = ["Authorization: Key test_secret_key_1f6cd432ed3f40e5845c7d77163721e3"];
+        $headers = ["Authorization: Key live_secret_key_b3b7402cb9e94d1e81518bed403469cd"];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         // Response
@@ -70,7 +70,7 @@ class KhaltiController extends BaseController
         $datas=new Order();
         $datas->name=auth()->user()->name;
         $datas->address=auth()->user()->address ;
-        $datas->payment_method="ESEWA";
+        $datas->payment_method="KHALTI";
         $datas->phone_number=auth()->user()->phone_number;
         $datas->email=auth()->user()->email;
         $datas['user_id']=auth()->user()->id;
@@ -105,7 +105,7 @@ class KhaltiController extends BaseController
         }
 
         $response = ['order' => $order, 'orderlist' => $orderlist , 'product' => $product];
-        return route('orderConfirmation',['order' => $order, 'orderlist' => $orderlist , 'product' => $product]);
+        return $response;
     }
 
 }

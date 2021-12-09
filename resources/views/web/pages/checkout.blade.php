@@ -114,7 +114,7 @@
                     console.log("Khalti");
                                 var config = {
                                         // replace the publicKey with yours
-                                        "publicKey": "test_public_key_96b5813087354507a6b910b8e53f8e2d",
+                                        "publicKey": "live_public_key_29c9afa4510e4fc49c1ee731e846c3c5",
                                         "productIdentity": "1234567890",
                                         "productName": "Dragon",
                                         "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
@@ -137,26 +137,37 @@
                                                         "_token": "{{ csrf_token() }}"
                                                     },
                                                     success: function (res) {
-                                                        {{--$.ajax({--}}
-                                                        {{--    type: "POST",--}}
-                                                        {{--    url: "{{ route('khalti.storePayment') }}",--}}
-                                                        {{--    data: {--}}
-                                                        {{--        response: res,--}}
-                                                        {{--        "_token": "{{ csrf_token() }}"--}}
-                                                        {{--    },--}}
-                                                        {{--    success: function (response) {--}}
-                                                        {{--        window.location.replace({{route('orderConfirmation')}});--}}
-                                                        {{--    }--}}
-                                                        {{--});--}}
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "{{ route('khalti.storePayment') }}",
+                                                            data: {
+                                                                response: res,
+                                                                "_token": "{{ csrf_token() }}"
+                                                            },
+                                                            success: function (res) {
+
+                                                                document.form.action = "{{url('/orderConfirmation')}}";
+                                                                console.log(res);
+                                                                {{--window.location.replace({{route('orderConfirmation')}});--}}
+                                                                var tr_str = "<div id='alertmsg' class='alert alert-success alert-block'>" +
+                                                                    "<div class='col-md-2 col-sm-2 col-lg-2'><i class='fa fa-check-circle-o fa-2x' style='color: #fff !important'></i> </div>" +
+                                                                    "<div class='col-md-10 col-sm-10 col-lg-10'><strong>" + "Success !" + "</strong>" +
+                                                                    "<p>" + " Your order has been placed with khalti checkout for invoice" + "</p>" +
+                                                                    "</div>" +
+                                                                    "<div class='bottom'> <div class='loader__element'></div></div>" +
+                                                                    "</div>";
+                                                                $("#msg").append(tr_str);
+                                                            }
+                                                        });
                                                     }
                                                 });
                                             },
-                                            // onError(error) {
-                                            //     console.log(error);
-                                            // },
-                                            // onClose() {
-                                            //     console.log('widget is closing');
-                                            // }
+                                            onError(error) {
+                                                console.log(error);
+                                            },
+                                            onClose() {
+                                                console.log('widget is closing');
+                                            }
                                         }
                                     };
                                     var checkout = new KhaltiCheckout(config);
