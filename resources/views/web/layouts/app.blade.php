@@ -36,8 +36,6 @@
 <script>
     var preloader=document.getElementById("preloader");
 
-
-
     if(window.localStorage.getItem('preloader') === "Activated"){
         preloader.style.display="none";
     }else {
@@ -47,10 +45,8 @@
         }, 3000);
 
     }
-   //  window.addEventListener("load",function () {
-   // preloader.style.display="none";
-   //
-   //  })
+
+
 
 
 </script>
