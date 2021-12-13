@@ -45,6 +45,8 @@
                             <b>Amount:</b> {{ round($order->grand_total, 2) }}<br>
                             <b>Delivery Charge:</b> {{ $order->delivery_charge }}<br>
                             <b>Total Amount:</b> {{ round($order->grand_total, 2) + $order->delivery_charge}}<br>
+                            <b>Payment Method:</b> {{  $order->payment_method}}<br>
+                            <b>Payment Status:</b> {{  $order->payment_status}}<br>
                             <b>Order Status:</b> {{ $order->status }}<br>
 
                         </div>

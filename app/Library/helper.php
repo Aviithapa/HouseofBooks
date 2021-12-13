@@ -269,7 +269,7 @@ function getCartTotalPrice()
     $final_amount = 0;
     foreach($cart_products as $cart_product)
     {
-        $final_amount += $cart_product->product_price * $cart_product->quantity;
+        $final_amount += $cart_product->product_price * $cart_product->quantity * 0.9;
     }
     return $final_amount;
 }

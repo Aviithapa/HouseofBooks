@@ -20,6 +20,7 @@
                                 <h3><span>{{$request->name}}</span><br></h3>
                                 <h3><span>{{$request->phoneNumber}}</span><br></h3>
                                 <h3> <span>{{$request->email}}</span><br></h3>
+                                <h3> <span>{{$request->created_at}}</span><br></h3>
                             </div>
                         </div>
 

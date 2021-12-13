@@ -35,6 +35,15 @@
                                     <strong>Billing Address</strong>
                                     <input type="text" class="form-control" value="{{ auth()->user()->address }}" name="address">
                                 </div>
+
+                        <div class="form-group">
+                            <strong>District</strong>
+                            <select class="form-control"   onchange="addressFunction()" id="mySelect" required>
+                                <option class="form-control" value="kathmandu">Kathmandu</option>
+                                <option class="form-control" value="lalitpur">Lalitpur</option>
+                                <option class="form-control" value="bhaktpur">Bhaktpur</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <strong>Email Address</strong>
                             <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
@@ -44,6 +53,8 @@
                                         <strong>Phone Number</strong>
                                         <input type="text" class="form-control" value="{{ auth()->user()->phone_number }}"name="phone_number">
                                     </div>
+
+
 
                         <h3 class="text-center">Payment Method</h3>
                                 <div class="form-group">
@@ -74,12 +85,12 @@
                                         <dl class="dlist-align" style="text-align: justify !important ;color: black !important; font-weight: bold; font-size: 16px;" >
                                             Quantity:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{getCartAmount()}}</b>  <br>
                                             Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b><br>
-                                            Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">Considered as address</b> <br>
+                                            Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;" id="delivery_charge"></b> <br>
                                             @if($isCoupon)
                                                 Coupon Discount : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{$isCoupon}} %</b> <br>
                                                 Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
                                                 @else
-                                                <hr style="height: 5px; !important;"> <br>
+                                                <hr style="height: 5px; !important;" id="districts">  <br>
                                                 Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
                                             @endif
 
@@ -104,7 +115,8 @@
 <script>
     function paymentFunction() {
         var paymentMethod = document.getElementById("payment").value;
-            var amt = document.getElementById("amt").value;
+            var amt = document.getElementById("amt").value + document.getElementById("delivery_charge");
+            console.log(amt)
             switch (paymentMethod) {
                 case "ESEWA":
                     document.form.action = "https://esewa.com.np/epay/main";
@@ -181,8 +193,45 @@
             }
 
 }
+
+
+
 </script>
 
+<script>
+    function addressFunction() {
+        var x = document.getElementById("mySelect").value;
+        switch (x) {
+             case 'lalitpur':
+                 document.getElementById("delivery_charge").innerHTML = "Rs 70";
+                 break;
+                 case 'bhaktpur':
+                     document.getElementById("delivery_charge").innerHTML = "Rs 80" ;
+                     break;
+                     case 'kathmandu':
+                         document.getElementById("delivery_charge").innerHTML = "Rs 60" ;
+                         break;
+                         default:
+                             break;
+        }
+    }
+    $( document ).ready(function() {
+        var x = document.getElementById("mySelect").value;
 
+        switch (x) {
+            case 'lalitpur':
+                document.getElementById("delivery_charge").innerHTML = "Rs 70";
+                break;
+            case 'bhaktpur':
+                document.getElementById("delivery_charge").innerHTML = "Rs 80" ;
+                break;
+            case 'kathmandu':
+                document.getElementById("delivery_charge").innerHTML = "Rs 60" ;
+                break;
+            default:
+                break;
+        }
+    });
+</script>
 
 @endpush

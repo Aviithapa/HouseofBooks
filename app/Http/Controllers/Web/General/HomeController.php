@@ -603,6 +603,13 @@ class HomeController extends BaseController
             if ($request==false){
                 return redirect()->back()->with('error',"Error while adding your request");
             }
+
+            $mailData = array('name'=>  $request->name);
+            Mail::send('emails.requestbook', $mailData, function($message) use ($mailData) {
+                $message->to('houseofbooksnepal@gmail.com')
+                    ->subject('Request Order to  House of Books');
+                $message->from('sales@houseofbooks.com.np');
+            });
             return redirect()->back()->with('success',"Your request have been received we will contact you soon");
 
         } catch (UnexpectedValueException $e) {
