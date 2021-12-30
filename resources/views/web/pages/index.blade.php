@@ -197,7 +197,7 @@
                     <div class="bbb_main_container" style="background-color: whitesmoke !important;">
                         <div class="bbb_viewed_title_container">
                             <div class="title" >
-                                <h4 class="glow">New Year 2022</h4>
+                                <h4 class="glow">New Year 2022 Offers</h4>
                             </div>
                             <p class="viewallbtn" style="float: right; margin-top: -60px; margin-right: 70px;"><a href="{{url('catelog/sub_category/Rakshya')}}"><button class="btn btn-primary btn-round-sm btn-sm">View All</button></a></p>
                         </div>
