@@ -213,7 +213,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
-                                                    <h5 style="font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">{{ str_limit($coursework->name, 20) }} </h5>
+                                                    <h5 style=" margin-left:10%; margin-right: 10%; text-align:center; font-size:14px !important;font-weight: bold; color: black !important; margin-bottom: 1px !important;line-height: 20px;">This is the bba solution for the  </h5>
                                                     <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->getDicountedPrice()}}</button>
                                                         <button onclick="addtoCart({{ $coursework->id }})"  class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></p>
 
