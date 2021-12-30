@@ -207,9 +207,9 @@
                                     @if($coursework->status=='active')
                                         <div class="owl-item">
                                             <div class="bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="border-radius: 20px;background:whitesmoke;">
-                                                <div class="bbb_viewed_image books" style="width: 230px !important; height: 230px ;">
+                                                <div class="bbb_viewed_image books" style="width: 230px; height: 230px ; padding-left: 20%; padding-right: 15%;">
                                                     <a href="{{url("productDetails/".$coursework->id)}}">
-                                                        <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}" style="height: 250px;">
+                                                        <img src="{{$coursework->getImage()}}" oncontextmenu="return false;" alt="{{$coursework->name}}" style="height: 200px; width: auto !important;">
                                                     </a>
                                                 </div>
                                                 <div class="bbb_viewed_content text-center book" style="margin-top: -10px">
