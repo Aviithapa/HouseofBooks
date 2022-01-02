@@ -41,7 +41,7 @@
                             </td>
                             <td class="cart-quantity">
                                 <p class="cart-qnt" >
-                                    <b style="color: black !important;">Rs {{getProductPrice($carts->product_price,$carts->quantity)}}</b>
+                                    <b style="color: black !important;">Rs {{getProductPrice($carts->product_price,$carts->quantity, $carts->product_id)}}</b>
                                 </p>
                             </td>
 
@@ -118,7 +118,7 @@
                                             Coupon Discount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> {{$isCoupon}} % </b><br>
                                             Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$couponsDiscount)}} </b>
                                         @else
-                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b>
+                                            Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getdisCartTotalPrice()}} </b>
                                         @endif
 
                                     </dl>

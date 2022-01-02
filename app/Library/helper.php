@@ -229,8 +229,13 @@ function getUserName($id){
         $name=$req->name;
     return $name;
 }
-function getProductPrice($product_price, $quantity){
-        $final_amount = $product_price *$quantity;
+function getProductPrice($product_price, $quantity, $product_id){
+      $product = \App\Models\Website\Product::where("id",$product_id)->first();
+       $product_dis=$product->discount;
+       $dis = $product_dis / 100 ;
+       $product_prices = $product_price * $quantity;
+       $dis_amount= $product_prices * $dis ;
+        $final_amount = $product_prices -  $dis_amount;
     return $final_amount;
 }
 
@@ -259,17 +264,35 @@ function getNovelsCount($books,$novel_category){
     }
     return $i;
 }
-
 function getCartTotalPrice()
 {
     $mac_address = exec('getmac');
     $mac = strtok($mac_address, ' ');
     $user=Auth::user()->id;
     $cart_products = \App\Models\Website\Cart::where('user_id', $user)->get();
+    // $product = \App\Models\Website\Product::where('id',$cart_products[product_id])->get();
     $final_amount = 0;
     foreach($cart_products as $cart_product)
     {
-        $final_amount += $cart_product->product_price * $cart_product->quantity * 0.9;
+        $final_amount += $cart_product->product_price * $cart_product->quantity ;
+    }
+    return $final_amount;
+}
+function getdisCartTotalPrice()
+{
+   $user=Auth::user()->id;
+    $cart_products = \App\Models\Website\Cart::where('user_id', $user)->get();
+   // $product = \App\Models\Website\Product::where('id',$cart_products[product_id])->get();
+    $final_amount = 0;
+    foreach($cart_products as $cart_product)
+    {
+        $product = \App\Models\Website\Product::where('id',$cart_product->product_id)->first();
+        $product_dis=$product->discount;
+        $dis = $product_dis / 100 ;
+        $product_prices = $cart_product->product_price * $cart_product->quantity;
+        $dis_amount= $product_prices * $dis ;
+        $single_amount = $product_prices -  $dis_amount;
+        $final_amount += $single_amount;
     }
     return $final_amount;
 }

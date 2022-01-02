@@ -439,7 +439,7 @@ class HomeController extends BaseController
             $data->phone_number=$request->phone_number;
             $data->email=auth()->user()->email;
             $data['user_id']=auth()->user()->id;
-            $data['grand_total']=getCartTotalPrice();
+            $data['grand_total']=getdisCartTotalPrice();
             $data['item_count']=getTotalQuanity();
             $data['status'] = "received";
             $data->save();

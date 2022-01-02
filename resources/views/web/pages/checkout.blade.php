@@ -39,6 +39,7 @@
                         <div class="form-group">
                             <strong>District</strong>
                             <select class="form-control"   onchange="addressFunction()" id="mySelect" required>
+                                <option value="">None</option>
                                 <option class="form-control" value="kathmandu">Kathmandu</option>
                                 <option class="form-control" value="lalitpur">Lalitpur</option>
                                 <option class="form-control" value="bhaktpur">Bhaktpur</option>
@@ -65,7 +66,7 @@
                                         <option class="form-control" value="KHALTI">Pay With Khalti</option>
                                     </select>
                                 </div>
-                        <input value="{{getCartTotalPrice()}}" name="tAmt" type="hidden">
+                        <input value="{{getdisCartTotalPrice()}}" name="tAmt" type="hidden">
                         <input value="{{getCartTotalPrice()}}" id="amt" name="amt" type="hidden">
                         <input value="0" name="txAmt" type="hidden">
                         <input value="0" name="psc" type="hidden">
@@ -84,14 +85,14 @@
                                     <article class="card-body">
                                         <dl class="dlist-align" style="text-align: justify !important ;color: black !important; font-weight: bold; font-size: 16px;" >
                                             Quantity:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{getCartAmount()}}</b>  <br>
-                                            Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartTotalPrice()}} </b><br>
+                                            Amount:<b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getdisCartTotalPrice()}} </b><br>
                                             Delivery : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;" id="delivery_charge"></b> <br>
                                             @if($isCoupon)
                                                 Coupon Discount : <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;">{{$isCoupon}} %</b> <br>
-                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
+                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getdisCartTotalPrice(),$isCoupon)}} </b>
                                                 @else
                                                 <hr style="height: 5px; !important;" id="districts">  <br>
-                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getCartTotalPrice(),$isCoupon)}} </b>
+                                                Total Amount: <b style="position: absolute; right: 0; margin-right: 30px ;color: black !important;"> RS. {{getCartWithCouponDiscount(getdisCartTotalPrice(),$isCoupon)}} </b>
                                             @endif
 
                                         </dl>
