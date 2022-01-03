@@ -190,7 +190,7 @@
     </div>
 </div>
 
-    <div class="bbb_viewed" style="background-color: whitesmoke !important;">
+    <!-- <div class="bbb_viewed" style="background-color: whitesmoke !important;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
@@ -217,7 +217,7 @@
                                                     <p class="mt-3"><button class="btn btn-primary btn-round-sm btn-sm price" >RS {{$coursework->getDicountedPrice()}}</button>
                                                         <button onclick="addtoCart({{ $coursework->id }})"  class="btn btn-primary btn-round-sm btn-sm cart-button">ADD TO CART</button></p>
 
-                                                    <!-- <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> -->
+                                                    <div class="bbb_viewed_name"><a href="#">Alkatel Phone</a></div> 
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +229,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="bbb_viewed mt-5">
         <div class="container-fluid">
