@@ -117,7 +117,9 @@
     function paymentFunction() {
         var paymentMethod = document.getElementById("payment").value;
             var amt = document.getElementById("amt").value + document.getElementById("delivery_charge");
+            var amts = Number(amt)
             console.log(amt)
+            console.log(amts)
             switch (paymentMethod) {
                 case "ESEWA":
                     document.form.action = "https://esewa.com.np/epay/main";
@@ -184,7 +186,7 @@
                                         }
                                     };
                                     var checkout = new KhaltiCheckout(config);
-                                    checkout.show({amount: amt * 100});
+                                    checkout.show({amount: amts * 100});
                     break;
                 default:
                     document.form.action = "{{route('orderConfirmation')}}";
