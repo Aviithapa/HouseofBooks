@@ -118,7 +118,7 @@
         var paymentMethod = document.getElementById("payment").value;
             var amt = document.getElementById("amt").value + document.getElementById("delivery_charge");
             var amts = Number(amt)
-            console.log(amt)
+            console.log(typeof amt)
             console.log(amts)
             switch (paymentMethod) {
                 case "ESEWA":
@@ -186,7 +186,7 @@
                                         }
                                     };
                                     var checkout = new KhaltiCheckout(config);
-                                    checkout.show({amount: amts * 100});
+                                    checkout.show({amount: amt * 100});
                     break;
                 default:
                     document.form.action = "{{route('orderConfirmation')}}";
