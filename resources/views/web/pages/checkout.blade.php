@@ -66,8 +66,8 @@
                                         <option class="form-control" value="KHALTI">Pay With Khalti</option>
                                     </select>
                                 </div>
-                        <input value="{{getdisCartTotalPrice()}}" name="tAmt" type="hidden">
-                        <input value="{{getCartTotalPrice()}}" id="amt" name="amt" type="hidden">
+                        <input value="{{getdisCartTotalPrice()}}" id="amt" name="tAmt" type="hidden">
+                        <input value="{{getCartTotalPrice()}}"  name="amt" type="hidden">
                         <input value="0" name="txAmt" type="hidden">
                         <input value="0" name="psc" type="hidden">
                         <input value="0" name="pdc" type="hidden">
