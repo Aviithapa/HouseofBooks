@@ -187,7 +187,7 @@
                                         }
                                     };
                                     var checkout = new KhaltiCheckout(config);
-                                    checkout.show({amount: amt * 100});
+                                    checkout.show({amount: amts * 100});
                     break;
                 default:
                     document.form.action = "{{route('orderConfirmation')}}";
