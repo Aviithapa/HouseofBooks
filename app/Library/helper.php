@@ -278,6 +278,7 @@ function getCartTotalPrice()
     }
     return $final_amount;
 }
+
 function getdisCartTotalPrice()
 {
    $user=Auth::user()->id;

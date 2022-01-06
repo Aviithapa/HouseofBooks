@@ -92,6 +92,8 @@
             </tr>
         @endforeach
     </table>
+
+       
     <p>Please Confirm The Order</p>
     <strong>
         <br><br>

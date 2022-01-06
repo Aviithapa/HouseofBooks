@@ -117,9 +117,10 @@
     function paymentFunction() {
         var paymentMethod = document.getElementById("payment").value;
             var amt = document.getElementById("amt").value + document.getElementById("delivery_charge");
-            var amts = Number(amt)
+            var amts = parseInt(amt)
             console.log(typeof amt)
             console.log(amts)
+            console.log(typeof amts)
             switch (paymentMethod) {
                 case "ESEWA":
                     document.form.action = "https://esewa.com.np/epay/main";
